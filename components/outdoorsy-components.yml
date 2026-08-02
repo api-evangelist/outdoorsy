@@ -1,0 +1,87 @@
+generated: '2026-08-02'
+method: searched
+source: https://developers.outdoorsy.com/widgets, https://developers.outdoorsy.com/help/instant-search
+name: INSTASearch / Trailblazer Widgets
+description: >-
+  Outdoorsy's embeddable client-side component library. A partner drops two script tags onto their
+  own site, initialises a `Trailblazer` instance with their partner ID, and injects individual
+  widgets into DOM targets to build a fully custom RV search and booking experience hosted on their
+  own domain. Distinct from server-side SDKs — Outdoorsy ships none of those.
+loader:
+  stylesheet: https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.css
+  script: https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.js
+  channel: v2
+  registry: cdn (CloudFront) — not published to npm
+  snippet: |
+    <link rel="stylesheet" href="https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.css">
+    <script type="text/javascript" src="https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.js"></script>
+initialization:
+  constructor: Trailblazer
+  example: |
+    var trailblazer = Trailblazer({
+        partnerId: {{yourID}},
+        urlParams: true,
+        currency: 'USD',
+        locale: 'en-us',
+        filtersChangedCallback: function(currentFilters) {}
+    });
+  options:
+  - {name: partnerId, required: true, description: partner account identifier issued by Outdoorsy}
+  - {name: urlParams, required: false, description: sync widget filter state into the page URL}
+  - {name: currency, required: false, description: 'ISO 4217 currency (usd, gbp, cad, eur, aud, nzd)'}
+  - {name: locale, required: false, description: 'BCP 47 locale (en-us, en-gb, fr-fr, de-de, …)'}
+  - {name: filtersChangedCallback, required: false, description: callback fired when the user changes any filter}
+  injection_method: addWidget()
+families:
+- family: search
+  description: Components for building a rental search results experience.
+  components:
+  - {name: RentalList, description: renders the paged list of matching rentals}
+  - {name: LocationSearch, description: location/place autocomplete input}
+  - {name: DateRange, description: trip start/end date picker}
+  - {name: PriceRange, description: price band filter}
+  - {name: Pagination, description: page navigation over the result set}
+  - {name: CheckboxFilter, description: multi-select facet filter}
+  - {name: SelectFilter, description: single-select facet filter}
+  - {name: Metadata, description: result-set metadata (counts, price bounds)}
+- family: rental
+  description: Components for a single rental detail and quote experience.
+  components:
+  - {name: Quote, description: renders a live price quote for the selected dates and add-ons}
+  - {name: DateRange, description: date picker bound to that rental's real availability}
+  - {name: AddonList, description: selectable add-on items for the rental}
+  - {name: ReviewList, description: reviews for the rental}
+- family: account
+  description: Components scoped to an owner/dealer account rather than a single rental.
+  components:
+  - {name: ReviewList, description: reviews across the account}
+  - {name: LocationList, description: the account's business locations}
+customization:
+  templating: Hogan.js templates for result rendering
+  styling: CSS class overrides on every widget
+  filter_api: [getFilters, changeFilters, clearFilters]
+  booking_api: custom booking initialisation with prefilled renter information
+third_party_dependencies:
+- {name: Google Maps JavaScript API, required: optional, note: loaded by the integrator via a separate script tag for map-based search}
+credentials:
+  required: partner ID
+  request: partners@outdoorsy.com
+  note: The widget library is inert without a partner ID.
+production_examples:
+- {site: Lazydays, url: 'https://www.lazydays.com', cited_by: 'https://developers.outdoorsy.com/help/instant-search'}
+- {site: AdventureKT, url: 'https://www.adventurekt.com', cited_by: 'https://developers.outdoorsy.com/help/instant-search'}
+related_surfaces:
+- name: Partner deep links
+  base: https://redirect.outdoorsy.com
+  pattern: 'https://redirect.outdoorsy.com?odc_partner={{PARTNER_ID}}&odc_url={{DESTINATION}}&odc_locale={{LOCALE}}'
+  params:
+  - {name: odc_partner, required: true, description: 'partner account identifier — no attribution is tracked without it'}
+  - {name: odc_url, required: false, description: 'destination path on outdoorsy.com (e.g. list-your-rv, rv-search, a listing slug); defaults to the homepage'}
+  - {name: odc_locale, required: false, description: 'user locale; defaults to en-us'}
+  passthrough_params: [from, to, style, keywords, type, q]
+  docs: https://developers.outdoorsy.com/help/deep-links
+  note: >-
+    The zero-code integration tier — no API token needed, attribution handled by the redirect
+    service.
+- name: WordPress plugins
+  see_also: packages/outdoorsy-packages.yml

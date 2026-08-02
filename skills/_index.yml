@@ -1,0 +1,49 @@
+generated: '2026-08-02'
+method: generated
+source: >-
+  Generated from the two published Outdoorsy Swagger contracts. Every operationId referenced in
+  every skill was verified to exist verbatim in openapi/outdoorsy-openapi-original.json or
+  openapi/outdoorsy-search-openapi-original.json. No provider-published AGENTS.md or skill files
+  were found on developers.outdoorsy.com or github.com/outdoorsy.
+skills:
+- file: outdoorsy-search-and-quote.md
+  name: Search Outdoorsy rentals and price a trip
+  description: >-
+    Find matching RVs and produce an accurate all-in quote including add-ons, services and taxes.
+    Read-only end to end.
+  api: openapi/outdoorsy-search-openapi-original.json, openapi/outdoorsy-openapi-original.json
+  operations: [getAddressForIP, getLocality, searchRentals, getRentalById, listAvailability, listRentalItems, createQuote, services]
+  consequence: read
+- file: outdoorsy-book-a-rental.md
+  name: Book an Outdoorsy rental and take payment
+  description: >-
+    Turn an accepted quote into a confirmed, paid booking. Reserves a physical vehicle and moves
+    money; not retry-safe because the API publishes no idempotency key.
+  api: openapi/outdoorsy-openapi-original.json
+  operations: [createQuote, createBooking, getBookingById, createBookingItem, copyRentalItemToBooking, updateBooking, bookingChangeStatus, listBookings]
+  consequence: physical
+  human_in_the_loop: required
+- file: outdoorsy-manage-booking-changes.md
+  name: Negotiate changes to an Outdoorsy booking
+  description: >-
+    Propose, review and act on two-sided changes to a confirmed booking, and communicate with the
+    counterparty through the booking conversation.
+  api: openapi/outdoorsy-openapi-original.json
+  operations: [getBookingById, getProposals, createProposal, getProposalById, updateProposal, actOnProposal, deleteProposal, batchUpdateProposals, listConversations, createConversation, listMessages, createMessage]
+  consequence: write
+  human_in_the_loop: required
+- file: outdoorsy-manage-listings.md
+  name: Manage Outdoorsy listings and availability as an owner
+  description: >-
+    Owner/dealer fleet operations — listings, photos, add-ons, locations, iCalendar availability
+    sync and reviews.
+  api: openapi/outdoorsy-openapi-original.json
+  operations: [listRentals, createRentalRequest, getRentalById, updateRentalRequest, deleteRentalById, listRentalImages, listRentalItems, createRentalItem, listLocations, createLocation, fetchCalendars, linkCalendar, syncCalendars, unlinkCalendar, exportURL, downloadICSFile, listReviews, createReview, getUserById, updateUser]
+  consequence: write
+cross_links:
+  conventions: conventions/outdoorsy-conventions.yml
+  errors: errors/outdoorsy-error-codes.yml
+  rate_limits: rate-limits/outdoorsy-rate-limits.yml
+  authentication: authentication/outdoorsy-authentication.yml
+  agentic_access: agentic-access/outdoorsy-agentic-access.yml
+  sandbox: sandbox/outdoorsy-sandbox.yml

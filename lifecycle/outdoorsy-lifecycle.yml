@@ -1,0 +1,69 @@
+generated: '2026-08-02'
+method: derived
+source: >-
+  openapi/outdoorsy-openapi-original.json, https://developers.outdoorsy.com/,
+  https://developers.outdoorsy.com/help, live probes 2026-08-02
+versioning:
+  scheme: uri-path
+  current: v0
+  declared_policy: semantic versioning
+  policy_source: 'openapi info.description'
+  docs: https://developers.outdoorsy.com/api
+  spec_version: 0.0.1
+  note: >-
+    The contract claims semantic versioning but publishes version 0.0.1 on a /v0 base path, and the
+    Search API is unversioned at its host root. No version history, migration guide or version
+    negotiation header was found.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation policy is published. The contract does mark individual operations `deprecated`,
+    which is the only deprecation signal available to integrators.
+deprecated_operations:
+- operation: openapi/outdoorsy-openapi-original.json#bookingItemsBatchUpdateLegacy
+  path: POST /bookings/{booking_id}/items/batch
+  note: legacy batch update superseded by the per-item endpoints
+- operation: openapi/outdoorsy-openapi-original.json#connectStripeBank
+  path: POST /users/bank
+  note: Stripe bank-connect flow superseded
+sla:
+  url: null
+  uptime_target: null
+  published: false
+status_page:
+  verified: false
+  candidate: https://outdoorsy.instatus.com
+  note: >-
+    An Instatus page titled "outdoorsy - Status" resolves at outdoorsy.instatus.com with a single
+    "Website" component and 100% uptime, but it carries no link back to outdoorsy.com and is not
+    referenced from the developer portal or the marketing site. Ownership could not be verified, so
+    NO StatusPage pointer is emitted in apis.yml. status.outdoorsy.com does not resolve.
+  probes:
+  - {url: 'https://status.outdoorsy.com', result: DNS did not resolve, fetched: '2026-08-02'}
+  - {url: 'https://status.outdoorsy.co', result: DNS did not resolve, fetched: '2026-08-02'}
+  - {url: 'https://outdoorsy.instatus.com', http_status: 200, fetched: '2026-08-02', attribution: none}
+changelog:
+  url: null
+  published: false
+  probes:
+  - {url: 'https://developers.outdoorsy.com/changelog', http_status: 404, fetched: '2026-08-02'}
+  note: >-
+    No dated API changelog or release-notes page was found on the developer portal, so no
+    changelog/ artifact is emitted.
+environments:
+- name: production
+  hosts: [https://api.outdoorsy.com, https://search.outdoorsy.com]
+- name: staging
+  hosts: [https://api.staging.outdoorsy.com, https://search.staging.outdoorsy.com]
+  auth_required: false
+  docs: https://developers.outdoorsy.com/api
+  see_also: sandbox/outdoorsy-sandbox.yml
+gaps:
+  - No deprecation policy, Sunset or Deprecation header support.
+  - No published SLA or uptime target.
+  - No verifiable status page.
+  - No API changelog or release notes.

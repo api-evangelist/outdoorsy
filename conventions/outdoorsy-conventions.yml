@@ -1,0 +1,156 @@
+generated: '2026-08-02'
+method: searched
+source: >-
+  https://developers.outdoorsy.com/api, https://developers.outdoorsy.com/help/deep-links,
+  openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json,
+  live header capture from https://api.outdoorsy.com/v0 (2026-08-02)
+authentication:
+  style: header-token
+  partner:
+    header: Partner-ID
+    value: partner token, issued after integration approval
+    request_access: partners@outdoorsy.co
+    docs: https://developers.outdoorsy.com/api
+  user_context:
+    header: Authorization
+    scheme_declared_as: apiKey
+    note: >-
+      Declared in the Swagger as `apiKey` in header named `Authorization` (not `http`/`bearer`),
+      so the token format is not machine-described.
+  additional_header:
+    header: API-Key
+    declared_in: openapi/outdoorsy-openapi-original.json securityDefinitions
+  anonymous_continuation:
+    response_header: Anon-Token
+    description: >-
+      Returned on booking flows so an anonymous session can be continued and later associated with
+      a user account.
+  see_also: authentication/outdoorsy-authentication.yml
+idempotency:
+  supported: false
+  evidence: >-
+    No `Idempotency-Key` (or any /idempoten/i) header, parameter or extension appears anywhere in
+    either published contract, and the developer docs do not document a retry-safe write contract.
+  impact: >-
+    POST /v0/bookings, POST /v0/quotes and the payment-status PATCH have no documented replay
+    protection. Client-side dedupe is the integrator's responsibility.
+pagination:
+  outdoorsy_api:
+    style: limit-offset
+    params: [limit, offset]
+    operations_using: 28
+    response_header: Total-Results
+    docs: https://developers.outdoorsy.com/api
+  search_api:
+    style: json-api-page
+    params: ['page[limit]', 'page[offset]']
+    max_limit: 100
+    response_header: Total-Results
+    docs: https://developers.outdoorsy.com/api
+sorting_and_filtering:
+  sort_params: [order_by, order]
+  common_filters: [ids, status, archived, search, type, rental_category, location_ids, owner_id, user_id, renter_id]
+  range_filters:
+    pattern: '<field>_gt / <field>_lt'
+    observed: [created_gt, created_lt, from_gt, from_lt]
+  geo_filters: [lat, lng]
+  note: >-
+    The `_gt`/`_lt` suffix convention is consistent across the contract and is the platform's
+    range-filter idiom.
+field_expansion:
+  supported: partial
+  mechanism: >-
+    The Search API returns JSON:API compound documents with a side-loaded `included[]` array
+    (observed carrying `images` alongside `rentals`). The core API instead embeds nested objects
+    directly on the resource, with an `include_children` boolean on some list operations.
+  params: [include_children]
+csv_export:
+  params: [csv, csv-token]
+  operations_using: 4
+  description: Selected list/report operations can render CSV instead of JSON.
+metadata:
+  supported: true
+  fields: [metadata, details, features]
+  types: [IMap, MSI, DBInterfaceMap, DBStringSlice]
+  note: Free-form key/value maps are exposed on Rental, Booking, User, RentalItem and BookingService.
+request_tracing:
+  request_id_header: null
+  accepted_trace_headers:
+  - sentry-trace
+  - X-DataDog-Trace-ID
+  - X-DataDog-Parent-ID
+  - X-DataDog-Origin
+  - X-DataDog-Sampled
+  - X-DataDog-Sampling-Priority
+  device_headers: [X-Device-ID, X-App-Id, X-App-Session, X-Anonymous-ID, X-Trusted-Device-Token]
+  note: >-
+    Outdoorsy accepts distributed-trace headers (Datadog + Sentry) on inbound requests but does not
+    return a correlation id on the response, so there is no server-issued request id to quote in a
+    support ticket.
+  evidence: access-control-allow-headers on https://api.outdoorsy.com/v0 (captured 2026-08-02)
+versioning:
+  scheme: uri-path
+  current: v0
+  declared_policy: semantic versioning
+  policy_source: 'openapi info.description: "The API implements semantic versioning."'
+  spec_version: 0.0.1
+  note: >-
+    The base path is `/v0` while the Search API is unversioned at the host root. The declared
+    "semantic versioning" claim is not backed by a published version history or migration guide.
+  see_also: lifecycle/outdoorsy-lifecycle.yml
+error_envelope:
+  format: proprietary
+  rfc9457: false
+  core_api: {error: string, code: string, original_error: string (optional)}
+  search_api: {status: string, code: string, detail: string}
+  see_also: errors/outdoorsy-error-codes.yml
+rate_limiting:
+  signalled: true
+  headers: [X-Rate-Limit-Limit, X-Rate-Limit-Duration]
+  observed: {x-rate-limit-limit: '2.00', x-rate-limit-duration: '1'}
+  retry_after: not observed
+  documented: false
+  see_also: rate-limits/outdoorsy-rate-limits.yml
+content_negotiation:
+  core_api: {consumes: [application/json], produces: [application/json]}
+  search_api:
+    consumes: [application/json]
+    produces_declared: [application/vnd.api+json, application/json]
+    produces_observed: text/plain; charset=utf-8
+    defect: >-
+      The Search API declares JSON:API media types but serves JSON bodies with a text/plain
+      content type in practice.
+localization:
+  locales: [en-us, en-gb, en-ca, en-au, en-nz, fr-fr, fr-ca, es-es, de-de, it-it]
+  currencies: [usd, gbp, cad, eur, aud, nzd]
+  widget_params: [locale, currency]
+  deep_link_param: odc_locale
+  docs: https://developers.outdoorsy.com/api
+response_headers_exposed:
+- Total-Results
+- Total-Amount
+- Total-Unread-Activity
+- Price-Max
+- Price-Min
+- Auto-Radius
+- Anon-Token
+- Anon-User-ID
+- API-Token
+- X-Ppp-Token
+- X-PPP-Country
+- Geo-IP-City
+- Geo-IP-County
+- Geo-IP-State
+- Geo-IP-Country
+- Geo-IP-Lat
+- Geo-IP-Lng
+note_on_exposed_headers: >-
+  Geo-IP-* headers carry the resolved geography of the caller; X-Ppp-Token carries the Stripe
+  payment token used to complete a booking payment. Captured from
+  access-control-expose-headers on 2026-08-02.
+cross_links:
+  authentication: authentication/outdoorsy-authentication.yml
+  errors: errors/outdoorsy-error-codes.yml
+  lifecycle: lifecycle/outdoorsy-lifecycle.yml
+  rate_limits: rate-limits/outdoorsy-rate-limits.yml
+  data_model: data-model/outdoorsy-data-model.yml

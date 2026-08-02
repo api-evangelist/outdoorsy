@@ -1,0 +1,56 @@
+generated: '2026-08-02'
+method: probed
+source: live response headers from https://api.outdoorsy.com/v0 (2026-08-02)
+documented: false
+docs: null
+notes: >-
+  Outdoorsy does not publish a rate-limit policy on developers.outdoorsy.com and the Swagger
+  contracts describe no 429 response. The API host does, however, emit rate-limit headers on every
+  response, so the signal exists at runtime even though it is undocumented. Values below are the
+  headers observed anonymously; an authenticated partner token may receive a different budget.
+signalling:
+  supported: true
+  headers:
+  - name: X-Rate-Limit-Limit
+    observed_value: '2.00'
+    meaning: requests permitted per duration window
+  - name: X-Rate-Limit-Duration
+    observed_value: '1'
+    meaning: window length in seconds
+  - name: X-Rate-Limit-Request-Remote-Addr
+    meaning: the client address the limiter is keyed on
+  - name: X-Rate-Limit-Request-Forwarded-For
+    meaning: the forwarded-for chain the limiter observed
+  remaining_header: null
+  reset_header: null
+  retry_after_header: not observed
+  standard: >-
+    Non-standard. Does not implement RFC 9331 / draft-ietf-httpapi-ratelimit-headers
+    (RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset).
+rate_limits:
+- api: Outdoorsy API
+  host: https://api.outdoorsy.com/v0
+  limit_count: 2
+  interval: 1
+  interval_unit: second
+  keyed_on: client IP address
+  authenticated: false
+  method: probed
+  evidence:
+    url: https://api.outdoorsy.com/v0/bookings
+    fetched: '2026-08-02'
+    headers: {x-rate-limit-limit: '2.00', x-rate-limit-duration: '1'}
+- api: Outdoorsy Search API
+  host: https://search.outdoorsy.com
+  limit_count: null
+  interval: null
+  method: probed
+  evidence:
+    url: https://search.outdoorsy.com/rentals
+    fetched: '2026-08-02'
+    note: no rate-limit headers observed on this host
+gaps:
+  - No documented rate-limit policy or quota tiers for partners.
+  - No `X-Rate-Limit-Remaining` or reset header, so clients cannot budget ahead of a rejection.
+  - No 429 response declared on any of the 283 operations in the contract.
+  - No `Retry-After` observed.

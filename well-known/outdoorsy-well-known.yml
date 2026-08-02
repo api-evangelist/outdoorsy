@@ -1,0 +1,46 @@
+generated: '2026-08-02'
+method: probed
+source: live probes 2026-08-02
+summary:
+  documents_found: 0
+  hosts_probed: 5
+  paths_probed: 7
+  note: >-
+    Outdoorsy serves NO /.well-known/ discovery document on any host. This is recorded data, not a
+    failed harvest — every path below was probed and its status captured. www.outdoorsy.com and
+    outdoorsy.com sit behind Cloudflare bot management and answer 403 with an HTML challenge page
+    for every path (including ones that certainly do not exist), so a 403 there is indistinguishable
+    from a 404 and must not be read as a hit. api.outdoorsy.com answers 405 Method Not Allowed for
+    any unrouted path.
+documents: []
+probes:
+- {host: 'https://www.outdoorsy.com', path: /.well-known/security.txt, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://www.outdoorsy.com', path: /.well-known/openid-configuration, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://www.outdoorsy.com', path: /.well-known/oauth-authorization-server, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://www.outdoorsy.com', path: /.well-known/api-catalog, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://www.outdoorsy.com', path: /.well-known/ai-plugin.json, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://outdoorsy.com', path: /.well-known/agent-card.json, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://outdoorsy.com', path: /.well-known/agent.json, status: 403, body: HTML (Cloudflare challenge)}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/security.txt, status: 404}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/openid-configuration, status: 404}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/oauth-authorization-server, status: 404}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/api-catalog, status: 404}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/ai-plugin.json, status: 404}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/agent-card.json, status: 404}
+- {host: 'https://developers.outdoorsy.com', path: /.well-known/agent.json, status: 404}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/security.txt, status: 405}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/openid-configuration, status: 405}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/oauth-authorization-server, status: 405}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/api-catalog, status: 405}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/ai-plugin.json, status: 405}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/agent-card.json, status: 405}
+- {host: 'https://api.outdoorsy.com', path: /.well-known/agent.json, status: 405}
+- {host: 'https://search.outdoorsy.com', path: /.well-known/security.txt, status: 404}
+- {host: 'https://search.outdoorsy.com', path: /.well-known/openid-configuration, status: 404}
+- {host: 'https://search.outdoorsy.com', path: /.well-known/oauth-authorization-server, status: 404}
+- {host: 'https://search.outdoorsy.com', path: /.well-known/api-catalog, status: 404}
+- {host: 'https://search.outdoorsy.com', path: /.well-known/ai-plugin.json, status: 404}
+recommendations:
+  - Publish /.well-known/security.txt (RFC 9116) with a Contact and Policy — currently absent everywhere.
+  - Publish /.well-known/api-catalog (RFC 9727) pointing at the two Swagger contracts, which are already public.
+  - The contracts at api.outdoorsy.com/swagger.json and search.outdoorsy.com/swagger.json are undiscoverable except by guessing.

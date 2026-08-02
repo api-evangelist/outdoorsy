@@ -1,0 +1,87 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Outdoorsy Search API
+  version: 1.0.0
+extends: openapi/outdoorsy-search-openapi-original.json
+x-generated: '2026-08-02'
+x-method: generated
+x-source: >-
+  https://developers.outdoorsy.com/api + live probes of https://search.outdoorsy.com (2026-08-02).
+  Adds servers, contact, JSON:API semantics and the duplicate-operationId defect record that the
+  harvested contract omits. The original file is never mutated.
+actions:
+- target: $.info
+  update:
+    contact:
+      name: Outdoorsy Partner Integrations
+      email: partners@outdoorsy.co
+      url: https://developers.outdoorsy.com/
+    x-apievangelist-enriched: '2026-08-02'
+- target: $
+  update:
+    host: search.outdoorsy.com
+    schemes: [https]
+    basePath: /
+    x-servers:
+    - {url: 'https://search.outdoorsy.com', description: production}
+    - {url: 'https://search.staging.outdoorsy.com', description: 'staging — anonymous, no credentials required'}
+- target: $
+  update:
+    x-response-format:
+      standard: JSON:API
+      declared_media_type: application/vnd.api+json
+      observed_media_type: text/plain; charset=utf-8
+      defect: >-
+        Bodies are JSON:API documents but are served with a text/plain content type, so
+        content-negotiating clients cannot detect the format.
+      envelope: {data: 'array of {id, type, attributes}', included: 'side-loaded related resources', meta: 'result metadata', suggestions: 'query suggestions'}
+    x-pagination:
+      style: json-api-page
+      params: ['page[limit]', 'page[offset]']
+      max_limit: 100
+      total_header: Total-Results
+    x-error-envelope:
+      shape: {status: string, code: string, detail: string}
+      observed: '{"status":"404","code":"E102","detail":"No results"}'
+      rfc9457: false
+    x-apievangelist-conventions: conventions/outdoorsy-conventions.yml
+    x-apievangelist-data-model: data-model/outdoorsy-data-model.yml
+- target: $
+  update:
+    x-contract-defects:
+    - >-
+      operationId `searchCampgrounds` is declared on both /campgrounds and
+      /campgrounds/nearby-for-rental/{rental_id} — operationIds must be unique.
+    - >-
+      operationId `searchParks` is declared on /parks, /parks/nearby-for-rental/{rental_id} and
+      /parks/popular — operationIds must be unique.
+    - >-
+      /parks/homepage declares operationId `parks` with tags [parks, getHomepageParks], mixing a
+      tag namespace with an operation name.
+    - No response object in the contract carries a description or an example.
+- target: $
+  update:
+    tags:
+    - {name: rentals, description: Rental listing search over the indexed marketplace inventory}
+    - {name: campgrounds, description: Outdoorsy-catalogued campgrounds}
+    - {name: externalCampgrounds, description: Third-party campground records used for delivery destinations}
+    - {name: parks, description: National and state parks}
+    - {name: localities, description: Cities and regions used to scope search}
+    - {name: breadcrumbs, description: Hierarchical place navigation for SEO landing pages}
+    - {name: geodata, description: Caller geolocation by IP}
+    - {name: users, description: Public owner profiles}
+    - {name: vacationPackages, description: Bundled rental-plus-campground vacation packages}
+- target: $.paths['/rentals'].get
+  update:
+    x-agentic-consequence: read
+    x-retry-safe: true
+    x-apievangelist-note: >-
+      The primary discovery entry point. Anonymous — no credential required. Returns a JSON:API
+      compound document with images side-loaded in `included[]`.
+- target: $.paths['/geodata/my-ip'].get
+  update:
+    x-agentic-consequence: read
+    x-retry-safe: true
+    x-privacy-note: >-
+      Resolves the caller's approximate address from their source IP. Agents proxying end-user
+      requests will resolve the proxy's location, not the user's.

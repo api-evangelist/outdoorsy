@@ -1,0 +1,79 @@
+generated: '2026-08-02'
+method: derived
+source: >-
+  openapi/outdoorsy-openapi-original.json (response status inventory) + live probes of
+  https://api.outdoorsy.com/v0 and https://search.outdoorsy.com on 2026-08-02
+format: proprietary
+rfc9457: false
+notes: >-
+  Outdoorsy does NOT use RFC 9457 problem+json. The two surfaces use two different envelopes, and
+  neither is described by a schema in the published Swagger — every 4xx/5xx response in the contract
+  declares a status code with no `schema` and no `description`. The envelopes below were captured
+  from live responses; the code vocabulary is therefore partial (only codes actually observed or
+  named in the contract are listed). Do not treat this list as exhaustive.
+envelopes:
+- surface: Outdoorsy API
+  host: https://api.outdoorsy.com/v0
+  content_type: application/json; charset=utf-8
+  shape:
+    error: human-readable message
+    code: machine-readable error code (PascalCase)
+    original_error: optional verbose underlying error detail (present on validation failures)
+  example_401: '{"error":"You are not authorized to make that request.","code":"NotAuthorized"}'
+  example_400: '{"error":"Please double check your entries and try again.","original_error":"Input errors:\n\n * limit: strconv.ParseInt: parsing \"abc\": invalid syntax\n","code":"InvalidFields"}'
+- surface: Outdoorsy Search API
+  host: https://search.outdoorsy.com
+  content_type: text/plain; charset=utf-8
+  shape:
+    status: HTTP status as a string
+    code: short alphanumeric code (E-prefixed)
+    detail: human-readable detail
+  example_404: '{"status":"404","code":"E102","detail":"No results"}'
+  note: >-
+    JSON:API-shaped error object served with a text/plain content type — a content-negotiation
+    defect worth reporting to the provider.
+problems:
+- code: NotAuthorized
+  status: 401
+  title: Not authorized
+  detail_observed: You are not authorized to make that request.
+  remediation: >-
+    Supply a valid credential. Partner integrations send `Partner-ID: <partner token>`; user-context
+    calls send `Authorization: <token>` (see authentication/outdoorsy-authentication.yml).
+  surface: Outdoorsy API
+  method: probed
+  evidence: {url: 'https://api.outdoorsy.com/v0/bookings', http_status: 401, fetched: '2026-08-02'}
+- code: InvalidFields
+  status: 400
+  title: Invalid request fields
+  detail_observed: Please double check your entries and try again.
+  remediation: >-
+    Read `original_error` for the per-field parse/validation failure and correct the offending
+    query or body parameter.
+  surface: Outdoorsy API
+  method: probed
+  evidence: {url: 'https://api.outdoorsy.com/v0/rentals?limit=abc', http_status: 400, fetched: '2026-08-02'}
+- code: E102
+  status: 404
+  title: No results
+  detail_observed: No results
+  remediation: The requested resource id does not exist in the search index; verify the id or widen the query.
+  surface: Outdoorsy Search API
+  method: probed
+  evidence: {url: 'https://search.outdoorsy.com/rentals/99999999999', http_status: 404, fetched: '2026-08-02'}
+status_inventory:
+  source: openapi/outdoorsy-openapi-original.json
+  note: counts are declarations across the 283 operations, none of which carry a response schema
+  statuses:
+  - {status: '401', operations: 256, meaning: unauthenticated or insufficient permission}
+  - {status: '400', operations: 180, meaning: malformed or invalid request}
+  - {status: default, operations: 178, meaning: unspecified error fallback}
+  - {status: '404', operations: 148, meaning: resource not found}
+  - {status: '403', operations: 11, meaning: forbidden}
+  - {status: '500', operations: 5, meaning: server error}
+gaps:
+  - No published error-code reference page on developers.outdoorsy.com.
+  - No `schema` on any 4xx/5xx response in either Swagger contract.
+  - No `description` on any response object in the core contract.
+  - Two incompatible error envelopes across the two hosts.
+  - Search API returns JSON bodies under a `text/plain` content type.

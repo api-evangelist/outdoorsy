@@ -1,0 +1,116 @@
+generated: '2026-08-02'
+method: derived
+status: candidate
+source: openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json
+search_result:
+  official_server: none
+  note: >-
+    No official or community MCP server for Outdoorsy was found. Probed POST tools/list against
+    https://mcp.outdoorsy.com (404), https://api.outdoorsy.com/mcp (405) and
+    https://developers.outdoorsy.com/mcp (404) on 2026-08-02; no /mcp route exists on any host,
+    no MCP server is listed in the MCP registry or on npm, and the developer portal documents no
+    agent surface. The tool set below is a CANDIDATE derived from the published Swagger contracts —
+    it is API Evangelist's proposal, not something Outdoorsy operates.
+server:
+  name: outdoorsy
+  transport: http
+  url: null
+  auth:
+    partner: 'Partner-ID: <partner token>'
+    user: 'Authorization: <token>'
+    see_also: authentication/outdoorsy-authentication.yml
+tools:
+- name: search_rentals
+  description: Search RV, campervan and trailer listings by location, dates, price, style and amenities.
+  source_operation: openapi/outdoorsy-search-openapi-original.json#searchRentals
+  read_only: true
+- name: get_rental
+  description: Retrieve one rental listing with its photos, amenities, pricing and availability options.
+  source_operation: openapi/outdoorsy-openapi-original.json#getRentalById
+  read_only: true
+- name: check_availability
+  description: Return the rentals available for a given date range.
+  source_operation: openapi/outdoorsy-openapi-original.json#listAvailability
+  read_only: true
+- name: create_quote
+  description: Generate a price quote for a rental over start and stop dates, including fees and taxes.
+  source_operation: openapi/outdoorsy-openapi-original.json#createQuote
+  read_only: false
+- name: list_rental_items
+  description: List the purchasable add-on items (delivery, generator hours, cleaning, pet fee) available on a rental.
+  source_operation: openapi/outdoorsy-openapi-original.json#listRentalItems
+  read_only: true
+- name: create_booking
+  description: Create a booking request against a rental for the quoted dates.
+  source_operation: openapi/outdoorsy-openapi-original.json#createBooking
+  read_only: false
+  consequence: physical
+- name: get_booking
+  description: Retrieve a booking by id with its items, services, drivers and status.
+  source_operation: openapi/outdoorsy-openapi-original.json#getBookingById
+  read_only: true
+- name: update_booking
+  description: Update a booking with requested changes.
+  source_operation: openapi/outdoorsy-openapi-original.json#updateBooking
+  read_only: false
+- name: change_booking_status
+  description: Move a booking through its state machine — including the transition that takes payment.
+  source_operation: openapi/outdoorsy-openapi-original.json#bookingChangeStatus
+  read_only: false
+  consequence: physical
+- name: add_booking_item
+  description: Add an add-on line item to an existing booking.
+  source_operation: openapi/outdoorsy-openapi-original.json#createBookingItem
+  read_only: false
+- name: copy_rental_item_to_booking
+  description: Copy a rental's catalogue add-on onto a booking.
+  source_operation: openapi/outdoorsy-openapi-original.json#copyRentalItemToBooking
+  read_only: false
+- name: list_bookings
+  description: List bookings for the authenticated account, filterable by status and date range.
+  source_operation: openapi/outdoorsy-openapi-original.json#listBookings
+  read_only: true
+- name: create_proposal
+  description: Propose a change to an existing booking for the counterparty to accept or decline.
+  source_operation: openapi/outdoorsy-openapi-original.json#createProposal
+  read_only: false
+- name: act_on_proposal
+  description: Accept or decline a pending booking change proposal.
+  source_operation: openapi/outdoorsy-openapi-original.json#actOnProposal
+  read_only: false
+- name: list_conversations
+  description: List message threads between renters and owners.
+  source_operation: openapi/outdoorsy-openapi-original.json#listConversations
+  read_only: true
+- name: send_message
+  description: Send a message in a renter/owner conversation.
+  source_operation: openapi/outdoorsy-openapi-original.json#createMessage
+  read_only: false
+- name: list_reviews
+  description: List reviews for a rental, owner or booking.
+  source_operation: openapi/outdoorsy-openapi-original.json#listReviews
+  read_only: true
+- name: search_campgrounds
+  description: Search campgrounds, optionally near a given rental.
+  source_operation: openapi/outdoorsy-search-openapi-original.json#searchCampgrounds
+  read_only: true
+- name: search_parks
+  description: Search national and state parks, including popular and homepage sets.
+  source_operation: openapi/outdoorsy-search-openapi-original.json#searchParks
+  read_only: true
+- name: get_locality
+  description: Resolve a locality (city/region) used to scope rental and campground search.
+  source_operation: openapi/outdoorsy-search-openapi-original.json#getLocality
+  read_only: true
+- name: geolocate_caller
+  description: Resolve the caller's approximate address from their IP for location-defaulted search.
+  source_operation: openapi/outdoorsy-search-openapi-original.json#getAddressForIP
+  read_only: true
+notes:
+  - >-
+    Every tool above inherits its real input schema from the referenced operation's `parameters` /
+    `body` in the Swagger contract — see mcp/outdoorsy-tool-crosswalk.yml for the binding.
+  - >-
+    `create_booking` and `change_booking_status` move real money and reserve a physical vehicle.
+    Because the API supports no idempotency key (see conventions/outdoorsy-conventions.yml), a
+    retried tool call can double-book. Any real server MUST gate these behind human confirmation.

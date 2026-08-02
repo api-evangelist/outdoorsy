@@ -1,0 +1,81 @@
+generated: '2026-08-02'
+method: derived
+source: mcp/outdoorsy-mcp.yml, openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json
+status: candidate
+note: >-
+  Outdoorsy operates no MCP server and no GraphQL endpoint, so this crosswalk binds the CANDIDATE
+  tool set in mcp/outdoorsy-mcp.yml to its backing REST operations. Confidence is `high` on every
+  row because each tool was derived FROM a specific operationId rather than matched to one by name —
+  the tool's real input schema is that operation's `parameters` (and `body`) in the Swagger. There
+  are no mcp_only rows: nothing here exists outside REST.
+surfaces:
+  openapi:
+  - {name: outdoorsy-api, file: openapi/outdoorsy-openapi-original.json, host: 'https://api.outdoorsy.com/v0', spec: Swagger 2.0, operations: 283, gated: false}
+  - {name: outdoorsy-search, file: openapi/outdoorsy-search-openapi-original.json, host: 'https://search.outdoorsy.com', spec: Swagger 2.0, operations: 29, gated: false}
+  graphql:
+    endpoint: null
+    note: 'Probed https://api.outdoorsy.com/graphql — 404. No GraphQL surface.'
+  mcp:
+    url: null
+    note: 'Probed tools/list on mcp.outdoorsy.com (404), api.outdoorsy.com/mcp (405), developers.outdoorsy.com/mcp (404). No MCP server.'
+crosswalk:
+- {tool: search_rentals, category: discovery, rest: [searchRentals], source: outdoorsy-search, binding: rest, confidence: high}
+- {tool: get_rental, category: discovery, rest: [getRentalById], source: outdoorsy-api, binding: rest, confidence: high, note: 'search also exposes getRental on the search index; the core API record is authoritative'}
+- {tool: check_availability, category: discovery, rest: [listAvailability], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: create_quote, category: pricing, rest: [createQuote], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: list_rental_items, category: pricing, rest: [listRentalItems], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: create_booking, category: booking, rest: [createBooking], source: outdoorsy-api, binding: rest, confidence: high, note: 'no idempotency key available — retry-unsafe'}
+- {tool: get_booking, category: booking, rest: [getBookingById], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: update_booking, category: booking, rest: [updateBooking], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: change_booking_status, category: booking, rest: [bookingChangeStatus], source: outdoorsy-api, binding: rest, confidence: high, note: 'this is the payment-taking transition per the developer portal'}
+- {tool: add_booking_item, category: booking, rest: [createBookingItem], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: copy_rental_item_to_booking, category: booking, rest: [copyRentalItemToBooking], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: list_bookings, category: booking, rest: [listBookings], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: create_proposal, category: booking-changes, rest: [createProposal], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: act_on_proposal, category: booking-changes, rest: [actOnProposal], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: list_conversations, category: messaging, rest: [listConversations], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: send_message, category: messaging, rest: [createMessage], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: list_reviews, category: reputation, rest: [listReviews], source: outdoorsy-api, binding: rest, confidence: high}
+- {tool: search_campgrounds, category: discovery, rest: [searchCampgrounds], source: outdoorsy-search, binding: rest, confidence: high, note: 'operationId searchCampgrounds is reused on two paths (/campgrounds and /campgrounds/nearby-for-rental/{rental_id}) — a duplicate-operationId defect in the published contract'}
+- {tool: search_parks, category: discovery, rest: [searchParks], source: outdoorsy-search, binding: rest, confidence: high, note: 'operationId searchParks is reused on three paths — duplicate-operationId defect'}
+- {tool: get_locality, category: geography, rest: [getLocality], source: outdoorsy-search, binding: rest, confidence: high}
+- {tool: geolocate_caller, category: geography, rest: [getAddressForIP], source: outdoorsy-search, binding: rest, confidence: high}
+mcp_only: []
+rest_only:
+- capability: fleet and listing management
+  note: Owner-side CRUD over rentals, images, items and locations.
+  examples: [createRentalRequest, updateRentalRequest, deleteRentalById, createLocation, createRentalItem]
+  operations_approx: 45
+- capability: payments, payouts and banking
+  note: Transactions, bank accounts, deposit accounts, consigned payouts and gateways.
+  examples: [connectStripeBank, getBanksWithPayoutsTriggered, updateBankAccount]
+  operations_approx: 26
+- capability: identity, auth and 2FA
+  note: Credential registration, login, password reset, social OAuth callbacks and two-factor setup.
+  examples: [authCredsCreate, authCredsLogin, authCredsForget, sendCode, verifyCode, setupPreferredMethod, oauthLogin, oauthCallback]
+  operations_approx: 10
+- capability: admin and validation tooling
+  note: Internal moderation, validation retry/force/duplicate and announcement management.
+  examples: [adminListValidations, adminForceValidationApproval, adminRetryValidation, createAnnouncement]
+  operations_approx: 24
+- capability: bundles, gift cards and referrals
+  examples: [createBundle, createBundleRule, createBundleFeature]
+  operations_approx: 22
+- capability: calendars, reports and exports
+  note: ICS calendar sync, CSV report exports, end-of-day reporting.
+  operations_approx: 16
+- capability: wishlists, favorites and bids
+  operations_approx: 24
+coverage:
+  tools_named: 21
+  tools_bound: 21
+  tools_unbound: 0
+  mcp_only: 0
+  rest_operations_total: 312
+  rest_operations_with_a_tool: 21
+  rest_coverage_percent: 7
+  note: >-
+    Deliberately narrow. The candidate tool set covers the renter-facing search → quote → book →
+    message journey and leaves the owner/admin/finance surface (roughly 170 operations) out of
+    agent reach, which is the correct default for a marketplace that moves money and reserves
+    physical vehicles.

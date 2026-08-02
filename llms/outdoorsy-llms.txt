@@ -1,0 +1,92 @@
+# Outdoorsy
+
+> Outdoorsy is an RV and campervan rental marketplace founded in 2014 and headquartered in Austin, Texas, operating across North America, Europe and Australia/New Zealand. The Outdoorsy Group also runs Roamly (embedded RV insurance) and Wheelbase (RV rental fleet-management software). Developers integrate through the Trailblazer Partner API — a Swagger 2.0 REST platform with three tiers: a full REST API for search, quoting, booking and fleet management; INSTASearch embeddable JavaScript widgets; and zero-code partner deep links.
+
+Generated 2026-08-02 by the API Evangelist enrichment pipeline. Method: generated — no /llms.txt is published by Outdoorsy (probed https://developers.outdoorsy.com/llms.txt → 404 and https://www.outdoorsy.com/llms.txt → 403 on 2026-08-02).
+
+## APIs
+
+- [Outdoorsy API](https://developers.outdoorsy.com/api): The core REST API. Base URL https://api.outdoorsy.com/v0. 283 operations across rentals, bookings, booking items and services, proposals, quotes, availability, users, conversations and messaging, reviews, wishlists, favorites, bids, banking and payouts, transactions, bundles, gift cards, iCalendar sync, locations and admin tooling.
+- [Outdoorsy Search API](https://developers.outdoorsy.com/api): The read-only discovery surface. Base URL https://search.outdoorsy.com. 29 operations over rentals, campgrounds, external campgrounds, parks, localities, breadcrumbs, users and vacation packages, plus IP geolocation. JSON:API-shaped responses.
+
+## Specs
+
+- [Outdoorsy API Swagger 2.0](https://api.outdoorsy.com/swagger.json): Live, anonymous, 195 paths / 283 operations / 399 definitions. Also mirrored at https://api.staging.outdoorsy.com/swagger.json.
+- [Outdoorsy Search API Swagger 2.0](https://search.outdoorsy.com/swagger.json): Live, anonymous, 29 paths / 75 definitions. Also mirrored at https://search.staging.outdoorsy.com/swagger.json.
+
+## Docs
+
+- [Trailblazer developer portal](https://developers.outdoorsy.com/): Integration overview — REST API, INSTASearch, partner links.
+- [REST API reference](https://developers.outdoorsy.com/api): Base URLs, the Partner-ID header, primary endpoints, pagination, locales and currencies.
+- [Integration guides](https://developers.outdoorsy.com/help): Index of the three integration paths.
+- [INSTASearch widgets](https://developers.outdoorsy.com/widgets): The Trailblazer browser widget library and its component API.
+- [INSTASearch guide](https://developers.outdoorsy.com/help/instant-search): How to embed and configure the widgets.
+- [Links and deep linking](https://developers.outdoorsy.com/help/deep-links): The redirect.outdoorsy.com attribution surface.
+- [Request API access](https://wheelbase.typeform.com/to/XANb4C): Partner token application.
+
+## Authentication
+
+- Partner integrations send `Partner-ID: <partner token>` on every request. Tokens are issued after Outdoorsy approves the integration; contact partners@outdoorsy.co.
+- User-context calls send `Authorization: <token>`. An `API-Key` header is also declared in the contract.
+- Anonymous booking sessions are continued via the `Anon-Token` response header.
+- There is no OAuth 2.0 or OIDC surface for partners. `/auth/{provider}/login` and `/auth/{provider}/callback` are consumer social sign-in (Facebook, Google, Apple), not an API authorization framework.
+
+## Environments
+
+- Production: https://api.outdoorsy.com/v0 and https://search.outdoorsy.com
+- Staging: https://api.staging.outdoorsy.com/v0 and https://search.staging.outdoorsy.com — anonymous, no credentials required, and per the portal capable of processing test transactions.
+
+## Conventions
+
+- Pagination: `limit`/`offset` on the core API; `page[limit]` (max 100) / `page[offset]` on search. Count in the `Total-Results` response header on both.
+- Range filters use a `_gt`/`_lt` suffix (`created_gt`, `from_lt`). Sorting via `order_by` + `order`.
+- Rate limits are signalled but undocumented: `X-Rate-Limit-Limit: 2.00` over `X-Rate-Limit-Duration: 1` — roughly 2 req/s, keyed on client IP, with no remaining/reset header and no Retry-After.
+- Locales: en-us, en-gb, en-ca, en-au, en-nz, fr-fr, fr-ca, es-es, de-de, it-it. Currencies: usd, gbp, cad, eur, aud, nzd.
+- Errors are NOT RFC 9457. Core API: `{"error": "...", "code": "NotAuthorized"}` with an optional `original_error` detail string. Search API: `{"status": "404", "code": "E102", "detail": "No results"}`.
+- **No idempotency key.** POST /bookings and PATCH /bookings/{id}/status are retry-unsafe.
+- **No webhooks or events.** Change detection is polling-only. iCalendar sync is the only push-adjacent surface.
+
+## Artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/apis.yml): The APIs.json index for this provider.
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/authentication/outdoorsy-authentication.yml)
+- [API conventions](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/conventions/outdoorsy-conventions.yml)
+- [Error codes](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/errors/outdoorsy-error-codes.yml)
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/rate-limits/outdoorsy-rate-limits.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/data-model/outdoorsy-data-model.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/lifecycle/outdoorsy-lifecycle.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/conformance/outdoorsy-conformance.yml)
+- [Sandbox](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/sandbox/outdoorsy-sandbox.yml)
+- [Embedded components](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/components/outdoorsy-components.yml)
+- [Packages](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/packages/outdoorsy-packages.yml)
+- [Candidate MCP tools](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/mcp/outdoorsy-mcp.yml)
+- [Tool crosswalk](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/mcp/outdoorsy-tool-crosswalk.yml)
+- [Agent skills index](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/skills/_index.yml)
+- [Agentic access classification](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/agentic-access/outdoorsy-agentic-access.yml)
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/security/outdoorsy-domain-security.yml)
+- [Well-known probe log](https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/well-known/outdoorsy-well-known.yml)
+
+## Company
+
+- [Website](https://www.outdoorsy.com/)
+- [Blog](https://www.outdoorsy.com/blog)
+- [Help and support](https://www.outdoorsy.com/help)
+- [Help center](https://support.outdoorsy.com/hc/en-us)
+- [Terms of service](https://www.outdoorsy.com/help/outdoorsy-terms-of-service)
+- [Privacy policy](https://support.outdoorsy.com/hc/en-us/articles/37423118744987-Privacy-Policy)
+- [GitHub organization](https://github.com/outdoorsy)
+
+## Not published
+
+These were probed on 2026-08-02 and are genuinely absent — do not go looking for them:
+
+- No OpenAPI 3.x (both contracts are Swagger 2.0).
+- No GraphQL endpoint (api.outdoorsy.com/graphql → 404).
+- No MCP server (mcp.outdoorsy.com → 404, api.outdoorsy.com/mcp → 405).
+- No A2A agent card (/.well-known/agent-card.json and /.well-known/agent.json on all five hosts).
+- No /.well-known/ document of any kind, including security.txt and api-catalog.
+- No AsyncAPI, webhooks or event surface.
+- No client SDK in any package registry.
+- No CLI.
+- No changelog, deprecation policy, SLA or verifiable status page.
+- No trust center, compliance page or named certification.

@@ -1,0 +1,150 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Outdoorsy API
+  version: 1.0.0
+extends: openapi/outdoorsy-openapi-original.json
+x-generated: '2026-08-02'
+x-method: generated
+x-source: >-
+  https://developers.outdoorsy.com/api + live probes of https://api.outdoorsy.com/v0 (2026-08-02).
+  Adds the servers, contact, licence, tag taxonomy, security defaults and runtime semantics that the
+  harvested Swagger 2.0 contract omits. The original file is never mutated.
+actions:
+- target: $.info
+  update:
+    contact:
+      name: Outdoorsy Partner Integrations
+      email: partners@outdoorsy.co
+      url: https://developers.outdoorsy.com/
+    x-apievangelist-enriched: '2026-08-02'
+    x-product-name: Trailblazer Partner API
+    x-spec-version-note: >-
+      Published as Swagger 2.0 with info.version 0.0.1 on a /v0 base path. Upgrading to OpenAPI 3.1
+      is the highest-leverage contract improvement available.
+- target: $
+  update:
+    host: api.outdoorsy.com
+    schemes: [https]
+    x-servers:
+    - {url: 'https://api.outdoorsy.com/v0', description: production}
+    - {url: 'https://api.staging.outdoorsy.com/v0', description: 'staging — anonymous, no credentials required'}
+- target: $
+  update:
+    x-apievangelist-conventions: conventions/outdoorsy-conventions.yml
+    x-apievangelist-errors: errors/outdoorsy-error-codes.yml
+    x-apievangelist-rate-limits: rate-limits/outdoorsy-rate-limits.yml
+    x-apievangelist-data-model: data-model/outdoorsy-data-model.yml
+    x-apievangelist-lifecycle: lifecycle/outdoorsy-lifecycle.yml
+- target: $.securityDefinitions
+  update:
+    Partner-ID:
+      type: apiKey
+      name: Partner-ID
+      in: header
+      description: >-
+        The partner token issued after an integration is approved. Documented on
+        https://developers.outdoorsy.com/api but absent from the published contract.
+- target: $.securityDefinitions.Bearer
+  update:
+    description: >-
+      User-context token supplied in the Authorization header. Declared as apiKey rather than
+      http/bearer, so the token format is not machine-described.
+- target: $.securityDefinitions.API-Key
+  update:
+    description: Alternate API key header accepted by the platform.
+- target: $
+  update:
+    x-rate-limit:
+      signalled: true
+      headers: [X-Rate-Limit-Limit, X-Rate-Limit-Duration]
+      observed: {limit: 2, interval_seconds: 1, keyed_on: client-ip}
+      documented_by_provider: false
+    x-error-envelope:
+      format: proprietary
+      rfc9457: false
+      shape: {error: string, code: string, original_error: string}
+      observed_codes: [NotAuthorized, InvalidFields]
+    x-pagination:
+      style: limit-offset
+      params: [limit, offset]
+      total_header: Total-Results
+    x-idempotency:
+      supported: false
+      note: >-
+        No Idempotency-Key contract. POST /bookings and PATCH /bookings/{id}/status are
+        retry-unsafe.
+- target: $
+  update:
+    tags:
+    - {name: rentals, description: RV, campervan and trailer listings}
+    - {name: bookings, description: Reservations and their lifecycle}
+    - {name: bookingItems, description: Add-on line items on a booking}
+    - {name: bookingServices, description: Services attached to a booking (insurance, roadside)}
+    - {name: bookingProposals, description: Proposed changes to an existing booking}
+    - {name: bookingTransactions, description: Charges, refunds and payouts on a booking}
+    - {name: bookingBundles, description: Bundled services applied to a booking}
+    - {name: quotes, description: Price quotes for a rental over a date range}
+    - {name: pricing, description: Pricing rules and calculations}
+    - {name: search, description: Cross-entity search}
+    - {name: users, description: Marketplace accounts — renters, owners, dealers}
+    - {name: auth, description: Credential registration, login and social OAuth}
+    - {name: twoFactorAuth, description: Two-factor authentication setup and verification}
+    - {name: conversations, description: Renter/owner message threads}
+    - {name: messages, description: Individual messages}
+    - {name: messageTemplates, description: Reusable message templates}
+    - {name: reviews, description: Post-trip reviews of rentals and owners}
+    - {name: wishlists, description: Saved rental collections}
+    - {name: favorites, description: Individually favourited rentals}
+    - {name: bids, description: Renter bids matched against inventory}
+    - {name: locations, description: Pickup, dropoff and dealer business locations}
+    - {name: rentalItems, description: Owner-defined purchasable add-ons}
+    - {name: RentalItemsCategories, description: Add-on categories}
+    - {name: rentalImages, description: Listing photography}
+    - {name: files, description: Uploaded documents scoped to a booking, rental or user}
+    - {name: banks, description: Owner bank accounts for payouts}
+    - {name: funds, description: Fund movements}
+    - {name: payouts, description: Owner payouts}
+    - {name: transactions, description: Platform transactions}
+    - {name: gateways, description: Payment gateway configuration}
+    - {name: userCards, description: Stored payment cards}
+    - {name: bundles, description: Packaged service offerings}
+    - {name: bundleFeatures, description: Features within a bundle}
+    - {name: bundleRules, description: Rules governing bundle application}
+    - {name: GiftCards, description: Purchasable gift cards}
+    - {name: Referrals, description: Referral credits}
+    - {name: announcements, description: Platform announcements to users}
+    - {name: userNoticeEvents, description: User-facing notice events}
+    - {name: notices, description: Notices}
+    - {name: systemEmails, description: Transactional email configuration}
+    - {name: ics-calendars, description: iCalendar availability sync (RFC 5545)}
+    - {name: specialHours, description: Location-level special opening hours}
+    - {name: usageBasedItems, description: Metered add-ons such as generator hours and mileage}
+    - {name: usageBasedItemTiers, description: Tier pricing for metered add-ons}
+    - {name: instamatch, description: Instant matching of renters to inventory}
+    - {name: validations, description: Identity and eligibility validation records}
+    - {name: reports, description: Operational and financial reports}
+    - {name: amenities, description: Amenity taxonomy}
+    - {name: toweable, description: Towable vehicle data}
+    - {name: towingInfo, description: Towing capability information}
+    - {name: notes-to-renters, description: Owner notes surfaced to renters}
+    - {name: checkoutSteps, description: Configurable checkout step flows}
+    - {name: admin, description: Internal moderation and administration}
+- target: $.paths['/bookings'].post
+  update:
+    x-agentic-consequence: physical
+    x-retry-safe: false
+    x-apievangelist-note: >-
+      Reserves a physical vehicle. No idempotency key is available, so a retried request can create
+      a duplicate booking.
+- target: $.paths['/bookings/{id}/status'].patch
+  update:
+    x-agentic-consequence: physical
+    x-retry-safe: false
+    x-apievangelist-note: >-
+      This is the transition that takes payment, per https://developers.outdoorsy.com/api. Returns
+      X-Ppp-Token (a Stripe payment token) on the response.
+- target: $.paths['/quotes'].post
+  update:
+    x-agentic-consequence: read
+    x-retry-safe: true
+    x-apievangelist-note: Non-mutating despite being a POST — safe for agents to call repeatedly.

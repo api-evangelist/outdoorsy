@@ -1,0 +1,22 @@
+generated: '2026-08-02'
+method: derived
+source: openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: API-Key
+  type: apiKey
+  in: header
+  parameter: API-Key
+  sources:
+  - openapi/outdoorsy-openapi-original.json
+- name: Bearer
+  type: apiKey
+  in: header
+  parameter: Authorization
+  sources:
+  - openapi/outdoorsy-openapi-original.json
+  - openapi/outdoorsy-search-openapi-original.json

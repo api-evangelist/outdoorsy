@@ -1,0 +1,221 @@
+generated: '2026-08-02'
+method: derived
+source: openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json
+notes: >-
+  Entity-relationship graph derived from the Swagger 2.0 `definitions` block of the two live
+  Outdoorsy contracts. `has_one`/`has_many` come from `$ref` and array-of-`$ref` properties;
+  `belongs_to` comes from `*_id` reference fields. Identifiers on this platform are plain integers
+  serialised as strings in the JSON:API search surface — there are no typed id prefixes.
+summary:
+  schemas_total: 474
+  schemas_with_id: 117
+  core_entities: 24
+  id_style: integer
+  id_prefixes: none
+domains:
+- name: inventory
+  entities: [Rental, RentalItem, RentalImage, RentalItemsCategory, Image, Location, Bundle, BundleFeature, BundleRule, ICSCalendar]
+- name: booking
+  entities: [Booking, BookingItem, BookingService, BookingBundle, BookingDriver, BookingTaxRate, Proposal, Bid, Quote]
+- name: identity
+  entities: [User, Driver, Customer, Partner, PartnerApp, Role, Profile]
+- name: money
+  entities: [Transaction, DepositAccount, ConsignedPayout, ConsignedPayoutItem, GiftCard, EarnedCredit, Plan, PlanOverride]
+- name: communication
+  entities: [Conversation, Message, File, Note, NoteToRenters, Announcement, AnnouncementGroup, NoticeEvent]
+- name: reputation
+  entities: [Review, RentalImageReview, LocalityReview, Favorite]
+- name: geography
+  entities: [ExternalCampground, CampsiteCategory, Locality, Park, Breadcrumb]
+entities:
+- name: Rental
+  description: An RV, campervan or trailer listing offered by an owner.
+  properties: 125
+  relationships:
+  - {kind: has_many, target: RentalItem, via: items}
+  - {kind: has_one, target: RentalImages, via: images}
+  - {kind: has_one, target: CampsiteCategory, via: campsite_category}
+  - {kind: has_one, target: Plan, via: insurance_plan_id}
+  - {kind: has_one, target: RentalConsignment, via: consignment}
+  - {kind: belongs_to, target: Location, via: current_location_id}
+  - {kind: belongs_to, target: RentalItem, via: delivery_usage_item_id}
+  - {kind: belongs_to, target: RentalItem, via: generator_usage_item_id}
+- name: Booking
+  description: A confirmed or in-progress rental reservation. The largest schema in the contract.
+  properties: 318
+  relationships:
+  - {kind: has_many, target: BookingItem, via: addons}
+  - {kind: has_one, target: BookingItem, via: delivery_item}
+  - {kind: has_many, target: AttentionItem, via: attention}
+  - {kind: has_one, target: BookingDelivery, via: delivery}
+  - {kind: has_one, target: BookingDropoff, via: dropoff}
+  - {kind: has_one, target: BookingDocuments, via: documents}
+  - {kind: has_one, target: ExternalCampground, via: deliverable_campground}
+  - {kind: belongs_to, target: Conversation, via: conversation_id}
+  - {kind: belongs_to, target: Bid, via: bid_id}
+  - {kind: belongs_to, target: Bundle, via: bundle_id}
+  - {kind: belongs_to, target: User, via: created_by_id}
+- name: BookingItem
+  description: An add-on line item on a booking (delivery, generator hours, cleaning, pet fee).
+  properties: 41
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: belongs_to, target: BookingItem, via: parent_item_id}
+  - {kind: has_many, target: BookingTaxRate, via: tax_rates}
+- name: BookingService
+  description: A service attached to a booking (insurance, roadside, weather protection).
+  properties: 40
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: belongs_to, target: Bundle, via: bundle_id}
+  - {kind: has_many, target: BookingTaxRate, via: tax_rates}
+- name: BookingDriver
+  description: A driver registered against a booking, with verification checks.
+  properties: 30
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: has_many, target: BookingDriverCheck, via: checks}
+- name: Proposal
+  description: A change proposal against an existing booking, pending counterparty acceptance.
+  properties: 19
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: belongs_to, target: User, via: owner_id}
+  - {kind: has_many, target: DailyChange, via: daily_changes}
+  - {kind: has_many, target: NoticeResponse, via: user_notice_events}
+- name: Bid
+  description: A renter bid against a rental, matched to inventory.
+  properties: 46
+  relationships:
+  - {kind: belongs_to, target: Rental, via: rental_id}
+  - {kind: belongs_to, target: User, via: owner_id}
+  - {kind: belongs_to, target: Booking, via: created_by_booking_id}
+  - {kind: belongs_to, target: Booking, via: closed_by_booking_id}
+  - {kind: has_one, target: BidMatches, via: bid_matches}
+- name: User
+  description: A marketplace account — renter, owner, dealer or admin.
+  properties: 142
+  relationships:
+  - {kind: has_many, target: Driver, via: drivers}
+  - {kind: has_many, target: RentalItem, via: items}
+  - {kind: has_many, target: EarnedCredit, via: earned_credits}
+  - {kind: has_many, target: PaymentProcessingInfo, via: payment_processing_info}
+  - {kind: has_many, target: TOS_Acceptance, via: accepted_tos_versions}
+  - {kind: has_one, target: Profile, via: profile}
+  - {kind: has_one, target: Role, via: role}
+  - {kind: belongs_to, target: Partner, via: partner_id}
+  - {kind: belongs_to, target: PartnerApp, via: partner_app_id}
+  - {kind: belongs_to, target: User, via: referred_by_id}
+- name: Location
+  description: A physical pickup/dropoff or dealer business location.
+  properties: 34
+  relationships:
+  - {kind: belongs_to, target: User, via: owner_id}
+  - {kind: has_many, target: SpecialHour, via: special_hours}
+  - {kind: has_one, target: TaxRate, via: tax_rate_id}
+  - {kind: has_one, target: LocAvailability, via: availability}
+- name: Conversation
+  description: A message thread between a renter and an owner, optionally SMS-proxied.
+  properties: 20
+  relationships:
+  - {kind: has_many, target: Message, via: messages}
+  - {kind: has_many, target: Booking, via: bookings}
+  - {kind: belongs_to, target: User, via: owner_id}
+  - {kind: belongs_to, target: User, via: renter_id}
+- name: Message
+  description: A single message inside a conversation.
+  properties: 31
+  relationships:
+  - {kind: belongs_to, target: Conversation, via: conversation_id}
+  - {kind: belongs_to, target: User, via: sender_id}
+  - {kind: belongs_to, target: User, via: receiver_id}
+  - {kind: belongs_to, target: Booking, via: ref_booking_id}
+  - {kind: belongs_to, target: Rental, via: ref_rental_id}
+- name: Review
+  description: A post-trip review of a rental and/or its owner.
+  properties: 34
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: belongs_to, target: Rental, via: rental_id}
+  - {kind: belongs_to, target: User, via: reviewer_id}
+  - {kind: has_many, target: ReviewImage, via: review_images}
+  - {kind: has_many, target: Tag, via: tags}
+- name: Bundle
+  description: A packaged set of services/features attached to a rental or owner.
+  properties: 26
+  relationships:
+  - {kind: belongs_to, target: Rental, via: rental_id}
+  - {kind: belongs_to, target: User, via: owner_id}
+  - {kind: has_many, target: BundleRule, via: rules}
+  - {kind: has_one, target: BundleFeatures, via: features}
+- name: Transaction
+  description: A charge, refund, payout or transfer against a booking.
+  properties: 66
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: belongs_to, target: User, via: recipient_id}
+  - {kind: has_one, target: Transaction, via: original_charge_id}
+  - {kind: has_one, target: Transaction, via: transfer}
+  - {kind: has_one, target: PaymentProcessor, via: payment_processor}
+- name: RentalItem
+  description: A purchasable add-on defined by an owner and attachable to bookings.
+  properties: 37
+  relationships:
+  - {kind: belongs_to, target: Location, via: location_id}
+  - {kind: belongs_to, target: RentalItemsCategory, via: rental_items_category_id}
+  - {kind: has_one, target: TaxRate, via: tax_rate_id}
+- name: RentalImage
+  description: A photo attached to a rental listing, with AI-generated description and category.
+  properties: 23
+  relationships:
+  - {kind: belongs_to, target: Rental, via: rental_id}
+  - {kind: has_one, target: MediaCategory, via: category}
+  - {kind: has_one, target: RentalImageReview, via: review}
+- name: File
+  description: An uploaded document (licence, insurance, signed agreement) scoped to an entity.
+  properties: 32
+  relationships:
+  - {kind: belongs_to, target: Booking, via: booking_id}
+  - {kind: belongs_to, target: Rental, via: rental_id}
+  - {kind: belongs_to, target: User, via: user_id}
+  - {kind: belongs_to, target: Message, via: message_id}
+- name: Driver
+  description: A verified driver record on a user account.
+  properties: 23
+  relationships:
+  - {kind: belongs_to, target: User, via: user_id}
+- name: ICSCalendar
+  description: An external iCalendar feed synced against a rental's availability.
+  properties: 7
+  relationships:
+  - {kind: belongs_to, target: Rental, via: rental_id}
+  - {kind: belongs_to, target: User, via: owner_user_id}
+- name: Partner
+  description: A Trailblazer partner account; the unit the Partner-ID header identifies.
+  properties: 7
+  relationships:
+  - {kind: has_many, target: PartnerApp, via: apps}
+- name: Plan
+  description: An insurance plan (Roamly) attachable to rentals and bookings.
+  properties: 47
+  relationships:
+  - {kind: has_one, target: PlanOverride, via: insurance_plan_override}
+- name: GiftCard
+  description: A purchasable gift card redeemable against bookings.
+  properties: 10
+  relationships:
+  - {kind: belongs_to, target: User, via: owner_id}
+- name: ExternalCampground
+  description: A third-party campground record used for delivery destinations and search.
+  properties: 28
+  relationships:
+  - {kind: has_one, target: CampgroundCatalog, via: campground_catalog}
+search_surface:
+  source: openapi/outdoorsy-search-openapi-original.json
+  format: JSON:API
+  resource_types: [rentals, campgrounds, external-campgrounds, parks, localities, breadcrumbs, users, vacation-packages, images]
+  compound_documents: true
+  note: >-
+    Search responses are JSON:API documents — `data[]` with `id`/`type`/`attributes`, plus an
+    `included[]` side-load (observed carrying `images` alongside `rentals`), a `meta` block and a
+    `suggestions` block. Observed live 2026-08-02 against GET https://search.outdoorsy.com/rentals.

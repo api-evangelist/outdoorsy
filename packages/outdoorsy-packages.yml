@@ -1,0 +1,72 @@
+generated: '2026-08-02'
+method: searched
+source: >-
+  npm registry search, PyPI, https://github.com/outdoorsy (88 public repos, GitHub API 2026-08-02),
+  https://developers.outdoorsy.com/api, https://developers.outdoorsy.com/widgets
+summary:
+  official_client_sdks: 0
+  official_distributables: 3
+  note: >-
+    Outdoorsy publishes NO first-party API client SDK in any language registry. There is no
+    outdoorsy package on npm, PyPI, RubyGems, Packagist, Maven Central, NuGet, crates.io or
+    pkg.go.dev. Partners integrate against raw REST, or drop in the hosted Trailblazer widget
+    bundle. What Outdoorsy does ship publicly are three first-party distributables: a CDN-hosted
+    browser widget SDK and two WordPress plugins for the Wheelbase product line.
+packages:
+- language: javascript
+  registry: cdn
+  name: trailblazer-widget
+  url: https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.js
+  stylesheet: https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.css
+  install: |
+    <link rel="stylesheet" href="https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.css">
+    <script type="text/javascript" src="https://d1o5877uy6tsnd.cloudfront.net/sdk/v2/trailblazer-widget.js"></script>
+  official: true
+  version_channel: v2
+  description: >-
+    The INSTASearch / Trailblazer browser widget SDK — the only first-party client library
+    Outdoorsy distributes. Exposes a global `Trailblazer({partnerId, ...})` constructor and an
+    `addWidget()` component API. Not published to npm; CDN script tag only.
+  docs: https://developers.outdoorsy.com/widgets
+  see_also: components/outdoorsy-components.yml
+- language: php
+  registry: github
+  name: wheelbase-widget-wordpress-plugin
+  url: https://github.com/outdoorsy/wheelbase-widget-wordpress-plugin
+  install: clone or download from GitHub; install as a WordPress plugin
+  official: true
+  license: GPL-2.0
+  last_pushed: '2026-05-19'
+  archived: false
+  description: WordPress plugin that embeds the Wheelbase/Outdoorsy booking widget into a WordPress site.
+- language: php
+  registry: github
+  name: wheelbase-wordpress-plugin
+  url: https://github.com/outdoorsy/wheelbase-wordpress-plugin
+  install: clone or download from GitHub; install as a WordPress plugin
+  official: true
+  archived: true
+  description: >-
+    Lightweight WordPress plugin for embedding customer checkouts into WordPress sites. Archived
+    upstream — superseded by wheelbase-widget-wordpress-plugin.
+github_organization:
+  url: https://github.com/outdoorsy
+  public_repos: 88
+  character: >-
+    Overwhelmingly forks of third-party Go and Ember libraries used internally (gorp, gorq, work,
+    flagr, mailgun-go, raven-go, dd-trace-go, hellosign-go-sdk, golang-ical, gountries) plus
+    interview-challenge scaffolds. No API client library for Outdoorsy's own API is published here.
+  notable_first_party:
+  - {name: wheelbase-widget-wordpress-plugin, url: 'https://github.com/outdoorsy/wheelbase-widget-wordpress-plugin'}
+  - {name: wheelbase-wordpress-plugin, url: 'https://github.com/outdoorsy/wheelbase-wordpress-plugin'}
+  - {name: wheelbase-pricing-plans, url: 'https://github.com/outdoorsy/wheelbase-pricing-plans'}
+  - {name: agent-issue-tracker, url: 'https://github.com/outdoorsy/agent-issue-tracker', note: 'portable issue-tracking skills + slash commands for Claude Code — internal agent tooling, not an API SDK'}
+registries_probed:
+- {registry: npm, query: outdoorsy, result: no first-party package, fetched: '2026-08-02'}
+- {registry: pypi, name: outdoorsy, result: 'name taken by an unrelated third-party demo CLI (rachaelcrook/outdoorsy); not first-party', fetched: '2026-08-02'}
+- {registry: rubygems, result: none found, fetched: '2026-08-02'}
+- {registry: packagist, result: none found, fetched: '2026-08-02'}
+- {registry: maven-central, result: none found, fetched: '2026-08-02'}
+- {registry: nuget, result: none found, fetched: '2026-08-02'}
+- {registry: crates.io, result: none found, fetched: '2026-08-02'}
+- {registry: pkg.go.dev, result: no outdoorsy API client module, fetched: '2026-08-02'}

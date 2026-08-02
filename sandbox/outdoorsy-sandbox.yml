@@ -1,0 +1,64 @@
+generated: '2026-08-02'
+method: searched
+source: https://developers.outdoorsy.com/api, https://developers.outdoorsy.com/ + live probes 2026-08-02
+name: Outdoorsy staging environment
+description: >-
+  Outdoorsy runs a full public staging mirror of both API surfaces. Per the developer portal, "each
+  integration option has an up-to-date demo environment available for testing, including the ability
+  to process transactions", and "no token is required to get started" — staging requires no partner
+  credentials at all. This is an unusually open sandbox: the staging hosts are anonymously readable
+  and serve their own copies of the Swagger contracts.
+separation_model:
+  style: separate-hosts
+  note: >-
+    Test and live are separated by hostname, not by key prefix or a mode flag. There is no
+    test-vs-live key convention (Outdoorsy issues one Partner-ID per partner, not a test/live pair).
+environments:
+- name: production
+  api: https://api.outdoorsy.com/v0
+  search: https://search.outdoorsy.com
+  auth_required: true
+  auth_header: Partner-ID
+- name: staging
+  api: https://api.staging.outdoorsy.com/v0
+  search: https://search.staging.outdoorsy.com
+  auth_required: false
+  docs_quote: 'Staging does not require authentication credentials.'
+  transactions: >-
+    The portal states the demo environment can process transactions. No test card numbers, test
+    bank accounts or magic test identifiers are published, so the actual test payment instruments
+    must be supplied by Outdoorsy at partner onboarding.
+verified_probes:
+- {url: 'https://api.staging.outdoorsy.com/swagger.json', http_status: 200, bytes: 919948, note: 'byte-identical contract to production', fetched: '2026-08-02'}
+- {url: 'https://api.staging.outdoorsy.com/v0/amenities', http_status: 200, note: 'returns live amenity taxonomy anonymously', fetched: '2026-08-02'}
+- {url: 'https://search.staging.outdoorsy.com/swagger.json', http_status: 200, bytes: 201856, fetched: '2026-08-02'}
+- {url: 'https://search.staging.outdoorsy.com/rentals?page[limit]=1', http_status: 200, note: 'returns staging rental inventory anonymously', fetched: '2026-08-02'}
+test_values:
+  cards: []
+  bank_accounts: []
+  magic_identifiers: []
+  note: >-
+    NONE PUBLISHED. Outdoorsy documents no test card numbers, test IBANs, magic phone numbers or
+    trigger values. This is the largest sandbox gap — a partner cannot exercise the booking-payment
+    path from the public docs alone.
+time_simulation:
+  supported: false
+  note: No test clocks or time-travel tooling documented.
+fixtures_and_triggers:
+  supported: false
+  note: No fixture generator, seeding endpoint or event-trigger tooling documented.
+console:
+  interactive_docs: false
+  note: >-
+    developers.outdoorsy.com/api is a static reference page with no try-it console. The
+    /widgets page carries a live INSTASearch demo, and api.outdoorsy.com/docs exists but is
+    gated behind Cloudflare Access (internal only, HTTP 200 → Cloudflare Access sign-in).
+access:
+  request_url: https://wheelbase.typeform.com/to/XANb4C
+  contact: partners@outdoorsy.co
+  note: A production Partner-ID is issued only after the integration is reviewed and approved.
+gaps:
+  - No published test card / test payment instrument values.
+  - No fixtures, triggers or time simulation.
+  - No interactive try-it console on the public reference.
+  - Staging is anonymous and open, which is convenient but means no credential-handling rehearsal before go-live.
