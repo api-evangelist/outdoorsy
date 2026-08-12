@@ -31,61 +31,884 @@ tags:
 - Camping
 - Tourism
 apis:
-- aid: outdoorsy:outdoorsy-api
-  name: Outdoorsy API
-  description: >-
-    The core Outdoorsy REST API (Trailblazer Partner API). Resource-oriented URLs, standard HTTP
-    verbs and response codes, semantic versioning, and 283 operations across rentals, bookings,
-    booking proposals and items, quotes, availability, users, conversations and messaging, reviews,
-    wishlists and favorites, banks and payouts, transactions, bundles, gift cards, ICS calendars,
-    locations, usage-based items and admin/validation tooling.
+- aid: outdoorsy:outdoorsy-admin-api
+  name: Outdoorsy Admin API
+  description: The admin API from Outdoorsy — 1 operation(s) for admin.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Rentals
-  - Bookings
-  - Payments
-  - Marketplace
-  - Travel
+  - admin
   properties:
   - type: OpenAPI
-    url: openapi/outdoorsy-openapi-original.json
-  - type: Overlay
-    url: overlays/outdoorsy-api-overlay.yaml
+    url: openapi/outdoorsy-admin-api-openapi.yml
   - type: Documentation
     url: https://developers.outdoorsy.com/api
   - type: MCPServer
     url: mcp/outdoorsy-mcp.yml
   - type: ToolCrosswalk
     url: mcp/outdoorsy-tool-crosswalk.yml
-- aid: outdoorsy:outdoorsy-search-api
-  name: Outdoorsy Search API
-  description: >-
-    The Outdoorsy Search API — a read-only JSON:API-formatted search surface over rentals,
-    campgrounds, external campgrounds, national/state parks, localities, breadcrumbs, users and
-    vacation packages, with geo lookup by IP. 29 operations, page[limit]/page[offset] pagination,
-    and a Total-Results response header.
+- aid: outdoorsy:outdoorsy-amenities-api
+  name: Outdoorsy Amenities API
+  description: The amenities API from Outdoorsy — 1 operation(s) for amenities.
   humanURL: https://developers.outdoorsy.com/api
-  baseURL: https://search.outdoorsy.com
+  baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Search
-  - Rentals
-  - Campgrounds
-  - Geolocation
-  - Travel
+  - amenities
   properties:
   - type: OpenAPI
-    url: openapi/outdoorsy-search-openapi-original.json
-  - type: Overlay
-    url: overlays/outdoorsy-search-overlay.yaml
+    url: openapi/outdoorsy-amenities-api-openapi.yml
   - type: Documentation
     url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-announcements-api
+  name: Outdoorsy Announcements API
+  description: The announcements API from Outdoorsy — 7 operation(s) for announcements.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - announcements
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-announcements-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-auth-api
+  name: Outdoorsy Auth API
+  description: The auth API from Outdoorsy — 7 operation(s) for auth.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - auth
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-auth-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-banks-api
+  name: Outdoorsy Banks API
+  description: The banks API from Outdoorsy — 6 operation(s) for banks.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - banks
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-banks-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bookingbundles-api
+  name: Outdoorsy Booking Bundles API
+  description: The bookingBundles API from Outdoorsy — 2 operation(s) for bookingbundles.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bookingBundles
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bookingbundles-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bookingitems-api
+  name: Outdoorsy Booking Items API
+  description: The bookingItems API from Outdoorsy — 6 operation(s) for bookingitems.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bookingItems
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bookingitems-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bookingproposals-api
+  name: Outdoorsy Booking Proposals API
+  description: The bookingProposals API from Outdoorsy — 5 operation(s) for bookingproposals.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bookingProposals
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bookingproposals-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bookings-api
+  name: Outdoorsy Bookings API
+  description: The Bookings API from Outdoorsy — 9 operation(s) for bookings.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Bookings
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bookings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bookingservices-api
+  name: Outdoorsy Booking Services API
+  description: The bookingServices API from Outdoorsy — 4 operation(s) for bookingservices.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bookingServices
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bookingservices-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bookingtransactions-api
+  name: Outdoorsy Booking Transactions API
+  description: The bookingTransactions API from Outdoorsy — 3 operation(s) for bookingtransactions.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bookingTransactions
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bookingtransactions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-breadcrumbs-api
+  name: Outdoorsy Breadcrumbs API
+  description: The breadcrumbs API from Outdoorsy — 3 operation(s) for breadcrumbs.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - breadcrumbs
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-breadcrumbs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bundlefeatures-api
+  name: Outdoorsy Bundle Features API
+  description: The bundleFeatures API from Outdoorsy — 2 operation(s) for bundlefeatures.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bundleFeatures
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bundlefeatures-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bundlerules-api
+  name: Outdoorsy Bundle Rules API
+  description: The bundleRules API from Outdoorsy — 2 operation(s) for bundlerules.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bundleRules
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bundlerules-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-bundles-api
+  name: Outdoorsy Bundles API
+  description: The bundles API from Outdoorsy — 3 operation(s) for bundles.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - bundles
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-bundles-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-campgrounds-api
+  name: Outdoorsy Campgrounds API
+  description: The campgrounds API from Outdoorsy — 3 operation(s) for campgrounds.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - campgrounds
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-campgrounds-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-checkoutsteps-api
+  name: Outdoorsy Checkout Steps API
+  description: The checkoutSteps API from Outdoorsy — 1 operation(s) for checkoutsteps.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - checkoutSteps
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-checkoutsteps-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-conversations-api
+  name: Outdoorsy Conversations API
+  description: The conversations API from Outdoorsy — 4 operation(s) for conversations.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-conversations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-convert-currency-api
+  name: Outdoorsy Convert Currency API
+  description: The Convert Currency API from Outdoorsy — 1 operation(s) for convert currency.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Convert Currency
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-convert-currency-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-externalcampgrounds-api
+  name: Outdoorsy External Campgrounds API
+  description: The externalCampgrounds API from Outdoorsy — 3 operation(s) for externalcampgrounds.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - externalCampgrounds
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-externalcampgrounds-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-favorites-api
+  name: Outdoorsy Favorites API
+  description: The favorites API from Outdoorsy — 2 operation(s) for favorites.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - favorites
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-favorites-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-files-api
+  name: Outdoorsy Files API
+  description: The files API from Outdoorsy — 2 operation(s) for files.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - files
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-files-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-funds-api
+  name: Outdoorsy Funds API
+  description: The funds API from Outdoorsy — 5 operation(s) for funds.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - funds
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-funds-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-gateways-api
+  name: Outdoorsy Gateways API
+  description: The gateways API from Outdoorsy — 4 operation(s) for gateways.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-geodata-api
+  name: Outdoorsy Geodata API
+  description: The geodata API from Outdoorsy — 1 operation(s) for geodata.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - geodata
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-geodata-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-gethomepageparks-api
+  name: Outdoorsy Get Homepage Parks API
+  description: The getHomepageParks API from Outdoorsy — 1 operation(s) for gethomepageparks.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - getHomepageParks
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-gethomepageparks-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-giftcards-api
+  name: Outdoorsy Gift Cards API
+  description: The GiftCards API from Outdoorsy — 3 operation(s) for giftcards.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - GiftCards
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-giftcards-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-ics-calendars-api
+  name: Outdoorsy Ics Calendars API
+  description: The ics-calendars API from Outdoorsy — 5 operation(s) for ics-calendars.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - ics-calendars
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-ics-calendars-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-instamatch-api
+  name: Outdoorsy Instamatch API
+  description: The instamatch API from Outdoorsy — 5 operation(s) for instamatch.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - instamatch
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-instamatch-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-localities-api
+  name: Outdoorsy Localities API
+  description: The localities API from Outdoorsy — 2 operation(s) for localities.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - localities
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-localities-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-locations-api
+  name: Outdoorsy Locations API
+  description: The locations API from Outdoorsy — 3 operation(s) for locations.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - locations
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-locations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-messages-api
+  name: Outdoorsy Messages API
+  description: The messages API from Outdoorsy — 3 operation(s) for messages.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - messages
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-messages-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-messagetemplates-api
+  name: Outdoorsy Message Templates API
+  description: The messageTemplates API from Outdoorsy — 2 operation(s) for messagetemplates.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - messageTemplates
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-messagetemplates-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-notes-to-renters-api
+  name: Outdoorsy Notes To Renters API
+  description: The notes-to-renters API from Outdoorsy — 2 operation(s) for notes-to-renters.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - notes-to-renters
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-notes-to-renters-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-notices-api
+  name: Outdoorsy Notices API
+  description: The notices API from Outdoorsy — 1 operation(s) for notices.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - notices
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-notices-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-parks-api
+  name: Outdoorsy Parks API
+  description: The parks API from Outdoorsy — 5 operation(s) for parks.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - parks
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-parks-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-payouts-api
+  name: Outdoorsy Payouts API
+  description: The payouts API from Outdoorsy — 1 operation(s) for payouts.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - payouts
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-payouts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-pricing-api
+  name: Outdoorsy Pricing API
+  description: The pricing API from Outdoorsy — 3 operation(s) for pricing.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - pricing
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-pricing-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-quote-api
+  name: Outdoorsy Quote API
+  description: The quote API from Outdoorsy — 1 operation(s) for quote.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - quote
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-quote-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-quotes-api
+  name: Outdoorsy Quotes API
+  description: The quotes API from Outdoorsy — 1 operation(s) for quotes.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-referrals-api
+  name: Outdoorsy Referrals API
+  description: The Referrals API from Outdoorsy — 4 operation(s) for referrals.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Referrals
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-referrals-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-rentalimages-api
+  name: Outdoorsy Rental Images API
+  description: The rentalImages API from Outdoorsy — 4 operation(s) for rentalimages.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - rentalImages
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-rentalimages-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-rentalitems-api
+  name: Outdoorsy Rental Items API
+  description: The rentalItems API from Outdoorsy — 2 operation(s) for rentalitems.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - rentalItems
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-rentalitems-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-rentalitemscategories-api
+  name: Outdoorsy Rental Items Categories API
+  description: The RentalItemsCategories API from Outdoorsy — 4 operation(s) for rentalitemscategories.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - RentalItemsCategories
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-rentalitemscategories-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-rentals-api
+  name: Outdoorsy Rentals API
+  description: The Rentals API from Outdoorsy — 16 operation(s) for rentals.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Rentals
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-rentals-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-reports-api
+  name: Outdoorsy Reports API
+  description: The reports API from Outdoorsy — 5 operation(s) for reports.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - reports
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-reports-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-reviews-api
+  name: Outdoorsy Reviews API
+  description: The reviews API from Outdoorsy — 4 operation(s) for reviews.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - reviews
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-reviews-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-search-api
+  name: Outdoorsy Search API
+  description: The search API from Outdoorsy — 6 operation(s) for search.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-search-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-specialhours-api
+  name: Outdoorsy Special Hours API
+  description: The specialHours API from Outdoorsy — 2 operation(s) for specialhours.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - specialHours
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-specialhours-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-systememails-api
+  name: Outdoorsy System Emails API
+  description: The systemEmails API from Outdoorsy — 3 operation(s) for systememails.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - systemEmails
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-systememails-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-toweable-api
+  name: Outdoorsy Toweable API
+  description: The toweable API from Outdoorsy — 1 operation(s) for toweable.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - toweable
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-toweable-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-towinginfo-api
+  name: Outdoorsy Towing Info API
+  description: The towingInfo API from Outdoorsy — 1 operation(s) for towinginfo.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - towingInfo
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-towinginfo-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-transactions-api
+  name: Outdoorsy Transactions API
+  description: The transactions API from Outdoorsy — 5 operation(s) for transactions.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-twofactorauth-api
+  name: Outdoorsy Two Factor Auth API
+  description: The twoFactorAuth API from Outdoorsy — 3 operation(s) for twofactorauth.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - twoFactorAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-twofactorauth-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-usagebaseditems-api
+  name: Outdoorsy Usage Based Items API
+  description: The usageBasedItems API from Outdoorsy — 2 operation(s) for usagebaseditems.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - usageBasedItems
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-usagebaseditems-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-usagebaseditemtiers-api
+  name: Outdoorsy Usage Based Item Tiers API
+  description: The usageBasedItemTiers API from Outdoorsy — 2 operation(s) for usagebaseditemtiers.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - usageBasedItemTiers
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-usagebaseditemtiers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-usercards-api
+  name: Outdoorsy User Cards API
+  description: The userCards API from Outdoorsy — 2 operation(s) for usercards.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - userCards
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-usercards-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-usernoticeevents-api
+  name: Outdoorsy User Notice Events API
+  description: The userNoticeEvents API from Outdoorsy — 2 operation(s) for usernoticeevents.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - userNoticeEvents
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-usernoticeevents-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-users-api
+  name: Outdoorsy Users API
+  description: The users API from Outdoorsy — 9 operation(s) for users.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-users-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-vacationpackages-api
+  name: Outdoorsy Vacation Packages API
+  description: The vacationPackages API from Outdoorsy — 3 operation(s) for vacationpackages.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - vacationPackages
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-vacationpackages-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-validations-api
+  name: Outdoorsy Validations API
+  description: The validations API from Outdoorsy — 7 operation(s) for validations.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - validations
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-validations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-wishlists-api
+  name: Outdoorsy Wishlists API
+  description: The wishlists API from Outdoorsy — 9 operation(s) for wishlists.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - wishlists
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-wishlists-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/outdoorsy-api-overlay.yaml
 - type: Website
   url: https://www.outdoorsy.com/
 - type: DeveloperPortal
