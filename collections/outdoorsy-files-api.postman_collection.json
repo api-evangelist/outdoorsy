@@ -1,0 +1,1512 @@
+{
+  "item": [
+    {
+      "id": "3217b393-15c6-4630-8d31-72a11241e977",
+      "name": "files",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8e937b3-54ac-490b-a43b-8650bedfd9fe",
+          "name": "list Files",
+          "request": {
+            "name": "list Files",
+            "description": {
+              "content": "Return files",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "booking_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "signable",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "auto_include",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "account_only",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_esign",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c11bf271-a123-47ed-8de8-2f3c94648aac",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "signable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_include",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "account_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_esign",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"actor_id\": 3933,\n    \"auto_include\": false,\n    \"booking_id\": 2424,\n    \"created\": \"string\",\n    \"created_by_id\": 8551,\n    \"description\": \"string\",\n    \"description_location\": \"string\",\n    \"description_text\": \"string\",\n    \"exif_created\": \"string\",\n    \"format\": \"string\",\n    \"geo_latitude\": 4834.199858041735,\n    \"geo_longitude\": 2767.698175691847,\n    \"guid\": null,\n    \"has_damage\": false,\n    \"id\": 2508,\n    \"include_esign\": null,\n    \"message_id\": 7664,\n    \"name\": \"string\",\n    \"out_of_date\": false,\n    \"public_id\": \"string\",\n    \"rental_id\": 448,\n    \"shared\": false,\n    \"signable\": true,\n    \"signing_canceled\": null,\n    \"signing_complete\": null,\n    \"signing_service_id\": \"string\",\n    \"title\": \"string\",\n    \"type\": null,\n    \"updated\": \"string\",\n    \"url\": \"string\",\n    \"user_id\": 8774\n  },\n  {\n    \"actor_id\": 3379,\n    \"auto_include\": false,\n    \"booking_id\": 3384,\n    \"created\": \"string\",\n    \"created_by_id\": 9439,\n    \"description\": \"string\",\n    \"description_location\": \"string\",\n    \"description_text\": \"string\",\n    \"exif_created\": \"string\",\n    \"format\": \"string\",\n    \"geo_latitude\": 6817.360408925411,\n    \"geo_longitude\": 1003.6769691574332,\n    \"guid\": \"string\",\n    \"has_damage\": true,\n    \"id\": 1028,\n    \"include_esign\": true,\n    \"message_id\": 838,\n    \"name\": \"string\",\n    \"out_of_date\": true,\n    \"public_id\": \"string\",\n    \"rental_id\": 5327,\n    \"shared\": false,\n    \"signable\": true,\n    \"signing_canceled\": true,\n    \"signing_complete\": null,\n    \"signing_service_id\": \"string\",\n    \"title\": \"string\",\n    \"type\": \"string\",\n    \"updated\": \"string\",\n    \"url\": \"string\",\n    \"user_id\": 8346\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3684834-2576-4948-8360-a49a7f38f5a2",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "signable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_include",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "account_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_esign",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6754da35-9c63-4752-9b01-0353404c2c30",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "signable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_include",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "account_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_esign",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72f59994-a7db-4c48-ad8c-c2650b0784c9",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "signable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_include",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "account_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_esign",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a8a7f7c-2221-4971-86e2-3b0cf3fc7fac",
+          "name": "create File",
+          "request": {
+            "name": "create File",
+            "description": {
+              "content": "Create file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d1ef169-604c-4d00-bd50-e0e855a82f15",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7eefce5-53c6-4852-ac3e-681100883474",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05564942-671d-44c7-baa9-de1b0f3b3078",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "006f3dd8-50d6-4c77-9b81-155421a99e5c",
+          "name": "get File",
+          "request": {
+            "name": "get File",
+            "description": {
+              "content": "Response will redirect to authenticated file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "json",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "update_url",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7cb8d81-7dbd-4b95-a1e8-a8c35a13fa46",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "json",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "update_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d4ad00b-f242-4955-b419-94eb18c80365",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "json",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "update_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "feb90c79-28bf-4d16-9e64-b5f1446cd2d7",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "json",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "update_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb2d7177-04f3-4980-96f9-d064373b9b17",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "json",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "update_url",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "002ce640-06ca-40a0-9f9d-aa03b1da36e1",
+          "name": "delete File",
+          "request": {
+            "name": "delete File",
+            "description": {
+              "content": "Delete file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9303b36c-efd8-4e05-90d0-b11fd389aaf7",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1317ad2b-50c6-4281-aed9-ab0a08fcefa1",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2cace634-e85f-47b6-be54-241d273170ec",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d6bca8c-9785-40b0-a773-031d0e6fd63d",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f30fd01-e8c5-4499-bfc6-4cbd5e8af269",
+          "name": "update File",
+          "request": {
+            "name": "update File",
+            "description": {
+              "content": "Update file details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd884353-7664-4ae3-87b2-29956b82f343",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63aa78ce-33a1-4017-bd0d-cd75bc55e83a",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c79ec01-0368-4077-a5cc-b768e969233a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c331a7b-7631-41eb-aeac-8f854e7075f0",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor_id\": \"<long>\",\n  \"auto_include\": \"<boolean>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"description_location\": \"<string>\",\n  \"description_text\": \"<string>\",\n  \"exif_created\": \"<string>\",\n  \"format\": \"<string>\",\n  \"geo_latitude\": \"<double>\",\n  \"geo_longitude\": \"<double>\",\n  \"guid\": \"<string,null>\",\n  \"has_damage\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"include_esign\": \"<boolean,null>\",\n  \"message_id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"out_of_date\": \"<boolean,null>\",\n  \"public_id\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"shared\": \"<boolean>\",\n  \"signable\": \"<boolean>\",\n  \"signing_canceled\": \"<boolean,null>\",\n  \"signing_complete\": \"<boolean,null>\",\n  \"signing_service_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string,null>\",\n  \"updated\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2e71f625-d998-46fb-a976-9ed501f05c89",
+    "name": "Outdoorsy API Documentation Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

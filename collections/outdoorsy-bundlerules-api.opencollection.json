@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Bundle Rules API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bundleRules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createRule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bundles/:bundle_id/rules"
+          },
+          "docs": "Creates a bundle rule"
+        },
+        {
+          "info": {
+            "name": "getBundleRuleById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bundles/:bundle_id/rules/:id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve bundle rule by id"
+        },
+        {
+          "info": {
+            "name": "updateBundleRule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bundles/:bundle_id/rules/:id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update bundle rule"
+        },
+        {
+          "info": {
+            "name": "deleteBundleRule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bundles/:bundle_id/rules/:id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete bundle rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

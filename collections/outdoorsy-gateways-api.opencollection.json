@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Gateways API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getGatewayCreationForm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/gateways/fund_creation_form",
+            "params": [
+              {
+                "name": "gateway_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "auth_mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fund_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get gateway creation form"
+        },
+        {
+          "info": {
+            "name": "listGatewayOptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/gateways/list_options",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available gateways"
+        },
+        {
+          "info": {
+            "name": "listUserGateways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/gateways",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "managed_accounts_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fund_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available gateways"
+        },
+        {
+          "info": {
+            "name": "createGateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/gateways"
+          },
+          "docs": "Create payment gateway"
+        },
+        {
+          "info": {
+            "name": "archiveUserGateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/users/gateways/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive payment gateway"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

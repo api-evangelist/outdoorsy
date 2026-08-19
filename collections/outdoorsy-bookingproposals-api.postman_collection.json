@@ -1,0 +1,2263 @@
+{
+  "item": [
+    {
+      "id": "5d532edd-a362-4d4d-aa7b-10b0f1ad715c",
+      "name": "bookingProposals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9bdec98e-de48-43d6-8c3c-b3ee6594e1e0",
+          "name": "get Proposals",
+          "request": {
+            "name": "get Proposals",
+            "description": {
+              "content": "Return a list of proposals for the booking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d70ede3-d1a9-47f0-8cc4-c78ff7d09ec8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"action\": \"string\",\n    \"booking_id\": 5722,\n    \"created\": \"string\",\n    \"daily_changes\": [\n      {\n        \"date\": \"string\",\n        \"price\": 59\n      },\n      {\n        \"date\": \"string\",\n        \"price\": 9934\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dry_create\": false,\n    \"future_booking\": {},\n    \"id\": 7733,\n    \"note\": \"string\",\n    \"object_id\": 1109,\n    \"object_type\": \"string\",\n    \"owner_acknowledged\": \"string\",\n    \"owner_id\": 374,\n    \"renter_acknowledged\": \"string\",\n    \"renter_dismissed\": \"string\",\n    \"status\": \"string\",\n    \"updated\": \"string\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"string\",\n        \"guest_need_to_acknowledge\": true,\n        \"guest_user_text\": \"string\",\n        \"host_acknowledgement_text\": \"string\",\n        \"host_help_url\": \"string\",\n        \"host_need_to_acknowledge\": true,\n        \"host_user_text\": \"string\",\n        \"id\": 6337,\n        \"name\": \"string\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"string\",\n        \"guest_need_to_acknowledge\": true,\n        \"guest_user_text\": \"string\",\n        \"host_acknowledgement_text\": \"string\",\n        \"host_help_url\": \"string\",\n        \"host_need_to_acknowledge\": true,\n        \"host_user_text\": \"string\",\n        \"id\": 1332,\n        \"name\": \"string\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      7666,\n      5536\n    ]\n  },\n  {\n    \"action\": \"string\",\n    \"booking_id\": 9382,\n    \"created\": \"string\",\n    \"daily_changes\": [\n      {\n        \"date\": \"string\",\n        \"price\": 3468\n      },\n      {\n        \"date\": \"string\",\n        \"price\": 4733\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": false,\n    \"future_booking\": {},\n    \"id\": 3984,\n    \"note\": \"string\",\n    \"object_id\": 1272,\n    \"object_type\": \"string\",\n    \"owner_acknowledged\": \"string\",\n    \"owner_id\": 4176,\n    \"renter_acknowledged\": \"string\",\n    \"renter_dismissed\": \"string\",\n    \"status\": \"string\",\n    \"updated\": \"string\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"string\",\n        \"guest_need_to_acknowledge\": true,\n        \"guest_user_text\": \"string\",\n        \"host_acknowledgement_text\": \"string\",\n        \"host_help_url\": \"string\",\n        \"host_need_to_acknowledge\": true,\n        \"host_user_text\": \"string\",\n        \"id\": 4827,\n        \"name\": \"string\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"string\",\n        \"guest_need_to_acknowledge\": true,\n        \"guest_user_text\": \"string\",\n        \"host_acknowledgement_text\": \"string\",\n        \"host_help_url\": \"string\",\n        \"host_need_to_acknowledge\": true,\n        \"host_user_text\": \"string\",\n        \"id\": 6395,\n        \"name\": \"string\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      4166,\n      4368\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d197a26-5007-4a33-97b1-cf35e148198b",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c058265b-1824-4a36-85d5-887059d5bbb1",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9299bc7b-81a0-4680-8216-bb7db500bb2f",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e79db9f-b101-4091-bcb4-bf5f1e46a91d",
+          "name": "create Proposal",
+          "request": {
+            "name": "create Proposal",
+            "description": {
+              "content": "Creates a new booking proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aaaa81b0-868f-48d0-b904-89b98d1cb730",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d71572d-a319-4fc2-9876-92efebeca921",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "463e424b-f1a6-4990-b237-bf97bff82c53",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95a29e93-e8c8-410d-9ac0-8b0095052739",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffe0efd5-9365-4273-9fe7-f6130b239ba2",
+          "name": "batch Delete Proposals",
+          "request": {
+            "name": "batch Delete Proposals",
+            "description": {
+              "content": "Delete a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals",
+                "batch-delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9382158-d23f-4c94-89a1-bb10e56b2fd6",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "710f7ad2-4a7c-4cc4-9711-082e4537e2e0",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0597947-7a21-4abd-acd0-e8899d29c40a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a23e6957-447b-43c2-8139-25d3db2f8583",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7276568f-a568-4643-8d93-1238f449bee8",
+          "name": "batch Update Proposals",
+          "request": {
+            "name": "batch Update Proposals",
+            "description": {
+              "content": "Batch update a proposals only for addons",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals",
+                "batch-update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc0e3341-e396-492d-bac7-82fdd7adef25",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  {\n    \"action\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"created\": \"<string>\",\n    \"daily_changes\": [\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"price\": \"<long>\"\n      }\n    ],\n    \"details\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"dry_create\": \"<boolean>\",\n    \"future_booking\": {},\n    \"id\": \"<long>\",\n    \"note\": \"<string>\",\n    \"object_id\": \"<uint64>\",\n    \"object_type\": \"<string>\",\n    \"owner_acknowledged\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"renter_acknowledged\": \"<string>\",\n    \"renter_dismissed\": \"<string>\",\n    \"status\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"user_notice_events\": [\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"guest_acknowledgement_text\": \"<string>\",\n        \"guest_need_to_acknowledge\": \"<boolean>\",\n        \"guest_user_text\": \"<string>\",\n        \"host_acknowledgement_text\": \"<string>\",\n        \"host_help_url\": \"<string>\",\n        \"host_need_to_acknowledge\": \"<boolean>\",\n        \"host_user_text\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"user_notices_acknowledged\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54cdfc09-0120-4d77-ac85-4e50ea3c8c9c",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6fe05ee-de07-41a1-a664-af1c58d78efe",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50cb18ef-4dc6-4e14-8bc2-52a65040f4df",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    "batch-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e931f653-0776-466a-839f-cab0b5e04170",
+          "name": "get Proposal By Id",
+          "request": {
+            "name": "get Proposal By Id",
+            "description": {
+              "content": "Returns a single booking proposal by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a6627e6-32e5-4af5-a068-ea9a6eade7cc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "088e6c57-17fc-45a5-99d7-cb75bee20bea",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5520544-8c9f-478f-a1bd-4cffeb77b410",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a12788b7-c345-4e26-b11d-fdf2c46389b1",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94413065-4847-495a-ab12-43b63d29f64b",
+          "name": "delete Proposal",
+          "request": {
+            "name": "delete Proposal",
+            "description": {
+              "content": "Delete a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0081e85d-aaa7-4966-81ea-05e4a12eb0d2",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "49127fc2-59e7-48c0-83af-cd7bf9473618",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5048185-4fa2-4092-bc14-b78654cd15c4",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3bfb09a-54f4-4eca-9d84-a424c4787863",
+          "name": "update Proposal",
+          "request": {
+            "name": "update Proposal",
+            "description": {
+              "content": "Update a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "098c6652-2954-49fe-883e-66277199b17e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fa6302a-ef25-4621-84d3-1edcb12dfc24",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0e37827e-1203-471f-981e-674449ce3675",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "baa333eb-4b25-41cc-a0fe-ffae1c1bdb27",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"created\": \"<string>\",\n  \"daily_changes\": [\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"price\": \"<long>\"\n    }\n  ],\n  \"details\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"dry_create\": \"<boolean>\",\n  \"future_booking\": {},\n  \"id\": \"<long>\",\n  \"note\": \"<string>\",\n  \"object_id\": \"<uint64>\",\n  \"object_type\": \"<string>\",\n  \"owner_acknowledged\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"renter_acknowledged\": \"<string>\",\n  \"renter_dismissed\": \"<string>\",\n  \"status\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_notice_events\": [\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"guest_acknowledgement_text\": \"<string>\",\n      \"guest_need_to_acknowledge\": \"<boolean>\",\n      \"guest_user_text\": \"<string>\",\n      \"host_acknowledgement_text\": \"<string>\",\n      \"host_help_url\": \"<string>\",\n      \"host_need_to_acknowledge\": \"<boolean>\",\n      \"host_user_text\": \"<string>\",\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"user_notices_acknowledged\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e2243f8-544c-42e8-bfdf-a3a0679017db",
+          "name": "act On Proposal",
+          "request": {
+            "name": "act On Proposal",
+            "description": {
+              "content": "Accept or decline the open proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "proposals",
+                ":id",
+                "act"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bca7383-1706-498c-90bf-a5a3edce6036",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id",
+                    "act"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "61906476-1efe-40bd-8e74-d161387fa6dc",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id",
+                    "act"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66ac6a98-c111-4099-9802-c44c1bfef98a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id",
+                    "act"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5cac390a-c195-4e26-96fd-60176b619842",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "proposals",
+                    ":id",
+                    "act"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb0a34bb-a856-465a-9b45-665a3bfec79d",
+    "name": "Outdoorsy API Documentation Booking Proposals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

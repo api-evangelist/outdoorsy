@@ -1,0 +1,291 @@
+{
+  "item": [
+    {
+      "id": "2dbadcd5-aaa6-4156-84c1-060968ebe8fc",
+      "name": "payouts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "705249c4-0d56-4c3f-8dee-e5febd91f9a1",
+          "name": "list Payouts",
+          "request": {
+            "name": "list Payouts",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions",
+                "payout-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b72cef0-fa24-4bea-8b0d-fd47036e8440",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "payout-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"actual_deposit_date\": \"string\",\n    \"adjustment\": 5177,\n    \"amount\": 9129,\n    \"auto_deposit\": true,\n    \"available\": \"string\",\n    \"booking_id\": 8770,\n    \"brand\": \"string\",\n    \"can_delete\": false,\n    \"can_finance_sync\": false,\n    \"can_refund\": true,\n    \"can_retry\": true,\n    \"can_reverse_transfer\": false,\n    \"can_sync\": true,\n    \"can_transfer\": false,\n    \"cc_fee\": 4536,\n    \"charged\": \"string\",\n    \"created\": \"string\",\n    \"created_by_id\": 6041,\n    \"deposit_date\": \"string\",\n    \"description\": \"string\",\n    \"display_charge_type\": \"string\",\n    \"display_payment_processor_name\": \"string\",\n    \"display_type\": \"string\",\n    \"dispute_reason\": \"string\",\n    \"dispute_status\": \"string\",\n    \"disputed\": false,\n    \"expected_deposit_date\": \"string\",\n    \"failed\": false,\n    \"fraudulent\": true,\n    \"fx_fee\": 4297,\n    \"id\": 3044,\n    \"is_refund\": true,\n    \"last_four\": \"string\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": 8838,\n    \"outdoorsy_fee\": 9181,\n    \"owner_federal_withholding_tax\": 6712,\n    \"owner_fee\": 5827,\n    \"owner_integrations_fee\": 5973,\n    \"owner_quebec_sales_tax\": 1620,\n    \"paid\": true,\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"payment_source\": \"string\",\n    \"processor_settlement_id\": null,\n    \"recipient_id\": 4836,\n    \"refund_source\": \"string\",\n    \"refunded\": 8463,\n    \"refunded_cc_fee\": 250,\n    \"refunded_fee\": 1955,\n    \"refunded_fx_fee\": 6474,\n    \"refunded_outdoorsy_fee\": 9027,\n    \"refunded_owner_federal_withholding_tax\": 8643,\n    \"refunded_owner_fee\": 5413,\n    \"refunded_owner_integrations_fee\": null,\n    \"refunded_owner_quebec_sales_tax\": 4710,\n    \"refunded_service_fee\": 5466,\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": 3779,\n    \"service_fee\": 8902,\n    \"status\": \"string\",\n    \"stripe_fee\": 4755,\n    \"stripe_fee_refund\": 1154,\n    \"stripe_id\": \"string\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"actual_deposit_date\": \"string\",\n    \"adjustment\": 3209,\n    \"amount\": 4713,\n    \"auto_deposit\": true,\n    \"available\": \"string\",\n    \"booking_id\": 8800,\n    \"brand\": \"string\",\n    \"can_delete\": false,\n    \"can_finance_sync\": false,\n    \"can_refund\": true,\n    \"can_retry\": true,\n    \"can_reverse_transfer\": false,\n    \"can_sync\": false,\n    \"can_transfer\": true,\n    \"cc_fee\": 5091,\n    \"charged\": \"string\",\n    \"created\": \"string\",\n    \"created_by_id\": 608,\n    \"deposit_date\": \"string\",\n    \"description\": \"string\",\n    \"display_charge_type\": \"string\",\n    \"display_payment_processor_name\": \"string\",\n    \"display_type\": \"string\",\n    \"dispute_reason\": \"string\",\n    \"dispute_status\": \"string\",\n    \"disputed\": true,\n    \"expected_deposit_date\": \"string\",\n    \"failed\": false,\n    \"fraudulent\": false,\n    \"fx_fee\": 41,\n    \"id\": 2885,\n    \"is_refund\": false,\n    \"last_four\": \"string\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": 7686,\n    \"outdoorsy_fee\": 1122,\n    \"owner_federal_withholding_tax\": 7792,\n    \"owner_fee\": 3047,\n    \"owner_integrations_fee\": 2754,\n    \"owner_quebec_sales_tax\": 3006,\n    \"paid\": false,\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"payment_source\": \"string\",\n    \"processor_settlement_id\": null,\n    \"recipient_id\": 2962,\n    \"refund_source\": \"string\",\n    \"refunded\": 3059,\n    \"refunded_cc_fee\": 5677,\n    \"refunded_fee\": 4050,\n    \"refunded_fx_fee\": 6209,\n    \"refunded_outdoorsy_fee\": 6027,\n    \"refunded_owner_federal_withholding_tax\": 1359,\n    \"refunded_owner_fee\": 898,\n    \"refunded_owner_integrations_fee\": null,\n    \"refunded_owner_quebec_sales_tax\": 8607,\n    \"refunded_service_fee\": 6415,\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": 4450,\n    \"service_fee\": 2039,\n    \"status\": \"string\",\n    \"stripe_fee\": 1047,\n    \"stripe_fee_refund\": 1360,\n    \"stripe_id\": \"string\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76e55960-5fac-4359-ab98-589c18fa1d47",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "payout-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d288632-d14e-4959-b485-65bb6e513db1",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "payout-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6df2b500-7619-4a91-b88b-18e92ac34ca5",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "payout-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f346ee22-4692-4bc8-a4f4-86a5ab10d6b1",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "payout-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "07d77c86-7c53-4971-b65f-39aaaa5a0108",
+    "name": "Outdoorsy API Documentation Payouts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

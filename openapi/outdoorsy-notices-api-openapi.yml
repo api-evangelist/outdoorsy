@@ -1,0 +1,44 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Notices API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: notices
+paths:
+  /notices:
+    get:
+      description: Return list of available notices
+      tags:
+      - notices
+      operationId: listNotices
+      responses:
+        '200':
+          $ref: '#/components/responses/listNoticeResponse'
+components:
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

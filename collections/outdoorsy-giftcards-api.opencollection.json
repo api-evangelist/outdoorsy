@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Gift Cards API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GiftCards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send referral communications to a list of friends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/gift_cards/claim",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send referral communications to a list of friends."
+        },
+        {
+          "info": {
+            "name": "Read a gift card.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/gift_cards/:gift_card_id",
+            "params": [
+              {
+                "name": "gift_card_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Read a gift card."
+        },
+        {
+          "info": {
+            "name": "Send referral communications to a list of friends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/gift_cards/:gift_card_id/fund",
+            "params": [
+              {
+                "name": "credit_card_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send referral communications to a list of friends."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

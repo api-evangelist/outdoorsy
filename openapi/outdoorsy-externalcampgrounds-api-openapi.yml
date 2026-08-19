@@ -1,0 +1,1481 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy Search API is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy Search Documentation External Campgrounds API
+  version: 0.0.1
+security:
+- Bearer:
+  - '[]'
+tags:
+- name: externalCampgrounds
+paths:
+  /external-campgrounds:
+    get:
+      description: Search performs search on external campgrounds
+      tags:
+      - externalCampgrounds
+      operationId: searchExternalCampgrounds
+      parameters:
+      - x-go-name: KeywordsSwaggerPlaceholder
+        description: 'List of keywords, comma-separated, e.g. "Komfort,wifi"
+
+          The fields checked for keywords are: name, description, vehicle_make, vehicle_model, and tags'
+        name: filter[keywords]
+        in: query
+        schema:
+          type: string
+      - x-go-name: RentalTypeSwaggerPlaceholder
+        description: List of rental types, e.g. "b,c,camper-van"
+        name: filter[type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: RentalCategorySwaggerPlaceholder
+        description: Rental category, e.g. "rv", "stay", "campground"
+        name: filter[rental_category]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryTypesSwaggerPlaceholder
+        description: Campsite category types, e.g. "rv_site", "lodging_site", "tent_site"
+        name: cs[category_types]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryRVSiteFeaturesSwaggerPlaceholder
+        description: Campsite category rv site Features list, e.g. "pet_friendly,accessible"
+        name: cs[rv_site_features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryTentSiteFeaturesSwaggerPlaceholder
+        description: Campsite category tent site Features list, e.g. "pet_friendly,accessible"
+        name: cs[tent_site_features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryLodgingSiteFeaturesSwaggerPlaceholder
+        description: Campsite category lodging site Features list, e.g. "pet_friendly,accessible"
+        name: cs[lodging_features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: ExcludeTypeSwaggerPlaceholder
+        description: List of rental types to exclude, e.g. "b,c"
+        name: filter[exclude_type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: StyleSwaggerPlaceholder
+        description: List of styles, e.g. "drivable,towable,both"
+        name: filter[style]
+        in: query
+        schema:
+          type: string
+      - x-go-name: TagsSwaggerPlaceholder
+        description: List of tags, e.g. "Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for
+          couples"
+        name: filter[tags]
+        in: query
+        schema:
+          type: string
+      - x-go-name: FeaturesSwaggerPlaceholder
+        description: Feature list, e.g. "dining_table,inside_shower,wifi"
+        name: filter[feature]
+        in: query
+        schema:
+          type: string
+      - x-go-name: OwnerTypeSwaggerPlaceholder
+        description: 'Owner type, one of: "dealer"," pro"'
+        name: filter[owner_type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationIDsSwaggerPlaceholder
+        description: Location IDs, e.g. "1697,791,1369"
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: IDsSwaggerPlaceholder
+        description: Rental IDs to return, e.g. "50302,50303"
+        name: ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: ExcludeIDsSwaggerPlaceholder
+        description: Rental IDs to exclude, e.g. "50303,503034"
+        name: exclude
+        in: query
+        schema:
+          type: string
+      - x-go-name: OwnerIDsSwaggerPlaceholder
+        description: Owner IDs, e.g. "255926,251875"
+        name: owner_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: SortBySwaggerPlaceholder
+        description: One or many of "price", "-price", "position", "-position", "seatbelts", "-seatbelts",
+          "sleeps", "-sleeps", "rating", "-rating", "distance", "-distance", "num_reviews", "-num_reviews",
+          "new_listings"
+        name: sort
+        in: query
+        schema:
+          type: string
+      - x-go-name: AutoRadiusSwaggerPlaceholder
+        description: 'Increment search radius until enough results are provided (specified by ''page[limit]''
+          parameter.)
+
+          Max radius is 1000 miles. (default false)'
+        name: auto_radius
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Source
+        description: making a variable for source
+        name: source
+        in: query
+        schema:
+          type: string
+      - x-go-name: Random
+        description: Random Score
+        name: random
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Seatbelts
+        description: Number of seatbelts
+        name: seatbelts
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Sleeps
+        description: Total people to sleep
+        name: sleeps
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: SleepsAdults
+        description: Adults to sleep
+        name: sleeps[adults]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: SleepsKids
+        description: Kids to sleep
+        name: sleeps[kids]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: SleepsInfants
+        description: Infants to sleep
+        name: sleeps[infants]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RenterAge
+        description: Minimum renter age required for rental
+        name: renter_age
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        description: Limit the number of results (default 25, max 150)
+        name: page[limit]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        description: Skip some results and return results starting with this offset (min 0, max 1000)
+        name: page[offset]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: PriceMin
+        description: Min price
+        name: price[min]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: PriceMax
+        description: Max price
+        name: price[max]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TotalPriceMin
+        description: Min price
+        name: total_price[min]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TotalPriceMax
+        description: Max price
+        name: total_price[max]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: DateFrom
+        description: Date from, for date range query, e.g. 2021-06-01
+        name: date[from]
+        in: query
+        schema:
+          type: string
+      - x-go-name: DateTo
+        description: Date to, for date range query, e.g. 2021-06-14
+        name: date[to]
+        in: query
+        schema:
+          type: string
+      - x-go-name: FlexibleDays
+        description: Flexible Days +/- 1-3 days. (default 0)
+        name: flexible_days
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Near
+        description: Latitude,longitude to search near, e.g. "38.302,-121.972". Supersedes address. Superseded
+          by bounding box.
+        name: near
+        in: query
+        schema:
+          type: string
+      - x-go-name: Address
+        description: 'Street address to search near. Superseded by latitude/longitude and by bounding
+          box.
+
+          If no `address` is passed, GeoIP is used to get geo coordinates.'
+        name: address
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: DeliveryAddress
+        description: Street address to be delivered to. Supersedes `address` field. Default radius 100
+          miles
+        name: delivery_address
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: BoundsNE
+        description: Bounding box'es north-east, e.g. "37.812, -122.3482"
+        name: bounds[ne]
+        in: query
+        schema:
+          type: string
+      - x-go-name: BoundsSW
+        description: Bounding box'es south-west, e.g. "37.703399, -122.526999"
+        name: bounds[sw]
+        in: query
+        schema:
+          type: string
+      - x-go-name: NearRentalID
+        description: 'Rental ID to search near, e.g. 37183. Superseded by bounding box.
+
+          Specified rental is boosted to be at the top of the results.'
+        name: near_rental
+        in: query
+        schema:
+          type: string
+      - x-go-name: Radius
+        description: Search radius (miles)
+        name: radius
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OwnerID
+        description: Owner ID, e.g. 255926
+        name: owner_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Slug
+        description: Pro user slug, e.g. "hwyonerentals"
+        name: slug
+        in: query
+        schema:
+          type: string
+      - x-go-name: ShowHidden
+        description: Show hidden results? (Non-hidden results will not be returned.)
+        name: hidden
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Score
+        description: Only return results with scores greater or equal than this
+        name: score
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: UnlimitedMiles
+        description: Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true,
+          False
+        name: unlimited_miles
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: UnlimitedGenerator
+        description: Only return results with unlimited generator hours? Boolean string
+        name: unlimited_generator
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: InstantBook
+        description: Only return results with instant book? Boolean string
+        name: instant_book
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: RequireDriverVerification
+        description: Only return results with insurance requiring driver verification? Boolean string
+        name: requires_driver_verification
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Currency
+        description: Currency unit for price range requests (default USD)
+        name: currency
+        in: query
+        schema:
+          type: string
+      - x-go-name: DistanceUnit
+        description: Distance unit for location search requests
+        name: distance_unit
+        in: query
+        schema:
+          type: string
+      - x-go-name: LengthLTE
+        description: Max vehicle length, integer
+        name: length[lte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LengthGTE
+        description: Min vehicle length, integer
+        name: length[gte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LengthBetween
+        description: 'Length ranges (e.g.: "18-24,25-31,32-38")'
+        name: length[between]
+        in: query
+        schema:
+          type: array
+          items:
+            type: array
+            items:
+              type: integer
+              format: int64
+      - x-go-name: YearLTE
+        description: Max vehicle year, e.g. 2019
+        name: year[lte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: YearGTE
+        description: Min vehicle year, e.g. 1960
+        name: year[gte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LastPublishedLTE
+        description: Published on or before date, e.g. 2020-12-02
+        name: last_published[lte]
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - x-go-name: LastPublishedGTE
+        description: Published on or after date, e.g. 2006-01-02
+        name: last_published[gte]
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - x-go-name: TrailerWeightLTE
+        description: Max trailer weight, integer
+        name: trailer_weight[lte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TrailerWeightGTE
+        description: Min trailer weight, integer
+        name: trailer_weight[gte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: WeightUnit
+        description: 'Weight unit, one of: "kg", "lbs"'
+        name: weight_unit
+        in: query
+        schema:
+          type: string
+      - x-go-name: CancelPolicy
+        description: 'Cancel policy: values "strict", "moderate", "flexible", "custom"'
+        name: cancel_policy
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: InsuranceState
+        description: State of insurance, e.g. "approved"
+        name: insurance_state
+        in: query
+        schema:
+          type: string
+      - x-go-name: VehicleMake
+        description: 'Vehicle make. Examples: "Jeep", "Horse", "Catering", "Winnebago", "Champion", "Komfort",
+          "Thor Motor Coach"'
+        name: filter[vehicle_make]
+        in: query
+        schema:
+          type: string
+      - x-go-name: VehicleModel
+        description: 'Vehicle model. Examples: "Wrangler", "Trailer Bar", "Westfalia", "Four Winds"'
+        name: filter[vehicle_model]
+        in: query
+        schema:
+          type: string
+      - x-go-name: Transmission
+        description: 'Transmission type. Examples: "automatic", "manual"'
+        name: filter[transmission]
+        in: query
+        schema:
+          type: string
+      - x-go-name: FuelType
+        description: 'Fuel type. Examples: "gas", "diesel", "electric"'
+        name: filter[fuel_type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: Delivery
+        description: Delivery available?
+        name: delivery
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: DeliveryStationary
+        name: delivery_stationary
+        in: query
+        schema:
+          type: string
+      - x-go-name: DeliveryCampgroundID
+        description: Are we searching for vehicles to deliver to a campground?
+        name: delivery_campground_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Debug
+        description: Include some debug output, such as hit count and query source
+        name: debug
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: AllowsLongTerm
+        description: Include rentals which have a monthly discount
+        name: allows_long_term
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeUnavailable
+        description: 'Include vehicles already booked for the specified date range?
+
+          In results, each rental will get a boolean field unavailable set to true or false.'
+        name: include_unavailable
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Only
+        description: 'Limit returned keys. One of: "meta", "rentals"'
+        name: only
+        in: query
+        schema:
+          type: string
+      - x-go-name: CountrySwaggerPlaceholder
+        description: Limit search to a specific locale, e.g. en-us (default en-us)
+        name: locale
+        in: query
+        schema:
+          type: string
+      - x-go-name: NewOwnersSwaggerPlaceholder
+        description: Rentals of owners who have published a first listing in the past 30 days
+        name: new_owners
+        in: query
+        schema:
+          type: boolean
+      - $ref: '#/components/schemas/ABTest'
+        name: ABTest
+        in: query
+      - x-go-name: CampsiteCategoryMaxVehicleLength
+        name: cs[max_vehicle_length]
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: CampsiteCategoryBeds
+        name: cs[beds]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryBedrooms
+        name: cs[bedrooms]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryBathrooms
+        name: cs[bathrooms]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryParkingOnsite
+        name: cs[parking_onsite]
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: CampsiteCategoryMaxParkingSpaces
+        name: cs[max_parking_spaces]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryIsODN
+        name: cs[is_odn]
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: CampsiteCategorySupportedTypes
+        name: cs[supported_types]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: CampsiteCategorySupportedLength
+        name: cs[supported_length]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategorySupportedSlideouts
+        name: cs[supported_slideouts]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: CampsiteCategoryHasPricing
+        name: cs[has_pricing]
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: PropertyTypes
+        description: 'Property type filter Examples: "campground", "private-property"'
+        name: filter[property]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: IncludeNearbyCampgrounds
+        description: Include nearby campgrounds in the response
+        name: include_nearby_campgrounds
+        in: query
+        schema:
+          type: boolean
+      - name: TotalPriceSortDirection
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: CampgroundFeaturesSwaggerPlaceholder
+        description: 'Campground specific: */
+
+          Campground Features list, e.g. "pet_friendly,accessible"'
+        name: cg[features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: NearExternalCampgroundID
+        description: Specified external campground is boosted to be at the top of the results.
+        name: cg[near_campground]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampgroundVacationPackageSlug
+        name: cg[vacation_package_slug]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampgroundCategoriesSwaggerPlaceholder
+        description: Campground Categories list, e.g. "city,forest,etc."
+        name: cg[categories]
+        in: query
+        schema:
+          type: string
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiExternalCampgroundsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+  /external-campgrounds/nearby-for-rental/{rental_id}:
+    get:
+      description: Searches nearby claimed and unclaimed campgrounds for a given rental with rental_id
+      tags:
+      - externalCampgrounds
+      operationId: searchNearbyCampgrounds
+      parameters:
+      - x-go-name: RentalID
+        name: rental_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiNearbyCampgroundsResponse'
+  /external-campgrounds/{id}:
+    get:
+      description: Get external campgrounds by id
+      tags:
+      - externalCampgrounds
+      operationId: getExternalCampground
+      parameters:
+      - x-go-name: KeywordsSwaggerPlaceholder
+        description: 'List of keywords, comma-separated, e.g. "Komfort,wifi"
+
+          The fields checked for keywords are: name, description, vehicle_make, vehicle_model, and tags'
+        name: filter[keywords]
+        in: query
+        schema:
+          type: string
+      - x-go-name: RentalTypeSwaggerPlaceholder
+        description: List of rental types, e.g. "b,c,camper-van"
+        name: filter[type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: RentalCategorySwaggerPlaceholder
+        description: Rental category, e.g. "rv", "stay", "campground"
+        name: filter[rental_category]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryTypesSwaggerPlaceholder
+        description: Campsite category types, e.g. "rv_site", "lodging_site", "tent_site"
+        name: cs[category_types]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryRVSiteFeaturesSwaggerPlaceholder
+        description: Campsite category rv site Features list, e.g. "pet_friendly,accessible"
+        name: cs[rv_site_features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryTentSiteFeaturesSwaggerPlaceholder
+        description: Campsite category tent site Features list, e.g. "pet_friendly,accessible"
+        name: cs[tent_site_features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: CampsiteCategoryLodgingSiteFeaturesSwaggerPlaceholder
+        description: Campsite category lodging site Features list, e.g. "pet_friendly,accessible"
+        name: cs[lodging_features]
+        in: query
+        schema:
+          type: string
+      - x-go-name: ExcludeTypeSwaggerPlaceholder
+        description: List of rental types to exclude, e.g. "b,c"
+        name: filter[exclude_type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: StyleSwaggerPlaceholder
+        description: List of styles, e.g. "drivable,towable,both"
+        name: filter[style]
+        in: query
+        schema:
+          type: string
+      - x-go-name: TagsSwaggerPlaceholder
+        description: List of tags, e.g. "Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for
+          couples"
+        name: filter[tags]
+        in: query
+        schema:
+          type: string
+      - x-go-name: FeaturesSwaggerPlaceholder
+        description: Feature list, e.g. "dining_table,inside_shower,wifi"
+        name: filter[feature]
+        in: query
+        schema:
+          type: string
+      - x-go-name: OwnerTypeSwaggerPlaceholder
+        description: 'Owner type, one of: "dealer"," pro"'
+        name: filter[owner_type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationIDsSwaggerPlaceholder
+        description: Location IDs, e.g. "1697,791,1369"
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: IDsSwaggerPlaceholder
+        description: Rental IDs to return, e.g. "50302,50303"
+        name: ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: ExcludeIDsSwaggerPlaceholder
+        description: Rental IDs to exclude, e.g. "50303,503034"
+        name: exclude
+        in: query
+        schema:
+          type: string
+      - x-go-name: OwnerIDsSwaggerPlaceholder
+        description: Owner IDs, e.g. "255926,251875"
+        name: owner_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: SortBySwaggerPlaceholder
+        description: One or many of "price", "-price", "position", "-position", "seatbelts", "-seatbelts",
+          "sleeps", "-sleeps", "rating", "-rating", "distance", "-distance", "num_reviews", "-num_reviews",
+          "new_listings"
+        name: sort
+        in: query
+        schema:
+          type: string
+      - x-go-name: AutoRadiusSwaggerPlaceholder
+        description: 'Increment search radius until enough results are provided (specified by ''page[limit]''
+          parameter.)
+
+          Max radius is 1000 miles. (default false)'
+        name: auto_radius
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Source
+        description: making a variable for source
+        name: source
+        in: query
+        schema:
+          type: string
+      - x-go-name: Random
+        description: Random Score
+        name: random
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Seatbelts
+        description: Number of seatbelts
+        name: seatbelts
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Sleeps
+        description: Total people to sleep
+        name: sleeps
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: SleepsAdults
+        description: Adults to sleep
+        name: sleeps[adults]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: SleepsKids
+        description: Kids to sleep
+        name: sleeps[kids]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: SleepsInfants
+        description: Infants to sleep
+        name: sleeps[infants]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RenterAge
+        description: Minimum renter age required for rental
+        name: renter_age
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        description: Limit the number of results (default 25, max 150)
+        name: page[limit]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        description: Skip some results and return results starting with this offset (min 0, max 1000)
+        name: page[offset]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: PriceMin
+        description: Min price
+        name: price[min]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: PriceMax
+        description: Max price
+        name: price[max]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TotalPriceMin
+        description: Min price
+        name: total_price[min]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TotalPriceMax
+        description: Max price
+        name: total_price[max]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: DateFrom
+        description: Date from, for date range query, e.g. 2021-06-01
+        name: date[from]
+        in: query
+        schema:
+          type: string
+      - x-go-name: DateTo
+        description: Date to, for date range query, e.g. 2021-06-14
+        name: date[to]
+        in: query
+        schema:
+          type: string
+      - x-go-name: FlexibleDays
+        description: Flexible Days +/- 1-3 days. (default 0)
+        name: flexible_days
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Near
+        description: Latitude,longitude to search near, e.g. "38.302,-121.972". Supersedes address. Superseded
+          by bounding box.
+        name: near
+        in: query
+        schema:
+          type: string
+      - x-go-name: Address
+        description: 'Street address to search near. Superseded by latitude/longitude and by bounding
+          box.
+
+          If no `address` is passed, GeoIP is used to get geo coordinates.'
+        name: address
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: DeliveryAddress
+        description: Street address to be delivered to. Supersedes `address` field. Default radius 100
+          miles
+        name: delivery_address
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: BoundsNE
+        description: Bounding box'es north-east, e.g. "37.812, -122.3482"
+        name: bounds[ne]
+        in: query
+        schema:
+          type: string
+      - x-go-name: BoundsSW
+        description: Bounding box'es south-west, e.g. "37.703399, -122.526999"
+        name: bounds[sw]
+        in: query
+        schema:
+          type: string
+      - x-go-name: NearRentalID
+        description: 'Rental ID to search near, e.g. 37183. Superseded by bounding box.
+
+          Specified rental is boosted to be at the top of the results.'
+        name: near_rental
+        in: query
+        schema:
+          type: string
+      - x-go-name: Radius
+        description: Search radius (miles)
+        name: radius
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OwnerID
+        description: Owner ID, e.g. 255926
+        name: owner_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Slug
+        description: Pro user slug, e.g. "hwyonerentals"
+        name: slug
+        in: query
+        schema:
+          type: string
+      - x-go-name: ShowHidden
+        description: Show hidden results? (Non-hidden results will not be returned.)
+        name: hidden
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Score
+        description: Only return results with scores greater or equal than this
+        name: score
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: UnlimitedMiles
+        description: Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true,
+          False
+        name: unlimited_miles
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: UnlimitedGenerator
+        description: Only return results with unlimited generator hours? Boolean string
+        name: unlimited_generator
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: InstantBook
+        description: Only return results with instant book? Boolean string
+        name: instant_book
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: RequireDriverVerification
+        description: Only return results with insurance requiring driver verification? Boolean string
+        name: requires_driver_verification
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Currency
+        description: Currency unit for price range requests (default USD)
+        name: currency
+        in: query
+        schema:
+          type: string
+      - x-go-name: DistanceUnit
+        description: Distance unit for location search requests
+        name: distance_unit
+        in: query
+        schema:
+          type: string
+      - x-go-name: LengthLTE
+        description: Max vehicle length, integer
+        name: length[lte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LengthGTE
+        description: Min vehicle length, integer
+        name: length[gte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LengthBetween
+        description: 'Length ranges (e.g.: "18-24,25-31,32-38")'
+        name: length[between]
+        in: query
+        schema:
+          type: array
+          items:
+            type: array
+            items:
+              type: integer
+              format: int64
+      - x-go-name: YearLTE
+        description: Max vehicle year, e.g. 2019
+        name: year[lte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: YearGTE
+        description: Min vehicle year, e.g. 1960
+        name: year[gte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LastPublishedLTE
+        description: Published on or before date, e.g. 2020-12-02
+        name: last_published[lte]
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - x-go-name: LastPublishedGTE
+        description: Published on or after date, e.g. 2006-01-02
+        name: last_published[gte]
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - x-go-name: TrailerWeightLTE
+        description: Max trailer weight, integer
+        name: trailer_weight[lte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TrailerWeightGTE
+        description: Min trailer weight, integer
+        name: trailer_weight[gte]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: WeightUnit
+        description: 'Weight unit, one of: "kg", "lbs"'
+        name: weight_unit
+        in: query
+        schema:
+          type: string
+      - x-go-name: CancelPolicy
+        description: 'Cancel policy: values "strict", "moderate", "flexible", "custom"'
+        name: cancel_policy
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: InsuranceState
+        description: State of insurance, e.g. "approved"
+        name: insurance_state
+        in: query
+        schema:
+          type: string
+      - x-go-name: VehicleMake
+        description: 'Vehicle make. Examples: "Jeep", "Horse", "Catering", "Winnebago", "Champion", "Komfort",
+          "Thor Motor Coach"'
+        name: filter[vehicle_make]
+        in: query
+        schema:
+          type: string
+      - x-go-name: VehicleModel
+        description: 'Vehicle model. Examples: "Wrangler", "Trailer Bar", "Westfalia", "Four Winds"'
+        name: filter[vehicle_model]
+        in: query
+        schema:
+          type: string
+      - x-go-name: Transmission
+        description: 'Transmission type. Examples: "automatic", "manual"'
+        name: filter[transmission]
+        in: query
+        schema:
+          type: string
+      - x-go-name: FuelType
+        description: 'Fuel type. Examples: "gas", "diesel", "electric"'
+        name: filter[fuel_type]
+        in: query
+        schema:
+          type: string
+      - x-go-name: Delivery
+        description: Delivery available?
+        name: delivery
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: DeliveryStationary
+        name: delivery_stationary
+        in: query
+        schema:
+          type: string
+      - x-go-name: DeliveryCampgroundID
+        description: Are we searching for vehicles to deliver to a campground?
+        name: delivery_campground_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Debug
+        description: Include some debug output, such as hit count and query source
+        name: debug
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: AllowsLongTerm
+        description: Include rentals which have a monthly discount
+        name: allows_long_term
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeUnavailable
+        description: 'Include vehicles already booked for the specified date range?
+
+          In results, each rental will get a boolean field unavailable set to true or false.'
+        name: include_unavailable
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Only
+        description: 'Limit returned keys. One of: "meta", "rentals"'
+        name: only
+        in: query
+        schema:
+          type: string
+      - x-go-name: CountrySwaggerPlaceholder
+        description: Limit search to a specific locale, e.g. en-us (default en-us)
+        name: locale
+        in: query
+        schema:
+          type: string
+      - x-go-name: NewOwnersSwaggerPlaceholder
+        description: Rentals of owners who have published a first listing in the past 30 days
+        name: new_owners
+        in: query
+        schema:
+          type: boolean
+      - $ref: '#/components/schemas/ABTest'
+        name: ABTest
+        in: query
+      - x-go-name: CampsiteCategoryMaxVehicleLength
+        name: cs[max_vehicle_length]
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: CampsiteCategoryBeds
+        name: cs[beds]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryBedrooms
+        name: cs[bedrooms]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryBathrooms
+        name: cs[bathrooms]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryParkingOnsite
+        name: cs[parking_onsite]
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: CampsiteCategoryMaxParkingSpaces
+        name: cs[max_parking_spaces]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategoryIsODN
+        name: cs[is_odn]
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: CampsiteCategorySupportedTypes
+        name: cs[supported_types]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: CampsiteCategorySupportedLength
+        name: cs[supported_length]
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CampsiteCategorySupportedSlideouts
+        name: cs[supported_slideouts]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: CampsiteCategoryHasPricing
+        name: cs[has_pricing]
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: PropertyTypes
+        description: 'Property type filter Examples: "campground", "private-property"'
+        name: filter[property]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-name: IncludeNearbyCampgrounds
+        description: Include nearby campgrounds in the response
+        name: include_nearby_campgrounds
+        in: query
+        schema:
+          type: boolean
+      - name: TotalPriceSortDirection
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiExternalCampgroundsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    jsonApiNearbyCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NearbyCampground'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NearbyCampground'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    jsonApiExternalCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+  schemas:
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
+      x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings
+        representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    NearbyCampground:
+      description: Combines external campgrounds and unclaimed campgrounds (locality content of type campground)
+      type: object
+      properties:
+        claimed_campground_id:
+          type: integer
+          format: int64
+          x-go-name: ClaimedCampgroundID
+        distance_in_miles:
+          type: number
+          format: double
+          x-go-name: DistanceInMiles
+        is_claimed:
+          type: boolean
+          x-go-name: Claimed
+        is_odn:
+          type: boolean
+          x-go-name: IsODN
+        location:
+          $ref: '#/components/schemas/Location'
+        name:
+          type: string
+          x-go-name: Name
+        odn_id:
+          type: string
+          x-go-name: OdnID
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Location:
+      description: Location to hold address details
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ABTest:
+      type: object
+      x-go-package: github.com/outdoorsy/ds-abtest/abtest
+    Resource:
+      description: 'Note that any of the optional keys will be omitted if a value is not provided.
+
+
+        For more information, see the specification at:
+
+
+        http://jsonapi.org/format/#document-resource-object
+
+
+        http://jsonapi.org/format/#document-resource-identifier-objects'
+      type: object
+      title: 'Resource represents a JSON API resource identifier or resource object.
+
+        Each valid JSON API resource object must contain at least the "id" and "type" keys,
+
+        and may contain the optional "attributes", "relationships", "links" and "meta" keys.'
+      properties:
+        attributes:
+          type: object
+          additionalProperties: {}
+          x-go-name: Attributes
+        id:
+          type: string
+          x-go-name: ID
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+        relationships:
+          $ref: '#/components/schemas/Relationships'
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/smotes/jsonapi
+    Relationship:
+      type: object
+      title: Relationship represents a member of the JSON API relationships object.
+      properties:
+        data:
+          type: object
+          x-go-name: Data
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

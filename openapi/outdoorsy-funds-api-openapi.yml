@@ -1,0 +1,318 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Funds API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: funds
+paths:
+  /users/authorization:
+    get:
+      description: Starts the fund authorization process for the given country
+      tags:
+      - funds
+      operationId: continueAuthorization
+      responses:
+        '200':
+          $ref: '#/components/responses/continueAuthorizationResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Return fund authorization details for country
+      tags:
+      - funds
+      operationId: completeAuthorization
+      parameters:
+      - description: API Key used to perform authorization.
+        name: APIKey
+        in: query
+        schema:
+          type: string
+      - x-go-name: Country
+        description: 'The country in which this account resides. Must be the same as the country
+
+          sent to the `begin` endpoint.'
+        name: country
+        in: query
+        schema:
+          type: string
+      - x-go-name: BusinessType
+        description: The type of business for which this account is being created.
+        name: business_type
+        in: query
+        schema:
+          type: string
+      - x-go-name: Token
+        description: The token returned from the authorizer iframe.
+        name: token
+        in: query
+        schema:
+          type: string
+      - x-go-name: AccountID
+        description: 'The ID of the account chosen by the user. This was gathered after the
+
+          `GetFundCreationForm` request was made.'
+        name: account_id
+        in: query
+        schema:
+          type: string
+      - x-go-name: AccountName
+        description: 'The name of the account chosen by the user. This was gathered after the
+
+          `GetFundCreationForm` request was made.'
+        name: account_name
+        in: query
+        schema:
+          type: string
+      - x-go-name: AccountMask
+        description: 'The mask of the account chosen by the user. This was gathered after the
+
+          `GetFundCreationForm` request was made.'
+        name: account_mask
+        in: query
+        schema:
+          type: string
+      - x-go-name: BuiAccept
+        description: A BUI accept header
+        name: Bui-Accept
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/completeAuthorizationResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Archives the authorization
+      tags:
+      - funds
+      operationId: archiveAuthorization
+      responses:
+        '200':
+          $ref: '#/components/responses/continueAuthorizationResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /users/authorization-form:
+    post:
+      description: Return fund authorization BUI form
+      tags:
+      - funds
+      operationId: completeAuthorizationFundCreationFormDeprecated
+      responses:
+        '200':
+          $ref: '#/components/responses/fundCreationFormResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteAuthorizationAndGetFundCreationFormRequest'
+  /users/authorization-form/{bank_id}:
+    post:
+      description: Return fund authorization BUI form for existing bank
+      tags:
+      - funds
+      operationId: completeAuthorizationFundCreationFormByIdDeprecated
+      parameters:
+      - x-go-name: BankID
+        name: bank_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/fundCreationFormResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteAuthorizationAndGetFundCreationFormRequest'
+  /users/authorizations:
+    get:
+      description: Lists any pending authorizations for the user
+      tags:
+      - funds
+      operationId: listPendingAuthorizationsAsAdmin
+      responses:
+        '200':
+          $ref: '#/components/responses/listPendingAuthorizationsAsAdminResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /users/fund-steps:
+    post:
+      description: Return fund authorization BUI form
+      tags:
+      - funds
+      operationId: getFundSteps
+      parameters:
+      - description: API Key used to perform authorization.
+        name: APIKey
+        in: query
+        schema:
+          type: string
+      - x-go-name: AuthorizationID
+        description: The ID of an Authorization object.
+        name: authorization_id
+        in: query
+        schema:
+          type: string
+      - x-go-name: BuiAccept
+        description: A BUI accept header
+        name: Bui-Accept
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/successResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    successResponse:
+      description: ''
+    fundCreationFormResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              AuthorizationID:
+                type: string
+              bui:
+                type: object
+                additionalProperties: {}
+                x-go-name: BUI
+    completeAuthorizationResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CompleteAuthorizationResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    CompleteAuthorizationAndGetFundCreationFormRequest:
+      description: 'CompleteAuthorizationAndGetFundCreationFormRequest is the payload type of
+
+        the payouts service CompleteAuthorizationAndGetFundCreationForm method.'
+      type: object
+      properties:
+        APIKey:
+          description: API Key used to perform authorization.
+          type: string
+        Bui-Accept:
+          description: A BUI accept header
+          type: string
+          x-go-name: BuiAccept
+        account_id:
+          description: 'The ID of the account chosen by the user. This was gathered after the
+
+            `GetFundCreationForm` request was made.'
+          type: string
+          x-go-name: AccountID
+        business_type:
+          description: The type of business.
+          type: string
+          x-go-name: BusinessType
+        country:
+          description: 'The country in which this account resides. Must be the same as the country
+
+            sent to the `begin` endpoint.'
+          type: string
+          x-go-name: Country
+        token:
+          description: The token returned from the authorizer iframe.
+          type: string
+          x-go-name: Token
+      x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
+    CompleteAuthorizationResponse:
+      description: 'CompleteAuthorizationResponse is the result type of the payouts service
+
+        CompleteAuthorization method.'
+      type: object
+      properties:
+        account_mask:
+          description: The mask for the chose account.
+          type: string
+          x-go-name: AccountMask
+        account_name:
+          description: The name of the chosen account.
+          type: string
+          x-go-name: AccountName
+        authorization_id:
+          description: The ID of the newly created Authorization object.
+          type: string
+          x-go-name: AuthorizationID
+        bui:
+          description: The BUI to display
+          type: object
+          x-go-name: BUI
+        status:
+          description: 'The status of the authorization. Possible values include `pending`,
+
+            `active`, `expired` and `error`.'
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

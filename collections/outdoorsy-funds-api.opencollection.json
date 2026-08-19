@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Funds API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "funds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "continueAuthorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/authorization"
+          },
+          "docs": "Starts the fund authorization process for the given country"
+        },
+        {
+          "info": {
+            "name": "completeAuthorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/authorization",
+            "params": [
+              {
+                "name": "APIKey",
+                "value": "",
+                "type": "query",
+                "description": "API Key used to perform authorization."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "The country in which this account resides. Must be the same as the country\nsent to the `begin` endpoint."
+              },
+              {
+                "name": "business_type",
+                "value": "",
+                "type": "query",
+                "description": "The type of business for which this account is being created."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The token returned from the authorizer iframe."
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the account chosen by the user. This was gathered after the\n`GetFundCreationForm` request was made."
+              },
+              {
+                "name": "account_name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the account chosen by the user. This was gathered after the\n`GetFundCreationForm` request was made."
+              },
+              {
+                "name": "account_mask",
+                "value": "",
+                "type": "query",
+                "description": "The mask of the account chosen by the user. This was gathered after the\n`GetFundCreationForm` request was made."
+              },
+              {
+                "name": "Bui-Accept",
+                "value": "",
+                "type": "query",
+                "description": "A BUI accept header"
+              }
+            ]
+          },
+          "docs": "Return fund authorization details for country"
+        },
+        {
+          "info": {
+            "name": "archiveAuthorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/users/authorization"
+          },
+          "docs": "Archives the authorization"
+        },
+        {
+          "info": {
+            "name": "completeAuthorizationFundCreationFormDeprecated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/authorization-form",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return fund authorization BUI form"
+        },
+        {
+          "info": {
+            "name": "completeAuthorizationFundCreationFormByIdDeprecated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/authorization-form/:bank_id",
+            "params": [
+              {
+                "name": "bank_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return fund authorization BUI form for existing bank"
+        },
+        {
+          "info": {
+            "name": "listPendingAuthorizationsAsAdmin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/authorizations"
+          },
+          "docs": "Lists any pending authorizations for the user"
+        },
+        {
+          "info": {
+            "name": "getFundSteps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/fund-steps",
+            "params": [
+              {
+                "name": "APIKey",
+                "value": "",
+                "type": "query",
+                "description": "API Key used to perform authorization."
+              },
+              {
+                "name": "authorization_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of an Authorization object."
+              },
+              {
+                "name": "Bui-Accept",
+                "value": "",
+                "type": "query",
+                "description": "A BUI accept header"
+              }
+            ]
+          },
+          "docs": "Return fund authorization BUI form"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

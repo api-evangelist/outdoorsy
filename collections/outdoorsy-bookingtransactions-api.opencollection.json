@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Booking Transactions API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookingTransactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "deleteScheduledPayout",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:booking_id/payout/:transaction_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete scheduled payout on the specified booking"
+        },
+        {
+          "info": {
+            "name": "Returns all transactions for a booking. Optionally filtered by type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/transactions",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all transactions for a booking. Optionally filtered by type."
+        },
+        {
+          "info": {
+            "name": "createTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/transactions",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create transaction or pending transaction when due date is set"
+        },
+        {
+          "info": {
+            "name": "getBookingTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve booking transaction record by id"
+        },
+        {
+          "info": {
+            "name": "updateBookingTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:booking_id/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update booking pending transaction"
+        },
+        {
+          "info": {
+            "name": "deletePendingTransaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:booking_id/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete pending transaction on the specified booking"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

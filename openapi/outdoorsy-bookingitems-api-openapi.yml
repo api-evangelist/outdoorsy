@@ -1,0 +1,526 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Booking Items API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: bookingItems
+paths:
+  /bookings/{booking_id}/items:
+    post:
+      description: Creates/adds an item to the requested booking
+      tags:
+      - bookingItems
+      operationId: createBookingItem
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingItem'
+  /bookings/{booking_id}/items/batch:
+    post:
+      tags:
+      - bookingItems
+      summary: Updates a batch of items on the booking.
+      operationId: bookingItemsBatchUpdateLegacy
+      deprecated: true
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/BookingItem'
+  /bookings/{booking_id}/items/batch-items:
+    post:
+      tags:
+      - bookingItems
+      summary: Updates a batch of items on the booking.
+      operationId: bookingItemsBatchUpdate
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchOptions'
+  /bookings/{booking_id}/items/copy:
+    post:
+      description: Copies a rental item to the specified booking
+      tags:
+      - bookingItems
+      operationId: copyRentalItemToBooking
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RentalItemCopy'
+  /bookings/{booking_id}/items/{id}:
+    get:
+      description: Copies an item to the requested booking
+      tags:
+      - bookingItems
+      operationId: getBookingItemById
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Copies an item to the requested booking
+      tags:
+      - bookingItems
+      operationId: deleteBookingItem
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Updates an existing item on the booking
+      tags:
+      - bookingItems
+      operationId: updateBookingItem
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingItem'
+  /bookings/{booking_id}/items/{id}/update-consigned:
+    patch:
+      tags:
+      - bookingItems
+      summary: Updates the consigned pay amount for an item.
+      operationId: updateConsignedBookingItem
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/noPermissionError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  schemas:
+    RentalItemCopy:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: uint64
+          x-go-name: Count
+        rental_item_id:
+          type: integer
+          format: int64
+          x-go-name: RentalItemID
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    BatchOptions:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Items
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    BookingItem:
+      type: object
+      properties:
+        _deleted:
+          description: special flag for handling batch update/delete
+          type: boolean
+          x-go-name: BatchDeleted
+        booking_id:
+          type: integer
+          format: int64
+        coachnet_item:
+          type: boolean
+          x-go-name: CoachnetItem
+        consigned_pay_amount:
+          type: integer
+          format: int64
+          x-go-name: ConsignedPayAmount
+        count:
+          type: integer
+          format: uint64
+          x-go-name: Count
+        created:
+          $ref: '#/components/schemas/NullTime'
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        deferred_total:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        deleted_at:
+          $ref: '#/components/schemas/NullTime'
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        description:
+          type: string
+          x-go-name: Description
+        discount_amount:
+          type: integer
+          format: int64
+          x-go-name: DiscountAmount
+        generator:
+          type: boolean
+          x-go-name: Generator
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_url:
+          type: string
+          x-go-name: ImageURL
+        maximum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        mileage:
+          type: boolean
+          x-go-name: Mileage
+        minimum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        original_consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: OriginalConsignedPayPct
+        original_tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: OriginalTaxRateID
+        other_claim:
+          type: boolean
+          x-go-name: OtherClaim
+        outdoorsy_item:
+          type: boolean
+          x-go-name: OutdoorsyItem
+        parent_item_id:
+          type: integer
+          format: int64
+          x-go-name: ParentItemID
+        parent_item_type:
+          type: string
+          x-go-name: ParentItemType
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        premium_amount:
+          type: integer
+          format: int64
+          x-go-name: PremiumAmount
+        premium_total:
+          type: integer
+          format: int64
+          x-go-name: PremiumTotal
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_amount:
+          description: mutation modifiers
+          type: boolean
+          x-go-name: RentalAmount
+        required:
+          type: boolean
+          x-go-name: Required
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_description:
+          type: string
+          x-go-name: TaxDescription
+        tax_name:
+          type: string
+          x-go-name: TaxName
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: TaxRate
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          $ref: '#/components/schemas/NullTime'
+      x-go-package: github.com/outdoorsy/api/model
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+  responses:
+    bookingItemResponse:
+      description: HTTP status code 200 and booking item model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BookingItem'
+    notFoundError:
+      description: Not found error
+    bookingItemsResponse:
+      description: HTTP status code 200 and array of booking items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/BookingItem'
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

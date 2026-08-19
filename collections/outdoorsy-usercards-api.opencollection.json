@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation User Cards API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userCards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUserCards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/:user_id/cards",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve user cards"
+        },
+        {
+          "info": {
+            "name": "createCard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/:user_id/cards",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a credit card and assigns to user"
+        },
+        {
+          "info": {
+            "name": "updateUserCard",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/users/:user_id/cards/:card_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "card_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set default card for the user"
+        },
+        {
+          "info": {
+            "name": "deleteUserCard",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/users/:user_id/cards/:card_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "card_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "replacement_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve user cards"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

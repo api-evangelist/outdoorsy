@@ -1,0 +1,749 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Announcements API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: announcements
+paths:
+  /admin/announcement-groups:
+    get:
+      description: Lists all announcement groups (admin only)
+      tags:
+      - announcements
+      operationId: readManyAnnouncementGroups
+      parameters:
+      - x-go-name: AnnouncementID
+        name: announcement_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: UserID
+        name: user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/readManyAnnouncementGroupsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Creates a new announcement group (admin only)
+      tags:
+      - announcements
+      operationId: createAnnouncementGroup
+      responses:
+        '201':
+          $ref: '#/components/responses/createAnnouncementGroupResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateAnnouncementGroupRequest'
+  /admin/announcement-groups/{announcement_group_id}:
+    get:
+      description: Gets a specific announcement group by ID (admin only)
+      tags:
+      - announcements
+      operationId: readOneAnnouncementGroup
+      responses:
+        '200':
+          $ref: '#/components/responses/readOneAnnouncementGroupResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Deletes an announcement (admin only)
+      tags:
+      - announcements
+      operationId: deleteAnnouncementGroup
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Updates an announcement (admin only)
+      tags:
+      - announcements
+      operationId: updateAnnouncementGroup
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateAnnouncementGroupRequest'
+  /admin/announcements:
+    get:
+      description: Lists all announcements (admin only)
+      tags:
+      - announcements
+      operationId: readManyAnnouncements
+      parameters:
+      - x-go-name: UserId
+        name: user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/readManyAnnouncementsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Creates a new announcement (admin only)
+      tags:
+      - announcements
+      operationId: createAnnouncement
+      responses:
+        '201':
+          $ref: '#/components/responses/createAnnouncementResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateAnnouncementRequest'
+  /admin/announcements/{announcement_id}:
+    get:
+      description: Gets a specific announcement by ID (admin only)
+      tags:
+      - announcements
+      operationId: readOneAnnouncement
+      responses:
+        '200':
+          $ref: '#/components/responses/readOneAnnouncementResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Deletes an announcement (admin only)
+      tags:
+      - announcements
+      operationId: deleteAnnouncement
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Updates an announcement (admin only)
+      tags:
+      - announcements
+      operationId: updateAnnouncement
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateAnnouncementRequest'
+  /announcements:
+    get:
+      description: Gets announcements for current user
+      tags:
+      - announcements
+      operationId: getAnnouncementsForUser
+      responses:
+        '200':
+          $ref: '#/components/responses/getAnnouncementsForUserResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /announcements/{announcement_id}:
+    get:
+      description: Gets a specific announcement by ID
+      tags:
+      - announcements
+      operationId: getAnnouncementForID
+      responses:
+        '200':
+          $ref: '#/components/responses/getAnnouncementForUserResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /announcements/{announcement_id}/read:
+    post:
+      description: Marks an announcement as read for the current user
+      tags:
+      - announcements
+      operationId: markAnnouncementAsRead
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    readManyAnnouncementsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ReadManyAdminAnnouncements'
+    readManyAnnouncementGroupsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ReadManyAdminAnnouncementGroups'
+    createAnnouncementGroupResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AnnouncementGroup'
+    readOneAnnouncementGroupResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadOneAdminAnnouncementGroup'
+    genericError:
+      description: An unknown, unexpected error.
+    createAnnouncementResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Announcement'
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    getAnnouncementsForUserResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserAnnouncement'
+    readOneAnnouncementResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadOneAdminAnnouncement'
+    getAnnouncementForUserResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAnnouncement'
+  schemas:
+    ReadManyAdminAnnouncementGroups:
+      type: object
+      properties:
+        announcement_count:
+          type: integer
+          format: int64
+          x-go-name: AnnouncementCount
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by:
+          type: integer
+          format: int64
+          x-go-name: CreatedBy
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        deleted_at:
+          type: string
+          x-go-name: DeletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted_by:
+          type: integer
+          format: int64
+          x-go-name: DeletedBy
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        updated_by:
+          type: integer
+          format: int64
+          x-go-name: UpdatedBy
+        user_count:
+          type: integer
+          format: int64
+          x-go-name: UserCount
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    ReadOneAdminAnnouncementGroup:
+      type: object
+      properties:
+        announcement_ids:
+          $ref: '#/components/schemas/DBIntSlice'
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by:
+          type: integer
+          format: int64
+          x-go-name: CreatedBy
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        deleted_at:
+          type: string
+          x-go-name: DeletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted_by:
+          type: integer
+          format: int64
+          x-go-name: DeletedBy
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        updated_by:
+          type: integer
+          format: int64
+          x-go-name: UpdatedBy
+        user_ids:
+          $ref: '#/components/schemas/DBIntSlice'
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    ReadOneAdminAnnouncement:
+      type: object
+      properties:
+        content:
+          type: string
+          x-go-name: Content
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by:
+          type: integer
+          format: int64
+          x-go-name: CreatedBy
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        deleted_at:
+          type: string
+          x-go-name: DeletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted_by:
+          type: integer
+          format: int64
+          x-go-name: DeletedBy
+        description:
+          type: string
+          x-go-name: Description
+        groups:
+          $ref: '#/components/schemas/DBAnnouncementGroupSlice'
+        historic_user_ids:
+          $ref: '#/components/schemas/DBIntSlice'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        individual_user_ids:
+          $ref: '#/components/schemas/DBIntSlice'
+        published_at:
+          type: string
+          x-go-name: PublishedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        published_by:
+          type: integer
+          format: int64
+          x-go-name: PublishedBy
+        title:
+          type: string
+          x-go-name: Title
+        total_read:
+          type: integer
+          format: int64
+          x-go-name: TotalRead
+        total_users:
+          type: integer
+          format: int64
+          x-go-name: TotalUsers
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        updated_by:
+          type: integer
+          format: int64
+          x-go-name: UpdatedBy
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    DBIntSlice:
+      description: DBIntSlice is a []int with database conversion methods
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/utils
+    DBAnnouncementGroupSlice:
+      type: array
+      items:
+        $ref: '#/components/schemas/AnnouncementGroup'
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    CreateUpdateAnnouncementRequest:
+      description: 'Admin
+
+        Announcements'
+      type: object
+      properties:
+        content:
+          type: string
+          x-go-name: Content
+        description:
+          type: string
+          x-go-name: Description
+        group_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: GroupIDs
+        published:
+          type: boolean
+          x-go-name: Published
+        published_at:
+          type: string
+          x-go-name: PublishedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        title:
+          type: string
+          x-go-name: Title
+        user_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: UserIDs
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    Announcement:
+      type: object
+      properties:
+        content:
+          type: string
+          x-go-name: Content
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by:
+          type: integer
+          format: int64
+          x-go-name: CreatedBy
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        deleted_at:
+          type: string
+          x-go-name: DeletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted_by:
+          type: integer
+          format: int64
+          x-go-name: DeletedBy
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        published_at:
+          type: string
+          x-go-name: PublishedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        published_by:
+          type: integer
+          format: int64
+          x-go-name: PublishedBy
+        title:
+          type: string
+          x-go-name: Title
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        updated_by:
+          type: integer
+          format: int64
+          x-go-name: UpdatedBy
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    ReadManyAdminAnnouncements:
+      type: object
+      properties:
+        content:
+          type: string
+          x-go-name: Content
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by:
+          type: integer
+          format: int64
+          x-go-name: CreatedBy
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        deleted_at:
+          type: string
+          x-go-name: DeletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted_by:
+          type: integer
+          format: int64
+          x-go-name: DeletedBy
+        description:
+          type: string
+          x-go-name: Description
+        group_count:
+          type: integer
+          format: int64
+          x-go-name: GroupCount
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        individual_user_count:
+          type: integer
+          format: int64
+          x-go-name: IndividualUserCount
+        published_at:
+          type: string
+          x-go-name: PublishedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        published_by:
+          type: integer
+          format: int64
+          x-go-name: PublishedBy
+        title:
+          type: string
+          x-go-name: Title
+        total_read:
+          type: integer
+          format: int64
+          x-go-name: TotalRead
+        total_users:
+          type: integer
+          format: int64
+          x-go-name: TotalUsers
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        updated_by:
+          type: integer
+          format: int64
+          x-go-name: UpdatedBy
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    AnnouncementGroup:
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by:
+          type: integer
+          format: int64
+          x-go-name: CreatedBy
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        deleted_at:
+          type: string
+          x-go-name: DeletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted_by:
+          type: integer
+          format: int64
+          x-go-name: DeletedBy
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        updated_by:
+          type: integer
+          format: int64
+          x-go-name: UpdatedBy
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    UserAnnouncement:
+      description: 'Request & Responses
+
+        Any User'
+      type: object
+      properties:
+        content:
+          type: string
+          x-go-name: Content
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        published_at:
+          type: string
+          x-go-name: PublishedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        read:
+          type: boolean
+          x-go-name: Read
+        read_at:
+          type: string
+          x-go-name: ReadAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        title:
+          type: string
+          x-go-name: Title
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+    CreateUpdateAnnouncementGroupRequest:
+      description: Announcement Groups
+      type: object
+      properties:
+        incremental_removal_user_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: IncrementalRemovalUserIDs
+        name:
+          type: string
+          x-go-name: Name
+        user_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: UserIDs
+      x-go-package: github.com/outdoorsy/api/internal/announcements
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

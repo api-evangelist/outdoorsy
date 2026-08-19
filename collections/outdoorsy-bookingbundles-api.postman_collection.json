@@ -1,0 +1,797 @@
+{
+  "item": [
+    {
+      "id": "7f56ceea-712c-45ae-b8ac-ba683b8d7942",
+      "name": "bookingBundles",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6b27e3d5-caf4-4d7e-ac44-13843a232880",
+          "name": "list Booking Bundles",
+          "request": {
+            "name": "list Booking Bundles",
+            "description": {
+              "content": "List available insurance bundles for booking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76fdbe9e-2f1c-47b1-97fd-534df0fbd0eb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"base_price_per_day\": 4959,\n    \"bundle_features\": [\n      {\n        \"category\": \"string\",\n        \"items\": [\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 5764,\n            \"service_id\": 1523,\n            \"type\": \"string\"\n          },\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 7095,\n            \"service_id\": 4236,\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"category\": \"string\",\n        \"items\": [\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 7259,\n            \"service_id\": 8180,\n            \"type\": \"string\"\n          },\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 4788,\n            \"service_id\": 9470,\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"dealer_owned_renter\": false,\n    \"deductible\": 7356,\n    \"default_selection\": true,\n    \"delivery\": false,\n    \"description\": \"string\",\n    \"featured_description\": \"string\",\n    \"featured_title\": \"string\",\n    \"id\": \"string\",\n    \"insurance_protection\": \"string\",\n    \"is_rental_shield\": false,\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"offer_individual_service_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"owner_id\": 2841,\n    \"per_mile_price\": 2274,\n    \"per_mile_price_fsd\": 5428,\n    \"percent_uptake\": 9132.314360159606,\n    \"premium\": 1130,\n    \"premium_base_rate\": 6905,\n    \"price_per_day\": 1725,\n    \"property_damage\": \"string\",\n    \"qualifies_per_mile_pricing\": false,\n    \"recommended\": true,\n    \"subtext\": \"string\",\n    \"supported_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tier\": 4885,\n    \"total_price\": 6691,\n    \"use_day_pricing\": true\n  },\n  {\n    \"base_price_per_day\": 8183,\n    \"bundle_features\": [\n      {\n        \"category\": \"string\",\n        \"items\": [\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 2134,\n            \"service_id\": 5802,\n            \"type\": \"string\"\n          },\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 1712,\n            \"service_id\": 7353,\n            \"type\": \"string\"\n          }\n        ]\n      },\n      {\n        \"category\": \"string\",\n        \"items\": [\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 7008,\n            \"service_id\": 535,\n            \"type\": \"string\"\n          },\n          {\n            \"details\": \"string\",\n            \"name\": \"string\",\n            \"position\": 6726,\n            \"service_id\": 3629,\n            \"type\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"dealer_owned_renter\": true,\n    \"deductible\": 5722,\n    \"default_selection\": true,\n    \"delivery\": false,\n    \"description\": \"string\",\n    \"featured_description\": \"string\",\n    \"featured_title\": \"string\",\n    \"id\": \"string\",\n    \"insurance_protection\": \"string\",\n    \"is_rental_shield\": true,\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"offer_individual_service_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"owner_id\": 4567,\n    \"per_mile_price\": 4863,\n    \"per_mile_price_fsd\": 5938,\n    \"percent_uptake\": 9821.907830659551,\n    \"premium\": 1702,\n    \"premium_base_rate\": 9236,\n    \"price_per_day\": 4616,\n    \"property_damage\": \"string\",\n    \"qualifies_per_mile_pricing\": true,\n    \"recommended\": false,\n    \"subtext\": \"string\",\n    \"supported_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tier\": 5276,\n    \"total_price\": 1865,\n    \"use_day_pricing\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "581fae9f-4624-439b-93d9-5bc542d3a656",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8be1eb7-6fbb-4bb6-bd27-176f50c99a4f",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c53ac2a-77e7-4941-91df-b96b68745620",
+          "name": "Assign insurance bundle to booking (assign, replace or delete).",
+          "request": {
+            "name": "Assign insurance bundle to booking (assign, replace or delete).",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1efec20c-b4e0-4fcf-b817-76684f20842d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"base_price_per_day\": 5531,\n  \"bundle_features\": [\n    {\n      \"category\": \"string\",\n      \"items\": [\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 2336,\n          \"service_id\": 7081,\n          \"type\": \"string\"\n        },\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 6420,\n          \"service_id\": 2665,\n          \"type\": \"string\"\n        }\n      ]\n    },\n    {\n      \"category\": \"string\",\n      \"items\": [\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 8981,\n          \"service_id\": 981,\n          \"type\": \"string\"\n        },\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 9479,\n          \"service_id\": 4509,\n          \"type\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"dealer_owned_renter\": false,\n  \"deductible\": 313,\n  \"default_selection\": true,\n  \"delivery\": false,\n  \"description\": \"string\",\n  \"featured_description\": \"string\",\n  \"featured_title\": \"string\",\n  \"id\": \"string\",\n  \"insurance_protection\": \"string\",\n  \"is_rental_shield\": false,\n  \"meta\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"offer_individual_service_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"owner_id\": 5077,\n  \"per_mile_price\": 7020,\n  \"per_mile_price_fsd\": 5562,\n  \"percent_uptake\": 3985.255430514639,\n  \"premium\": 7646,\n  \"premium_base_rate\": 4369,\n  \"price_per_day\": 2490,\n  \"property_damage\": \"string\",\n  \"qualifies_per_mile_pricing\": true,\n  \"recommended\": false,\n  \"subtext\": \"string\",\n  \"supported_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tier\": 3425,\n  \"total_price\": 6714,\n  \"use_day_pricing\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "377891b3-3a8c-4235-9ea7-237048d5ea2b",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12d9ab95-21f8-44f2-8968-073ba910b548",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16a47979-cf3d-4586-a393-ae0012d6ae2b",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fea88d26-b6fb-4d8e-ad09-996fd963baf4",
+          "name": "get Booking Bundle By Id",
+          "request": {
+            "name": "get Booking Bundle By Id",
+            "description": {
+              "content": "Retrieve specific bundle by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "bundles",
+                ":bundle_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "bundle_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9625719d-2987-4a22-98d1-6c0b0530dae4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"base_price_per_day\": 5531,\n  \"bundle_features\": [\n    {\n      \"category\": \"string\",\n      \"items\": [\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 2336,\n          \"service_id\": 7081,\n          \"type\": \"string\"\n        },\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 6420,\n          \"service_id\": 2665,\n          \"type\": \"string\"\n        }\n      ]\n    },\n    {\n      \"category\": \"string\",\n      \"items\": [\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 8981,\n          \"service_id\": 981,\n          \"type\": \"string\"\n        },\n        {\n          \"details\": \"string\",\n          \"name\": \"string\",\n          \"position\": 9479,\n          \"service_id\": 4509,\n          \"type\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"dealer_owned_renter\": false,\n  \"deductible\": 313,\n  \"default_selection\": true,\n  \"delivery\": false,\n  \"description\": \"string\",\n  \"featured_description\": \"string\",\n  \"featured_title\": \"string\",\n  \"id\": \"string\",\n  \"insurance_protection\": \"string\",\n  \"is_rental_shield\": false,\n  \"meta\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"name\": \"string\",\n  \"note\": \"string\",\n  \"offer_individual_service_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"owner_id\": 5077,\n  \"per_mile_price\": 7020,\n  \"per_mile_price_fsd\": 5562,\n  \"percent_uptake\": 3985.255430514639,\n  \"premium\": 7646,\n  \"premium_base_rate\": 4369,\n  \"price_per_day\": 2490,\n  \"property_damage\": \"string\",\n  \"qualifies_per_mile_pricing\": true,\n  \"recommended\": false,\n  \"subtext\": \"string\",\n  \"supported_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tier\": 3425,\n  \"total_price\": 6714,\n  \"use_day_pricing\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e736cfe-0e1b-4605-be65-75f28b9f732a",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f2df959-c1b8-4be3-9fe9-0e90a73a9001",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "750f8f5c-cf39-4f8f-aa74-974418817640",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e40e51f0-3d40-4279-b01a-442ffa0cd80c",
+    "name": "Outdoorsy API Documentation Booking Bundles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

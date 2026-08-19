@@ -1,0 +1,1463 @@
+{
+  "item": [
+    {
+      "id": "8684b741-0b17-4158-b8b7-a3ae033976ab",
+      "name": "messageTemplates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63e384b4-c709-46cb-a3b8-b2aefdebbafa",
+          "name": "list Message Templates",
+          "request": {
+            "name": "list Message Templates",
+            "description": {
+              "content": "Lists message templates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "LocationIDs",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "LocationIDs",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "819fb2e0-a49c-4b43-a940-3299fe2dd51a",
+              "name": "HTTP status code 200 and array of conversation models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "LocationIDs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "LocationIDs",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"can_delete\": false,\n    \"can_edit\": true,\n    \"content\": \"string\",\n    \"created\": \"string\",\n    \"deleted\": false,\n    \"id\": 3785,\n    \"location_ids\": [\n      9034,\n      9720\n    ],\n    \"title\": \"string\",\n    \"updated\": \"string\",\n    \"user_id\": 6212\n  },\n  {\n    \"can_delete\": false,\n    \"can_edit\": false,\n    \"content\": \"string\",\n    \"created\": \"string\",\n    \"deleted\": false,\n    \"id\": 960,\n    \"location_ids\": [\n      6527,\n      1562\n    ],\n    \"title\": \"string\",\n    \"updated\": \"string\",\n    \"user_id\": 6392\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1448f7eb-e8aa-47ec-9c77-ed52541e8628",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "LocationIDs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "LocationIDs",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67ba38c4-7613-4a31-a580-f143fb59a0e0",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "LocationIDs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "LocationIDs",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e727d8f-6dc4-4f4c-a525-1d038d0d7273",
+          "name": "Creates a new message template",
+          "request": {
+            "name": "Creates a new message template",
+            "description": {
+              "content": "When an employee creates a template, it's owned by their dealer.\nEmployees with location restrictions must specify location_ids within their assigned locations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c85c3c65-888a-43d0-ad1b-b1b9980a0dfb",
+              "name": "HTTP status code 200 and conversation model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e946b973-a08d-4661-bd0f-f6409aecd57c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce1d4819-4f94-4cab-b9ea-c3647526988c",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce2b8436-2c0c-4a10-ab98-5d53afdce6de",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93525b6d-f34c-4508-ac05-2587d980d908",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2f3b592-c2bf-4524-a371-43f64863b787",
+          "name": "Get message template by id",
+          "request": {
+            "name": "Get message template by id",
+            "description": {
+              "content": "Users can only access templates they own (or their dealer's templates if they're an employee).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb2682d2-fe39-42ae-8db5-a8268b205708",
+              "name": "HTTP status code 200 and conversation model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3510a9a-1753-4b50-8937-2c63099ee75c",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51e59beb-e488-4578-a97d-c0bc4c8a11e7",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c3811e6-ef94-470e-895b-59b2b4b2e44c",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "126e850f-dfe6-4f5c-9ddf-8999f21e5a6c",
+          "name": "Archive a message template",
+          "request": {
+            "name": "Archive a message template",
+            "description": {
+              "content": "Users can only delete templates they own (or their dealer's templates if they're an employee).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4b3f5fe-de06-43a8-82d9-0034c35033c7",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bcbbf1e2-c574-4e0d-9baf-e3a10fd24b0d",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db2abad3-fb9e-46dd-90bc-28e430da0beb",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6264b13-3e5d-4bc2-93c9-f322018ac26b",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1366172-deb7-4497-bf4e-fee9de829083",
+          "name": "Update message template by id",
+          "request": {
+            "name": "Update message template by id",
+            "description": {
+              "content": "Employees with location restrictions can only update templates with location_ids within their assigned locations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e7a0c5f-921c-41b4-87fb-5a45b2ea9117",
+              "name": "HTTP status code 200 and conversation model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9580cdd2-43bc-4030-82af-8167ec7594db",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dac1a38b-7e5e-42a9-96e6-5d9827193241",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3780874c-12b1-418b-88e9-eace29e41d0a",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "876e4cdb-6ce6-4419-8eb3-cdcf4ac41182",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11679b90-055f-40ba-843f-47a12e47a44f",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_delete\": \"<boolean>\",\n  \"can_edit\": \"<boolean>\",\n  \"content\": \"<string>\",\n  \"created\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"title\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"user_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "66b7df9e-438e-4821-9b54-cbb397c72a24",
+    "name": "Outdoorsy API Documentation Message Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

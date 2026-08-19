@@ -1,0 +1,5977 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Conversations API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: conversations
+paths:
+  /admin/ai-reply-suggestions:
+    get:
+      description: 'Returns a paginated list of AI-generated reply suggestions for the specified conversation.
+
+        Suggestions are ordered by creation date in descending order (newest first).
+
+        Requires conversation_id query parameter. Supports pagination via offset and limit.
+
+        Filter by confidence level with threshold_min and threshold_max (inclusive); if omitted,
+
+        threshold_min defaults to 0 and threshold_max defaults to 1.
+
+        Admin access required.'
+      tags:
+      - conversations
+      summary: List AI reply suggestions for a conversation.
+      operationId: listAiReplySuggestions
+      parameters:
+      - name: Offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: ThresholdMin
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: ThresholdMax
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: ConversationID
+        name: conversation_id
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/aiReplySuggestionsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /conversations:
+    get:
+      description: Lists conversations
+      tags:
+      - conversations
+      operationId: listConversations
+      parameters:
+      - x-go-name: UserID
+        name: user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LocationIDs
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: Single
+        name: single
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Statuses
+        name: booking_status
+        in: query
+        schema:
+          type: string
+      - x-go-name: Archived
+        name: archived
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: RenterID
+        name: renter_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: HasMessages
+        name: has_messages
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Order
+        name: order
+        in: query
+        schema:
+          type: string
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OnlyNew
+        name: new
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ExcludeBookings
+        name: exclude_bookings
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          $ref: '#/components/responses/listConversationResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Creates a new conversation between two users
+      tags:
+      - conversations
+      operationId: createConversation
+      responses:
+        '200':
+          $ref: '#/components/responses/conversationResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationBody'
+  /conversations/{id}:
+    get:
+      description: Get conversation by id
+      tags:
+      - conversations
+      operationId: getConversationById
+      parameters:
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: Active
+        description: 'false -> bookings: MinBooking, true -> bookings: Booking'
+        name: active
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: WithoutBookings
+        description: when true, bookings array will be empty
+        name: without_bookings
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: MinBookings
+        description: when true, bookings array will only contain the most relevant booking
+        name: min_bookings
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeSystem
+        description: when true, system messages will be included in the messages array
+        name: include_system
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeCurrent
+        description: when true, bookings array will contain bookings with status negotiating, approved, imminent, handed_off
+        name: include_current
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/conversationResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    put:
+      description: Update conversation by id
+      tags:
+      - conversations
+      operationId: updateConversation
+      responses:
+        '200':
+          $ref: '#/components/responses/conversationResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Archive a conversation
+      tags:
+      - conversations
+      operationId: archiveConversation
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /conversations/{id}/ai-reply-suggestion:
+    get:
+      description: 'This endpoint returns an AI-generated reply suggestion based on the conversation history.
+
+        The suggestion is cached, so subsequent requests for the same message will return the cached suggestion.
+
+        Only conversation owners can access this endpoint.'
+      tags:
+      - conversations
+      summary: Get AI-generated reply suggestion for a conversation.
+      operationId: getReplySuggestion
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/conversationSuggestionResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    conversationResponse:
+      description: HTTP status code 200 and conversation model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Conversation'
+    conversationSuggestionResponse:
+      description: HTTP status code 200 and conversation suggestion response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConversationSuggestionResponse'
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    aiReplySuggestionsResponse:
+      description: HTTP status code 200 and array of AI reply suggestion models with messages
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AiReplySuggestion'
+    unauthorizedError:
+      description: Unauthorized error
+    listConversationResponse:
+      description: HTTP status code 200 and array of conversation models
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Conversation'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    forbiddenError:
+      description: Forbidden error
+  schemas:
+    Plan:
+      type: object
+      properties:
+        allow_unregistered:
+          type: boolean
+          x-go-name: AllowUnregistered
+        approved_vehicle_types:
+          $ref: '#/components/schemas/DBStringSlice'
+        bundle_required:
+          type: boolean
+          x-go-name: BundleRequired
+        claims_number:
+          type: string
+          x-go-name: ClaimsNumber
+        comp_policy_url:
+          type: string
+          x-go-name: CompPolicyURL
+        comprehensive_coverage:
+          type: boolean
+          x-go-name: ComprehensiveCoverage
+        comprehensive_maximum:
+          type: string
+          x-go-name: ComprehensiveMaximum
+        country:
+          type: string
+          x-go-name: Country
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        dealer_only:
+          type: boolean
+          x-go-name: DealerOnly
+        hidden:
+          type: boolean
+          x-go-name: Hidden
+        id:
+          description: 'The fields below are returned in the minimum response when this
+
+            insurance plan is an element inside a rental'
+          type: integer
+          format: int64
+          x-go-name: ID
+        insurance_address_1:
+          type: string
+          x-go-name: InsuranceAddress1
+        insurance_city:
+          type: string
+          x-go-name: InsuranceCity
+        insurance_end_date:
+          type: string
+          x-go-name: InsuranceEndDate
+        insurance_name:
+          type: string
+          x-go-name: InsuranceName
+        insurance_plan_override:
+          $ref: '#/components/schemas/PlanOverride'
+        insurance_policy_number:
+          type: string
+          x-go-name: InsurancePolicyNumber
+        insurance_start_date:
+          type: string
+          x-go-name: InsuranceStartDate
+        insurance_state:
+          type: string
+          x-go-name: InsuranceState
+        insurance_zip:
+          type: string
+          x-go-name: InsuranceZip
+        insured_address_1:
+          type: string
+          x-go-name: InsuredAddress1
+        insured_city:
+          type: string
+          x-go-name: InsuredCity
+        insured_name:
+          type: string
+          x-go-name: InsuredName
+        insured_state:
+          type: string
+          x-go-name: InsuredState
+        insured_zip:
+          type: string
+          x-go-name: InsuredZip
+        label:
+          type: string
+          x-go-name: Label
+        last_updated_by_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        liability_coverage:
+          type: boolean
+          x-go-name: LiabilityCoverage
+        liability_maximum:
+          type: string
+          x-go-name: LiabilityMaximum
+        liability_policy_url:
+          type: string
+          x-go-name: LiabilityPolicyURL
+        locality:
+          type: string
+          x-go-name: Locality
+        minimum_daily_fee:
+          type: integer
+          format: uint64
+          x-go-name: MinimumDailyFee
+        minimum_year:
+          type: integer
+          format: int64
+          x-go-name: MinimumYear
+        owner_comprehensive_deductible:
+          type: string
+          x-go-name: OwnerComprehensiveDeductible
+        owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentage
+        owner_liability_deductible:
+          type: string
+          x-go-name: OwnerLiabilityDeductible
+        owner_liability_maximum:
+          type: string
+          x-go-name: OwnerLiabilityMaximum
+        rental_category:
+          type: string
+          x-go-name: RentalCategory
+        renter_comprehensive_deductible:
+          type: string
+          x-go-name: RenterComprehensiveDeductible
+        renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: RenterFeePercentage
+        renter_liability_deductible:
+          type: string
+          x-go-name: RenterLiabilityDeductible
+        renter_liability_maximum:
+          type: string
+          x-go-name: RenterLiabilityMaximum
+        requires_driver_verification:
+          type: boolean
+          x-go-name: RequiresDriverVerification
+        tiered:
+          type: boolean
+          x-go-name: Tiered
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/insurance
+    bookingConsignment:
+      type: object
+      properties:
+        keep_amt_cc_fee:
+          type: integer
+          format: int64
+          x-go-name: KeepAmountCCFee
+        keep_amt_insurance_fee:
+          type: integer
+          format: int64
+          x-go-name: KeepAmountInsuranceFee
+        keep_pct_cc_fee:
+          type: number
+          format: double
+          x-go-name: KeepPctCCFee
+        keep_pct_insurance_fee:
+          type: number
+          format: double
+          x-go-name: KeepPctInsuranceFee
+        pay_amt_total:
+          type: integer
+          format: int64
+          x-go-name: PayAmountTotal
+        pay_pct_generator:
+          type: number
+          format: double
+          x-go-name: PayPctGenerator
+        pay_pct_mileage:
+          description: Consigned owner support - copied rental data
+          type: number
+          format: double
+          x-go-name: PayPctMileage
+        payout_id:
+          $ref: '#/components/schemas/ConsignedPayout'
+      x-go-package: github.com/outdoorsy/api/model
+    Conversation:
+      type: object
+      properties:
+        all_statuses:
+          type: string
+          x-go-name: AllStatuses
+        archived:
+          type: boolean
+          x-go-name: Archived
+        bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Booking'
+          x-go-name: Bookings
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by_id:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_location_id:
+          type: integer
+          format: int64
+          x-go-name: LastLocationID
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+          x-go-name: Messages
+        num_messages:
+          type: integer
+          format: uint64
+          x-go-name: NumMessages
+        owner_id:
+          type: integer
+          format: int64
+        owner_sms_proxy_id:
+          type:
+          - string
+          - 'null'
+        owner_summary:
+          x-go-name: OwnerSummary
+        read:
+          type: boolean
+          x-go-name: Read
+        renter_id:
+          type: integer
+          format: int64
+        renter_sms_proxy_id:
+          type:
+          - string
+          - 'null'
+        renter_summary:
+          description: Generated in memory
+          x-go-name: RenterSummary
+        sms_proxy_closed:
+          type:
+          - boolean
+          - 'null'
+        sms_proxy_session_id:
+          type:
+          - string
+          - 'null'
+        time_to_first_action:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    SearchFilters:
+      type: object
+      properties:
+        festival_friendly:
+          type: boolean
+          x-go-name: FestivalFriendly
+        make:
+          type: string
+          x-go-name: Make
+        model:
+          type: array
+          items:
+            type: string
+          x-go-name: Model
+        pet_friendly:
+          type: boolean
+          x-go-name: PetFriendly
+        smoking_allowed:
+          type: boolean
+          x-go-name: SmokingAllowed
+        tailgate_friendly:
+          type: boolean
+          x-go-name: TailgateFriendly
+        towing_capacity:
+          type: integer
+          format: int64
+          x-go-name: TowingCapacity
+        towing_vehicle_make:
+          type: string
+          x-go-name: TowingVehicleMake
+        towing_vehicle_model:
+          type: string
+          x-go-name: TowingVehicleModel
+        towing_vehicle_year:
+          type: integer
+          format: int64
+          x-go-name: TowingVehicleYear
+        travelers:
+          type: integer
+          format: int64
+          x-go-name: Travelers
+        year_max:
+          type: integer
+          format: int64
+          x-go-name: YearMax
+        year_min:
+          type: integer
+          format: int64
+          x-go-name: YearMin
+      x-go-package: github.com/outdoorsy/api/types
+    SiblingBooking:
+      description: 'SiblingBooking embedded struct to get around Booking struct issues where we only render the first
+
+        instance in the response then simply render the booking ID.
+
+        See `func (b *Booking) ResponseElementData(options objx.Map)` for more details.'
+      type: object
+      properties:
+        abandoned:
+          type: boolean
+          x-go-name: Abandoned
+        addons:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Addons
+        adults:
+          type: integer
+          format: int64
+          x-go-name: Adults
+        affirm_details:
+          $ref: '#/components/schemas/AffirmDetails'
+        affirm_total:
+          description: Dynamically calculated. Not stored in DB
+          type: integer
+          format: int64
+          x-go-name: AffirmTotal
+        applicable_tos_version:
+          type: string
+          x-go-name: ApplicableToSVersion
+        attention:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttentionItem'
+          x-go-name: Attention
+        auto_assign_group:
+          type:
+          - boolean
+          - 'null'
+        auto_insurance_type:
+          type: string
+          x-go-name: AutoInsuranceType
+        bid_id:
+          type: integer
+          format: int64
+          x-go-name: BidID
+        block_discount_code:
+          type: boolean
+          x-go-name: BlockDiscountCode
+        booked:
+          description: Not Mutable
+          type: string
+          x-go-name: Booked
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        booking_agent:
+          type: string
+          x-go-name: BookingAgentID
+        booking_color:
+          type:
+          - string
+          - 'null'
+        booking_token:
+          type: string
+          x-go-name: BookingToken
+        bundle_id:
+          description: 'calculated field that holds the result of whether the rental has this assigned
+
+            if not, will look at the user/owner'
+          type: string
+          x-go-name: BundleID
+        calculated_day_price:
+          type: integer
+          format: uint64
+          x-go-name: CalculatedDayPrice
+        calculated_total_paid:
+          type: integer
+          format: uint64
+          x-go-name: CalculatedTotalPaid
+        campaign:
+          description: dealer only
+          type: string
+          x-go-name: Campaign
+        campground_booking_url:
+          description: Contains the booking id so ember can call /bookings/:id/default-selections
+          type: string
+          x-go-name: CampgroundBookingURL
+        campground_data:
+          $ref: '#/components/schemas/SiblingBookingCampgroundData'
+        can_add_ending_generator_values:
+          type: boolean
+          x-go-name: CanAddEndingGeneratorValues
+        can_add_ending_mileage_values:
+          type: boolean
+          x-go-name: CanAddEndingMileageValues
+        can_add_starting_generator_values:
+          type: boolean
+          x-go-name: CanAddStartingGeneratorValues
+        can_add_starting_mileage_values:
+          type: boolean
+          x-go-name: CanAddStartingMileageValues
+        can_add_trip_protection:
+          description: CanAddTransaction is used to check if the guest can add a trip protection
+          type: boolean
+          x-go-name: CanAddTripProtection
+        can_apply_credits:
+          type: boolean
+          x-go-name: CanApplyCredits
+        can_cancel_trip_protection:
+          description: CanCancelTripProtection is used to check if the guest can cancel a trip protection
+          type: boolean
+          x-go-name: CanCancelTripProtection
+        can_charge_overage_fees:
+          type: boolean
+          x-go-name: CanChargeOverageFees
+        can_file_claim:
+          type: boolean
+          x-go-name: CanFileClaim
+        can_generate_weather_quote:
+          type: boolean
+          x-go-name: CanGenerateWeatherQuote
+        can_manage_security_deposit:
+          type: boolean
+          x-go-name: CanManageSecurityDeposit
+        can_manage_tax_rates:
+          description: used by dashboard to disable tax editing
+          type: boolean
+          x-go-name: CanManageTaxRates
+        can_renter_review:
+          type: boolean
+          x-go-name: CanRenterReview
+        can_renter_review_until:
+          type: string
+          x-go-name: CanRenterReviewUntil
+        can_see_contract:
+          type: boolean
+          x-go-name: CanSeeContract
+        can_suggest_date_change:
+          type: boolean
+          x-go-name: CanSuggestDateChange
+        can_suggest_delivery_change:
+          type: boolean
+          x-go-name: CanSuggestDeliveryChange
+        cancel_metadata:
+          $ref: '#/components/schemas/CancelMetadata'
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_reason:
+          type: string
+          x-go-name: CancelReason
+        canceled:
+          type: string
+          x-go-name: Canceled
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        cancellation_cutoff_date:
+          type: string
+        cancellation_refund_breakdown:
+          $ref: '#/components/schemas/CancellationRefundBreakdown'
+        cancellation_refund_percentage:
+          type: number
+          format: double
+          x-go-name: CancellationRefundPercentage
+        cc_fee_percentage:
+          description: Copied rental data - don't want rental changes to affect this booking
+          type: number
+          format: double
+          x-go-name: CCFeePercentage
+        checkin_stamp:
+          description: Internal
+          type: string
+          x-go-name: CheckinStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        checkout_questions:
+          $ref: '#/components/schemas/DBMSISlice'
+        checkout_stamp:
+          type: string
+          x-go-name: CheckoutStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        checkout_steps_id:
+          type: integer
+          format: int64
+          x-go-name: CheckoutStepsID
+        children:
+          type: integer
+          format: int64
+          x-go-name: Children
+        coachnet_id:
+          type: integer
+          format: int64
+          x-go-name: CoachnetID
+        coachnet_premium:
+          type: integer
+          format: uint64
+          x-go-name: CoachnetPremium
+        consignment:
+          $ref: '#/components/schemas/bookingConsignment'
+        conversation_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+        created_by_id:
+          type: integer
+          format: int64
+        created_stamp:
+          type: string
+          x-go-name: CreatedStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        custom_insurance_text:
+          type:
+          - string
+          - 'null'
+        dealer_minimum_days:
+          description: used to display information if a booking is below the dealers minimum days
+          type: integer
+          format: uint64
+          x-go-name: DealerMinimumDays
+        decline_reason:
+          type: string
+          x-go-name: DeclineReason
+        default_insurance_coverage:
+          type: string
+          x-go-name: DefaultInsuranceCoverage
+        deliverable_campground:
+          $ref: '#/components/schemas/ExternalCampground'
+        delivery:
+          $ref: '#/components/schemas/BookingDelivery'
+        delivery_item:
+          $ref: '#/components/schemas/BookingItem'
+        delivery_usage_item:
+          x-go-name: DeliveryUsageItemJSON
+        delivery_usage_item_id:
+          type: integer
+          format: int64
+        deposit_percentage:
+          type: number
+          format: double
+          x-go-name: DepositPercentage
+        destination:
+          type: string
+          x-go-name: Destination
+        destination_lat:
+          type: number
+          format: double
+          x-go-name: DestinationLat
+        destination_lng:
+          type: number
+          format: double
+          x-go-name: DestinationLng
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        device_id:
+          type: string
+          x-go-name: DeviceID
+        discount_code:
+          description: Copied discount code data, not allowed in request data.
+          type: string
+          x-go-name: DiscountCode
+        discount_code_amount:
+          type: integer
+          format: uint64
+          x-go-name: DiscountCodeAmount
+        discount_code_applied_to:
+          type: string
+          x-go-name: DiscountCodeAppliedTo
+        discount_code_message:
+          type: string
+          x-go-name: DiscountCodeMessage
+        display_insurance:
+          type: string
+          x-go-name: DisplayInsurance
+        display_source:
+          type: string
+          x-go-name: DisplaySource
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        display_status_style:
+          type: string
+          x-go-name: DisplayStatusStyle
+        documents:
+          $ref: '#/components/schemas/BookingDocuments'
+        dropoff:
+          $ref: '#/components/schemas/BookingDropoff'
+        duration:
+          type: integer
+          format: uint64
+          x-go-name: Duration
+        esign_enabled:
+          type: boolean
+          x-go-name: EsignEnabled
+        esign_pending:
+          type: boolean
+          x-go-name: EsignPending
+        expire_reason:
+          type: string
+          x-go-name: ExpireReason
+        express_checkout_id:
+          type: integer
+          format: int64
+          x-go-name: ExpressCheckoutID
+        external:
+          type:
+          - boolean
+          - 'null'
+        external_gift_card_details:
+          $ref: '#/components/schemas/ExternalGiftCardDetails'
+        external_gift_card_details_v2:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalGiftCardDetails'
+          x-go-name: ExternalGiftCardDetailsV2
+        fees_locked:
+          type: boolean
+          x-go-name: FeesLocked
+        fees_total:
+          type: integer
+          format: uint64
+          x-go-name: FeesTotal
+        final_payment_due_days:
+          type: integer
+          format: int64
+          x-go-name: FinalPaymentDueDays
+        followup_archived:
+          type: boolean
+          x-go-name: FollowupArchived
+        formatted:
+          $ref: '#/components/schemas/BookingDisplayFormatted'
+        formatted_total_overage_fee:
+          type: string
+          x-go-name: FormattedTotalOverageFee
+        fraudulent:
+          type: boolean
+          x-go-name: Fraudulent
+        free_cancellation_available:
+          type: boolean
+          x-go-name: FreeCancellationAvailable
+        free_cancellation_period:
+          type: integer
+          format: int64
+          x-go-name: FreeCancellationPeriod
+        from:
+          type: string
+        from_time:
+          type: integer
+          format: int64
+          x-go-name: FromTime
+        fx_fee_paid:
+          type: integer
+          format: int64
+          x-go-name: FXFeePaid
+        generator:
+          $ref: '#/components/schemas/BookingGenerator'
+        generator_item:
+          $ref: '#/components/schemas/BookingItem'
+        generator_usage_item:
+          x-go-name: GeneratorUsageItemJSON
+        generator_usage_item_id:
+          type: integer
+          format: int64
+        grace_period_ends_at:
+          type: string
+          x-go-name: GracePeriodEndsAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        handoff_summary:
+          $ref: '#/components/schemas/BookingHandoff'
+        has_approved_drivers:
+          type: boolean
+          x-go-name: HasApprovedDrivers
+        has_setup_intent_enabled:
+          type: boolean
+          x-go-name: HasSetupIntentEnabled
+        hold_sales_tax:
+          type: boolean
+          x-go-name: HoldSalesTax
+        house_rules:
+          type: string
+          x-go-name: HouseRules
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        import_id:
+          type: string
+          x-go-name: ImportID
+        imported:
+          description: owner only
+          type: boolean
+          x-go-name: Imported
+        include_coachnet:
+          type: boolean
+          x-go-name: IncludeCoachnet
+        infants:
+          type: integer
+          format: int64
+          x-go-name: Infants
+        initial_duration:
+          type: integer
+          format: uint64
+          x-go-name: InitialDuration
+        instamatch:
+          type:
+          - boolean
+          - 'null'
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        insurance:
+          type: string
+          x-go-name: Insurance
+        insurance_approved:
+          type: boolean
+          x-go-name: InsuranceApproved
+        insurance_approved_timestamp:
+          type: string
+          x-go-name: InsuranceApprovedTimeStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        insurance_approved_updated_timestamp:
+          type: string
+          x-go-name: InsuranceApprovedUpdateTimeStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        insurance_bundle:
+          description: Using an interface{} to avoid import cycle and from having to move structs into the models package.
+          x-go-name: BookingBundle
+        insurance_claim_filed:
+          type: boolean
+          x-go-name: InsuranceClaimFiled
+        insurance_coverage:
+          type: string
+          x-go-name: InsuranceCoverage
+        insurance_plan_id:
+          $ref: '#/components/schemas/Plan'
+        insurance_renter_adjustable:
+          type: boolean
+          x-go-name: InsuranceRenterAdjustable
+        internal_notes:
+          type: string
+          x-go-name: InternalNotes
+        is_request_less_than_minimum_days:
+          type: boolean
+          x-go-name: IsRequestLessThanMinimumDays
+        is_within_grace_period:
+          type: boolean
+          x-go-name: IsWithinGracePeriod
+        items:
+          description: Items, calculations, payouts and fees
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Items
+        locale:
+          $ref: '#/components/schemas/BookingLocale'
+        location_id:
+          type: integer
+          format: int64
+          x-go-name: LocationID
+        locked:
+          type: boolean
+          x-go-name: Locked
+        loyalty_credit_issued:
+          type: boolean
+          x-go-name: LoyaltyCreditIssued
+        loyalty_rewards_eligible:
+          type: boolean
+          x-go-name: LoyaltyRewardsEligible
+        medium:
+          type: string
+          x-go-name: Medium
+        metadata:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        mileage:
+          $ref: '#/components/schemas/BookingMileage'
+        mileage_item:
+          $ref: '#/components/schemas/BookingItem'
+        mileage_usage_item:
+          x-go-name: MileageUsageItemJSON
+        mileage_usage_item_id:
+          type: integer
+          format: int64
+        minimum_deposit:
+          type: integer
+          format: uint64
+          x-go-name: MinimumDeposit
+        missing_data:
+          type: array
+          items:
+            type: string
+          x-go-name: MissingData
+        missing_requirements:
+          type: object
+          additionalProperties: {}
+          x-go-name: MissingRequirements
+        mutual_cancellation:
+          type: boolean
+          x-go-name: MutualCancellation
+        non_refundable_total:
+          description: 'NonRefundableTotal is the total amount that cannot be refunded to the
+
+            renter. Trip Insurance that has been started is an example of something
+
+            that would be added to this total'
+          type: integer
+          format: int64
+          x-go-name: NonRefundableTotal
+        offer_affirm:
+          type: boolean
+          x-go-name: OfferAffirm
+        offer_insurance:
+          type: boolean
+          x-go-name: OfferInsurance
+        offer_paypal_pay_later:
+          type: boolean
+          x-go-name: OfferPayPalPayLater
+        offer_roadside:
+          type: boolean
+          x-go-name: OfferRoadside
+        original_booking_source:
+          type: string
+          x-go-name: OriginalBookingSource
+        original_day_price:
+          type: integer
+          format: uint64
+          x-go-name: OriginalDayPrice
+        original_security_deposit:
+          type: integer
+          format: uint64
+          x-go-name: OriginalSecurityDeposit
+        original_security_deposit_v2:
+          type: integer
+          format: uint64
+          x-go-name: OriginalSecurityDeposit_v2
+        original_service_fee:
+          description: renter only
+          type: integer
+          format: uint64
+          x-go-name: OriginalServiceFee
+        outdoorsy_fee:
+          type: integer
+          format: uint64
+          x-go-name: RenterIntegrationsFee
+        outdoorsy_remitted_taxes:
+          type: integer
+          format: uint64
+          x-go-name: OutdoorsyRemittedTaxes
+        overage_fee_collected:
+          type: boolean
+          x-go-name: OverageFeeCollected
+        overage_fee_expired:
+          type: boolean
+          x-go-name: OverageFeeExpired
+        overage_fee_section_display:
+          type: boolean
+          x-go-name: OverageFeeSectionDisplay
+        owner_addon_total:
+          description: Sum of all addons (booking items from rental_item parent_item_type)
+          type: integer
+          format: int64
+          x-go-name: OwnerAddonTotal
+        owner_approval_attempted:
+          type:
+          - boolean
+          - 'null'
+        owner_approved:
+          type: boolean
+          x-go-name: OwnerApproved
+        owner_approved_at:
+          type: string
+          x-go-name: OwnerApprovedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        owner_archived:
+          type: boolean
+          x-go-name: OwnerArchived
+        owner_credits_applied:
+          type: integer
+          format: uint64
+          x-go-name: OwnerCreditsApplied
+        owner_did_review:
+          type: boolean
+          x-go-name: OwnerDidReview
+        owner_fee:
+          type: integer
+          format: uint64
+          x-go-name: OwnerFee
+        owner_fee_aggregate_percentage:
+          description: aggregate percentage for all owner fee services that we apply - for UI purpouses
+          type: number
+          format: double
+          x-go-name: OwnerFeeAggregatePercentage
+        owner_fee_minimum_enforced:
+          description: Owner fee minimum enforced
+          type: boolean
+          x-go-name: OwnerFeeMinimumEnforced
+        owner_fee_minimum_per_night:
+          description: Owner fee minimum per night
+          type: integer
+          format: uint64
+          x-go-name: OwnerFeeMinimumPerNight
+        owner_fee_on_renter_cancellation:
+          description: 'Cancellation payout details - populated for owner/admin when status is renter_cancelled
+
+            Enables the host dashboard cancellation payout breakdown modal (MP-4959)'
+          type: integer
+          format: int64
+          x-go-name: OwnerFeeOnRenterCancellation
+        owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentage
+        owner_fee_percentage_record:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentageRecord
+        owner_fees:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: OwnerFees
+        owner_id:
+          type: integer
+          format: int64
+        owner_insurance_claim_filed:
+          type: boolean
+          x-go-name: OwnerInsuranceClaimFiled
+        owner_insurance_fee_total:
+          type: integer
+          format: int64
+          x-go-name: OwnerInsuranceFeeTotal
+        owner_integrations_fee:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        owner_payout:
+          type: integer
+          format: uint64
+          x-go-name: OwnerPayout
+        owner_payout_adjustment:
+          type: integer
+          format: int64
+          x-go-name: OwnerPayoutAdjustment
+        owner_payout_with_claim_adjustments:
+          description: OwnerPayout + Claim adjustments if any
+          type: integer
+          format: uint64
+          x-go-name: OwnerPayoutWithClaimAdjustments
+        owner_read:
+          type: boolean
+          x-go-name: OwnerRead
+        owner_summary:
+          x-go-name: OwnerSummary
+        owner_total:
+          type: integer
+          format: int64
+          x-go-name: OwnerTotal
+        owner_total_without_tax:
+          description: OwnerTotal - Tax (subtotal)
+          type: integer
+          format: int64
+          x-go-name: OwnerTotalWithoutTax
+        parent_booking_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        partner_app:
+          $ref: '#/components/schemas/PartnerApp'
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        payout_actual_transfer_amount:
+          description: booking transfers summary
+          type: integer
+          format: int64
+          x-go-name: PayoutActualTransferAmount
+        pending_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PendingTransaction'
+          x-go-name: PendingTransactions
+        personal_insurance_verification:
+          type: boolean
+          x-go-name: PersonalInsuranceVerification
+        personal_insurance_verification_status:
+          type: string
+          x-go-name: PersonalInsuranceVerificationStatus
+        pets:
+          type: integer
+          format: int64
+          x-go-name: Pets
+        pickup:
+          $ref: '#/components/schemas/BookingPickup'
+        premium_total:
+          type: integer
+          format: uint64
+          x-go-name: PremiumTotal
+        prep_fee_item:
+          $ref: '#/components/schemas/BookingItem'
+        presentment_currency:
+          type: string
+          x-go-name: PresentmentCurrency
+        processor_name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+        proposals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Proposal'
+          x-go-name: Proposals
+        provide_insurance_binder:
+          type: boolean
+          x-go-name: ProvideInsuranceBinder
+        raf_waiver_summary:
+          $ref: '#/components/schemas/RAFWaiverSummary'
+        reason:
+          type:
+          - string
+          - 'null'
+        referred_owner_paid:
+          type: boolean
+          x-go-name: ReferredOwnerPaid
+        referred_owner_payout_amount:
+          type: integer
+          format: uint64
+          x-go-name: ReferredOwnerPayoutAmount
+        referred_renter_paid:
+          type: boolean
+          x-go-name: ReferredRenterPaid
+        referred_renter_payout_amount:
+          type: integer
+          format: uint64
+          x-go-name: ReferredRenterPayoutAmount
+        refund_options:
+          $ref: '#/components/schemas/BookingRefundOptions'
+        remainder_amount:
+          type: integer
+          format: uint64
+          x-go-name: RemainderAmount
+        remainder_due_date:
+          type: string
+        remaining_days_to_cancellation_cutoff:
+          type: integer
+          format: int64
+          x-go-name: RemainingDaysToCancellationCutoff
+        rental_amount_item:
+          $ref: '#/components/schemas/BookingItem'
+        rental_charge_card_id:
+          type: integer
+          format: int64
+          x-go-name: RentalChargeCardID
+        rental_id:
+          type: integer
+          format: int64
+        rental_summary:
+          description: partial objects
+          x-go-name: RentalSummary
+        renter_age:
+          type: integer
+          format: int64
+          x-go-name: RenterAge
+        renter_approved:
+          type: boolean
+          x-go-name: RenterApproved
+        renter_approved_at:
+          type: string
+          x-go-name: RenterApprovedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_archived:
+          type: boolean
+          x-go-name: RenterArchived
+        renter_can_waive_insurance:
+          type: boolean
+          x-go-name: RenterCanWaiveInsurance
+        renter_credits_applied:
+          type: integer
+          format: uint64
+          x-go-name: RenterCreditsApplied
+        renter_destination_data:
+          $ref: '#/components/schemas/RenterDestinationData'
+        renter_did_review:
+          type: boolean
+          x-go-name: RenterDidReview
+        renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: RenterFeePercentage
+        renter_fee_percentage_record:
+          type: number
+          format: double
+          x-go-name: RenterFeePercentageRecord
+        renter_id:
+          type: integer
+          format: int64
+        renter_insurance_claim_filed:
+          type: boolean
+          x-go-name: RenterInsuranceClaimFiled
+        renter_insurance_fee_total:
+          type: integer
+          format: int64
+          x-go-name: RenterInsuranceFeeTotal
+        renter_payment_details:
+          $ref: '#/components/schemas/renterPaymentDetails'
+        renter_read:
+          type: boolean
+          x-go-name: RenterRead
+        renter_summary:
+          x-go-name: RenterSummary
+        require_booking_time:
+          type: boolean
+          x-go-name: RequireBookingTime
+        require_dmv_check:
+          type: boolean
+          x-go-name: RequireDMVCheckJSON
+        require_drivers:
+          type: boolean
+          x-go-name: RequireDMVCheck
+        require_insurance:
+          type: boolean
+          x-go-name: RequireInsurance
+        require_renter_id_verification:
+          type: boolean
+          x-go-name: RequireRenterIDVerification
+        require_roadside:
+          type: boolean
+          x-go-name: RequireRoadside
+        reserve_amount:
+          type: integer
+          format: uint64
+          x-go-name: ReserveAmount
+        reserve_amount_after_credits:
+          type: integer
+          format: int64
+          x-go-name: ReserveAmountAfterCredits
+        revenue_summary:
+          $ref: '#/components/schemas/RevenueSummary'
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+          x-go-name: Reviews
+        sd_post_trip_charges_data:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        sd_post_trip_charges_enabled:
+          type: boolean
+          x-go-name: SDPostTripChargesEnabled
+        search_filters:
+          $ref: '#/components/schemas/SearchFilters'
+        security_deposit:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDeposit
+        security_deposit_card_id:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositCardID
+        security_deposit_claimed_amount:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositClaimedAmount
+        security_deposit_due_date:
+          type: string
+        security_deposit_due_days:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositDueDays
+        security_deposit_payout_amount:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositPayoutAmount
+        security_deposit_refund_amount:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositRefundAmount
+        security_deposit_remaining:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositRemaining
+        security_deposit_reversable:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositReversable
+        security_deposit_status:
+          type: string
+          x-go-name: SecurityDepositStatus
+        service_fee:
+          type: integer
+          format: uint64
+          x-go-name: ServiceFee
+        service_fee_tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: ServiceFeeTaxRates
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingService'
+          x-go-name: Services
+        session_id:
+          type: string
+          x-go-name: SessionID
+        sibling_booking_group_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        sibling_bookings_totals:
+          $ref: '#/components/schemas/SiblingTotals'
+        siblings:
+          $ref: '#/components/schemas/SiblingBookings'
+        source:
+          type: string
+          x-go-name: Source
+        special_insurance_case:
+          type: boolean
+          x-go-name: SpecialInsuranceCase
+        stage:
+          type: string
+          x-go-name: Stage
+        status:
+          type: string
+          x-go-name: Status
+        subtotal:
+          type: integer
+          format: uint64
+          x-go-name: Subtotal
+        subtotal_with_claim_adjustments:
+          description: Booking subtotal with claim adjustments
+          type: integer
+          format: uint64
+          x-go-name: SubtotalWithClaimAdjustments
+        support_status:
+          type: string
+          x-go-name: SupportStatus
+        system_generated:
+          type: boolean
+          x-go-name: SystemGenerated
+        tax:
+          type: integer
+          format: uint64
+          x-go-name: Tax
+        tax_rates:
+          $ref: '#/components/schemas/TaxRateTotalItems'
+        tiered_owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: TieredOwnerFeePercentage
+        tiered_renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: TieredRenterFeePercentage
+        time_to_first_action:
+          type: integer
+          format: int64
+          x-go-name: TimeToFirstAction
+        timeline:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineItem'
+          x-go-name: Timeline
+        timeline_data:
+          $ref: '#/components/schemas/TimelineData'
+        to:
+          type: string
+        to_time:
+          type: integer
+          format: int64
+          x-go-name: ToTime
+        tollspot_monitor_id:
+          type: integer
+          format: int64
+          x-go-name: TollspotMonitorID
+        total:
+          type: integer
+          format: uint64
+          x-go-name: Total
+        total_after_credits:
+          type: integer
+          format: uint64
+          x-go-name: TotalAfterCredits
+        total_after_deductions:
+          description: 'the total amount that we will take from user card/paypal account for a given booking
+
+            deprecated use TotalAfterCredits'
+          type: integer
+          format: uint64
+          x-go-name: TotalAfterDeductions
+        total_cc_fees:
+          type: integer
+          format: uint64
+          x-go-name: TotalCCFees
+        total_overage_fee_amount:
+          type: integer
+          format: int64
+          x-go-name: TotalOverageFeeAmount
+        total_owner_federal_withholding_tax:
+          type: integer
+          format: int64
+          x-go-name: TotalOwnerFederalWithholdingTax
+        total_owner_quebec_sales_tax:
+          type: integer
+          format: int64
+          x-go-name: TotalOwnerQuebecSalesTax
+        total_paid:
+          type: integer
+          format: uint64
+          x-go-name: TotalPaid
+        total_paid_with_claim_adjustments:
+          description: For admin portal current rental paid = booking total_paind + claim adjustments
+          type: integer
+          format: uint64
+          x-go-name: TotalPaidWithClaimAdjustments
+        total_security_deposit_cc_fees:
+          type: integer
+          format: int64
+          x-go-name: TotalSecurityDepositCCFees
+        total_with_claim_adjustments:
+          description: For renter payment detals = total_after_credits (or booking total if not present) + claim adjustments
+          type: integer
+          format: uint64
+          x-go-name: TotalWithClaimAdjustments
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          x-go-name: Transactions
+        travel_to_states:
+          type: array
+          items:
+            type: string
+          x-go-name: TravelToStates
+        traveler_type:
+          type: string
+          x-go-name: TravelerType
+        travelers:
+          type: integer
+          format: int64
+          x-go-name: Travelers
+        trip_credits_disabled:
+          type: boolean
+          x-go-name: TripCreditsDisabled
+        trip_summary:
+          $ref: '#/components/schemas/TripSummary'
+        unclaimed_fees:
+          type: integer
+          format: uint64
+          x-go-name: UnclaimedFees
+        undelivered_emails_count:
+          type: integer
+          format: uint64
+          x-go-name: UndeliveredEmailsCount
+        update_warnings:
+          type: array
+          items:
+            type: string
+          x-go-name: UpdateWarnings
+        updated:
+          type: string
+        updated_stamp:
+          type: string
+          x-go-name: UpdatedStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        use_custom_tax_rates:
+          type: boolean
+          x-go-name: UseCustomTaxRates
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+        use_fees_increase:
+          type:
+          - boolean
+          - 'null'
+        use_insurance_bundles:
+          type: boolean
+          x-go-name: UseInsuranceBundles
+        use_system_tax_rates:
+          description: used by booking details page to display system tax notice
+          type: boolean
+          x-go-name: UseSystemTaxRates
+        use_tax_inclusive_pricing:
+          type: boolean
+          x-go-name: UseTaxInclusivePricing
+        use_tint_check:
+          type: boolean
+          x-go-name: UseTintCheck
+        user_notice_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeResponse'
+          x-go-name: UserNoticeEvents
+        user_notices_acknowledged:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAcknowledgment'
+          x-go-name: UserNoticesAcknowledged
+        user_role:
+          type: string
+          x-go-name: UserRole
+        waived_insurance_text:
+          type:
+          - string
+          - 'null'
+        waiver_summary:
+          $ref: '#/components/schemas/WaiverSummary'
+        warning:
+          $ref: '#/components/schemas/Warning'
+      x-go-package: github.com/outdoorsy/api/model
+    OwnerResponseReview:
+      type: object
+      properties:
+        text:
+          type: string
+          x-go-name: Text
+        timestamp:
+          type: string
+          x-go-name: Timestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    BookingDisplayFormatted:
+      type: object
+      properties:
+        insurance:
+          $ref: '#/components/schemas/BookingInsuranceFormatted'
+      x-go-package: github.com/outdoorsy/api/model
+    BookingDriverCheck:
+      type: object
+      properties:
+        arguments:
+          type: object
+          additionalProperties: {}
+          x-go-name: Arguments
+        country:
+          type: string
+          x-go-name: Country
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_status:
+          description: checkr and sterling specific
+          type: string
+          x-go-name: DisplayStatus
+        external_id:
+          type: string
+          x-go-name: ExternalID
+        failure_reason:
+          type: string
+          x-go-name: FailureReason
+        forced_approval_by:
+          type: string
+          x-go-name: ForcedApprovalBy
+        forced_approval_reason:
+          type: string
+          x-go-name: ForcedApprovalReason
+        forced_failure_by:
+          type: integer
+          format: int64
+          x-go-name: ForcedFailureBy
+        forced_failure_reason:
+          type: string
+          x-go-name: ForcedFailureReason
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_old_enough:
+          type: boolean
+          x-go-name: IsOldEnough
+        last_created:
+          type: string
+          x-go-name: LastCreated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        license_state:
+          type: string
+          x-go-name: LicenseState
+        method:
+          type: string
+          x-go-name: Method
+        ofac_sdn_score:
+          type: number
+          format: double
+          x-go-name: OFACScore
+        rv_length:
+          type: string
+          x-go-name: RVLength
+        score:
+          description: tint specific
+          type: integer
+          format: int64
+          x-go-name: Score
+        status:
+          type: string
+          x-go-name: Status
+        theft_score:
+          type: integer
+          format: int64
+          x-go-name: TheftScore
+        validation_id:
+          type: string
+          x-go-name: ValidationID
+        verification_upload_link:
+          type: string
+          x-go-name: VerificationUploadLink
+        verified:
+          type: boolean
+          x-go-name: Verified
+      x-go-package: github.com/outdoorsy/api/internal/booking_helper
+    BookingHandoff:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/ID'
+        owner_departure_complete:
+          description: Completed               bool        `json:"completed" db:"completed"`
+          type: boolean
+          x-go-name: OwnerDepartureComplete
+        owner_departure_eligible:
+          type: boolean
+          x-go-name: OwnerDepartureEligible
+        owner_departure_photo_count:
+          type: integer
+          format: int64
+          x-go-name: OwnerDeparturePhotoCount
+        owner_departure_signature_timestamp:
+          type: string
+          x-go-name: OwnerDepartureSignatureTimestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        owner_return_complete:
+          type: boolean
+          x-go-name: OwnerReturnComplete
+        owner_return_eligible:
+          type: boolean
+          x-go-name: OwnerReturnEligible
+        owner_return_photo_count:
+          type: integer
+          format: int64
+          x-go-name: OwnerReturnPhotoCount
+        owner_return_signature_timestamp:
+          type: string
+          x-go-name: OwnerReturnSignatureTimestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_departure_complete:
+          type: boolean
+          x-go-name: RenterDepartureComplete
+        renter_departure_eligible:
+          type: boolean
+          x-go-name: RenterDepartureEligible
+        renter_departure_photo_count:
+          type: integer
+          format: int64
+          x-go-name: RenterDeparturePhotoCount
+        renter_departure_signature_timestamp:
+          type: string
+          x-go-name: RenterDepartureSignatureTimestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_return_complete:
+          type: boolean
+          x-go-name: RenterReturnComplete
+        renter_return_eligible:
+          type: boolean
+          x-go-name: RenterReturnEligible
+        renter_return_photo_count:
+          type: integer
+          format: int64
+          x-go-name: RenterReturnPhotoCount
+        renter_return_signature_timestamp:
+          type: string
+          x-go-name: RenterReturnSignatureTimestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    DailyChange:
+      type: object
+      properties:
+        date:
+          type: string
+          x-go-name: Date
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rules:
+          $ref: '#/components/schemas/ISlice'
+      x-go-package: github.com/outdoorsy/api/internal/booking_price_log
+    CampgroundAmenitiesCategory:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    ConsignedPayoutItem:
+      type: object
+      properties:
+        consigned_payout_id:
+          $ref: '#/components/schemas/ConsignedPayout'
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    TimelineData:
+      description: TimelineData info
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineItem'
+          x-go-name: Items
+        subtitle:
+          type: string
+          x-go-name: Subtitle
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/bookings
+    BookingInsuranceFormatted:
+      type: object
+      properties:
+        action:
+          type: string
+          x-go-name: Action
+        description:
+          type: string
+          x-go-name: Description
+        title:
+          type: string
+          x-go-name: Title
+        warning:
+          type: string
+          x-go-name: Warning
+      x-go-package: github.com/outdoorsy/api/model
+    AffirmDetails:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        charge_id:
+          type: string
+          x-go-name: ChargeID
+        checkout_token:
+          type: string
+          x-go-name: CheckoutToken
+        status:
+          type: string
+          x-go-name: Status
+        user_id:
+          type: string
+          x-go-name: UserID
+      x-go-package: github.com/outdoorsy/api/model
+    UserPartial:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        business_name:
+          type: string
+          x-go-name: BusinessName
+        email:
+          type: string
+          x-go-name: Email
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        phone:
+          type: string
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/pkg/zapier
+    ConversationBody:
+      type: object
+      properties:
+        email:
+          type: string
+          x-go-name: Email
+        first_name:
+          type: string
+          x-go-name: FirstName
+        last_name:
+          type: string
+          x-go-name: LastName
+        message:
+          type: string
+          x-go-name: Message
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        phone:
+          type: string
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/types
+    BookingLocale:
+      type: object
+      properties:
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+        distance_unit:
+          type: string
+          x-go-name: DistanceUnit
+      x-go-package: github.com/outdoorsy/api/model
+    renterPaymentDetails:
+      type: object
+      properties:
+        device_data:
+          type: string
+          x-go-name: DeviceData
+        ppi_id:
+          type: integer
+          format: int64
+          x-go-name: RenterPPI
+        processor_name:
+          type: string
+          x-go-name: ProcessorName
+      x-go-package: github.com/outdoorsy/api/model
+    CampgroundCatalog:
+      type: object
+      properties:
+        activity_features:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampgroundActivityFeature'
+          x-go-name: ActivityFeatures
+        amenities_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampgroundAmenitiesCategory'
+          x-go-name: CampgroundAmenitiesCategories
+        processed_amenities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProcessedCampgroundAmenity'
+          x-go-name: ProcessedCampgroundAmenities
+        scenery_features:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampgroundSceneryFeature'
+          x-go-name: SceneryFeatures
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    Booking:
+      description: 'A booking is a reservation that references the renter, owner, and rental vehicle
+
+        with a defined start and stop date
+
+
+        A booking is what we''re all about'
+      type: object
+      title: Booking represents a reservation
+      properties:
+        abandoned:
+          type: boolean
+          x-go-name: Abandoned
+        addons:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Addons
+        adults:
+          type: integer
+          format: int64
+          x-go-name: Adults
+        affirm_details:
+          $ref: '#/components/schemas/AffirmDetails'
+        affirm_total:
+          description: Dynamically calculated. Not stored in DB
+          type: integer
+          format: int64
+          x-go-name: AffirmTotal
+        applicable_tos_version:
+          type: string
+          x-go-name: ApplicableToSVersion
+        attention:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttentionItem'
+          x-go-name: Attention
+        auto_assign_group:
+          type:
+          - boolean
+          - 'null'
+        auto_insurance_type:
+          type: string
+          x-go-name: AutoInsuranceType
+        bid_id:
+          type: integer
+          format: int64
+          x-go-name: BidID
+        block_discount_code:
+          type: boolean
+          x-go-name: BlockDiscountCode
+        booked:
+          description: Not Mutable
+          type: string
+          x-go-name: Booked
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        booking_agent:
+          type: string
+          x-go-name: BookingAgentID
+        booking_color:
+          type:
+          - string
+          - 'null'
+        booking_token:
+          type: string
+          x-go-name: BookingToken
+        bundle_id:
+          description: 'calculated field that holds the result of whether the rental has this assigned
+
+            if not, will look at the user/owner'
+          type: string
+          x-go-name: BundleID
+        calculated_day_price:
+          type: integer
+          format: uint64
+          x-go-name: CalculatedDayPrice
+        calculated_total_paid:
+          type: integer
+          format: uint64
+          x-go-name: CalculatedTotalPaid
+        campaign:
+          description: dealer only
+          type: string
+          x-go-name: Campaign
+        campground_booking_url:
+          description: Contains the booking id so ember can call /bookings/:id/default-selections
+          type: string
+          x-go-name: CampgroundBookingURL
+        campground_data:
+          $ref: '#/components/schemas/SiblingBookingCampgroundData'
+        can_add_ending_generator_values:
+          type: boolean
+          x-go-name: CanAddEndingGeneratorValues
+        can_add_ending_mileage_values:
+          type: boolean
+          x-go-name: CanAddEndingMileageValues
+        can_add_starting_generator_values:
+          type: boolean
+          x-go-name: CanAddStartingGeneratorValues
+        can_add_starting_mileage_values:
+          type: boolean
+          x-go-name: CanAddStartingMileageValues
+        can_add_trip_protection:
+          description: CanAddTransaction is used to check if the guest can add a trip protection
+          type: boolean
+          x-go-name: CanAddTripProtection
+        can_apply_credits:
+          type: boolean
+          x-go-name: CanApplyCredits
+        can_cancel_trip_protection:
+          description: CanCancelTripProtection is used to check if the guest can cancel a trip protection
+          type: boolean
+          x-go-name: CanCancelTripProtection
+        can_charge_overage_fees:
+          type: boolean
+          x-go-name: CanChargeOverageFees
+        can_file_claim:
+          type: boolean
+          x-go-name: CanFileClaim
+        can_generate_weather_quote:
+          type: boolean
+          x-go-name: CanGenerateWeatherQuote
+        can_manage_security_deposit:
+          type: boolean
+          x-go-name: CanManageSecurityDeposit
+        can_manage_tax_rates:
+          description: used by dashboard to disable tax editing
+          type: boolean
+          x-go-name: CanManageTaxRates
+        can_renter_review:
+          type: boolean
+          x-go-name: CanRenterReview
+        can_renter_review_until:
+          type: string
+          x-go-name: CanRenterReviewUntil
+        can_see_contract:
+          type: boolean
+          x-go-name: CanSeeContract
+        can_suggest_date_change:
+          type: boolean
+          x-go-name: CanSuggestDateChange
+        can_suggest_delivery_change:
+          type: boolean
+          x-go-name: CanSuggestDeliveryChange
+        cancel_metadata:
+          $ref: '#/components/schemas/CancelMetadata'
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_reason:
+          type: string
+          x-go-name: CancelReason
+        canceled:
+          type: string
+          x-go-name: Canceled
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        cancellation_cutoff_date:
+          type: string
+        cancellation_refund_breakdown:
+          $ref: '#/components/schemas/CancellationRefundBreakdown'
+        cancellation_refund_percentage:
+          type: number
+          format: double
+          x-go-name: CancellationRefundPercentage
+        cc_fee_percentage:
+          description: Copied rental data - don't want rental changes to affect this booking
+          type: number
+          format: double
+          x-go-name: CCFeePercentage
+        checkin_stamp:
+          description: Internal
+          type: string
+          x-go-name: CheckinStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        checkout_questions:
+          $ref: '#/components/schemas/DBMSISlice'
+        checkout_stamp:
+          type: string
+          x-go-name: CheckoutStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        checkout_steps_id:
+          type: integer
+          format: int64
+          x-go-name: CheckoutStepsID
+        children:
+          type: integer
+          format: int64
+          x-go-name: Children
+        coachnet_id:
+          type: integer
+          format: int64
+          x-go-name: CoachnetID
+        coachnet_premium:
+          type: integer
+          format: uint64
+          x-go-name: CoachnetPremium
+        consignment:
+          $ref: '#/components/schemas/bookingConsignment'
+        conversation_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+        created_by_id:
+          type: integer
+          format: int64
+        created_stamp:
+          type: string
+          x-go-name: CreatedStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        custom_insurance_text:
+          type:
+          - string
+          - 'null'
+        dealer_minimum_days:
+          description: used to display information if a booking is below the dealers minimum days
+          type: integer
+          format: uint64
+          x-go-name: DealerMinimumDays
+        decline_reason:
+          type: string
+          x-go-name: DeclineReason
+        default_insurance_coverage:
+          type: string
+          x-go-name: DefaultInsuranceCoverage
+        deliverable_campground:
+          $ref: '#/components/schemas/ExternalCampground'
+        delivery:
+          $ref: '#/components/schemas/BookingDelivery'
+        delivery_item:
+          $ref: '#/components/schemas/BookingItem'
+        delivery_usage_item:
+          x-go-name: DeliveryUsageItemJSON
+        delivery_usage_item_id:
+          type: integer
+          format: int64
+        deposit_percentage:
+          type: number
+          format: double
+          x-go-name: DepositPercentage
+        destination:
+          type: string
+          x-go-name: Destination
+        destination_lat:
+          type: number
+          format: double
+          x-go-name: DestinationLat
+        destination_lng:
+          type: number
+          format: double
+          x-go-name: DestinationLng
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        device_id:
+          type: string
+          x-go-name: DeviceID
+        discount_code:
+          description: Copied discount code data, not allowed in request data.
+          type: string
+          x-go-name: DiscountCode
+        discount_code_amount:
+          type: integer
+          format: uint64
+          x-go-name: DiscountCodeAmount
+        discount_code_applied_to:
+          type: string
+          x-go-name: DiscountCodeAppliedTo
+        discount_code_message:
+          type: string
+          x-go-name: DiscountCodeMessage
+        display_insurance:
+          type: string
+          x-go-name: DisplayInsurance
+        display_source:
+          type: string
+          x-go-name: DisplaySource
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        display_status_style:
+          type: string
+          x-go-name: DisplayStatusStyle
+        documents:
+          $ref: '#/components/schemas/BookingDocuments'
+        dropoff:
+          $ref: '#/components/schemas/BookingDropoff'
+        duration:
+          type: integer
+          format: uint64
+          x-go-name: Duration
+        esign_enabled:
+          type: boolean
+          x-go-name: EsignEnabled
+        esign_pending:
+          type: boolean
+          x-go-name: EsignPending
+        expire_reason:
+          type: string
+          x-go-name: ExpireReason
+        express_checkout_id:
+          type: integer
+          format: int64
+          x-go-name: ExpressCheckoutID
+        external:
+          type:
+          - boolean
+          - 'null'
+        external_gift_card_details:
+          $ref: '#/components/schemas/ExternalGiftCardDetails'
+        external_gift_card_details_v2:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalGiftCardDetails'
+          x-go-name: ExternalGiftCardDetailsV2
+        fees_locked:
+          type: boolean
+          x-go-name: FeesLocked
+        fees_total:
+          type: integer
+          format: uint64
+          x-go-name: FeesTotal
+        final_payment_due_days:
+          type: integer
+          format: int64
+          x-go-name: FinalPaymentDueDays
+        followup_archived:
+          type: boolean
+          x-go-name: FollowupArchived
+        formatted:
+          $ref: '#/components/schemas/BookingDisplayFormatted'
+        formatted_total_overage_fee:
+          type: string
+          x-go-name: FormattedTotalOverageFee
+        fraudulent:
+          type: boolean
+          x-go-name: Fraudulent
+        free_cancellation_available:
+          type: boolean
+          x-go-name: FreeCancellationAvailable
+        free_cancellation_period:
+          type: integer
+          format: int64
+          x-go-name: FreeCancellationPeriod
+        from:
+          type: string
+        from_time:
+          type: integer
+          format: int64
+          x-go-name: FromTime
+        fx_fee_paid:
+          type: integer
+          format: int64
+          x-go-name: FXFeePaid
+        generator:
+          $ref: '#/components/schemas/BookingGenerator'
+        generator_item:
+          $ref: '#/components/schemas/BookingItem'
+        generator_usage_item:
+          x-go-name: GeneratorUsageItemJSON
+        generator_usage_item_id:
+          type: integer
+          format: int64
+        grace_period_ends_at:
+          type: string
+          x-go-name: GracePeriodEndsAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        handoff_summary:
+          $ref: '#/components/schemas/BookingHandoff'
+        has_approved_drivers:
+          type: boolean
+          x-go-name: HasApprovedDrivers
+        has_setup_intent_enabled:
+          type: boolean
+          x-go-name: HasSetupIntentEnabled
+        hold_sales_tax:
+          type: boolean
+          x-go-name: HoldSalesTax
+        house_rules:
+          type: string
+          x-go-name: HouseRules
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        import_id:
+          type: string
+          x-go-name: ImportID
+        imported:
+          description: owner only
+          type: boolean
+          x-go-name: Imported
+        include_coachnet:
+          type: boolean
+          x-go-name: IncludeCoachnet
+        infants:
+          type: integer
+          format: int64
+          x-go-name: Infants
+        initial_duration:
+          type: integer
+          format: uint64
+          x-go-name: InitialDuration
+        instamatch:
+          type:
+          - boolean
+          - 'null'
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        insurance:
+          type: string
+          x-go-name: Insurance
+        insurance_approved:
+          type: boolean
+          x-go-name: InsuranceApproved
+        insurance_approved_timestamp:
+          type: string
+          x-go-name: InsuranceApprovedTimeStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        insurance_approved_updated_timestamp:
+          type: string
+          x-go-name: InsuranceApprovedUpdateTimeStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        insurance_bundle:
+          description: Using an interface{} to avoid import cycle and from having to move structs into the models package.
+          x-go-name: BookingBundle
+        insurance_claim_filed:
+          type: boolean
+          x-go-name: InsuranceClaimFiled
+        insurance_coverage:
+          type: string
+          x-go-name: InsuranceCoverage
+        insurance_plan_id:
+          $ref: '#/components/schemas/Plan'
+        insurance_renter_adjustable:
+          type: boolean
+          x-go-name: InsuranceRenterAdjustable
+        internal_notes:
+          type: string
+          x-go-name: InternalNotes
+        is_request_less_than_minimum_days:
+          type: boolean
+          x-go-name: IsRequestLessThanMinimumDays
+        is_within_grace_period:
+          type: boolean
+          x-go-name: IsWithinGracePeriod
+        items:
+          description: Items, calculations, payouts and fees
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Items
+        locale:
+          $ref: '#/components/schemas/BookingLocale'
+        location_id:
+          type: integer
+          format: int64
+          x-go-name: LocationID
+        locked:
+          type: boolean
+          x-go-name: Locked
+        loyalty_credit_issued:
+          type: boolean
+          x-go-name: LoyaltyCreditIssued
+        loyalty_rewards_eligible:
+          type: boolean
+          x-go-name: LoyaltyRewardsEligible
+        medium:
+          type: string
+          x-go-name: Medium
+        metadata:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        mileage:
+          $ref: '#/components/schemas/BookingMileage'
+        mileage_item:
+          $ref: '#/components/schemas/BookingItem'
+        mileage_usage_item:
+          x-go-name: MileageUsageItemJSON
+        mileage_usage_item_id:
+          type: integer
+          format: int64
+        minimum_deposit:
+          type: integer
+          format: uint64
+          x-go-name: MinimumDeposit
+        missing_data:
+          type: array
+          items:
+            type: string
+          x-go-name: MissingData
+        missing_requirements:
+          type: object
+          additionalProperties: {}
+          x-go-name: MissingRequirements
+        mutual_cancellation:
+          type: boolean
+          x-go-name: MutualCancellation
+        non_refundable_total:
+          description: 'NonRefundableTotal is the total amount that cannot be refunded to the
+
+            renter. Trip Insurance that has been started is an example of something
+
+            that would be added to this total'
+          type: integer
+          format: int64
+          x-go-name: NonRefundableTotal
+        offer_affirm:
+          type: boolean
+          x-go-name: OfferAffirm
+        offer_insurance:
+          type: boolean
+          x-go-name: OfferInsurance
+        offer_paypal_pay_later:
+          type: boolean
+          x-go-name: OfferPayPalPayLater
+        offer_roadside:
+          type: boolean
+          x-go-name: OfferRoadside
+        original_booking_source:
+          type: string
+          x-go-name: OriginalBookingSource
+        original_day_price:
+          type: integer
+          format: uint64
+          x-go-name: OriginalDayPrice
+        original_security_deposit:
+          type: integer
+          format: uint64
+          x-go-name: OriginalSecurityDeposit
+        original_security_deposit_v2:
+          type: integer
+          format: uint64
+          x-go-name: OriginalSecurityDeposit_v2
+        original_service_fee:
+          description: renter only
+          type: integer
+          format: uint64
+          x-go-name: OriginalServiceFee
+        outdoorsy_fee:
+          type: integer
+          format: uint64
+          x-go-name: RenterIntegrationsFee
+        outdoorsy_remitted_taxes:
+          type: integer
+          format: uint64
+          x-go-name: OutdoorsyRemittedTaxes
+        overage_fee_collected:
+          type: boolean
+          x-go-name: OverageFeeCollected
+        overage_fee_expired:
+          type: boolean
+          x-go-name: OverageFeeExpired
+        overage_fee_section_display:
+          type: boolean
+          x-go-name: OverageFeeSectionDisplay
+        owner_addon_total:
+          description: Sum of all addons (booking items from rental_item parent_item_type)
+          type: integer
+          format: int64
+          x-go-name: OwnerAddonTotal
+        owner_approval_attempted:
+          type:
+          - boolean
+          - 'null'
+        owner_approved:
+          type: boolean
+          x-go-name: OwnerApproved
+        owner_approved_at:
+          type: string
+          x-go-name: OwnerApprovedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        owner_archived:
+          type: boolean
+          x-go-name: OwnerArchived
+        owner_credits_applied:
+          type: integer
+          format: uint64
+          x-go-name: OwnerCreditsApplied
+        owner_did_review:
+          type: boolean
+          x-go-name: OwnerDidReview
+        owner_fee:
+          type: integer
+          format: uint64
+          x-go-name: OwnerFee
+        owner_fee_aggregate_percentage:
+          description: aggregate percentage for all owner fee services that we apply - for UI purpouses
+          type: number
+          format: double
+          x-go-name: OwnerFeeAggregatePercentage
+        owner_fee_minimum_enforced:
+          description: Owner fee minimum enforced
+          type: boolean
+          x-go-name: OwnerFeeMinimumEnforced
+        owner_fee_minimum_per_night:
+          description: Owner fee minimum per night
+          type: integer
+          format: uint64
+          x-go-name: OwnerFeeMinimumPerNight
+        owner_fee_on_renter_cancellation:
+          description: 'Cancellation payout details - populated for owner/admin when status is renter_cancelled
+
+            Enables the host dashboard cancellation payout breakdown modal (MP-4959)'
+          type: integer
+          format: int64
+          x-go-name: OwnerFeeOnRenterCancellation
+        owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentage
+        owner_fee_percentage_record:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentageRecord
+        owner_fees:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: OwnerFees
+        owner_id:
+          type: integer
+          format: int64
+        owner_insurance_claim_filed:
+          type: boolean
+          x-go-name: OwnerInsuranceClaimFiled
+        owner_insurance_fee_total:
+          type: integer
+          format: int64
+          x-go-name: OwnerInsuranceFeeTotal
+        owner_integrations_fee:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        owner_payout:
+          type: integer
+          format: uint64
+          x-go-name: OwnerPayout
+        owner_payout_adjustment:
+          type: integer
+          format: int64
+          x-go-name: OwnerPayoutAdjustment
+        owner_payout_with_claim_adjustments:
+          description: OwnerPayout + Claim adjustments if any
+          type: integer
+          format: uint64
+          x-go-name: OwnerPayoutWithClaimAdjustments
+        owner_read:
+          type: boolean
+          x-go-name: OwnerRead
+        owner_summary:
+          x-go-name: OwnerSummary
+        owner_total:
+          type: integer
+          format: int64
+          x-go-name: OwnerTotal
+        owner_total_without_tax:
+          description: OwnerTotal - Tax (subtotal)
+          type: integer
+          format: int64
+          x-go-name: OwnerTotalWithoutTax
+        parent_booking_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        partner_app:
+          $ref: '#/components/schemas/PartnerApp'
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        payout_actual_transfer_amount:
+          description: booking transfers summary
+          type: integer
+          format: int64
+          x-go-name: PayoutActualTransferAmount
+        pending_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PendingTransaction'
+          x-go-name: PendingTransactions
+        personal_insurance_verification:
+          type: boolean
+          x-go-name: PersonalInsuranceVerification
+        personal_insurance_verification_status:
+          type: string
+          x-go-name: PersonalInsuranceVerificationStatus
+        pets:
+          type: integer
+          format: int64
+          x-go-name: Pets
+        pickup:
+          $ref: '#/components/schemas/BookingPickup'
+        premium_total:
+          type: integer
+          format: uint64
+          x-go-name: PremiumTotal
+        prep_fee_item:
+          $ref: '#/components/schemas/BookingItem'
+        presentment_currency:
+          type: string
+          x-go-name: PresentmentCurrency
+        processor_name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+        proposals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Proposal'
+          x-go-name: Proposals
+        provide_insurance_binder:
+          type: boolean
+          x-go-name: ProvideInsuranceBinder
+        raf_waiver_summary:
+          $ref: '#/components/schemas/RAFWaiverSummary'
+        reason:
+          type:
+          - string
+          - 'null'
+        referred_owner_paid:
+          type: boolean
+          x-go-name: ReferredOwnerPaid
+        referred_owner_payout_amount:
+          type: integer
+          format: uint64
+          x-go-name: ReferredOwnerPayoutAmount
+        referred_renter_paid:
+          type: boolean
+          x-go-name: ReferredRenterPaid
+        referred_renter_payout_amount:
+          type: integer
+          format: uint64
+          x-go-name: ReferredRenterPayoutAmount
+        refund_options:
+          $ref: '#/components/schemas/BookingRefundOptions'
+        remainder_amount:
+          type: integer
+          format: uint64
+          x-go-name: RemainderAmount
+        remainder_due_date:
+          type: string
+        remaining_days_to_cancellation_cutoff:
+          type: integer
+          format: int64
+          x-go-name: RemainingDaysToCancellationCutoff
+        rental_amount_item:
+          $ref: '#/components/schemas/BookingItem'
+        rental_charge_card_id:
+          type: integer
+          format: int64
+          x-go-name: RentalChargeCardID
+        rental_id:
+          type: integer
+          format: int64
+        rental_summary:
+          description: partial objects
+          x-go-name: RentalSummary
+        renter_age:
+          type: integer
+          format: int64
+          x-go-name: RenterAge
+        renter_approved:
+          type: boolean
+          x-go-name: RenterApproved
+        renter_approved_at:
+          type: string
+          x-go-name: RenterApprovedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_archived:
+          type: boolean
+          x-go-name: RenterArchived
+        renter_can_waive_insurance:
+          type: boolean
+          x-go-name: RenterCanWaiveInsurance
+        renter_credits_applied:
+          type: integer
+          format: uint64
+          x-go-name: RenterCreditsApplied
+        renter_destination_data:
+          $ref: '#/components/schemas/RenterDestinationData'
+        renter_did_review:
+          type: boolean
+          x-go-name: RenterDidReview
+        renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: RenterFeePercentage
+        renter_fee_percentage_record:
+          type: number
+          format: double
+          x-go-name: RenterFeePercentageRecord
+        renter_id:
+          type: integer
+          format: int64
+        renter_insurance_claim_filed:
+          type: boolean
+          x-go-name: RenterInsuranceClaimFiled
+        renter_insurance_fee_total:
+          type: integer
+          format: int64
+          x-go-name: RenterInsuranceFeeTotal
+        renter_payment_details:
+          $ref: '#/components/schemas/renterPaymentDetails'
+        renter_read:
+          type: boolean
+          x-go-name: RenterRead
+        renter_summary:
+          x-go-name: RenterSummary
+        require_booking_time:
+          type: boolean
+          x-go-name: RequireBookingTime
+        require_dmv_check:
+          type: boolean
+          x-go-name: RequireDMVCheckJSON
+        require_drivers:
+          type: boolean
+          x-go-name: RequireDMVCheck
+        require_insurance:
+          type: boolean
+          x-go-name: RequireInsurance
+        require_renter_id_verification:
+          type: boolean
+          x-go-name: RequireRenterIDVerification
+        require_roadside:
+          type: boolean
+          x-go-name: RequireRoadside
+        reserve_amount:
+          type: integer
+          format: uint64
+          x-go-name: ReserveAmount
+        reserve_amount_after_credits:
+          type: integer
+          format: int64
+          x-go-name: ReserveAmountAfterCredits
+        revenue_summary:
+          $ref: '#/components/schemas/RevenueSummary'
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+          x-go-name: Reviews
+        sd_post_trip_charges_data:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        sd_post_trip_charges_enabled:
+          type: boolean
+          x-go-name: SDPostTripChargesEnabled
+        search_filters:
+          $ref: '#/components/schemas/SearchFilters'
+        security_deposit:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDeposit
+        security_deposit_card_id:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositCardID
+        security_deposit_claimed_amount:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositClaimedAmount
+        security_deposit_due_date:
+          type: string
+        security_deposit_due_days:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositDueDays
+        security_deposit_payout_amount:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositPayoutAmount
+        security_deposit_refund_amount:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositRefundAmount
+        security_deposit_remaining:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositRemaining
+        security_deposit_reversable:
+          type: integer
+          format: uint64
+          x-go-name: SecurityDepositReversable
+        security_deposit_status:
+          type: string
+          x-go-name: SecurityDepositStatus
+        service_fee:
+          type: integer
+          format: uint64
+          x-go-name: ServiceFee
+        service_fee_tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: ServiceFeeTaxRates
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingService'
+          x-go-name: Services
+        session_id:
+          type: string
+          x-go-name: SessionID
+        sibling_booking_group_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        sibling_bookings_totals:
+          $ref: '#/components/schemas/SiblingTotals'
+        siblings:
+          $ref: '#/components/schemas/SiblingBookings'
+        source:
+          type: string
+          x-go-name: Source
+        special_insurance_case:
+          type: boolean
+          x-go-name: SpecialInsuranceCase
+        stage:
+          type: string
+          x-go-name: Stage
+        status:
+          type: string
+          x-go-name: Status
+        subtotal:
+          type: integer
+          format: uint64
+          x-go-name: Subtotal
+        subtotal_with_claim_adjustments:
+          description: Booking subtotal with claim adjustments
+          type: integer
+          format: uint64
+          x-go-name: SubtotalWithClaimAdjustments
+        support_status:
+          type: string
+          x-go-name: SupportStatus
+        system_generated:
+          type: boolean
+          x-go-name: SystemGenerated
+        tax:
+          type: integer
+          format: uint64
+          x-go-name: Tax
+        tax_rates:
+          $ref: '#/components/schemas/TaxRateTotalItems'
+        tiered_owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: TieredOwnerFeePercentage
+        tiered_renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: TieredRenterFeePercentage
+        time_to_first_action:
+          type: integer
+          format: int64
+          x-go-name: TimeToFirstAction
+        timeline:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineItem'
+          x-go-name: Timeline
+        timeline_data:
+          $ref: '#/components/schemas/TimelineData'
+        to:
+          type: string
+        to_time:
+          type: integer
+          format: int64
+          x-go-name: ToTime
+        tollspot_monitor_id:
+          type: integer
+          format: int64
+          x-go-name: TollspotMonitorID
+        total:
+          type: integer
+          format: uint64
+          x-go-name: Total
+        total_after_credits:
+          type: integer
+          format: uint64
+          x-go-name: TotalAfterCredits
+        total_after_deductions:
+          description: 'the total amount that we will take from user card/paypal account for a given booking
+
+            deprecated use TotalAfterCredits'
+          type: integer
+          format: uint64
+          x-go-name: TotalAfterDeductions
+        total_cc_fees:
+          type: integer
+          format: uint64
+          x-go-name: TotalCCFees
+        total_overage_fee_amount:
+          type: integer
+          format: int64
+          x-go-name: TotalOverageFeeAmount
+        total_owner_federal_withholding_tax:
+          type: integer
+          format: int64
+          x-go-name: TotalOwnerFederalWithholdingTax
+        total_owner_quebec_sales_tax:
+          type: integer
+          format: int64
+          x-go-name: TotalOwnerQuebecSalesTax
+        total_paid:
+          type: integer
+          format: uint64
+          x-go-name: TotalPaid
+        total_paid_with_claim_adjustments:
+          description: For admin portal current rental paid = booking total_paind + claim adjustments
+          type: integer
+          format: uint64
+          x-go-name: TotalPaidWithClaimAdjustments
+        total_security_deposit_cc_fees:
+          type: integer
+          format: int64
+          x-go-name: TotalSecurityDepositCCFees
+        total_with_claim_adjustments:
+          description: For renter payment detals = total_after_credits (or booking total if not present) + claim adjustments
+          type: integer
+          format: uint64
+          x-go-name: TotalWithClaimAdjustments
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          x-go-name: Transactions
+        travel_to_states:
+          type: array
+          items:
+            type: string
+          x-go-name: TravelToStates
+        traveler_type:
+          type: string
+          x-go-name: TravelerType
+        travelers:
+          type: integer
+          format: int64
+          x-go-name: Travelers
+        trip_credits_disabled:
+          type: boolean
+          x-go-name: TripCreditsDisabled
+        trip_summary:
+          $ref: '#/components/schemas/TripSummary'
+        unclaimed_fees:
+          type: integer
+          format: uint64
+          x-go-name: UnclaimedFees
+        undelivered_emails_count:
+          type: integer
+          format: uint64
+          x-go-name: UndeliveredEmailsCount
+        update_warnings:
+          type: array
+          items:
+            type: string
+          x-go-name: UpdateWarnings
+        updated:
+          type: string
+        updated_stamp:
+          type: string
+          x-go-name: UpdatedStamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        use_custom_tax_rates:
+          type: boolean
+          x-go-name: UseCustomTaxRates
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+        use_fees_increase:
+          type:
+          - boolean
+          - 'null'
+        use_insurance_bundles:
+          type: boolean
+          x-go-name: UseInsuranceBundles
+        use_system_tax_rates:
+          description: used by booking details page to display system tax notice
+          type: boolean
+          x-go-name: UseSystemTaxRates
+        use_tax_inclusive_pricing:
+          type: boolean
+          x-go-name: UseTaxInclusivePricing
+        use_tint_check:
+          type: boolean
+          x-go-name: UseTintCheck
+        user_notice_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeResponse'
+          x-go-name: UserNoticeEvents
+        user_notices_acknowledged:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAcknowledgment'
+          x-go-name: UserNoticesAcknowledged
+        user_role:
+          type: string
+          x-go-name: UserRole
+        waived_insurance_text:
+          type:
+          - string
+          - 'null'
+        waiver_summary:
+          $ref: '#/components/schemas/WaiverSummary'
+        warning:
+          $ref: '#/components/schemas/Warning'
+      x-go-package: github.com/outdoorsy/api/model
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    CancellationRefundBreakdown:
+      description: 'It captures the full component split computed by getRefundPayoutInputs so that the
+
+        host dashboard can display a detailed breakdown without having to re-derive the numbers.'
+      type: object
+      title: CancellationRefundBreakdown is persisted to booking_metadata at cancellation time.
+      properties:
+        cancellation_policy:
+          type: string
+          x-go-name: CancellationPolicy
+        gross_owner_payout:
+          type: integer
+          format: int64
+          x-go-name: GrossOwnerPayout
+        is_cutoff_cancellation:
+          type: boolean
+          x-go-name: IsCutoffCancellation
+        is_grace_period:
+          type: boolean
+          x-go-name: IsGracePeriod
+        is_standardized_policy:
+          type: boolean
+          x-go-name: IsStandardized
+        net_owner_payout:
+          type: integer
+          format: int64
+          x-go-name: NetOwnerPayout
+        non_refundable_rif:
+          type: integer
+          format: int64
+          x-go-name: NonRefundableRIF
+        other_items_amount:
+          type: integer
+          format: int64
+          x-go-name: OtherItemsAmount
+        owner_fee:
+          type: integer
+          format: int64
+          x-go-name: OwnerFee
+        owner_fee_base:
+          type: integer
+          format: int64
+          x-go-name: OwnerFeeBase
+        owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentage
+        penalty_percentage:
+          type: number
+          format: double
+          x-go-name: PenaltyPercentage
+        refund_percentage:
+          type: number
+          format: double
+          x-go-name: RefundPercentage
+        refundable_rif:
+          type: integer
+          format: int64
+          x-go-name: RefundableRIF
+        rental_amount:
+          type: integer
+          format: int64
+          x-go-name: RentalAmount
+        rental_tax:
+          type: integer
+          format: int64
+          x-go-name: RentalTax
+        rental_tax_payable_to:
+          type: string
+          x-go-name: RentalTaxPayableTo
+        renter_refund_amount:
+          type: integer
+          format: int64
+          x-go-name: RenterRefundAmount
+        service_fee:
+          type: integer
+          format: int64
+          x-go-name: ServiceFee
+        service_fee_tax:
+          type: integer
+          format: int64
+          x-go-name: ServiceFeeTax
+        total_rif:
+          type: integer
+          format: int64
+          x-go-name: TotalRIF
+      x-go-package: github.com/outdoorsy/api/model
+    Message:
+      type: object
+      properties:
+        actor_id:
+          type: integer
+          format: int64
+        archived:
+          type: boolean
+          x-go-name: Archived
+        booking:
+          $ref: '#/components/schemas/MinBooking'
+        booking_summary:
+          $ref: '#/components/schemas/BookingSummary'
+        clicked:
+          type: string
+          x-go-name: Clicked
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        conversation_id:
+          type: integer
+          format: int64
+        destination_data:
+          $ref: '#/components/schemas/RenterDestinationData'
+        file_urls:
+          type: array
+          items:
+            type: string
+          x-go-name: FileURLs
+        files:
+          $ref: '#/components/schemas/DBIntSlice'
+        flagged:
+          type:
+          - boolean
+          - 'null'
+        flagged_text:
+          type:
+          - string
+          - 'null'
+        from_email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type:
+          - string
+          - 'null'
+        latest_status:
+          type:
+          - string
+          - 'null'
+        opened:
+          type: string
+          x-go-name: Opened
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        origin:
+          type:
+          - string
+          - 'null'
+        proxy_interaction_id:
+          type:
+          - string
+          - 'null'
+        read:
+          type: boolean
+          x-go-name: Read
+        receiver_id:
+          type: integer
+          format: int64
+        ref_booking_id:
+          type: integer
+          format: int64
+          x-go-name: RefBookingID
+        ref_rental_id:
+          type: integer
+          format: int64
+          x-go-name: RefRentalID
+        rental_summary:
+          x-go-name: RentalSummary
+        sender_id:
+          type: integer
+          format: int64
+        sentiment:
+          type: string
+          x-go-name: Sentiment
+        sentiment_confidence:
+          type: number
+          format: double
+          x-go-name: SentimentConfidence
+        spam:
+          type: boolean
+          x-go-name: Spam
+        system:
+          type: boolean
+          x-go-name: System
+        template:
+          type: string
+          x-go-name: Template
+        text:
+          type: string
+          x-go-name: Text
+        timestamp:
+          type: string
+          x-go-name: Timestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    CancelMetadata:
+      description: 'CancelMetadata is stored as JSONB and contains structured cancellation information for analytics and tracking
+
+        Fields: reason_value, penalty_category, timestamp, reason_metadata'
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/model
+    RenterDestinationData:
+      type: object
+      properties:
+        region:
+          type: string
+          x-go-name: Region
+        spot_types:
+          type: array
+          items:
+            type: string
+          x-go-name: SpotTypes
+        stops:
+          type: array
+          items:
+            type: string
+          x-go-name: Stops
+      x-go-package: github.com/outdoorsy/api/types
+    Locale:
+      type: object
+      properties:
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+        date_format:
+          type: string
+          x-go-name: DateFormat
+        distance_unit:
+          type: string
+          x-go-name: DistanceUnit
+        language:
+          type: string
+          x-go-name: Language
+        length_unit:
+          type: string
+          x-go-name: LengthUnit
+        liquid_unit:
+          type: string
+          x-go-name: LiquidUnit
+        time_format:
+          type: string
+          x-go-name: TimeFormat
+        timezone:
+          type: string
+          x-go-name: Timezone
+        weight_unit:
+          type: string
+          x-go-name: WeightUnit
+      x-go-package: github.com/outdoorsy/api/model
+    ExternalGiftCardDetails:
+      type: object
+      properties:
+        alocated_amount:
+          type: integer
+          format: uint64
+          x-go-name: AlocatedAmount
+        card_number:
+          type: string
+          x-go-name: CardNumber
+        converted_amount:
+          type: integer
+          format: uint64
+          x-go-name: ConvertedAmount
+        pin_verivied:
+          type: boolean
+          x-go-name: PinVerified
+        provider:
+          type: string
+          x-go-name: Provider
+        refund_amount:
+          type: integer
+          format: uint64
+          x-go-name: RefundAmount
+        refund_converted_amount:
+          type: integer
+          format: uint64
+          x-go-name: RefundConvertedAmount
+        refund_req_ref:
+          type: string
+          x-go-name: RefundReqRef
+        request_ref:
+          type: string
+          x-go-name: RequestRef
+      x-go-package: github.com/outdoorsy/api/types
+    AttentionItem:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AttentionItemData'
+        is_actionable:
+          type: boolean
+          x-go-name: IsActionable
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/model
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    TaxRateTotalItem:
+      description: 'Used when calculated booking/quote
+
+        and storing calculated result on booking'
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        name:
+          type: string
+          x-go-name: Name
+        rates:
+          $ref: '#/components/schemas/TaxRateItems'
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    BookingDropoff:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    MinBooking:
+      type: object
+      properties:
+        attention_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttentionItem'
+          x-go-name: Attention
+        conversation_id:
+          type: integer
+          format: int64
+          x-go-name: ConversationID
+        created:
+          type: string
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        display_status_style:
+          type: string
+          x-go-name: DisplayStatusStyle
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        is_actionable:
+          type: boolean
+          x-go-name: IsActionable
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Items
+        locale:
+          $ref: '#/components/schemas/BookingLocale'
+        owner_approved:
+          type: boolean
+          x-go-name: OwnerApproved
+        owner_payout:
+          type: integer
+          format: int64
+          x-go-name: OwnerPayout
+        passengers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingDriver'
+          x-go-name: Passengers
+        rental:
+          $ref: '#/components/schemas/RentalSummary'
+        renter:
+          $ref: '#/components/schemas/UserPartial'
+        renter_approved:
+          type: boolean
+          x-go-name: RenterApproved
+        stage:
+          type: string
+          x-go-name: Stage
+        status:
+          type: string
+          x-go-name: Status
+        to:
+          type: string
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+        waiver_summary:
+          $ref: '#/components/schemas/WaiverSummary'
+      x-go-package: github.com/outdoorsy/api/model
+    RevenueSummary:
+      type: object
+      properties:
+        funds_held_by_outdoorsy:
+          type: integer
+          format: int64
+          x-go-name: FundsHeldByOutdoorsy
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/RevenueLineItem'
+          x-go-name: LineItems
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/bookings
+    BookingDriver:
+      description: BookingDriver is the driver(s) of the 'rv' rental or the renter of the 'stay' rental
+      type: object
+      properties:
+        age_verified:
+          type: boolean
+          x-go-name: AgeVerified
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        birthdate:
+          type: string
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        checkr_trust_verified:
+          type: boolean
+          x-go-name: CheckrTrustVerified
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingDriverCheck'
+          x-go-name: Checks
+        driver_check_verified:
+          type: boolean
+          x-go-name: DriverCheckVerified
+        driver_verification_status:
+          type: string
+          x-go-name: DriverVerificationStatus
+        email:
+          type: string
+          x-go-name: Email
+        evident_check_verified:
+          type: boolean
+          x-go-name: EvidentCheckVerified
+        first_name:
+          type: string
+          x-go-name: FirstName
+        has_driving_record_check:
+          type: boolean
+          x-go-name: HasDrivingRecordCheck
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        invite_status:
+          type: string
+          x-go-name: InviteStatus
+        last_name:
+          type: string
+          x-go-name: LastName
+        legacy_driver:
+          type: boolean
+          x-go-name: LegacyDriver
+        named_passenger:
+          type: boolean
+          x-go-name: NamedPassenger
+        owned_by_id:
+          type: integer
+          format: int64
+          x-go-name: OwnedByID
+        persona_check_verified:
+          type: boolean
+          x-go-name: PersonaCheckVerified
+        require_evident:
+          type: boolean
+          x-go-name: RequireEvident
+        require_persona:
+          type: boolean
+          x-go-name: RequirePersona
+        roamly_risk_check_verified:
+          type: boolean
+          x-go-name: RoamlyRiskCheckVerified
+        role:
+          description: attrs from Passenger struct so frontend can treat them the same
+          type: string
+          x-go-name: Role
+        show_persona_flow:
+          type: boolean
+          x-go-name: ShowPersonaFlow
+        tessera_check_verified:
+          type: boolean
+          x-go-name: TesseraCheckVerified
+        tint_check_verified:
+          type: boolean
+          x-go-name: TintCheckVerified
+        token:
+          type: string
+          x-go-name: ConfirmationToken
+        validation_status:
+          type: string
+          x-go-name: ValidationStatus
+        verified:
+          type: boolean
+          x-go-name: Verified
+        verified_checks_count:
+          type: integer
+          format: int64
+          x-go-name: VerifiedChecksCount
+      x-go-package: github.com/outdoorsy/api/internal/booking_helper
+    Review:
+      type: object
+      properties:
+        apply_credit:
+          description: special incoming field, not stored in DB
+          type: boolean
+          x-go-name: ApplyCredit
+        booking_id:
+          type: integer
+          format: int64
+        booking_summary:
+          $ref: '#/components/schemas/BookingSummary'
+        can_edit:
+          type: boolean
+          x-go-name: CanEdit
+        can_edit_until:
+          type: string
+          x-go-name: CanEditUntil
+        cleanliness_score:
+          type: number
+          format: double
+          x-go-name: CleanlinessScore
+        communication_score:
+          type: number
+          format: double
+          x-go-name: CommunicationScore
+        deleted:
+          description: clocks.RfcTime was resulting in 0001-01-01 which I want to avoid. it should be null or a real date
+          type: string
+          format: date-time
+          x-go-name: Deleted
+        exclude_from_rating:
+          type: boolean
+          x-go-name: ExcludeFromRating
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        images:
+          $ref: '#/components/schemas/DBStringSlice'
+        imported:
+          description: used for imported reviews only
+          type: boolean
+          x-go-name: Imported
+        listing_score:
+          type: number
+          format: double
+          x-go-name: ListingAccuracyScore
+        mechanical_score:
+          type: number
+          format: double
+          x-go-name: MechanicalScore
+        name:
+          type: string
+          x-go-name: Name
+        outdoorsy_only:
+          type: boolean
+          x-go-name: OutdoorsyOnly
+        owner:
+          $ref: '#/components/schemas/ReviewOwner'
+        owner_can_respond:
+          type: boolean
+          x-go-name: OwnerCanRespond
+        owner_response:
+          $ref: '#/components/schemas/OwnerResponseReview'
+        published:
+          type: boolean
+          x-go-name: Published
+        rental_id:
+          type: integer
+          format: int64
+        rental_summary:
+          $ref: '#/components/schemas/RentalSummary'
+        rental_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagRental'
+          x-go-name: RentalTags
+        review_images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewImage'
+          x-go-name: ReviewImages
+        reviewer:
+          $ref: '#/components/schemas/Reviewer'
+        reviewer_id:
+          type: integer
+          format: int64
+        score:
+          description: Review Types
+          type: number
+          format: double
+          x-go-name: Score
+        source_page:
+          type: string
+          x-go-name: SourcePage
+        tags:
+          description: Tags are saved on tag_rental_join
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+          x-go-name: Tags
+        text:
+          type: string
+          x-go-name: Text
+        timestamp:
+          type: string
+          x-go-name: Timestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_id:
+          type: integer
+          format: int64
+        user_recommend:
+          type: boolean
+          x-go-name: UserRecommend
+        value_score:
+          type: number
+          format: double
+          x-go-name: ValueScore
+      x-go-package: github.com/outdoorsy/api/model
+    PartnerApp:
+      description: partner app
+      type: object
+      properties:
+        app_id:
+          type: string
+          x-go-name: AppID
+        app_name:
+          type: string
+          x-go-name: AppName
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        default_app:
+          type: boolean
+          x-go-name: DefaultApp
+        enabled:
+          type: boolean
+          x-go-name: Enabled
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        owner_lead_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerLeadFeePercentage
+        owner_lead_only_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerLeadOnlyFeePercentage
+        partner:
+          $ref: '#/components/schemas/Partner'
+        renter_lead_fee_percentage:
+          type: number
+          format: double
+          x-go-name: RenterLeadFeePercentage
+        renter_lead_only_fee_percentage:
+          type: number
+          format: double
+          x-go-name: RenterLeadOnlyFeePercentage
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/partner
+    ReviewImage:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          x-go-name: Created
+        id:
+          $ref: '#/components/schemas/ID'
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        rental_id:
+          type: string
+          x-go-name: RentalID
+        review_id:
+          type: string
+          x-go-name: ReviewID
+        reviewed:
+          type: boolean
+          x-go-name: Reviewed
+        reviewed_by:
+          type: string
+          x-go-name: ReviewedBy
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          format: date-time
+          x-go-name: Updated
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/api/model
+    Transaction:
+      type: object
+      properties:
+        actual_deposit_date:
+          type: string
+        adjustment:
+          type: integer
+          format: uint64
+          x-go-name: Adjustment
+        amount:
+          type: integer
+          format: uint64
+          x-go-name: Amount
+        auto_deposit:
+          type: boolean
+          x-go-name: AutoDeposit
+        available:
+          description: Available tells us when the funds are expected to have cleared the bank
+          type: string
+          x-go-name: Available
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        booking_id:
+          type: integer
+          format: int64
+        brand:
+          type: string
+          x-go-name: Brand
+        can_delete:
+          type: boolean
+          x-go-name: CanDelete
+        can_finance_sync:
+          type: boolean
+          x-go-name: CanFinanceSync
+        can_refund:
+          type: boolean
+          x-go-name: CanRefund
+        can_retry:
+          type: boolean
+          x-go-name: CanRetry
+        can_reverse_transfer:
+          type: boolean
+          x-go-name: CanReverseTransfer
+        can_sync:
+          type: boolean
+          x-go-name: CanSync
+        can_transfer:
+          type: boolean
+          x-go-name: CanTransfer
+        cc_fee:
+          type: integer
+          format: uint64
+          x-go-name: CCFee
+        charged:
+          type: string
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by_id:
+          type: integer
+          format: int64
+          x-go-name: CreatedByID
+        deposit_date:
+          type: string
+        description:
+          type: string
+          x-go-name: Description
+        display_charge_type:
+          type: string
+          x-go-name: DisplayChargeType
+        display_payment_processor_name:
+          type: string
+          x-go-name: DisplayPaymentProcessorName
+        display_type:
+          type: string
+          x-go-name: DisplayType
+        dispute_reason:
+          type:
+          - string
+          - 'null'
+        dispute_status:
+          type:
+          - string
+          - 'null'
+        disputed:
+          type: boolean
+          x-go-name: Disputed
+        expected_deposit_date:
+          type: string
+        failed:
+          type: boolean
+          x-go-name: Failed
+        fraudulent:
+          type: boolean
+          x-go-name: Fraudulent
+        fx_fee:
+          description: DEPRECATED - DO NOT USE
+          type: integer
+          format: uint64
+          x-go-name: FXFee
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_refund:
+          type: boolean
+          x-go-name: IsRefund
+        last_four:
+          type: string
+          x-go-name: LastFour
+        original_charge_id:
+          $ref: '#/components/schemas/Transaction'
+        our_fee:
+          type: integer
+          format: uint64
+          x-go-name: OurFee
+        outdoorsy_fee:
+          type: integer
+          format: uint64
+          x-go-name: RenterIntegrationsFee
+        owner_federal_withholding_tax:
+          type: integer
+          format: uint64
+          x-go-name: OwnerFederalWithholdingTax
+        owner_fee:
+          type: integer
+          format: uint64
+          x-go-name: OwnerFee
+        owner_integrations_fee:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        owner_quebec_sales_tax:
+          type: integer
+          format: uint64
+          x-go-name: OwnerQuebecSalesTax
+        paid:
+          type: boolean
+          x-go-name: Paid
+        payment_meta:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        payment_source:
+          type: string
+          x-go-name: PaymentSource
+        processor_settlement_id:
+          type:
+          - string
+          - 'null'
+        recipient_id:
+          type: integer
+          format: int64
+          x-go-name: RecipientID
+        refund_source:
+          type: string
+          x-go-name: RefundSource
+        refunded:
+          type: integer
+          format: uint64
+          x-go-name: Refunded
+        refunded_cc_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedCCFee
+        refunded_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedFee
+        refunded_fx_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedFXFee
+        refunded_outdoorsy_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedRenterIntegrationsFee
+        refunded_owner_federal_withholding_tax:
+          type: integer
+          format: uint64
+          x-go-name: RefundedOwnerFederalWithholdingTax
+        refunded_owner_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedOwnerFee
+        refunded_owner_integrations_fee:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        refunded_owner_quebec_sales_tax:
+          type: integer
+          format: uint64
+          x-go-name: RefundedOwnerQuebecSalesTax
+        refunded_service_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedServiceFee
+        retry_payout_id:
+          $ref: '#/components/schemas/Transaction'
+        sales_tax:
+          type: integer
+          format: uint64
+          x-go-name: SalesTax
+        service_fee:
+          type: integer
+          format: uint64
+          x-go-name: ServiceFee
+        status:
+          type: string
+          x-go-name: Status
+        stripe_fee:
+          type: integer
+          format: int64
+          x-go-name: Fee
+        stripe_fee_refund:
+          type: integer
+          format: uint64
+          x-go-name: StripeFeeRefund
+        stripe_id:
+          type: string
+          x-go-name: StripeID
+        transfer:
+          $ref: '#/components/schemas/Transaction'
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/model
+    Image:
+      type: object
+      properties:
+        best:
+          type: boolean
+          x-go-name: Best
+        category:
+          $ref: '#/components/schemas/Category'
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        primary:
+          type: boolean
+          x-go-name: Primary
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        skip_enhance:
+          type: boolean
+          x-go-name: SkipEnhance
+        status:
+          type: string
+          x-go-name: Status
+        tags:
+          type: string
+          x-go-name: Tags
+        url:
+          type: string
+          x-go-name: URL
+        video:
+          type: boolean
+          x-go-name: Video
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    SiblingTotals:
+      description: SiblingTotals is a struct to send the totals for combined sibling bookings
+      type: object
+      properties:
+        addons:
+          type: integer
+          format: int64
+          x-go-name: Addons
+        damage_protection:
+          type: integer
+          format: int64
+          x-go-name: DamageProtection
+        delivery_fee:
+          type: integer
+          format: int64
+          x-go-name: DeliveryFee
+        discounts:
+          type: integer
+          format: uint64
+          x-go-name: Discounts
+        external_campground_fee:
+          type: integer
+          format: int64
+          x-go-name: ExternalCampgroundFee
+        generator:
+          type: integer
+          format: uint64
+          x-go-name: Generator
+        insurance_coverage:
+          type: integer
+          format: int64
+          x-go-name: InsuranceCoverage
+        mileage:
+          type: integer
+          format: uint64
+          x-go-name: Mileage
+        owner_fees:
+          type: integer
+          format: int64
+          x-go-name: OwnerFees
+        pet_fees:
+          type: integer
+          format: int64
+          x-go-name: PetFees
+        roadside_assistance:
+          type: integer
+          format: int64
+          x-go-name: RoadsideAssistance
+        roamly_weather_protection:
+          type: integer
+          format: int64
+          x-go-name: WeatherProtection
+        security_deposit_waiver:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositWaiver
+        service_fees:
+          type: integer
+          format: uint64
+          x-go-name: ServiceFees
+        taxes:
+          type: integer
+          format: uint64
+          x-go-name: Taxes
+        total:
+          type: integer
+          format: uint64
+          x-go-name: Total
+        trip_protection:
+          type: integer
+          format: int64
+          x-go-name: TripProtection
+      x-go-package: github.com/outdoorsy/api/internal/sibling_groups
+    BookingItem:
+      type: object
+      properties:
+        _deleted:
+          description: special flag for handling batch update/delete
+          type: boolean
+          x-go-name: BatchDeleted
+        booking_id:
+          type: integer
+          format: int64
+        coachnet_item:
+          type: boolean
+          x-go-name: CoachnetItem
+        consigned_pay_amount:
+          type: integer
+          format: int64
+          x-go-name: ConsignedPayAmount
+        count:
+          type: integer
+          format: uint64
+          x-go-name: Count
+        created:
+          $ref: '#/components/schemas/NullTime'
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        deferred_total:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        deleted_at:
+          $ref: '#/components/schemas/NullTime'
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        description:
+          type: string
+          x-go-name: Description
+        discount_amount:
+          type: integer
+          format: int64
+          x-go-name: DiscountAmount
+        generator:
+          type: boolean
+          x-go-name: Generator
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_url:
+          type: string
+          x-go-name: ImageURL
+        maximum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        mileage:
+          type: boolean
+          x-go-name: Mileage
+        minimum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        original_consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: OriginalConsignedPayPct
+        original_tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: OriginalTaxRateID
+        other_claim:
+          type: boolean
+          x-go-name: OtherClaim
+        outdoorsy_item:
+          type: boolean
+          x-go-name: OutdoorsyItem
+        parent_item_id:
+          type: integer
+          format: int64
+          x-go-name: ParentItemID
+        parent_item_type:
+          type: string
+          x-go-name: ParentItemType
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        premium_amount:
+          type: integer
+          format: int64
+          x-go-name: PremiumAmount
+        premium_total:
+          type: integer
+          format: int64
+          x-go-name: PremiumTotal
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_amount:
+          description: mutation modifiers
+          type: boolean
+          x-go-name: RentalAmount
+        required:
+          type: boolean
+          x-go-name: Required
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_description:
+          type: string
+          x-go-name: TaxDescription
+        tax_name:
+          type: string
+          x-go-name: TaxName
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: TaxRate
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          $ref: '#/components/schemas/NullTime'
+      x-go-package: github.com/outdoorsy/api/model
+    AttentionItemData:
+      type: object
+      properties:
+        auto_expires:
+          type: boolean
+          x-go-name: AutoExpires
+        completed_at:
+          type: string
+          x-go-name: CompletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        confirmation_message:
+          type: string
+          x-go-name: ConfirmationMessage
+        conversation_first_message:
+          type: integer
+          format: int64
+        created_at:
+          type: string
+          x-go-name: CreatedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily:
+          type: boolean
+          x-go-name: Daily
+        description:
+          type: string
+          x-go-name: Description
+        expires_at:
+          type: string
+          x-go-name: ExpiresAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        from:
+          type: string
+        group_item_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Proposal'
+          x-go-name: GroupItemDetails
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        message:
+          type: string
+          x-go-name: Message
+        name:
+          type: string
+          x-go-name: Name
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        quantity:
+          type: integer
+          format: int64
+          x-go-name: Quantity
+        rental_amount:
+          type: integer
+          format: int64
+          x-go-name: RentalAmount
+        to:
+          type: string
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/model
+    SiblingBookings:
+      description: SiblingBookings an associated RV booking and campsite booking
+      type: object
+      properties:
+        rental_campsite:
+          $ref: '#/components/schemas/SiblingBooking'
+        rental_rv:
+          $ref: '#/components/schemas/SiblingBooking'
+      x-go-package: github.com/outdoorsy/api/model
+    UserAcknowledgment:
+      type: object
+      properties:
+        guest_acknowledged:
+          type: boolean
+          x-go-name: GuestAcknowledged
+        host_acknowledged:
+          type: boolean
+          x-go-name: HostAcknowledged
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+      x-go-package: github.com/outdoorsy/api/model
+    TaxRateItems:
+      type: array
+      items:
+        $ref: '#/components/schemas/TaxRateItem'
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    CampgroundActivityFeature:
+      type: object
+      properties:
+        feature:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    Warning:
+      description: Warning used for quote and booking
+      type: object
+      properties:
+        message:
+          type: string
+          x-go-name: Message
+      x-go-package: github.com/outdoorsy/api/types
+    ProcessedCampgroundAmenity:
+      type: object
+      properties:
+        available:
+          type: boolean
+          x-go-name: Available
+        category:
+          type: string
+          x-go-name: Category
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    Guests:
+      type: object
+      properties:
+        adults:
+          type: integer
+          format: int64
+          x-go-name: Adults
+        children:
+          type: integer
+          format: int64
+          x-go-name: Children
+      x-go-package: github.com/outdoorsy/api/model
+    DBIntSlice:
+      description: DBIntSlice is a []int with database conversion methods
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/utils
+    ID:
+      description: 'ID is the type used throughout the system to identify a unique object. It
+
+        properly handles marshaling for both json and sql databases. It properly
+
+        handles null values in the database as well.'
+      type: string
+      x-go-package: github.com/outdoorsy/api/internal/platform
+      x-go-type: github.com/globalsign/mgo/bson.ObjectId
+    AiReplySuggestion:
+      type: object
+      properties:
+        confidence_level:
+          type: number
+          format: double
+          x-go-name: ConfidenceLevel
+        conversation_id:
+          type: integer
+          format: int64
+          x-go-name: ConversationID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_message_id:
+          type: integer
+          format: int64
+          x-go-name: LastMessageID
+        message:
+          type: integer
+          format: int64
+        requesting_user_id:
+          type: integer
+          format: int64
+          x-go-name: RequestingUserID
+        requesting_user_role:
+          type: string
+          x-go-name: RequestingUserRole
+        suggestion_text:
+          type: string
+          x-go-name: SuggestionText
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/ai_suggestion
+    WaiverSummary:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        owner_completed:
+          type: boolean
+          x-go-name: OwnerCompleted
+        owner_terms:
+          type: string
+          x-go-name: OwnerTerms
+        renter_completed:
+          type: boolean
+          x-go-name: RenterCompleted
+        renter_confirmation_description:
+          type: string
+          x-go-name: RenterConfirmationDescription
+        renter_confirmation_title:
+          type: string
+          x-go-name: RenterConfirmationTitle
+        renter_terms:
+          type: string
+          x-go-name: RenterTerms
+      x-go-package: github.com/outdoorsy/api/types
+    TagRental:
+      type: object
+      properties:
+        Created:
+          type: string
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        ID:
+          type: integer
+          format: int64
+        Name:
+          type: string
+        Slug:
+          type: string
+        Updated:
+          type: string
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        usage_by_rental_count:
+          type: integer
+          format: int64
+          x-go-name: UsageByRentalCount
+      x-go-package: github.com/outdoorsy/api/internal/rental_tags
+    CampgroundSceneryFeature:
+      type: object
+      properties:
+        feature:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    BookingService:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        bundle_id:
+          type:
+          - string
+          - 'null'
+        category:
+          type: string
+          x-go-name: Category
+        charge_to:
+          type: string
+          x-go-name: ChargeTo
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily:
+          type: boolean
+          x-go-name: Daily
+        dealer_flat_split:
+          type: integer
+          format: int64
+          x-go-name: DealerFlatSplit
+        dealer_percent_split:
+          type: number
+          format: double
+          x-go-name: DealerPercentSplit
+        dealer_split_type:
+          type: string
+          x-go-name: DealerSplitType
+        deleted_at:
+          $ref: '#/components/schemas/NullTime'
+        description:
+          type: string
+          x-go-name: Description
+        discount_amount:
+          type: integer
+          format: int64
+          x-go-name: DiscountAmount
+        external_reference_id:
+          type: string
+          x-go-name: ExternalReferenceID
+        fee_locked:
+          type: boolean
+          x-go-name: FeeLocked
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_taxable:
+          description: 'IsTaxable determines whether this service is taxable. This is defaulted
+
+            to the service''s IsTaxable field on BookingService create'
+          type: boolean
+          x-go-name: IsTaxable
+        last_service_log:
+          x-go-name: LastServiceLog
+        lock_on_booking_status:
+          type: string
+          x-go-name: LockOnBookingStatus
+        minimum_price:
+          type: integer
+          format: int64
+          x-go-name: MinimumPrice
+        missing_fields:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          x-go-name: MissingFields
+        name:
+          type: string
+          x-go-name: Name
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        policy_start_date:
+          type: string
+          x-go-name: PolicyStartDate
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        premium_amount:
+          description: PremiumAmount is the daily rate
+          type: integer
+          format: int64
+          x-go-name: PremiumAmount
+        premium_total:
+          description: PremiumTotal is what we pay to the dealer
+          type: integer
+          format: int64
+          x-go-name: PremiumTotal
+        prevent_delete:
+          type: boolean
+          x-go-name: PreventDelete
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        quantity:
+          type: integer
+          format: int64
+          x-go-name: Quantity
+        required:
+          type: boolean
+          x-go-name: Required
+        revision:
+          type: integer
+          format: int64
+          x-go-name: Revision
+        roamly_weather_quote:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        service_data:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        service_id:
+          type: integer
+          format: int64
+          x-go-name: ServiceID
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+        total:
+          description: Total is the full amount of what the renter pays (total + premium total) - does not include taxes
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        variant_price:
+          description: Calculated price considering pricing variant
+          type: integer
+          format: int64
+          x-go-name: VariantPrice
+      x-go-package: github.com/outdoorsy/api/internal/booking_services
+    BookingDocuments:
+      type: object
+      properties:
+        claims_form:
+          type: string
+          x-go-name: ClaimsForm
+        contract:
+          type: string
+          x-go-name: Contract
+        departure_form:
+          type: string
+          x-go-name: DepartureForm
+        departure_form_checklist:
+          type: string
+          x-go-name: DepartureFormChecklist
+        esign_receipt:
+          type: string
+          x-go-name: EsignReceipt
+        insurance_binder:
+          type: string
+          x-go-name: InsuranceBinder
+        pre_arrival_checklist:
+          type: string
+          x-go-name: PreArrivalChecklist
+        protection_packages:
+          type: string
+          x-go-name: ProtectionPackages
+        receipt:
+          type: string
+          x-go-name: Receipt
+        return_form:
+          type: string
+          x-go-name: ReturnForm
+      x-go-package: github.com/outdoorsy/api/model
+    BookingDelivery:
+      type: object
+      properties:
+        actual:
+          type: number
+          format: double
+          x-go-name: Actual
+        departure:
+          type: number
+          format: double
+          x-go-name: Departure
+        estimated:
+          type: number
+          format: double
+          x-go-name: Estimated
+        estimated_fee:
+          type: integer
+          format: uint64
+          x-go-name: EstimatedFee
+        renter_comment:
+          type: string
+          x-go-name: RenterComment
+        return:
+          type: number
+          format: double
+          x-go-name: Return
+        stationary:
+          type: boolean
+          x-go-name: Stationary
+        suggested_fee:
+          type: integer
+          format: uint64
+          x-go-name: SuggestedFee
+      x-go-package: github.com/outdoorsy/api/model
+    Partner:
+      type: object
+      properties:
+        active:
+          type: boolean
+          x-go-name: Active
+        apps:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerApp'
+          x-go-name: PartnerApps
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        slug:
+          type: string
+          x-go-name: Slug
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/partner
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        slug:
+          type: string
+          x-go-name: Slug
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    Reviewer:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+      x-go-package: github.com/outdoorsy/api/model
+    PaymentProcessor:
+      description: 'Typically this object is composed into a struct, but embedded into the
+
+        same table using the `db:",embed"` struct tag.'
+      type: object
+      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
+
+        payment processor should be used when communicating with a payment processor.'
+      properties:
+        country:
+          type: string
+          x-go-name: Country
+        external_processor:
+          type: string
+          x-go-name: ExternalProcessor
+        external_processor_id:
+          type: string
+          x-go-name: ExternalProcessorID
+        name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+      x-go-package: github.com/outdoorsy/api/model
+    BookingRefundOptions:
+      type: object
+      properties:
+        allow_user_refund_method:
+          description: return numbers for display but user may not be allowed to choose
+          type: boolean
+          x-go-name: AllowUserRefundMethod
+        cash_amount:
+          type: integer
+          format: int64
+          x-go-name: CashAmount
+        credit_amount:
+          type: integer
+          format: int64
+          x-go-name: CreditAmount
+        credit_source:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int64
+          x-go-name: CreditSource
+        display_cash_amount:
+          type: string
+          x-go-name: DisplayCashAmount
+        display_credit_amount:
+          type: string
+          x-go-name: DisplayCreditAmount
+        is_pending_cancellation:
+          type: boolean
+          x-go-name: IsPendingCancellation
+        non_refundable_percentage:
+          type: number
+          format: double
+          x-go-name: NonRefundablePercentage
+        owner_payout_amount:
+          description: show admin what to expect for owner payout
+          type: integer
+          format: int64
+          x-go-name: OwnerPayoutAmount
+        refund_percentage:
+          type: number
+          format: double
+          x-go-name: RefundPercentage
+      x-go-package: github.com/outdoorsy/api/model
+    ConversationSuggestionResponse:
+      type: object
+      properties:
+        confidence-level:
+          type: number
+          format: double
+          x-go-name: ConfidenceLevel
+        reply-suggestion:
+          type: string
+          x-go-name: ReplySuggestion
+      x-go-package: github.com/outdoorsy/api/internal/ai_suggestion
+    SiblingBookingCampgroundData:
+      type: object
+      properties:
+        external_campsite_id:
+          type: string
+          x-go-name: ExternalCampsiteID
+        external_id:
+          type: string
+          x-go-name: ExternalID
+        site_name:
+          type: string
+          x-go-name: SiteName
+        source:
+          type: string
+          x-go-name: Source
+        status:
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/model
+    PlanOverride:
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        dealer_owned_owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: DealerOwnedOwnerFeePercentage
+        dealer_owned_renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: DealerOwnedRenterFeePercentage
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        insurance_plan_id:
+          $ref: '#/components/schemas/Plan'
+        owner_fee_percentage:
+          type: number
+          format: double
+          x-go-name: OwnerFeePercentage
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerUserID
+        renter_fee_percentage:
+          type: number
+          format: double
+          x-go-name: RenterFeePercentage
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/insurance
+    ExternalCampground:
+      type: object
+      properties:
+        available_for_dates:
+          description: Fields calculated post search
+          type: boolean
+          x-go-name: AvailableForDates
+        calculated_day_price:
+          type: integer
+          format: uint64
+          x-go-name: CalculatedDayPrice
+        campground_catalog:
+          $ref: '#/components/schemas/CampgroundCatalog'
+        campsite_category_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: CampsiteCategoriesIDs
+        check_in_time:
+          description: Check in / Check out times
+          type: string
+          x-go-name: CheckInTime
+        check_out_time:
+          type: string
+          x-go-name: CheckOutTime
+        description:
+          type: string
+          x-go-name: Description
+        email:
+          description: Contact information
+          type: string
+          x-go-name: Email
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        images:
+          $ref: '#/components/schemas/Images'
+        is_odn:
+          description: Flags
+          type: boolean
+          x-go-name: IsODN
+        is_site_available:
+          type: boolean
+          x-go-name: IsSiteAvailable
+        locale:
+          $ref: '#/components/schemas/Locale'
+        location:
+          type: integer
+          format: int64
+        lowest_price:
+          type: integer
+          format: uint64
+          x-go-name: LowestPrice
+        name:
+          type: string
+          x-go-name: Name
+        odn_id:
+          type: string
+          x-go-name: OdnID
+        phone:
+          type: string
+          x-go-name: Phone
+        presentment_currency:
+          description: Currency
+          type: string
+          x-go-name: PresentmentCurrency
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        reviews_num:
+          type: integer
+          format: int64
+          x-go-name: ReviewsNum
+        score:
+          description: Ratings and reviews
+          type: number
+          format: double
+          x-go-name: Score
+        settlement_currency:
+          type: string
+          x-go-name: SettlementCurrency
+        site_map_image_url:
+          type: string
+          x-go-name: SiteMapImageURL
+        slug:
+          type: string
+          x-go-name: Slug
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+        vacation_package_slug:
+          type: string
+          x-go-name: VacationPackageSlug
+        website_url:
+          description: Links and Images
+          type: string
+          x-go-name: WebsiteURL
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    Proposal:
+      type: object
+      properties:
+        action:
+          type: string
+          x-go-name: Action
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DailyChange'
+          x-go-name: DailyChanges
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        dry_create:
+          type: boolean
+          x-go-name: DryCreate
+        future_booking:
+          x-go-name: FutureBooking
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        note:
+          type: string
+          x-go-name: Note
+        object_id:
+          type: integer
+          format: uint64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        owner_acknowledged:
+          type: string
+          x-go-name: OwnerAcknowledged
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        renter_acknowledged:
+          type: string
+          x-go-name: RenterAcknowledged
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_dismissed:
+          type: string
+          x-go-name: RenterDismissed
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_notice_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeResponse'
+          x-go-name: UserNoticeEvents
+        user_notices_acknowledged:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: UserNoticesAcknowledged
+      x-go-package: github.com/outdoorsy/api/internal/proposal
+    Tag:
+      type: object
+      properties:
+        allow_for_review:
+          type: boolean
+          x-go-name: AllowForReview
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        owner_user_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        slug:
+          type: string
+          x-go-name: Slug
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/rental_tags
+    Images:
+      type: array
+      items:
+        $ref: '#/components/schemas/Image'
+      x-go-package: github.com/outdoorsy/api/internal/seeker/client
+    TaxRateTotalItems:
+      type: array
+      items:
+        $ref: '#/components/schemas/TaxRateTotalItem'
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    BookingPickup:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    TaxRateItem:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        original_tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    TimelineItem:
+      description: TimelineItem info
+      type: object
+      properties:
+        activity_label:
+          type: string
+          x-go-name: ActivityLabel
+        completed:
+          type: boolean
+          x-go-name: Completed
+        description:
+          type: string
+          x-go-name: Description
+        time:
+          type: string
+          x-go-name: Time
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/internal/bookings
+    RevenueLineItem:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/bookings
+    ReviewOwner:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+      x-go-package: github.com/outdoorsy/api/model
+    BookingMileage:
+      type: object
+      properties:
+        actual:
+          type: number
+          format: double
+          x-go-name: Actual
+        departure:
+          type: number
+          format: double
+          x-go-name: Departure
+        estimated:
+          type: number
+          format: double
+          x-go-name: Estimated
+        estimated_fee:
+          type: integer
+          format: uint64
+          x-go-name: EstimatedFee
+        return:
+          type: number
+          format: double
+          x-go-name: Return
+        suggested_fee:
+          type: integer
+          format: uint64
+          x-go-name: SuggestedFee
+      x-go-package: github.com/outdoorsy/api/model
+    NoticeResponse:
+      type: object
+      properties:
+        guest_acknowledgement_text:
+          type: string
+          x-go-name: GuestAcknowledgementText
+        guest_need_to_acknowledge:
+          type: boolean
+          x-go-name: GuestNeedToAcknowledge
+        guest_user_text:
+          type: string
+          x-go-name: GuestUserText
+        host_acknowledgement_text:
+          type: string
+          x-go-name: HostAcknowledgementText
+        host_help_url:
+          type: string
+          x-go-name: HostHelpUrl
+        host_need_to_acknowledge:
+          type: boolean
+          x-go-name: HostNeedToAcknowledge
+        host_user_text:
+          type: string
+          x-go-name: HostUserText
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/user_notice_events
+    ISlice:
+      type: array
+      items: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    PendingTransaction:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: uint64
+          x-go-name: Amount
+        attempts:
+          type: integer
+          format: int64
+          x-go-name: Attempts
+        booking_id:
+          type: integer
+          format: int64
+        brand:
+          type: string
+          x-go-name: Brand
+        card_id:
+          type: integer
+          format: int64
+          x-go-name: CardID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        display_type:
+          type: string
+          x-go-name: DisplayType
+        due:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_four:
+          type: string
+          x-go-name: LastFour
+        original_charge_id:
+          type: integer
+          format: int64
+          x-go-name: OriginalChargeID
+        payment_intent_id:
+          type: string
+          x-go-name: PaymentIntentID
+        status:
+          type: string
+          x-go-name: Status
+        type:
+          type: string
+          x-go-name: Type
+        zendesk_ticket_id:
+          type: integer
+          format: int64
+          x-go-name: ZendeskTicketID
+      x-go-package: github.com/outdoorsy/api/model
+    CampsiteSummary:
+      type: object
+      properties:
+        beds:
+          type: integer
+          format: int64
+          x-go-name: Beds
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        campground_name:
+          type: string
+          x-go-name: CampgroundName
+        campground_sitemap_url:
+          type: string
+          x-go-name: CampgroundSiteMapURL
+        display_campsite_type:
+          type: string
+          x-go-name: DisplayCampsiteType
+        display_max_vehicle_length:
+          type: string
+          x-go-name: DisplayMaxVehicleLength
+        display_site_type:
+          type: string
+          x-go-name: DisplaySiteType
+        is_odn:
+          type: boolean
+          x-go-name: IsOdn
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        site_type:
+          type: string
+          x-go-name: SiteType
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        type:
+          type: string
+          x-go-name: CategoryType
+      x-go-package: github.com/outdoorsy/api/types
+    BookingSummary:
+      type: object
+      properties:
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        to:
+          type: string
+      x-go-package: github.com/outdoorsy/api/types
+    StaySummary:
+      type: object
+      properties:
+        baths:
+          type: integer
+          format: int64
+          x-go-name: Baths
+        bedrooms:
+          type: integer
+          format: int64
+          x-go-name: Bedrooms
+        beds:
+          type: integer
+          format: int64
+          x-go-name: Beds
+        check_in_type:
+          type: string
+          x-go-name: CheckInType
+        display_stay_type:
+          type: string
+          x-go-name: DisplayStayType
+        location_description:
+          type: string
+          x-go-name: LocationDescription
+        max_parking_spaces:
+          type: integer
+          format: int64
+          x-go-name: MaxParkingSpaces
+        parking_onsite:
+          type: boolean
+          x-go-name: ParkingOnsite
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/types
+    RentalSummary:
+      type: object
+      properties:
+        campsite_summary:
+          $ref: '#/components/schemas/CampsiteSummary'
+        disallow_movement:
+          type: boolean
+          x-go-name: DisallowMovement
+        display_type:
+          type: string
+          x-go-name: DisplayType
+        formatted_length:
+          type: string
+          x-go-name: FormattedLength
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        interior_primary_image_url:
+          type: string
+          x-go-name: InteriorPrimaryImageURL
+        internal_id:
+          type: string
+          x-go-name: InternalID
+        location:
+          type: string
+          x-go-name: Location
+        name:
+          type: string
+          x-go-name: Name
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        rental_category:
+          type: string
+          x-go-name: RentalCategory
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        slug:
+          type: string
+          x-go-name: Slug
+        stay_summary:
+          $ref: '#/components/schemas/StaySummary'
+        style:
+          type: string
+          x-go-name: Style
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/types
+    BookingGenerator:
+      type: object
+      properties:
+        actual:
+          type: number
+          format: double
+          x-go-name: Actual
+        departure:
+          type: number
+          format: double
+          x-go-name: Departure
+        estimated:
+          type: number
+          format: double
+          x-go-name: Estimated
+        estimated_fee:
+          type: integer
+          format: uint64
+          x-go-name: EstimatedFee
+        return:
+          type: number
+          format: double
+          x-go-name: Return
+        suggested_fee:
+          type: integer
+          format: uint64
+          x-go-name: SuggestedFee
+      x-go-package: github.com/outdoorsy/api/model
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    TripSummary:
+      type: object
+      properties:
+        guests:
+          $ref: '#/components/schemas/Guests'
+        pets:
+          type: boolean
+          x-go-name: Pets
+        tow_vehicle:
+          type: string
+          x-go-name: TowVehicle
+      x-go-package: github.com/outdoorsy/api/model
+    RAFWaiverSummary:
+      type: object
+      properties:
+        cancellation_amount:
+          type: integer
+          format: int64
+          x-go-name: CancellationAmount
+        description:
+          type: string
+          x-go-name: Description
+        popup_message:
+          type: string
+          x-go-name: PopupMessage
+        referee_amount:
+          type: integer
+          format: int64
+          x-go-name: RefereeAmount
+        referee_completed:
+          type: boolean
+          x-go-name: RefereeCompleted
+        referer_user_id:
+          type: integer
+          format: int64
+          x-go-name: RefererUserID
+        referral_code:
+          type: string
+          x-go-name: ReferralCode
+        referrer_completed:
+          type: boolean
+          x-go-name: ReferrerCompleted
+      x-go-package: github.com/outdoorsy/api/types
+    DBMSISlice:
+      description: DBMSISlice is a []string with database conversion methods
+      type: array
+      items:
+        type: object
+        additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    ConsignedPayout:
+      type: object
+      properties:
+        bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Booking'
+          x-go-name: Bookings
+        consigned_owner_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsignedPayoutItem'
+          x-go-name: Items
+        message:
+          type: string
+          x-go-name: Message
+        owner_id:
+          type: integer
+          format: int64
+        paid_date:
+          type: string
+        rental_id:
+          type: integer
+          format: int64
+        status:
+          type: string
+          x-go-name: Status
+        to:
+          type: string
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

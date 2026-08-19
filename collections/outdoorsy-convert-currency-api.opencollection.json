@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Convert Currency API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Convert Currency",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Converts currency.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/convert-currency",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Converts currency."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

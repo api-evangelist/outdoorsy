@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Usage Based Item Tiers API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "usageBasedItemTiers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUsageBasedItemTiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/usage-based-items/:usage_based_item_id/tiers"
+          },
+          "docs": "Return array of tiers for the specified usage based item"
+        },
+        {
+          "info": {
+            "name": "createUsageBasedItemTier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/usage-based-items/:usage_based_item_id/tiers",
+            "params": [
+              {
+                "name": "usage_based_item_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new usage based item (Ex. mileage, generator, delivery)"
+        },
+        {
+          "info": {
+            "name": "getUsageBasedItemTierById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/usage-based-items/:usage_based_item_id/tiers/:id",
+            "params": [
+              {
+                "name": "usage_based_item_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return array of tiers for the specified usage based item"
+        },
+        {
+          "info": {
+            "name": "updateUsageBasedItemTier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/usage-based-items/:usage_based_item_id/tiers/:id",
+            "params": [
+              {
+                "name": "usage_based_item_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update usage based item tier record"
+        },
+        {
+          "info": {
+            "name": "deleteUsageBasedItemTier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/usage-based-items/:usage_based_item_id/tiers/:id",
+            "params": [
+              {
+                "name": "usage_based_item_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update usage based item tier record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

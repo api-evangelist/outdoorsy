@@ -1,0 +1,274 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Transactions API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Global read many transactions, across all bookings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/transactions",
+            "params": [
+              {
+                "name": "scheduled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deposited_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deposited_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "brand",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_dir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "payment_source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "processor_settlement_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "payment_processor_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "actual_deposited_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "actual_deposited_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "csv-token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "csv",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "simple",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_failed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_incomplete",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Global read many transactions, across all bookings."
+        },
+        {
+          "info": {
+            "name": "getBatchEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/transactions/batch-events",
+            "params": [
+              {
+                "name": "payment_processor_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ok",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List batch events"
+        },
+        {
+          "info": {
+            "name": "getBatchDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/transactions/batches/:batch_id/details"
+          },
+          "docs": "List batch events"
+        },
+        {
+          "info": {
+            "name": "getGroupedDeposits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/transactions/deposits",
+            "params": [
+              {
+                "name": "csv-token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "csv",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "payment_processor_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Grouped deposits report"
+        },
+        {
+          "info": {
+            "name": "getDepositDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/transactions/deposits/details",
+            "params": [
+              {
+                "name": "transfer_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Details for requested transfers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

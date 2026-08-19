@@ -1,0 +1,1915 @@
+{
+  "item": [
+    {
+      "id": "08d43dd7-2f92-44f1-9b33-1fc36e3d6573",
+      "name": "search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86c26075-abc6-42c7-95a4-e53c09b4cc56",
+          "name": "search Bookings Request",
+          "request": {
+            "name": "search Bookings Request",
+            "description": {
+              "content": "Search Bookings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "new",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb52060c-e1f1-4c49-be93-5a9ebdb13c39",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bookings\": [\n    {\n      \"created\": \"string\",\n      \"dealer_minimum_days\": 8156,\n      \"from\": \"string\",\n      \"id\": 6320,\n      \"instant_book\": false,\n      \"is_request_less_than_minimum_days\": true,\n      \"num_reservations\": 9954,\n      \"owner_approved\": true,\n      \"owner_read\": true,\n      \"rental_category\": \"string\",\n      \"rental_id\": 5260,\n      \"rental_name\": \"string\",\n      \"renter_approved\": false,\n      \"renter_first_name\": \"string\",\n      \"renter_id\": 4308,\n      \"renter_last_name\": \"string\",\n      \"status\": \"string\",\n      \"to\": \"string\",\n      \"total\": 1887,\n      \"undelivered_emails_count\": 363,\n      \"updated\": \"string\"\n    },\n    {\n      \"created\": \"string\",\n      \"dealer_minimum_days\": 8828,\n      \"from\": \"string\",\n      \"id\": 4652,\n      \"instant_book\": false,\n      \"is_request_less_than_minimum_days\": true,\n      \"num_reservations\": 8248,\n      \"owner_approved\": true,\n      \"owner_read\": false,\n      \"rental_category\": \"string\",\n      \"rental_id\": 4750,\n      \"rental_name\": \"string\",\n      \"renter_approved\": true,\n      \"renter_first_name\": \"string\",\n      \"renter_id\": 1599,\n      \"renter_last_name\": \"string\",\n      \"status\": \"string\",\n      \"to\": \"string\",\n      \"total\": 434,\n      \"undelivered_emails_count\": 1273,\n      \"updated\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"abandoned\": {\n      \"status_count\": {\n        \"approved\": 7453,\n        \"change_requested\": 791,\n        \"handed_off\": 8056,\n        \"imminent\": 4318,\n        \"owner_cancelled\": 6621,\n        \"renter_cancelled\": 9792\n      },\n      \"total\": 9490\n    },\n    \"cancelled\": {\n      \"status_count\": {\n        \"approved\": 9243,\n        \"change_requested\": 7816,\n        \"handed_off\": 1143,\n        \"imminent\": 7851,\n        \"owner_cancelled\": 5000,\n        \"renter_cancelled\": 4476\n      },\n      \"total\": 5075\n    },\n    \"expired\": {\n      \"status_count\": {\n        \"approved\": 5926,\n        \"change_requested\": 8939,\n        \"handed_off\": 8431,\n        \"imminent\": 8369,\n        \"owner_cancelled\": 5702,\n        \"renter_cancelled\": 6735\n      },\n      \"total\": 4848\n    },\n    \"pending\": {\n      \"status_count\": {\n        \"approved\": 8925,\n        \"change_requested\": 7759,\n        \"handed_off\": 8063,\n        \"imminent\": 6150,\n        \"owner_cancelled\": 6210,\n        \"renter_cancelled\": 3458\n      },\n      \"total\": 6730\n    },\n    \"returned\": {\n      \"status_count\": {\n        \"approved\": 238,\n        \"change_requested\": 6764,\n        \"handed_off\": 3610,\n        \"imminent\": 6636,\n        \"owner_cancelled\": 6370,\n        \"renter_cancelled\": 9284\n      },\n      \"total\": 3683\n    },\n    \"upcoming\": {\n      \"status_count\": {\n        \"approved\": 9601,\n        \"change_requested\": 8562,\n        \"handed_off\": 5371,\n        \"imminent\": 5232,\n        \"owner_cancelled\": 2830,\n        \"renter_cancelled\": 9901\n      },\n      \"total\": 4706\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "078225f9-30c5-44df-9039-41549113ac64",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "873ba14c-96a9-4d8a-99b9-42759704f313",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afad4cea-3341-407e-b384-56149a9a322e",
+          "name": "global Search Request",
+          "request": {
+            "name": "global Search Request",
+            "description": {
+              "content": "Global Search",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "global"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d2bd829-5478-41a1-9edb-17aa1eb1882e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "global"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"avatar_url\": \"string\",\n      \"checkout_answers\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"children_count\": 3353,\n      \"first_name\": \"string\",\n      \"from\": \"string\",\n      \"full_name\": \"string\",\n      \"id\": 3532,\n      \"last_name\": \"string\",\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"parent_booking_name\": \"string\",\n      \"parent_booking_notes\": \"string\",\n      \"parent_booking_purpose\": \"string\",\n      \"parent_id\": 2198,\n      \"parent_name\": \"string\",\n      \"phone\": \"string\",\n      \"primary_image_url\": \"string\",\n      \"rental_name\": \"string\",\n      \"renter_name\": \"string\",\n      \"result_type\": \"string\",\n      \"status\": \"string\",\n      \"to\": \"string\",\n      \"type\": \"string\",\n      \"year\": 460\n    },\n    {\n      \"avatar_url\": \"string\",\n      \"checkout_answers\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"children_count\": 5026,\n      \"first_name\": \"string\",\n      \"from\": \"string\",\n      \"full_name\": \"string\",\n      \"id\": 6945,\n      \"last_name\": \"string\",\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"parent_booking_name\": \"string\",\n      \"parent_booking_notes\": \"string\",\n      \"parent_booking_purpose\": \"string\",\n      \"parent_id\": 8777,\n      \"parent_name\": \"string\",\n      \"phone\": \"string\",\n      \"primary_image_url\": \"string\",\n      \"rental_name\": \"string\",\n      \"renter_name\": \"string\",\n      \"result_type\": \"string\",\n      \"status\": \"string\",\n      \"to\": \"string\",\n      \"type\": \"string\",\n      \"year\": 2489\n    }\n  ],\n  \"meta\": {\n    \"booking_status_count\": {\n      \"approved\": 2965,\n      \"draft\": 3100,\n      \"expired\": 463,\n      \"handed_off\": 1360,\n      \"imminent\": 2618,\n      \"negotiating\": 6704,\n      \"owner_cancelled\": 1738,\n      \"owner_declined\": 3608,\n      \"renter_cancelled\": 7069,\n      \"renter_withdrew\": 9129,\n      \"returned\": 6548\n    },\n    \"total\": 5856,\n    \"type_count\": [\n      {\n        \"count\": 568,\n        \"name\": \"string\"\n      },\n      {\n        \"count\": 7289,\n        \"name\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82c3ab40-261e-4803-bbdb-caaca7330044",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "global"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "036b2fb7-bf66-4280-8dbe-7ab24806f781",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "global"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16482c96-2547-42be-9c3c-f51c0aeab066",
+          "name": "search Meta Count Request",
+          "request": {
+            "name": "search Meta Count Request",
+            "description": {
+              "content": "Search Meta Count",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "meta-count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d366ec57-0ef2-467b-99e5-ad74bac61115",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "meta-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bookings_with_requested_change\": 325,\n  \"rentals_with_rejected_image\": 2260\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12ccb02d-d4d9-46bf-aff7-3bac7c0c6275",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "meta-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afee94cd-d1c6-4499-9e0f-bb883b425917",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "meta-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82cb1faf-038a-4b0e-ab41-4b2bb52e7548",
+          "name": "search Parent Bookings Request",
+          "request": {
+            "name": "search Parent Bookings Request",
+            "description": {
+              "content": "Search Parent Bookings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "parent-bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "purpose",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a642da6c-b523-4bfc-a2f7-25ecac66fd8e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "parent-bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purpose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"limit\": 3037,\n    \"offset\": 3125,\n    \"total\": 7308\n  },\n  \"parent_bookings\": [\n    {\n      \"bookings_count\": 2687,\n      \"created\": \"string\",\n      \"display_status\": \"string\",\n      \"id\": 6777,\n      \"name\": \"string\",\n      \"notes\": \"string\",\n      \"purpose\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"bookings_count\": 6281,\n      \"created\": \"string\",\n      \"display_status\": \"string\",\n      \"id\": 893,\n      \"name\": \"string\",\n      \"notes\": \"string\",\n      \"purpose\": \"string\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12833c4e-48b1-4cd5-aa22-c0d98d04b7bf",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "parent-bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purpose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1533e212-f043-4048-9698-5e40c81d4a94",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "parent-bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purpose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "517a24fa-caa9-41b6-b2f8-030d5d2cd0aa",
+          "name": "search Rentals Request",
+          "request": {
+            "name": "search Rentals Request",
+            "description": {
+              "content": "Search Rentals",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "rentals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_unpublished",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_children",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_all_category_meta",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "makes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5566d823-1d2f-4763-8f3f-1fc14b9fdc07",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "rentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_unpublished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_children",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_all_category_meta",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"categories\": [\n      {\n        \"count\": 1398,\n        \"name\": \"string\"\n      },\n      {\n        \"count\": 5653,\n        \"name\": \"string\"\n      }\n    ],\n    \"makes\": [\n      {\n        \"count\": 4445,\n        \"name\": \"string\"\n      },\n      {\n        \"count\": 9139,\n        \"name\": \"string\"\n      }\n    ],\n    \"total\": 7260,\n    \"types\": [\n      {\n        \"count\": 30,\n        \"name\": \"string\"\n      },\n      {\n        \"count\": 6018,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  \"rentals\": [\n    {\n      \"children_count\": 8862,\n      \"created\": \"string\",\n      \"has_rejected_image\": false,\n      \"id\": 2154,\n      \"internal_id\": \"string\",\n      \"length\": 7411.338293522608,\n      \"location_id\": 2838,\n      \"location_name\": \"string\",\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"parent_id\": 3412,\n      \"primary_image_id\": 6436,\n      \"primary_image_url\": \"string\",\n      \"published\": false,\n      \"type\": \"string\",\n      \"vin\": \"string\",\n      \"year\": 6276\n    },\n    {\n      \"children_count\": 79,\n      \"created\": \"string\",\n      \"has_rejected_image\": true,\n      \"id\": 813,\n      \"internal_id\": \"string\",\n      \"length\": 4839.763739628656,\n      \"location_id\": 5207,\n      \"location_name\": \"string\",\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"parent_id\": 9531,\n      \"primary_image_id\": 4568,\n      \"primary_image_url\": \"string\",\n      \"published\": true,\n      \"type\": \"string\",\n      \"vin\": \"string\",\n      \"year\": 4204\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51ab22dd-7f36-4217-9ed6-9f8eb5d5c5c3",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "rentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_unpublished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_children",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_all_category_meta",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "68869509-3985-49f2-a14f-c77e9e3ba245",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "rentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_unpublished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_children",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_all_category_meta",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "makes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24d09c86-5a82-41df-b5df-3c0ef4e8c2de",
+          "name": "search Customers Request",
+          "request": {
+            "name": "search Customers Request",
+            "description": {
+              "content": "Search Customers for a dealer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                ":user_id",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "repeat_guest",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "active_guest",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73087217-a64b-4e61-92a5-4eb18f0b15ba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":user_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "repeat_guest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "active_guest",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"archived\": false,\n    \"avatar_url\": \"string\",\n    \"city\": \"string\",\n    \"email\": \"string\",\n    \"employee\": false,\n    \"first_name\": \"string\",\n    \"id\": 9563,\n    \"last_departure\": \"string\",\n    \"last_name\": \"string\",\n    \"lifetime_value\": 9625.539247250676,\n    \"num_reservations\": 6405,\n    \"owned_by_user_id\": 6025,\n    \"phone\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"total_reservations\": 3581,\n    \"zip\": \"string\"\n  },\n  {\n    \"archived\": false,\n    \"avatar_url\": \"string\",\n    \"city\": \"string\",\n    \"email\": \"string\",\n    \"employee\": true,\n    \"first_name\": \"string\",\n    \"id\": 1099,\n    \"last_departure\": \"string\",\n    \"last_name\": \"string\",\n    \"lifetime_value\": 2131.0563918508383,\n    \"num_reservations\": 5504,\n    \"owned_by_user_id\": 5331,\n    \"phone\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"total_reservations\": 5430,\n    \"zip\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fd9d1e6-0ed4-4764-94d0-010afe4e40ba",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":user_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "repeat_guest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "active_guest",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c99f72ef-5fb9-45c6-b731-f72837582e73",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":user_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "repeat_guest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "active_guest",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2c7f4355-5e64-4355-a214-36807e42e0c0",
+    "name": "Outdoorsy API Documentation Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Payouts API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "payouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listPayouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/transactions/payout-history"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

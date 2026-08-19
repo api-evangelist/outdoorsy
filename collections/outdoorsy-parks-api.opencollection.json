@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Search Documentation Parks API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "parks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "searchParks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/parks"
+          },
+          "docs": "Search performs search on parks"
+        },
+        {
+          "info": {
+            "name": "parks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/parks/homepage"
+          },
+          "docs": "Get parks for Outdoorsy homepage"
+        },
+        {
+          "info": {
+            "name": "searchParks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/parks/nearby-for-rental/:rental_id"
+          },
+          "docs": "Searches nearby parks for given rental with rental_id"
+        },
+        {
+          "info": {
+            "name": "searchParks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/parks/popular"
+          },
+          "docs": "Searches 6 national parks near location with images"
+        },
+        {
+          "info": {
+            "name": "getPark",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/parks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get park by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

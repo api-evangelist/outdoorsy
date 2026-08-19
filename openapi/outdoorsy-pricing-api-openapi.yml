@@ -1,0 +1,270 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Pricing API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: pricing
+paths:
+  /pricing:
+    get:
+      description: Only used during the LYRV flow to show an owner a range of possible income.
+      tags:
+      - pricing
+      summary: Return estimated price when listing your vehicle by make, model and location.
+      operationId: getPricing
+      parameters:
+      - x-go-name: Lat
+        name: lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: Lng
+        name: lng
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: Make
+        name: make
+        in: query
+        schema:
+          type: string
+      - x-go-name: Model
+        name: model
+        in: query
+        schema:
+          type: string
+      - x-go-name: Year
+        name: year
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/pricingResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+  /pricing/aggregate:
+    get:
+      tags:
+      - pricing
+      summary: Return price aggregation for nearby rentals around given lat and lng in 50 miles radius.
+      operationId: getPricingAggregation
+      parameters:
+      - x-go-name: Lat
+        name: lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: Lng
+        name: lng
+        in: query
+        schema:
+          type: number
+          format: double
+      responses:
+        '200':
+          $ref: '#/components/responses/aggregateResponseV2'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+  /pricing/v2:
+    get:
+      description: 'Only used during the LYRV flow to show an owner a range of possible income.
+
+        Better calculation than the original endpoint. i think this is the actual one we use'
+      tags:
+      - pricing
+      summary: Return estimated price when listing your vehicle by make, model and location.
+      operationId: getPricingV2
+      parameters:
+      - x-go-name: Lat
+        name: lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: Lng
+        name: lng
+        in: query
+        schema:
+          type: number
+          format: double
+      - x-go-name: Type
+        name: type
+        in: query
+        schema:
+          type: string
+      - x-go-name: VehicleLength
+        name: length
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Sleeps
+        name: sleeps
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: VehicleYear
+        name: year
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalCategory
+        name: rental_category
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/pricingResponseV2'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+components:
+  responses:
+    aggregateResponseV2:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              max_price:
+                type: number
+                format: double
+                x-go-name: MaxPrice
+              min_price:
+                type: number
+                format: double
+                x-go-name: MinPrice
+              rental_count:
+                type: integer
+                format: int64
+                x-go-name: RentalCount
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    pricingResponseV2:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              high:
+                type: object
+                properties:
+                  day:
+                    type: integer
+                    format: int64
+                    x-go-name: Day
+                  month:
+                    type: integer
+                    format: int64
+                    x-go-name: Month
+                  week:
+                    type: integer
+                    format: int64
+                    x-go-name: Week
+                x-go-name: High
+              low:
+                type: object
+                properties:
+                  day:
+                    type: integer
+                    format: int64
+                    x-go-name: Day
+                  month:
+                    type: integer
+                    format: int64
+                    x-go-name: Month
+                  week:
+                    type: integer
+                    format: int64
+                    x-go-name: Week
+                x-go-name: Low
+    unauthorizedError:
+      description: Unauthorized error
+    pricingResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              high:
+                type: object
+                properties:
+                  day:
+                    type: integer
+                    format: int64
+                    x-go-name: Day
+                  month:
+                    type: integer
+                    format: int64
+                    x-go-name: Month
+                  week:
+                    type: integer
+                    format: int64
+                    x-go-name: Week
+                x-go-name: High
+              low:
+                type: object
+                properties:
+                  day:
+                    type: integer
+                    format: int64
+                    x-go-name: Day
+                  month:
+                    type: integer
+                    format: int64
+                    x-go-name: Month
+                  week:
+                    type: integer
+                    format: int64
+                    x-go-name: Week
+                x-go-name: Low
+              mmi:
+                type: boolean
+                x-go-name: MMI
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

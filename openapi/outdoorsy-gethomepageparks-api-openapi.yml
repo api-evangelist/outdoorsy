@@ -1,0 +1,116 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy Search API is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy Search Documentation Get Homepage Parks API
+  version: 0.0.1
+security:
+- Bearer:
+  - '[]'
+tags:
+- name: getHomepageParks
+paths:
+  /parks/homepage:
+    get:
+      description: Get parks for Outdoorsy homepage
+      tags:
+      - getHomepageParks
+      operationId: parks
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiHomepageParks'
+components:
+  schemas:
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
+      x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings
+        representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    Resource:
+      description: 'Note that any of the optional keys will be omitted if a value is not provided.
+
+
+        For more information, see the specification at:
+
+
+        http://jsonapi.org/format/#document-resource-object
+
+
+        http://jsonapi.org/format/#document-resource-identifier-objects'
+      type: object
+      title: 'Resource represents a JSON API resource identifier or resource object.
+
+        Each valid JSON API resource object must contain at least the "id" and "type" keys,
+
+        and may contain the optional "attributes", "relationships", "links" and "meta" keys.'
+      properties:
+        attributes:
+          type: object
+          additionalProperties: {}
+          x-go-name: Attributes
+        id:
+          type: string
+          x-go-name: ID
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+        relationships:
+          $ref: '#/components/schemas/Relationships'
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/smotes/jsonapi
+    Relationship:
+      type: object
+      title: Relationship represents a member of the JSON API relationships object.
+      properties:
+        data:
+          type: object
+          x-go-name: Data
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+  responses:
+    jsonApiHomepageParks:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

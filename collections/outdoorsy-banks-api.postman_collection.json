@@ -1,0 +1,1887 @@
+{
+  "item": [
+    {
+      "id": "f9a969e4-39f3-4c72-9bd1-c7c6588c51f2",
+      "name": "banks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72474d9d-c6ad-48fe-b17f-2054dc78e083",
+          "name": "get Banks With Payouts Triggered",
+          "request": {
+            "name": "get Banks With Payouts Triggered",
+            "description": {
+              "content": "List all payment processing infos with payouts-triggered missing field (admin only)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "admin",
+                "users",
+                "banks",
+                "payouts-triggered"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3dd68e6-220f-454e-b6b1-910043ff2a97",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "payouts-triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"archived\": true,\n    \"bank_address\": \"string\",\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"base_currency\": \"string\",\n    \"can_accept_payments\": false,\n    \"can_archive_bank\": false,\n    \"can_send_payments\": false,\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"created\": \"string\",\n    \"customer_id\": \"string\",\n    \"debit_agreement_date\": \"string\",\n    \"deposits_disabled\": true,\n    \"form\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"fund_id\": \"string\",\n    \"gateway_type\": \"string\",\n    \"id\": 3276,\n    \"managed_account_id\": \"string\",\n    \"missing_fields\": [\n      \"string\",\n      \"string\"\n    ],\n    \"missing_fields_change_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"needs_migration\": false,\n    \"nickname\": \"string\",\n    \"notes\": \"string\",\n    \"owner_id\": 1221,\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"phone\": \"string\",\n    \"reference_number\": \"string\",\n    \"sort_code\": \"string\",\n    \"status\": \"string\",\n    \"support_phone\": \"string\",\n    \"updated\": \"string\"\n  },\n  {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"archived\": true,\n    \"bank_address\": \"string\",\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"base_currency\": \"string\",\n    \"can_accept_payments\": false,\n    \"can_archive_bank\": false,\n    \"can_send_payments\": false,\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"created\": \"string\",\n    \"customer_id\": \"string\",\n    \"debit_agreement_date\": \"string\",\n    \"deposits_disabled\": true,\n    \"form\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"fund_id\": \"string\",\n    \"gateway_type\": \"string\",\n    \"id\": 8909,\n    \"managed_account_id\": \"string\",\n    \"missing_fields\": [\n      \"string\",\n      \"string\"\n    ],\n    \"missing_fields_change_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"needs_migration\": true,\n    \"nickname\": \"string\",\n    \"notes\": \"string\",\n    \"owner_id\": 9697,\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"phone\": \"string\",\n    \"reference_number\": \"string\",\n    \"sort_code\": \"string\",\n    \"status\": \"string\",\n    \"support_phone\": \"string\",\n    \"updated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd6dc691-07b5-4a27-9015-a8aaedd46498",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "payouts-triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8b6de12-013f-4c88-a181-f273f07dd563",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "payouts-triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5aac902-169a-4313-bf9c-dcd9c91468c4",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "payouts-triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca1b2a1d-e42c-4acd-9904-c56dd561905a",
+          "name": "update Bank Account",
+          "request": {
+            "name": "update Bank Account",
+            "description": {
+              "content": "Updates the specified connected bank",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "admin",
+                "users",
+                "banks",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8ac87163-ee3e-407e-a5aa-7563383812b0",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"zip\": \"string\"\n  },\n  \"archived\": true,\n  \"bank_address\": \"string\",\n  \"bank_last_four\": \"string\",\n  \"bank_name\": \"string\",\n  \"base_currency\": \"string\",\n  \"can_accept_payments\": true,\n  \"can_archive_bank\": false,\n  \"can_send_payments\": true,\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"created\": \"string\",\n  \"customer_id\": \"string\",\n  \"debit_agreement_date\": \"string\",\n  \"deposits_disabled\": true,\n  \"form\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"fund_id\": \"string\",\n  \"gateway_type\": \"string\",\n  \"id\": 3858,\n  \"managed_account_id\": \"string\",\n  \"missing_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"missing_fields_change_description\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needs_migration\": true,\n  \"nickname\": \"string\",\n  \"notes\": \"string\",\n  \"owner_id\": 3699,\n  \"payment_processor\": {\n    \"country\": \"string\",\n    \"external_processor\": \"string\",\n    \"external_processor_id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"phone\": \"string\",\n  \"reference_number\": \"string\",\n  \"sort_code\": \"string\",\n  \"status\": \"string\",\n  \"support_phone\": \"string\",\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "159fb2cb-28ea-4948-9e2c-59742022173d",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62bf75a4-bb41-481d-9170-dc1ee8418b27",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "users",
+                    "banks",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17b99dfd-5e15-49ec-84a4-738f18e50ece",
+          "name": "Create/Update a single stripe connected bank account. Does not support new Finance funds.",
+          "request": {
+            "name": "Create/Update a single stripe connected bank account. Does not support new Finance funds.",
+            "description": {
+              "content": "See POST /users/banks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "bank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        {\n          \"key_0\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7139551e-f237-4dd7-90e7-f760ba4d123c",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "bank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"zip\": \"string\"\n  },\n  \"archived\": true,\n  \"bank_address\": \"string\",\n  \"bank_last_four\": \"string\",\n  \"bank_name\": \"string\",\n  \"base_currency\": \"string\",\n  \"can_accept_payments\": true,\n  \"can_archive_bank\": false,\n  \"can_send_payments\": true,\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"created\": \"string\",\n  \"customer_id\": \"string\",\n  \"debit_agreement_date\": \"string\",\n  \"deposits_disabled\": true,\n  \"form\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"fund_id\": \"string\",\n  \"gateway_type\": \"string\",\n  \"id\": 3858,\n  \"managed_account_id\": \"string\",\n  \"missing_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"missing_fields_change_description\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needs_migration\": true,\n  \"nickname\": \"string\",\n  \"notes\": \"string\",\n  \"owner_id\": 3699,\n  \"payment_processor\": {\n    \"country\": \"string\",\n    \"external_processor\": \"string\",\n    \"external_processor_id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"phone\": \"string\",\n  \"reference_number\": \"string\",\n  \"sort_code\": \"string\",\n  \"status\": \"string\",\n  \"support_phone\": \"string\",\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e003f3b-a80b-4ae3-a232-aad32665ef63",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "bank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "910e2466-15b5-4b08-bdb2-d3c00ce1083d",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "bank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d00aff4-50c1-4d29-95d5-e0c55838ff30",
+          "name": "Deletes a connected bank account.",
+          "request": {
+            "name": "Deletes a connected bank account.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "bank",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59de999e-366d-4ba4-aa5e-0143b1cc1b8c",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "bank",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9061dbd9-7f8d-41e6-b11f-f2d2423c88f4",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "bank",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "287a01c3-99a2-42e1-af7c-92a6cfad9221",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "bank",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a97b9a06-3286-4bf2-883b-91a5ca6a64cc",
+          "name": "list Banks",
+          "request": {
+            "name": "list Banks",
+            "description": {
+              "content": "List active bank accounts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "banks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "booking_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "managed_accounts_only",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fund_type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1b8be7e-7653-4ede-be6e-a1fc84cbc049",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "managed_accounts_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"archived\": true,\n    \"bank_address\": \"string\",\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"base_currency\": \"string\",\n    \"can_accept_payments\": false,\n    \"can_archive_bank\": false,\n    \"can_send_payments\": false,\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"created\": \"string\",\n    \"customer_id\": \"string\",\n    \"debit_agreement_date\": \"string\",\n    \"deposits_disabled\": true,\n    \"form\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"fund_id\": \"string\",\n    \"gateway_type\": \"string\",\n    \"id\": 9737,\n    \"managed_account_id\": \"string\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"missing_fields_change_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"needs_migration\": false,\n    \"nickname\": \"string\",\n    \"notes\": \"string\",\n    \"owner_id\": 3415,\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"phone\": \"string\",\n    \"reference_number\": \"string\",\n    \"sort_code\": \"string\",\n    \"status\": \"string\",\n    \"support_phone\": \"string\",\n    \"updated\": \"string\"\n  },\n  {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"archived\": false,\n    \"bank_address\": \"string\",\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"base_currency\": \"string\",\n    \"can_accept_payments\": false,\n    \"can_archive_bank\": false,\n    \"can_send_payments\": true,\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"created\": \"string\",\n    \"customer_id\": \"string\",\n    \"debit_agreement_date\": \"string\",\n    \"deposits_disabled\": false,\n    \"form\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"fund_id\": \"string\",\n    \"gateway_type\": \"string\",\n    \"id\": 8199,\n    \"managed_account_id\": \"string\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"missing_fields_change_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"needs_migration\": true,\n    \"nickname\": \"string\",\n    \"notes\": \"string\",\n    \"owner_id\": 9847,\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"phone\": \"string\",\n    \"reference_number\": \"string\",\n    \"sort_code\": \"string\",\n    \"status\": \"string\",\n    \"support_phone\": \"string\",\n    \"updated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a62199b-8ec6-40df-a47b-ca1cb78ad1ce",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "managed_accounts_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09a5e5a1-496e-41bf-b303-c569fb54a15f",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "managed_accounts_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80222210-bf48-4ed4-9e5a-399edb088962",
+          "name": "add Bank Account",
+          "request": {
+            "name": "add Bank Account",
+            "description": {
+              "content": "Creates a new bank account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "banks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        {\n          \"key_0\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0ff7e23-5153-4755-bdf5-365542aca147",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"zip\": \"string\"\n  },\n  \"archived\": true,\n  \"bank_address\": \"string\",\n  \"bank_last_four\": \"string\",\n  \"bank_name\": \"string\",\n  \"base_currency\": \"string\",\n  \"can_accept_payments\": true,\n  \"can_archive_bank\": false,\n  \"can_send_payments\": true,\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"created\": \"string\",\n  \"customer_id\": \"string\",\n  \"debit_agreement_date\": \"string\",\n  \"deposits_disabled\": true,\n  \"form\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"fund_id\": \"string\",\n  \"gateway_type\": \"string\",\n  \"id\": 3858,\n  \"managed_account_id\": \"string\",\n  \"missing_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"missing_fields_change_description\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needs_migration\": true,\n  \"nickname\": \"string\",\n  \"notes\": \"string\",\n  \"owner_id\": 3699,\n  \"payment_processor\": {\n    \"country\": \"string\",\n    \"external_processor\": \"string\",\n    \"external_processor_id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"phone\": \"string\",\n  \"reference_number\": \"string\",\n  \"sort_code\": \"string\",\n  \"status\": \"string\",\n  \"support_phone\": \"string\",\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c41c129-46d9-4f45-bb49-765ae39f36fc",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9b0a1a9-a702-453b-b375-c9bc63f724a1",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e990775-1d63-4195-aabe-28986da87ae1",
+          "name": "get Bank By Id",
+          "request": {
+            "name": "get Bank By Id",
+            "description": {
+              "content": "Retrieve single bank by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "banks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49f120e4-1cbc-463f-a3f2-fd6810891924",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"zip\": \"string\"\n  },\n  \"archived\": true,\n  \"bank_address\": \"string\",\n  \"bank_last_four\": \"string\",\n  \"bank_name\": \"string\",\n  \"base_currency\": \"string\",\n  \"can_accept_payments\": true,\n  \"can_archive_bank\": false,\n  \"can_send_payments\": true,\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"created\": \"string\",\n  \"customer_id\": \"string\",\n  \"debit_agreement_date\": \"string\",\n  \"deposits_disabled\": true,\n  \"form\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"fund_id\": \"string\",\n  \"gateway_type\": \"string\",\n  \"id\": 3858,\n  \"managed_account_id\": \"string\",\n  \"missing_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"missing_fields_change_description\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needs_migration\": true,\n  \"nickname\": \"string\",\n  \"notes\": \"string\",\n  \"owner_id\": 3699,\n  \"payment_processor\": {\n    \"country\": \"string\",\n    \"external_processor\": \"string\",\n    \"external_processor_id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"phone\": \"string\",\n  \"reference_number\": \"string\",\n  \"sort_code\": \"string\",\n  \"status\": \"string\",\n  \"support_phone\": \"string\",\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69866704-8447-4954-b87f-b3772bc2fa22",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86938b83-5f2f-4a73-a19d-78b270d413b4",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7683f2b2-ee4e-4a39-87a6-0ebeb4582301",
+          "name": "update Bank Account",
+          "request": {
+            "name": "update Bank Account",
+            "description": {
+              "content": "Updates the specified connected bank",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "banks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        {\n          \"key_0\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a685528-2f9a-4bc9-b060-7da6656f9540",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"state\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"zip\": \"string\"\n  },\n  \"archived\": true,\n  \"bank_address\": \"string\",\n  \"bank_last_four\": \"string\",\n  \"bank_name\": \"string\",\n  \"base_currency\": \"string\",\n  \"can_accept_payments\": true,\n  \"can_archive_bank\": false,\n  \"can_send_payments\": true,\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"created\": \"string\",\n  \"customer_id\": \"string\",\n  \"debit_agreement_date\": \"string\",\n  \"deposits_disabled\": true,\n  \"form\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"fund_id\": \"string\",\n  \"gateway_type\": \"string\",\n  \"id\": 3858,\n  \"managed_account_id\": \"string\",\n  \"missing_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"missing_fields_change_description\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needs_migration\": true,\n  \"nickname\": \"string\",\n  \"notes\": \"string\",\n  \"owner_id\": 3699,\n  \"payment_processor\": {\n    \"country\": \"string\",\n    \"external_processor\": \"string\",\n    \"external_processor_id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"phone\": \"string\",\n  \"reference_number\": \"string\",\n  \"sort_code\": \"string\",\n  \"status\": \"string\",\n  \"support_phone\": \"string\",\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6723318-80eb-45bd-97a2-1d29b91706c2",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "598a02ee-fe57-4bf8-ab7a-0327d2e22061",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "banks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"vendor\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"zip\": \"<string>\"\n    },\n    \"bank_address\": \"<string>\",\n    \"birth_date\": \"<dateTime>\",\n    \"business\": {\n      \"cancel_policy\": \"<string>\",\n      \"cancel_policy_combo_bookings\": \"<string>\",\n      \"cancel_text\": \"<string>\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": \"<double>\",\n      \"consigned_keep_pct_cc_fee\": \"<double>\",\n      \"consigned_keep_pct_insurance_fee\": \"<double>\",\n      \"consigned_pay_pct\": \"<double>\",\n      \"consigned_pay_pct_generator\": \"<double>\",\n      \"consigned_pay_pct_mileage\": \"<double>\",\n      \"description\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"ga4_id\": \"<string>\",\n      \"google_analytics_id\": \"<string,null>\",\n      \"google_tag_manager_id\": \"<string,null>\",\n      \"hide_rentals\": \"<boolean>\",\n      \"house_rules\": \"<string>\",\n      \"localized_languages\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"outdoorsy_display_name\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"segment_token\": \"<string>\",\n      \"terms_of_service\": \"<string>\",\n      \"website\": \"<string>\"\n    },\n    \"currency\": \"<string>\",\n    \"debit_agreement_ip\": \"<string>\",\n    \"debit_agreement_shown_and_accepted\": \"<boolean>\",\n    \"debit_agreement_user_agent\": \"<string>\",\n    \"deposit_account\": {\n      \"id\": \"<string>\",\n      \"last_four\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"external_accounts\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"fund_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"merchant_of_record\": \"<boolean>\",\n    \"missing_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nickname\": \"<string>\",\n    \"no_additional_owners\": \"<boolean>\",\n    \"payouts_enabled\": \"<boolean>\",\n    \"personal_id\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"sort_code\": \"<string>\",\n    \"ssn_last_four\": \"<string>\",\n    \"status\": \"<string>\",\n    \"support_phone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"verified\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9ff942dd-af6d-495c-8436-44e7e294cc0c",
+    "name": "Outdoorsy API Documentation Banks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

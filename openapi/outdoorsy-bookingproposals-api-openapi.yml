@@ -1,0 +1,411 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Booking Proposals API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: bookingProposals
+paths:
+  /bookings/{booking_id}/proposals:
+    get:
+      description: Return a list of proposals for the booking
+      tags:
+      - bookingProposals
+      operationId: getProposals
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/proposalsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    post:
+      description: Creates a new booking proposal
+      tags:
+      - bookingProposals
+      operationId: createProposal
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/proposalResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proposal'
+  /bookings/{booking_id}/proposals/batch-delete:
+    delete:
+      description: Delete a proposal
+      tags:
+      - bookingProposals
+      operationId: batchDeleteProposals
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Proposal'
+  /bookings/{booking_id}/proposals/batch-update:
+    patch:
+      description: Batch update a proposals only for addons
+      tags:
+      - bookingProposals
+      operationId: batchUpdateProposals
+      responses:
+        '200':
+          $ref: '#/components/responses/proposalsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proposal'
+  /bookings/{booking_id}/proposals/{id}:
+    get:
+      description: Returns a single booking proposal by id
+      tags:
+      - bookingProposals
+      operationId: getProposalById
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/proposalResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    delete:
+      description: Delete a proposal
+      tags:
+      - bookingProposals
+      operationId: deleteProposal
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    patch:
+      description: Update a proposal
+      tags:
+      - bookingProposals
+      operationId: updateProposal
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/proposalResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proposal'
+  /bookings/{booking_id}/proposals/{id}/act:
+    get:
+      description: Accept or decline the open proposal
+      tags:
+      - bookingProposals
+      operationId: actOnProposal
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Action
+        name: action
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '302':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    proposalResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Proposal'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    proposalsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Proposal'
+  schemas:
+    Proposal:
+      type: object
+      properties:
+        action:
+          type: string
+          x-go-name: Action
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DailyChange'
+          x-go-name: DailyChanges
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        dry_create:
+          type: boolean
+          x-go-name: DryCreate
+        future_booking:
+          x-go-name: FutureBooking
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        note:
+          type: string
+          x-go-name: Note
+        object_id:
+          type: integer
+          format: uint64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        owner_acknowledged:
+          type: string
+          x-go-name: OwnerAcknowledged
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        renter_acknowledged:
+          type: string
+          x-go-name: RenterAcknowledged
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_dismissed:
+          type: string
+          x-go-name: RenterDismissed
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_notice_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeResponse'
+          x-go-name: UserNoticeEvents
+        user_notices_acknowledged:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: UserNoticesAcknowledged
+      x-go-package: github.com/outdoorsy/api/internal/proposal
+    DailyChange:
+      type: object
+      properties:
+        date:
+          type: string
+          x-go-name: Date
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rules:
+          $ref: '#/components/schemas/ISlice'
+      x-go-package: github.com/outdoorsy/api/internal/booking_price_log
+    NoticeResponse:
+      type: object
+      properties:
+        guest_acknowledgement_text:
+          type: string
+          x-go-name: GuestAcknowledgementText
+        guest_need_to_acknowledge:
+          type: boolean
+          x-go-name: GuestNeedToAcknowledge
+        guest_user_text:
+          type: string
+          x-go-name: GuestUserText
+        host_acknowledgement_text:
+          type: string
+          x-go-name: HostAcknowledgementText
+        host_help_url:
+          type: string
+          x-go-name: HostHelpUrl
+        host_need_to_acknowledge:
+          type: boolean
+          x-go-name: HostNeedToAcknowledge
+        host_user_text:
+          type: string
+          x-go-name: HostUserText
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/user_notice_events
+    ISlice:
+      type: array
+      items: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

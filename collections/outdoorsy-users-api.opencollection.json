@@ -1,0 +1,242 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Users API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a breakdown of previous rentals, bookings or pending reviews.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/autosuggestions",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a breakdown of previous rentals, bookings or pending reviews."
+        },
+        {
+          "info": {
+            "name": "confirmEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/confirm",
+            "params": [
+              {
+                "name": "change_email_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "new_email_token",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Confirm new or changed user email"
+        },
+        {
+          "info": {
+            "name": "listUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return list of users"
+        },
+        {
+          "info": {
+            "name": "logoutUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/logout",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Log user out by invalidating authorization token"
+        },
+        {
+          "info": {
+            "name": "Returns currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/me",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Must be authenticated to make this request, otherwise an unauthorized error\nis returned."
+        },
+        {
+          "info": {
+            "name": "Returns currently logged in user with minimal info.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/mini_me",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Must be authenticated to make this request, otherwise an unauthorized error\nis returned."
+        },
+        {
+          "info": {
+            "name": "getTodaysActivities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/todays-activities",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns today's activities for the owner"
+        },
+        {
+          "info": {
+            "name": "getUserById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return requested user model"
+        },
+        {
+          "info": {
+            "name": "updateUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update a user"
+        },
+        {
+          "info": {
+            "name": "ownerReportCard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/:id/owner-report-card",
+            "params": [
+              {
+                "name": "Start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "End",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "IncludeAllRentals",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns statistics about the owner"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

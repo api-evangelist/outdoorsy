@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Rental Images API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "rentalImages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "orderRentalImages",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/rentals/:rental_id/image-order",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates position on rental images and optionally set new primary image"
+        },
+        {
+          "info": {
+            "name": "listRentalImages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/rentals/:rental_id/images",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve list of rental images for rental id"
+        },
+        {
+          "info": {
+            "name": "Creates, updates, and deletes a set of rental images based on list of objects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/rentals/:rental_id/images",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates, updates, and deletes a set of rental images based on list of objects."
+        },
+        {
+          "info": {
+            "name": "createRawRentalImage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/rentals/:rental_id/images/raw"
+          },
+          "docs": "Create a single rental image using raw binary file upload"
+        },
+        {
+          "info": {
+            "name": "getRentalImageById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/rentals/:rental_id/images/:id",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single rental image by id"
+        },
+        {
+          "info": {
+            "name": "updateRentalImage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/rentals/:rental_id/images/:id",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update rental image by id"
+        },
+        {
+          "info": {
+            "name": "deleteRentalImageById",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/rentals/:rental_id/images/:id",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes the requested rental image by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

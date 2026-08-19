@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Checkout Steps API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "checkoutSteps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCheckoutSteps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/checkout_steps/:booking_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the list objects, containing step name, order and status for clients to use when\nsending a renter through the reservation (checkout) flow."
+        },
+        {
+          "info": {
+            "name": "updateCheckoutSteps",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/checkout_steps/:booking_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the status of steps for the specified booking. Send incomplete/complete for each\nstep in the list."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

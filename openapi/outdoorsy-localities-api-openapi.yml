@@ -1,0 +1,200 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy Search API is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy Search Documentation Localities API
+  version: 0.0.1
+security:
+- Bearer:
+  - '[]'
+tags:
+- name: localities
+paths:
+  /localities:
+    get:
+      description: Search localities
+      tags:
+      - localities
+      operationId: getLocalities
+      parameters:
+      - name: Locale
+        in: query
+        schema:
+          type: string
+      - name: Slug
+        in: query
+        schema:
+          type: string
+      - name: Lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Lon
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Radius
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: NELat
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: NELon
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: SWLat
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: SWLon
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Filters
+        in: query
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ESFilter'
+      - name: Limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/listResponse'
+  /localities/{id}:
+    get:
+      description: Returns a specific locality by id
+      tags:
+      - localities
+      operationId: getLocality
+      responses:
+        '200':
+          $ref: '#/components/responses/retrieveResponse'
+components:
+  responses:
+    listResponse:
+      description: ''
+      headers:
+        bounds: {}
+        id:
+          schema:
+            type: string
+        locale:
+          schema:
+            type: string
+        location: {}
+        metadata: {}
+        parent:
+          schema:
+            type: string
+        slug:
+          schema:
+            type: string
+        url:
+          schema:
+            type: string
+      content:
+        application/vnd.api+json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+        application/json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+    retrieveResponse:
+      description: ''
+      headers:
+        bounds: {}
+        id:
+          schema:
+            type: string
+        locale:
+          schema:
+            type: string
+        location: {}
+        metadata: {}
+        parent:
+          schema:
+            type: string
+        slug:
+          schema:
+            type: string
+        url:
+          schema:
+            type: string
+      content:
+        application/vnd.api+json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+        application/json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+  schemas:
+    geoBounds:
+      type: object
+      properties:
+        ne:
+          $ref: '#/components/schemas/geoPoint'
+        sw:
+          $ref: '#/components/schemas/geoPoint'
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    geoPoint:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lon:
+          type: number
+          format: double
+          x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    ESFilter:
+      type: object
+      properties:
+        Key:
+          type: string
+        Operator:
+          type: string
+        Value: {}
+      x-go-package: github.com/outdoorsy/odc-search/pkg/query
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

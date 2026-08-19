@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Search Documentation Campgrounds API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "campgrounds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "searchCampgrounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/campgrounds"
+          },
+          "docs": "Search performs search on campgrounds"
+        },
+        {
+          "info": {
+            "name": "searchCampgrounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/campgrounds/nearby-for-rental/:rental_id"
+          },
+          "docs": "Searches nearby campgrounds for given rental with rental_id"
+        },
+        {
+          "info": {
+            "name": "getCampground",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/campgrounds/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get campgrounds by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

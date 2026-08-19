@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Files API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "files",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/files",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "signable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "auto_include",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_esign",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return files"
+        },
+        {
+          "info": {
+            "name": "createFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/files",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create file"
+        },
+        {
+          "info": {
+            "name": "getFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/files/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "json",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "update_url",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Response will redirect to authenticated file"
+        },
+        {
+          "info": {
+            "name": "updateFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/files/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update file details"
+        },
+        {
+          "info": {
+            "name": "deleteFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/files/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

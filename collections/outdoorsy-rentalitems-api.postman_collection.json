@@ -1,0 +1,1709 @@
+{
+  "item": [
+    {
+      "id": "cdbdbf29-e1a2-49df-bf97-e70fb497af3b",
+      "name": "rentalItems",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73ad5144-fa65-4a1d-8d48-71f7a0d28afa",
+          "name": "list Rental Items",
+          "request": {
+            "name": "list Rental Items",
+            "description": {
+              "content": "Creates a new item for a given rental",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "all_available_items",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "available_for_rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translate",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "presentment_currency",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1304fa7d-c788-4a14-9ff9-1087d5f89da9",
+              "name": "HTTP status code 200 and array of rental items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all_available_items",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "presentment_currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"applies_to_type\": [\n      \"string\",\n      \"string\"\n    ],\n    \"available\": 1382,\n    \"category\": \"string\",\n    \"category_id\": 4869,\n    \"consigned_pay_pct\": 9463.982603282044,\n    \"created\": {\n      \"Time\": \"2014-08-11T14:26:49.229Z\",\n      \"Valid\": false\n    },\n    \"daily\": true,\n    \"deferred\": false,\n    \"description\": \"string\",\n    \"hidden\": false,\n    \"id\": 4495,\n    \"image_url\": \"string\",\n    \"ledger_account_number\": 4595,\n    \"location_id\": 8984,\n    \"location_ids\": [\n      9337,\n      4053\n    ],\n    \"maximum_price\": null,\n    \"metadata\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"minimum_price\": 5191,\n    \"name\": \"string\",\n    \"percent\": 1791.9259022426604,\n    \"percent_type\": \"string\",\n    \"position\": 4022,\n    \"presentment_currency\": \"string\",\n    \"price\": 1158,\n    \"rental_items_category_id\": null,\n    \"rental_items_category_name\": \"string\",\n    \"rental_items_category_owner_name\": \"string\",\n    \"rental_items_category_reason\": \"string\",\n    \"rental_items_category_requested_name\": \"string\",\n    \"rental_items_category_status\": \"string\",\n    \"required\": false,\n    \"settlement_currency\": \"string\",\n    \"tax\": 83,\n    \"tax_rate_id\": {\n      \"archived\": false,\n      \"created\": \"string\",\n      \"description\": \"string\",\n      \"id\": 7592,\n      \"marketplace\": false,\n      \"name\": \"string\",\n      \"owner_id\": 6650,\n      \"rate\": 129.26123263347966,\n      \"state\": \"string\",\n      \"updated\": \"string\",\n      \"zip_code\": \"string\"\n    },\n    \"tax_rate_ids\": [\n      130,\n      6324\n    ],\n    \"travelers\": 2261,\n    \"updated\": {\n      \"Time\": \"1960-05-25T11:23:15.563Z\",\n      \"Valid\": false\n    }\n  },\n  {\n    \"applies_to_type\": [\n      \"string\",\n      \"string\"\n    ],\n    \"available\": 2596,\n    \"category\": \"string\",\n    \"category_id\": 214,\n    \"consigned_pay_pct\": 9839.552736523536,\n    \"created\": {\n      \"Time\": \"2002-02-24T14:12:13.309Z\",\n      \"Valid\": true\n    },\n    \"daily\": false,\n    \"deferred\": true,\n    \"description\": \"string\",\n    \"hidden\": true,\n    \"id\": 3214,\n    \"image_url\": \"string\",\n    \"ledger_account_number\": 8203,\n    \"location_id\": 2700,\n    \"location_ids\": [\n      2913,\n      4086\n    ],\n    \"maximum_price\": 5362,\n    \"metadata\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"minimum_price\": 1669,\n    \"name\": \"string\",\n    \"percent\": 135.4672252022815,\n    \"percent_type\": \"string\",\n    \"position\": 5280,\n    \"presentment_currency\": \"string\",\n    \"price\": 574,\n    \"rental_items_category_id\": 4622,\n    \"rental_items_category_name\": \"string\",\n    \"rental_items_category_owner_name\": \"string\",\n    \"rental_items_category_reason\": \"string\",\n    \"rental_items_category_requested_name\": \"string\",\n    \"rental_items_category_status\": \"string\",\n    \"required\": true,\n    \"settlement_currency\": \"string\",\n    \"tax\": 4713,\n    \"tax_rate_id\": {\n      \"archived\": true,\n      \"created\": \"string\",\n      \"description\": \"string\",\n      \"id\": 9794,\n      \"marketplace\": false,\n      \"name\": \"string\",\n      \"owner_id\": 2709,\n      \"rate\": 5516.393543218597,\n      \"state\": \"string\",\n      \"updated\": \"string\",\n      \"zip_code\": \"string\"\n    },\n    \"tax_rate_ids\": [\n      3097,\n      5331\n    ],\n    \"travelers\": 8676,\n    \"updated\": {\n      \"Time\": \"1953-05-10T17:12:57.349Z\",\n      \"Valid\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "642f48e5-9213-4123-ac43-39556d131793",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all_available_items",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "presentment_currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "600eb81d-563d-4ebf-b97d-8048fe128abb",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all_available_items",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "presentment_currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab1f0cef-467c-4415-be8a-d023036284b3",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all_available_items",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "presentment_currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a5103df-7c68-4c29-9e1f-eb1ccc8a43d8",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all_available_items",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "presentment_currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b90812c4-999f-4b5a-a7d7-89a8b7b3b718",
+          "name": "create Rental Item",
+          "request": {
+            "name": "create Rental Item",
+            "description": {
+              "content": "Creates a new item for a given rental",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b1fe8544-58f1-4534-bf3a-a9008069d1bd",
+              "name": "HTTP status code 200 and rental item model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27b12723-798d-4649-8bcc-255da9017b80",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbd6634e-c7d3-46f6-874a-4af0aaf4815b",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6edb90d-4804-4749-a81a-1edac469ae21",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c0a8d84-7da6-4104-8891-e0bcfed52dd9",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86e11e8f-55d1-472d-bb1c-3804e3c336d4",
+          "name": "get Rental Item By Id",
+          "request": {
+            "name": "get Rental Item By Id",
+            "description": {
+              "content": "Creates a new item for a given rental",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c134cf1-4c5f-4223-bfa5-0fd160fb043e",
+              "name": "HTTP status code 200 and rental item model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c666233-3244-4b0e-ba37-695860c3922b",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd5bd1c2-241f-475c-b710-d10ce4fe7e35",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9c2aa1d-e351-4225-b0b6-1204834a0c44",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b898f864-8f98-4764-8670-0d763500a8a2",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "937376d4-05aa-4d5d-95cd-c16ac3c5ec9b",
+          "name": "delete Rental Item By Id",
+          "request": {
+            "name": "delete Rental Item By Id",
+            "description": {
+              "content": "Creates a new item for a given rental",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36b3df8f-3ecb-439b-8b34-a0f4b5eef369",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "633a3271-f1ea-4f23-a2c6-0fbc4fac046b",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80d998cd-59ba-4ce7-91ab-f3ac12e4b6ec",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "475c5ed4-71fc-453c-81b8-975bbc592863",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32058072-7529-4f77-aea8-55a4797c1f0a",
+          "name": "update Rental Item",
+          "request": {
+            "name": "update Rental Item",
+            "description": {
+              "content": "Creates a new item for a given rental",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a408c06-4d36-481c-bd2c-c38f3a26a6fe",
+              "name": "HTTP status code 200 and rental item model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "859005d3-c6d2-4e59-8a10-c2542dfd8eaf",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "238e033e-5861-4b55-8a44-1d45e64518e4",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ac36abe-5f84-47d9-adc9-5d133c41744e",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9fda1c8-3650-4649-9df2-67ba5f62d2e5",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"available\": \"<long>\",\n  \"category\": \"<string>\",\n  \"category_id\": \"<long>\",\n  \"consigned_pay_pct\": \"<double>\",\n  \"created\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  },\n  \"daily\": \"<boolean>\",\n  \"deferred\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<long>\",\n  \"image_url\": \"<string>\",\n  \"ledger_account_number\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"maximum_price\": \"<integer,null-int64>\",\n  \"metadata\": {\n    \"key_0\": {}\n  },\n  \"minimum_price\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"percent\": \"<double>\",\n  \"percent_type\": \"<string>\",\n  \"position\": \"<long>\",\n  \"presentment_currency\": \"<string>\",\n  \"price\": \"<long>\",\n  \"rental_items_category_id\": \"<integer,null-int64>\",\n  \"rental_items_category_name\": \"<string>\",\n  \"rental_items_category_owner_name\": \"<string>\",\n  \"rental_items_category_reason\": \"<string>\",\n  \"rental_items_category_requested_name\": \"<string>\",\n  \"rental_items_category_status\": \"<string>\",\n  \"required\": \"<boolean>\",\n  \"settlement_currency\": \"<string>\",\n  \"tax\": \"<long>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"travelers\": \"<long>\",\n  \"updated\": {\n    \"Time\": \"<dateTime>\",\n    \"Valid\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b202c353-0afe-442a-bab4-193f96c816f6",
+    "name": "Outdoorsy API Documentation Rental Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

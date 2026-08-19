@@ -1,0 +1,302 @@
+{
+  "item": [
+    {
+      "id": "36d5df64-bdea-4b97-a904-a581150455d6",
+      "name": "campgrounds",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "430ed81d-c97b-49b3-86fd-4972f0a828da",
+          "name": "search Campgrounds",
+          "request": {
+            "name": "search Campgrounds",
+            "description": {
+              "content": "Search performs search on campgrounds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campgrounds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "996cf8e2-bb72-495c-93ba-5208997bf9d6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campgrounds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      },\n      \"key_2\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58e38a35-74ff-4e5f-8733-a01bf6fd3a84",
+          "name": "search Campgrounds",
+          "request": {
+            "name": "search Campgrounds",
+            "description": {
+              "content": "Searches nearby campgrounds for given rental with rental_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campgrounds",
+                "nearby-for-rental",
+                ":rental_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1949c022-2036-4ba8-a74a-40d397b0d295",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campgrounds",
+                    "nearby-for-rental",
+                    ":rental_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85cda33d-f318-46bb-97dd-1e9af22ead62",
+          "name": "get Campground",
+          "request": {
+            "name": "get Campground",
+            "description": {
+              "content": "Get campgrounds by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campgrounds",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a0d0757-9ee8-42fb-a378-92f4e1e5f10c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campgrounds",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4b4a14cb-4036-413f-b7e5-fa53fe4bf1bd",
+    "name": "Outdoorsy Search Documentation Campgrounds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy Search API is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

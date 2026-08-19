@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Booking Items API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookingItems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createBookingItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/items",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates/adds an item to the requested booking"
+        },
+        {
+          "info": {
+            "name": "Updates a batch of items on the booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/items/batch",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a batch of items on the booking."
+        },
+        {
+          "info": {
+            "name": "Updates a batch of items on the booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/items/batch-items",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a batch of items on the booking."
+        },
+        {
+          "info": {
+            "name": "copyRentalItemToBooking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/items/copy",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Copies a rental item to the specified booking"
+        },
+        {
+          "info": {
+            "name": "getBookingItemById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/items/:id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Copies an item to the requested booking"
+        },
+        {
+          "info": {
+            "name": "updateBookingItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:booking_id/items/:id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing item on the booking"
+        },
+        {
+          "info": {
+            "name": "deleteBookingItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:booking_id/items/:id"
+          },
+          "docs": "Copies an item to the requested booking"
+        },
+        {
+          "info": {
+            "name": "Updates the consigned pay amount for an item.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:booking_id/items/:id/update-consigned"
+          },
+          "docs": "Updates the consigned pay amount for an item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

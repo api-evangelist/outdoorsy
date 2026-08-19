@@ -1,0 +1,262 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Conversations API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List AI reply suggestions for a conversation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/ai-reply-suggestions",
+            "params": [
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ThresholdMin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ThresholdMax",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of AI-generated reply suggestions for the specified conversation.\nSuggestions are ordered by creation date in descending order (newest first).\nRequires conversation_id query parameter. Supports pagination via offset and limit.\nFilter by confidence level with threshold_min and threshold_max (inclusive); if omitted,\nthreshold_min defaults to 0 and threshold_max defaults to 1.\nAdmin access required."
+        },
+        {
+          "info": {
+            "name": "listConversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/conversations",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "single",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booking_status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "renter_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_messages",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "new",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "exclude_bookings",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists conversations"
+        },
+        {
+          "info": {
+            "name": "createConversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new conversation between two users"
+        },
+        {
+          "info": {
+            "name": "getConversationById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/conversations/:id",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "false -> bookings: MinBooking, true -> bookings: Booking"
+              },
+              {
+                "name": "without_bookings",
+                "value": "",
+                "type": "query",
+                "description": "when true, bookings array will be empty"
+              },
+              {
+                "name": "min_bookings",
+                "value": "",
+                "type": "query",
+                "description": "when true, bookings array will only contain the most relevant booking"
+              },
+              {
+                "name": "include_system",
+                "value": "",
+                "type": "query",
+                "description": "when true, system messages will be included in the messages array"
+              },
+              {
+                "name": "include_current",
+                "value": "",
+                "type": "query",
+                "description": "when true, bookings array will contain bookings with status negotiating, approved, imminent, handed_off"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get conversation by id"
+        },
+        {
+          "info": {
+            "name": "updateConversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/conversations/:id"
+          },
+          "docs": "Update conversation by id"
+        },
+        {
+          "info": {
+            "name": "archiveConversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/conversations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive a conversation"
+        },
+        {
+          "info": {
+            "name": "Get AI-generated reply suggestion for a conversation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/conversations/:id/ai-reply-suggestion",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This endpoint returns an AI-generated reply suggestion based on the conversation history.\nThe suggestion is cached, so subsequent requests for the same message will return the cached suggestion.\nOnly conversation owners can access this endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

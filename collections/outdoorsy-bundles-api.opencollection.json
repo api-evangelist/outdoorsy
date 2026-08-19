@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Bundles API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bundles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listBundles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bundles"
+          },
+          "docs": "List insurance bundles"
+        },
+        {
+          "info": {
+            "name": "createBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bundles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a bundle"
+        },
+        {
+          "info": {
+            "name": "getBundleById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve bundle by id"
+        },
+        {
+          "info": {
+            "name": "updateBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update insurance bundle"
+        },
+        {
+          "info": {
+            "name": "deleteBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete insurance bundle"
+        },
+        {
+          "info": {
+            "name": "listBundlesAvailableForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/:user_id/bundles",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "renter_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List insurance bundles available to renter of the user (owner) who calls this endpoint"
+        },
+        {
+          "info": {
+            "name": "setBundleUptake",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/:user_id/bundles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a bundle rule with the specified bundle and the specified uptake percents for the user (owner) who calls this endpoint"
+        },
+        {
+          "info": {
+            "name": "deleteBundleUptake",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/users/:user_id/bundles"
+          },
+          "docs": "Deletes a bundle rule with the specified bundle for the user (owner) who calls this endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

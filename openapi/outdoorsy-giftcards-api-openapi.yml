@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Gift Cards API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: GiftCards
+paths:
+  /gift_cards/claim:
+    get:
+      tags:
+      - GiftCards
+      summary: Send referral communications to a list of friends.
+      operationId: claimGiftCardRequest
+      responses:
+        '200':
+          $ref: '#/components/responses/createGiftCardResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Code'
+        required: true
+  /gift_cards/{gift_card_id}:
+    get:
+      tags:
+      - GiftCards
+      summary: Read a gift card.
+      operationId: readGiftCardRequest
+      parameters:
+      - x-go-name: GiftCardID
+        name: gift_card_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/readGiftCardResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /gift_cards/{gift_card_id}/fund:
+    post:
+      tags:
+      - GiftCards
+      summary: Send referral communications to a list of friends.
+      operationId: createGiftCardRequest
+      parameters:
+      - x-go-name: CreditCardID
+        name: credit_card_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/createGiftCardResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+components:
+  responses:
+    unauthorizedError:
+      description: Unauthorized error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    Code:
+      type: string
+      x-go-package: github.com/outdoorsy/api/internal/gift_card
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

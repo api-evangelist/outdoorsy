@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "372c90b3-98ae-492f-887c-1e2fb0e4cf95",
+      "name": "towingInfo",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51c4d86a-1b46-4a08-aa72-cc685e0e2ee3",
+          "name": "towing Info Request",
+          "request": {
+            "name": "towing Info Request",
+            "description": {
+              "content": "Returns a list of towing info for vehicles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "towing_info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfb5eadd-42f8-4755-848c-9d5232bf8a4e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "towing_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"axle_ratio\": \"string\",\n    \"body_type\": \"string\",\n    \"drivetrain\": \"string\",\n    \"engine\": \"string\",\n    \"hitch_type\": \"string\",\n    \"id\": 2588,\n    \"make\": \"string\",\n    \"max_towing_capacity\": 9027,\n    \"model\": \"string\",\n    \"suggested_towing_capacity\": 6989,\n    \"transmission\": \"string\",\n    \"year\": 7247\n  },\n  {\n    \"axle_ratio\": \"string\",\n    \"body_type\": \"string\",\n    \"drivetrain\": \"string\",\n    \"engine\": \"string\",\n    \"hitch_type\": \"string\",\n    \"id\": 992,\n    \"make\": \"string\",\n    \"max_towing_capacity\": 3321,\n    \"model\": \"string\",\n    \"suggested_towing_capacity\": 9444,\n    \"transmission\": \"string\",\n    \"year\": 9315\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f51ca29e-007c-4cf4-8d60-2170fd7de5f8",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "towing_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "caeae24d-7037-4555-99c9-c2652c9561b0",
+    "name": "Outdoorsy API Documentation Towing Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

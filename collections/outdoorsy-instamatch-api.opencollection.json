@@ -1,0 +1,498 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Instamatch API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instamatch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listBids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bids",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "open",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bid_match_owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_gt",
+                "value": "",
+                "type": "query",
+                "description": "Date range filters"
+              },
+              {
+                "name": "created_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_day_price_gt",
+                "value": "",
+                "type": "query",
+                "description": "Price range filters"
+              },
+              {
+                "name": "max_day_price_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_day_price_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_day_price_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "price_per_day_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "price_per_day_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_by_booking_id",
+                "value": "",
+                "type": "query",
+                "description": "Booking ID filters"
+              },
+              {
+                "name": "closed_by_booking_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "delivery",
+                "value": "",
+                "type": "query",
+                "description": "Delivery filters"
+              },
+              {
+                "name": "stationary_delivery",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "travelers",
+                "value": "",
+                "type": "query",
+                "description": "Travelers filter"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle info filters"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "renter_id",
+                "value": "",
+                "type": "query",
+                "description": "Admin filters - filter bids through bid_matches"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return list of bids"
+        },
+        {
+          "info": {
+            "name": "createBid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bids",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create instamatch request"
+        },
+        {
+          "info": {
+            "name": "bidsAvailable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bids/available",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "open",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bid_match_owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_gt",
+                "value": "",
+                "type": "query",
+                "description": "Date range filters"
+              },
+              {
+                "name": "created_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_day_price_gt",
+                "value": "",
+                "type": "query",
+                "description": "Price range filters"
+              },
+              {
+                "name": "max_day_price_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_day_price_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_day_price_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "price_per_day_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "price_per_day_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_by_booking_id",
+                "value": "",
+                "type": "query",
+                "description": "Booking ID filters"
+              },
+              {
+                "name": "closed_by_booking_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "delivery",
+                "value": "",
+                "type": "query",
+                "description": "Delivery filters"
+              },
+              {
+                "name": "stationary_delivery",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "travelers",
+                "value": "",
+                "type": "query",
+                "description": "Travelers filter"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle info filters"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "renter_id",
+                "value": "",
+                "type": "query",
+                "description": "Admin filters - filter bids through bid_matches"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns list of available bids for an owner"
+        },
+        {
+          "info": {
+            "name": "renterDeclineBidMatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bids/:bid_id/bid-matches/:bid_match_id/renter-decline"
+          },
+          "docs": "Decline a specific bid match as a renter (guest)"
+        },
+        {
+          "info": {
+            "name": "getBidById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bids/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return bid by id"
+        },
+        {
+          "info": {
+            "name": "updateBidById",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bids/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update instamatch bid"
+        },
+        {
+          "info": {
+            "name": "deleteBid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bids/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete instamatch request"
+        },
+        {
+          "info": {
+            "name": "declineBid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bids/:id/decline",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Decline instamatch request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Auth API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register a new user given a name and email address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/auth/creds/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If no password is provided then user is considered a guest."
+        },
+        {
+          "info": {
+            "name": "authCredsForget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/auth/creds/forgot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends email to registered email with password reset instructions"
+        },
+        {
+          "info": {
+            "name": "authCredsLogin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/auth/creds/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "authCredsResend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/auth/creds/resend"
+          },
+          "docs": "Resends password reset email"
+        },
+        {
+          "info": {
+            "name": "Register a new self-serve dealer account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/auth/dealers/create"
+          },
+          "docs": "Creates a dealer account for unauthenticated users through the self-serve signup flow.\nThe dealer will need to complete email verification and subscription payment before\ngaining full access to Wheelbase."
+        },
+        {
+          "info": {
+            "name": "Redirect endpoint after performing oauth flow with facebook, google, apple.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/auth/:provider/callback",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Redirect endpoint after performing oauth flow with facebook, google, apple."
+        },
+        {
+          "info": {
+            "name": "Entry point for starting oauth flow with specified provider.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/auth/:provider/login",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Redirects to respective identity provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

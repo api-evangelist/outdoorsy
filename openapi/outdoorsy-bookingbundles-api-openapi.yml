@@ -1,0 +1,289 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Booking Bundles API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: bookingBundles
+paths:
+  /bookings/{booking_id}/bundles:
+    get:
+      description: List available insurance bundles for booking
+      tags:
+      - bookingBundles
+      operationId: listBookingBundles
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingBundlesResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+    post:
+      tags:
+      - bookingBundles
+      summary: Assign insurance bundle to booking (assign, replace or delete).
+      operationId: assignBookingBundle
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingBundleResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeBundleRequest'
+  /bookings/{booking_id}/bundles/{bundle_id}:
+    get:
+      description: Retrieve specific bundle by id
+      tags:
+      - bookingBundles
+      operationId: getBookingBundleById
+      parameters:
+      - x-go-name: BundleID
+        name: bundle_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bookingBundleResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    bookingBundlesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/BookingBundle'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    bookingBundleResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BookingBundle'
+    unauthorizedError:
+      description: Unauthorized error
+  schemas:
+    BookingBundle:
+      type: object
+      properties:
+        base_price_per_day:
+          type: integer
+          format: int64
+          x-go-name: BasePricePerDay
+        bundle_features:
+          type: array
+          items:
+            $ref: '#/components/schemas/BundleFeatureTransfer'
+          x-go-name: Features
+        dealer_owned_renter:
+          type: boolean
+          x-go-name: DealerOwnedRenter
+        deductible:
+          type: integer
+          format: int64
+          x-go-name: Deductible
+        default_selection:
+          type: boolean
+          x-go-name: DefaultSelection
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        description:
+          type: string
+          x-go-name: Description
+        featured_description:
+          type: string
+          x-go-name: FeaturedDescription
+        featured_title:
+          type: string
+          x-go-name: FeaturedTitle
+        id:
+          type: string
+          x-go-name: ID
+        insurance_protection:
+          type: string
+          x-go-name: InsuranceProtection
+        is_rental_shield:
+          type: boolean
+          x-go-name: IsRentalShield
+        meta:
+          $ref: '#/components/schemas/IMap'
+        name:
+          type: string
+          x-go-name: Name
+        note:
+          type: string
+          x-go-name: Note
+        offer_individual_service_types:
+          type: array
+          items:
+            type: string
+          x-go-name: OfferIndividualServiceTypes
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        per_mile_price:
+          type: integer
+          format: int64
+          x-go-name: PerMilePrice
+        per_mile_price_fsd:
+          type: integer
+          format: int64
+          x-go-name: PerMilePriceFSD
+        percent_uptake:
+          type: number
+          format: double
+          x-go-name: PercentUptake
+        premium:
+          type: integer
+          format: int64
+          x-go-name: Premium
+        premium_base_rate:
+          type: integer
+          format: int64
+          x-go-name: PremiumBaseRate
+        price_per_day:
+          type: integer
+          format: int64
+          x-go-name: PricePerDay
+        property_damage:
+          type: string
+          x-go-name: PropertyDamage
+        qualifies_per_mile_pricing:
+          type: boolean
+          x-go-name: QualifiesPerMilePricing
+        recommended:
+          type: boolean
+          x-go-name: Recommended
+        subtext:
+          type: string
+          x-go-name: Subtext
+        supported_types:
+          type: array
+          items:
+            type: string
+          x-go-name: SupportedTypes
+        tier:
+          type: integer
+          format: int64
+          x-go-name: Tier
+        total_price:
+          type: integer
+          format: int64
+          x-go-name: TotalPrice
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+      x-go-package: github.com/outdoorsy/api/internal/booking_bundle
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    ChangeBundleRequest:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    BundleFeatureTransfer:
+      type: object
+      properties:
+        category:
+          type: string
+          x-go-name: Category
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BundleFeatureItem'
+          x-go-name: Items
+      x-go-package: github.com/outdoorsy/api/internal/booking_bundle
+    BundleFeatureItem:
+      type: object
+      properties:
+        details:
+          type: string
+          x-go-name: Details
+        name:
+          type: string
+          x-go-name: Name
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        service_id:
+          type: integer
+          format: int64
+          x-go-name: ServiceID
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/internal/booking_bundle
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

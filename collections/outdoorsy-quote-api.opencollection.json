@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Quote API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "quote",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/quotes/:id/services"
+          },
+          "docs": "List of available services for quote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

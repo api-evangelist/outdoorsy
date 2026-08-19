@@ -1,0 +1,225 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation System Emails API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: systemEmails
+paths:
+  /bookings/{booking_id}/scheduled-emails:
+    get:
+      description: Fetch paginated scheduled emails (custom email jobs with status = "scheduled") for a booking
+      tags:
+      - systemEmails
+      operationId: readManyScheduledEmails
+      parameters:
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/readManyScheduledEmailsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /bookings/{booking_id}/system-emails:
+    get:
+      description: Returns list of System Emails for a given limit and offset
+      tags:
+      - systemEmails
+      operationId: readSystemEmailsRequest
+      responses:
+        '200':
+          $ref: '#/components/responses/readSystemEmailsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+  /bookings/{booking_id}/system-emails/resend:
+    post:
+      description: Resend or forward an email from the System Emails tab on the reservation page
+      tags:
+      - systemEmails
+      operationId: resendSystemEmail
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/resendSystemEmailRequest'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    readManyScheduledEmailsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScheduledEmailsResponse'
+    unauthorizedError:
+      description: Unauthorized error
+  schemas:
+    ScheduledEmailsResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/scheduledEmailsDataResponse'
+        meta:
+          $ref: '#/components/schemas/scheduledEmailsMetaResponse'
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    CustomEmailJob:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        custom_email_id:
+          type: integer
+          format: int64
+          x-go-name: CustomEmailID
+        custom_email_type:
+          type: string
+          x-go-name: CustomEmailType
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        job_id:
+          type: string
+          x-go-name: JobID
+        reschedule:
+          type: boolean
+          x-go-name: Reschedule
+        scheduled_for:
+          type: integer
+          format: int64
+          x-go-name: ScheduledFor
+        skip_reason:
+          type:
+          - string
+          - 'null'
+        status:
+          type: string
+          x-go-name: Status
+        subject:
+          type: string
+          x-go-name: Subject
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/libs/mailer
+    resendSystemEmailRequest:
+      type: object
+      properties:
+        first_name:
+          type: string
+          x-go-name: FirstName
+        forward_email:
+          type: string
+          x-go-name: ForwardEmail
+        last_name:
+          type: string
+          x-go-name: LastName
+        service_id:
+          type: string
+          x-go-name: ServiceID
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    scheduledEmailsDataResponse:
+      type: object
+      properties:
+        scheduled_emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomEmailJob'
+          x-go-name: ScheduledEmails
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    scheduledEmailsMetaResponse:
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int64
+          x-go-name: Limit
+        offset:
+          type: integer
+          format: int64
+          x-go-name: Offset
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

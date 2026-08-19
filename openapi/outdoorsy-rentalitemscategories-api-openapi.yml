@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Rental Items Categories API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: RentalItemsCategories
+paths:
+  /rental-items-categories:
+    get:
+      description: 'Returns a list of approved rental items categories, optionally filtered by rental_category (rv, auto, stay).
+
+        If owner_user_id is provided, the host''s pending categories are also returned.'
+      tags:
+      - RentalItemsCategories
+      summary: List available rental items categories
+      operationId: listCategoriesRequest
+      responses:
+        '200':
+          $ref: '#/components/responses/listCategoriesResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /rental-items-categories/admin:
+    get:
+      description: 'Returns a list of rental items categories with support for filtering by id, type, name,
+
+        rental_category, status, ai_decision, and reason_code. Supports sorting by any field.
+
+        Supports pagination via limit and offset parameters (omit limit to return all matching records).'
+      tags:
+      - RentalItemsCategories
+      summary: Admin endpoint to list all rental items categories with comprehensive filtering and sorting
+      operationId: adminListCategoriesRequest
+      responses:
+        '200':
+          $ref: '#/components/responses/adminListCategoriesResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Allows admins to manually create rental items categories with full control over all fields.
+      tags:
+      - RentalItemsCategories
+      summary: Admin endpoint to create a new rental items category
+      operationId: adminCreateCategoryRequest
+      responses:
+        '201':
+          $ref: '#/components/responses/RentalItemsCategory'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /rental-items-categories/admin/analytics:
+    get:
+      description: 'Returns aggregated counts of AI decisions (rejected, merged, approved) and category
+
+        statuses (rejected, approved, pending, processing) for categories created within the
+
+        specified date range. Useful for monitoring the AI triage system in shadow mode.'
+      tags:
+      - RentalItemsCategories
+      summary: Admin endpoint to retrieve add-on triage analytics for a time period
+      operationId: adminAnalyticsRequest
+      responses:
+        '200':
+          $ref: '#/components/responses/AnalyticsResult'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /rental-items-categories/admin/{id}:
+    patch:
+      description: Allows admins to update any field of a rental items category. Only provided fields will be updated.
+      tags:
+      - RentalItemsCategories
+      summary: Admin endpoint to update a rental items category
+      operationId: adminUpdateCategoryRequest
+      responses:
+        '200':
+          $ref: '#/components/responses/RentalItemsCategory'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

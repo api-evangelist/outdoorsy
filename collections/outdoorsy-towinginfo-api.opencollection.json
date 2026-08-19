@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Towing Info API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "towingInfo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "towingInfoRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/towing_info",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of towing info for vehicles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

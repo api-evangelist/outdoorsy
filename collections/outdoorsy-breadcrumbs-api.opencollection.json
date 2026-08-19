@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Search Documentation Breadcrumbs API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "breadcrumbs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "breadcrumbSearch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/breadcrumbs",
+            "params": [
+              {
+                "name": "Locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Radius",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Breadcrumb search"
+        },
+        {
+          "info": {
+            "name": "closestBreadcrumb",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/breadcrumbs/closest",
+            "params": [
+              {
+                "name": "Lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get closest breadcrumb to lag/lng"
+        },
+        {
+          "info": {
+            "name": "getBreadcrumb",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/breadcrumbs/:id"
+          },
+          "docs": "Get breadcrumb by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

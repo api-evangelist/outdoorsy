@@ -1,0 +1,1177 @@
+{
+  "item": [
+    {
+      "id": "c418d106-8e5f-4d80-ba38-3fa98815d534",
+      "name": "notes-to-renters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87477b71-e398-4069-998c-e16e7a2dac96",
+          "name": "list Notes To Renters",
+          "request": {
+            "name": "list Notes To Renters",
+            "description": {
+              "content": "Returns a list of notes to renters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notes-to-renters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "available_for_rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "translate",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c233432a-361a-4fe7-a978-c979390e41c8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"limit\": 1455,\n    \"offset\": 9854,\n    \"total\": 7640\n  },\n  \"notes\": [\n    {\n      \"applies_to_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"string\",\n      \"description\": \"string\",\n      \"id\": 1334,\n      \"location_ids\": [\n        8011,\n        2891\n      ],\n      \"name\": \"string\",\n      \"owner_user_id\": 5200,\n      \"position\": 152,\n      \"rental_id\": 5369,\n      \"updated\": \"string\"\n    },\n    {\n      \"applies_to_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"string\",\n      \"description\": \"string\",\n      \"id\": 9791,\n      \"location_ids\": [\n        2975,\n        6433\n      ],\n      \"name\": \"string\",\n      \"owner_user_id\": 2096,\n      \"position\": 9535,\n      \"rental_id\": 6333,\n      \"updated\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c177f09-d381-4863-b210-df81d1c0575b",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26eace16-d255-458a-aa2f-adb4a589643b",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d22e9f74-43eb-4746-99ad-b740daa974c8",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8564fe9b-c3e2-453d-a0be-03ccb39c2e9b",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "available_for_rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "translate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bab5140-1dd4-452a-92dc-ac77d8243af2",
+          "name": "create Note To Renters",
+          "request": {
+            "name": "create Note To Renters",
+            "description": {
+              "content": "Create a note to renters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notes-to-renters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf2f579e-ff7b-48a4-a403-8c4a76b31277",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applies_to_type\": [\n    \"string\",\n    \"string\"\n  ],\n  \"created\": \"string\",\n  \"description\": \"string\",\n  \"id\": 4305,\n  \"location_ids\": [\n    8120,\n    1780\n  ],\n  \"name\": \"string\",\n  \"owner_user_id\": 2106,\n  \"position\": 7239,\n  \"rental_id\": 4937,\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1158caa-4d3c-42ac-b320-4d73d0363d89",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52ab1505-10b3-47bf-b3c6-c2b5a4bfa271",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "377da1c2-df1d-4317-8e92-ffe3d1ce34c3",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d8c611b-cd51-426f-8744-0b33a2118e8f",
+          "name": "delete Note To Renters",
+          "request": {
+            "name": "delete Note To Renters",
+            "description": {
+              "content": "Delete a note to renters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notes-to-renters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6dc2798-1aa9-4345-943d-d1f6b5c95f7d",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5d6deb3-1636-4951-b5f8-3e19c5ab9204",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2176ddc5-81f3-4ccc-b679-257f799533c2",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "decb85ef-eb48-4bee-8b42-d6ebf9cf75eb",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61f01ab8-f97b-4e29-a838-aeeefb674efe",
+          "name": "update Note To Renters",
+          "request": {
+            "name": "update Note To Renters",
+            "description": {
+              "content": "Update a note to renters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notes-to-renters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"name\": \"<string>\",\n  \"owner_user_id\": \"<long>\",\n  \"position\": \"<long>\",\n  \"rental_id\": \"<long>\",\n  \"updated\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7351368a-d24c-4910-bf0b-8a348f670279",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"name\": \"<string>\",\n  \"owner_user_id\": \"<long>\",\n  \"position\": \"<long>\",\n  \"rental_id\": \"<long>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"name\": \"<string>\",\n  \"owner_user_id\": \"<long>\",\n  \"position\": \"<long>\",\n  \"rental_id\": \"<long>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c522109-8b4f-4889-9a50-70fca10414e2",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"name\": \"<string>\",\n  \"owner_user_id\": \"<long>\",\n  \"position\": \"<long>\",\n  \"rental_id\": \"<long>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "445bb460-fc01-4598-80bb-5872e2e865ec",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"name\": \"<string>\",\n  \"owner_user_id\": \"<long>\",\n  \"position\": \"<long>\",\n  \"rental_id\": \"<long>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e13d14da-eb78-4d2b-b984-8e7319651264",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notes-to-renters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applies_to_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"name\": \"<string>\",\n  \"owner_user_id\": \"<long>\",\n  \"position\": \"<long>\",\n  \"rental_id\": \"<long>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "94645b51-842e-40bb-aa8e-ec17a7401a50",
+    "name": "Outdoorsy API Documentation Notes To Renters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

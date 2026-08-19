@@ -1,0 +1,1581 @@
+{
+  "item": [
+    {
+      "id": "a424cf8c-de92-455d-b5c0-0a7ececc81b3",
+      "name": "rentalImages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41afec15-82b4-4aec-a913-5fcdccbdb99f",
+          "name": "order Rental Images",
+          "request": {
+            "name": "order Rental Images",
+            "description": {
+              "content": "Updates position on rental images and optionally set new primary image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "image-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbfe81d6-a76f-4372-841c-a33ba18e9de9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "image-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ai_aesthetic_score\": 6312.695407986084,\n    \"ai_description\": \"string\",\n    \"ai_position\": 5092,\n    \"ai_summary\": \"string\",\n    \"amenity\": {\n      \"description\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"best\": true,\n    \"category\": {\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"description\": \"string\",\n    \"height\": 9471,\n    \"id\": 7140,\n    \"ignore_rejected\": true,\n    \"interior_primary\": true,\n    \"position\": 2229,\n    \"primary\": true,\n    \"rental_id\": 6287,\n    \"review\": {\n      \"apply_credit\": false,\n      \"booking_id\": 6733,\n      \"booking_summary\": {\n        \"from\": \"string\",\n        \"id\": 4740,\n        \"to\": \"string\"\n      },\n      \"can_edit\": false,\n      \"can_edit_until\": \"string\",\n      \"cleanliness_score\": 3694.8791356650677,\n      \"communication_score\": 3100.583665565312,\n      \"deleted\": \"1983-09-01T15:52:00.441Z\",\n      \"exclude_from_rating\": false,\n      \"id\": 5456,\n      \"images\": [\n        \"string\",\n        \"string\"\n      ],\n      \"imported\": true,\n      \"listing_score\": 9412.998569415116,\n      \"mechanical_score\": 5753.000941400638,\n      \"name\": \"string\",\n      \"outdoorsy_only\": true,\n      \"owner\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 6086,\n        \"last_name\": \"string\"\n      },\n      \"owner_can_respond\": true,\n      \"owner_response\": {\n        \"text\": \"string\",\n        \"timestamp\": \"string\"\n      },\n      \"published\": true,\n      \"rental_id\": 8744,\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": 8507,\n          \"campground_id\": 3426,\n          \"campground_name\": \"string\",\n          \"campground_sitemap_url\": \"string\",\n          \"display_campsite_type\": \"string\",\n          \"display_max_vehicle_length\": \"string\",\n          \"display_site_type\": \"string\",\n          \"is_odn\": true,\n          \"rental_id\": 4256,\n          \"site_type\": \"string\",\n          \"sleeps\": 7974,\n          \"type\": \"string\"\n        },\n        \"disallow_movement\": false,\n        \"display_type\": \"string\",\n        \"formatted_length\": \"string\",\n        \"id\": 5976,\n        \"interior_primary_image_url\": \"string\",\n        \"internal_id\": \"string\",\n        \"location\": \"string\",\n        \"name\": \"string\",\n        \"primary_image_url\": \"string\",\n        \"rental_category\": \"string\",\n        \"sleeps\": 1850,\n        \"slug\": \"string\",\n        \"stay_summary\": {\n          \"baths\": 7287,\n          \"bedrooms\": 7253,\n          \"beds\": 9256,\n          \"check_in_type\": \"string\",\n          \"display_stay_type\": \"string\",\n          \"location_description\": \"string\",\n          \"max_parking_spaces\": 7769,\n          \"parking_onsite\": true,\n          \"rental_id\": 6620,\n          \"sleeps\": 5296,\n          \"type\": \"string\"\n        },\n        \"style\": \"string\",\n        \"type\": \"string\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"string\",\n          \"ID\": 6394,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 5957,\n          \"usage_by_rental_count\": 1630\n        },\n        {\n          \"Created\": \"string\",\n          \"ID\": 9976,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 8377,\n          \"usage_by_rental_count\": 2409\n        }\n      ],\n      \"review_image_id\": \"string\",\n      \"review_images\": [\n        {\n          \"created\": \"1988-12-16T18:22:57.159Z\",\n          \"id\": \"string\",\n          \"lat\": 3131.17857509728,\n          \"lng\": 3114.4762666117244,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": false,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"2001-04-16T14:42:56.550Z\",\n          \"url\": \"string\"\n        },\n        {\n          \"created\": \"1984-07-11T03:01:44.292Z\",\n          \"id\": \"string\",\n          \"lat\": 7376.874833619221,\n          \"lng\": 6346.915329429563,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": false,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"1961-05-23T18:07:42.437Z\",\n          \"url\": \"string\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 2527,\n        \"last_name\": \"string\"\n      },\n      \"reviewer_id\": 3141,\n      \"score\": 1267.8946090933075,\n      \"source_page\": \"string\",\n      \"tags\": [\n        {\n          \"allow_for_review\": true,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 6203,\n          \"name\": \"string\",\n          \"owner_user_id\": null,\n          \"position\": 3329,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        },\n        {\n          \"allow_for_review\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 4146,\n          \"name\": \"string\",\n          \"owner_user_id\": null,\n          \"position\": 2269,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        }\n      ],\n      \"text\": \"string\",\n      \"timestamp\": \"string\",\n      \"user_id\": 353,\n      \"user_recommend\": true,\n      \"value_score\": 5934.211740712591\n    },\n    \"skip_enhance\": true,\n    \"status\": \"string\",\n    \"tags\": \"string\",\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"video\": false,\n    \"width\": 4605\n  },\n  {\n    \"ai_aesthetic_score\": 2414.661261163743,\n    \"ai_description\": \"string\",\n    \"ai_position\": 1064,\n    \"ai_summary\": \"string\",\n    \"amenity\": {\n      \"description\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"best\": false,\n    \"category\": {\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"description\": \"string\",\n    \"height\": 4763,\n    \"id\": 4154,\n    \"ignore_rejected\": false,\n    \"interior_primary\": true,\n    \"position\": 5195,\n    \"primary\": false,\n    \"rental_id\": 3437,\n    \"review\": {\n      \"apply_credit\": false,\n      \"booking_id\": 6684,\n      \"booking_summary\": {\n        \"from\": \"string\",\n        \"id\": 3662,\n        \"to\": \"string\"\n      },\n      \"can_edit\": true,\n      \"can_edit_until\": \"string\",\n      \"cleanliness_score\": 9985.573076315373,\n      \"communication_score\": 8378.040151920362,\n      \"deleted\": \"1968-05-16T11:02:43.170Z\",\n      \"exclude_from_rating\": false,\n      \"id\": 5649,\n      \"images\": [\n        \"string\",\n        \"string\"\n      ],\n      \"imported\": true,\n      \"listing_score\": 8557.2674899475,\n      \"mechanical_score\": 7013.405372695254,\n      \"name\": \"string\",\n      \"outdoorsy_only\": true,\n      \"owner\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 5910,\n        \"last_name\": \"string\"\n      },\n      \"owner_can_respond\": true,\n      \"owner_response\": {\n        \"text\": \"string\",\n        \"timestamp\": \"string\"\n      },\n      \"published\": false,\n      \"rental_id\": 1816,\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": 8299,\n          \"campground_id\": 1227,\n          \"campground_name\": \"string\",\n          \"campground_sitemap_url\": \"string\",\n          \"display_campsite_type\": \"string\",\n          \"display_max_vehicle_length\": \"string\",\n          \"display_site_type\": \"string\",\n          \"is_odn\": false,\n          \"rental_id\": 3767,\n          \"site_type\": \"string\",\n          \"sleeps\": 3533,\n          \"type\": \"string\"\n        },\n        \"disallow_movement\": true,\n        \"display_type\": \"string\",\n        \"formatted_length\": \"string\",\n        \"id\": 178,\n        \"interior_primary_image_url\": \"string\",\n        \"internal_id\": \"string\",\n        \"location\": \"string\",\n        \"name\": \"string\",\n        \"primary_image_url\": \"string\",\n        \"rental_category\": \"string\",\n        \"sleeps\": 8215,\n        \"slug\": \"string\",\n        \"stay_summary\": {\n          \"baths\": 5421,\n          \"bedrooms\": 7252,\n          \"beds\": 1506,\n          \"check_in_type\": \"string\",\n          \"display_stay_type\": \"string\",\n          \"location_description\": \"string\",\n          \"max_parking_spaces\": 960,\n          \"parking_onsite\": true,\n          \"rental_id\": 1505,\n          \"sleeps\": 380,\n          \"type\": \"string\"\n        },\n        \"style\": \"string\",\n        \"type\": \"string\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"string\",\n          \"ID\": 4798,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 7900,\n          \"usage_by_rental_count\": 9824\n        },\n        {\n          \"Created\": \"string\",\n          \"ID\": 6241,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 5352,\n          \"usage_by_rental_count\": 8212\n        }\n      ],\n      \"review_image_id\": \"string\",\n      \"review_images\": [\n        {\n          \"created\": \"1973-11-04T08:07:15.060Z\",\n          \"id\": \"string\",\n          \"lat\": 1523.3464784450168,\n          \"lng\": 8045.491077882978,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": false,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"2021-04-07T04:34:33.403Z\",\n          \"url\": \"string\"\n        },\n        {\n          \"created\": \"1993-01-23T18:36:12.488Z\",\n          \"id\": \"string\",\n          \"lat\": 3759.7171439579415,\n          \"lng\": 7301.347379115106,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": false,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"1970-11-27T23:21:10.017Z\",\n          \"url\": \"string\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 773,\n        \"last_name\": \"string\"\n      },\n      \"reviewer_id\": 513,\n      \"score\": 3597.193079318356,\n      \"source_page\": \"string\",\n      \"tags\": [\n        {\n          \"allow_for_review\": true,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 2972,\n          \"name\": \"string\",\n          \"owner_user_id\": null,\n          \"position\": 6577,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        },\n        {\n          \"allow_for_review\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 605,\n          \"name\": \"string\",\n          \"owner_user_id\": 5996,\n          \"position\": 6978,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        }\n      ],\n      \"text\": \"string\",\n      \"timestamp\": \"string\",\n      \"user_id\": 6907,\n      \"user_recommend\": true,\n      \"value_score\": 7592.853168130296\n    },\n    \"skip_enhance\": false,\n    \"status\": \"string\",\n    \"tags\": \"string\",\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"video\": false,\n    \"width\": 3484\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d825dadf-fd8d-4c6d-b79a-87483a1fa71f",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "image-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd7d77dc-0627-432e-aad4-3bd1412f2085",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "image-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"interior_primary\": \"<boolean>\",\n    \"primary\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c58e529-3514-4784-8f86-200b9f485351",
+          "name": "list Rental Images",
+          "request": {
+            "name": "list Rental Images",
+            "description": {
+              "content": "Retrieve list of rental images for rental id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d4e2b18-25a5-4871-a693-3724455fee2a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ai_aesthetic_score\": 5537.042022738089,\n    \"ai_description\": \"string\",\n    \"ai_position\": 2826,\n    \"ai_summary\": \"string\",\n    \"amenity\": {\n      \"description\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"best\": false,\n    \"category\": {\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"description\": \"string\",\n    \"height\": 3558,\n    \"id\": 6365,\n    \"ignore_rejected\": true,\n    \"interior_primary\": true,\n    \"position\": 1445,\n    \"primary\": true,\n    \"rental_id\": 3687,\n    \"review\": {\n      \"apply_credit\": true,\n      \"booking_id\": 5050,\n      \"booking_summary\": {\n        \"from\": \"string\",\n        \"id\": 1053,\n        \"to\": \"string\"\n      },\n      \"can_edit\": false,\n      \"can_edit_until\": \"string\",\n      \"cleanliness_score\": 7567.176859347138,\n      \"communication_score\": 3951.114142570035,\n      \"deleted\": \"1950-04-21T02:25:12.575Z\",\n      \"exclude_from_rating\": true,\n      \"id\": 8558,\n      \"images\": [\n        \"string\",\n        \"string\"\n      ],\n      \"imported\": false,\n      \"listing_score\": 5683.401829459091,\n      \"mechanical_score\": 715.3523342928003,\n      \"name\": \"string\",\n      \"outdoorsy_only\": false,\n      \"owner\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 7598,\n        \"last_name\": \"string\"\n      },\n      \"owner_can_respond\": false,\n      \"owner_response\": {\n        \"text\": \"string\",\n        \"timestamp\": \"string\"\n      },\n      \"published\": false,\n      \"rental_id\": 4800,\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": 626,\n          \"campground_id\": 1262,\n          \"campground_name\": \"string\",\n          \"campground_sitemap_url\": \"string\",\n          \"display_campsite_type\": \"string\",\n          \"display_max_vehicle_length\": \"string\",\n          \"display_site_type\": \"string\",\n          \"is_odn\": false,\n          \"rental_id\": 3640,\n          \"site_type\": \"string\",\n          \"sleeps\": 8173,\n          \"type\": \"string\"\n        },\n        \"disallow_movement\": true,\n        \"display_type\": \"string\",\n        \"formatted_length\": \"string\",\n        \"id\": 8105,\n        \"interior_primary_image_url\": \"string\",\n        \"internal_id\": \"string\",\n        \"location\": \"string\",\n        \"name\": \"string\",\n        \"primary_image_url\": \"string\",\n        \"rental_category\": \"string\",\n        \"sleeps\": 6899,\n        \"slug\": \"string\",\n        \"stay_summary\": {\n          \"baths\": 8434,\n          \"bedrooms\": 5499,\n          \"beds\": 7310,\n          \"check_in_type\": \"string\",\n          \"display_stay_type\": \"string\",\n          \"location_description\": \"string\",\n          \"max_parking_spaces\": 2267,\n          \"parking_onsite\": false,\n          \"rental_id\": 7140,\n          \"sleeps\": 1563,\n          \"type\": \"string\"\n        },\n        \"style\": \"string\",\n        \"type\": \"string\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"string\",\n          \"ID\": 4113,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 6171,\n          \"usage_by_rental_count\": 8686\n        },\n        {\n          \"Created\": \"string\",\n          \"ID\": 5846,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 2158,\n          \"usage_by_rental_count\": 9161\n        }\n      ],\n      \"review_image_id\": \"string\",\n      \"review_images\": [\n        {\n          \"created\": \"1954-09-04T19:57:00.795Z\",\n          \"id\": \"string\",\n          \"lat\": 4480.034062722193,\n          \"lng\": 204.13807979539288,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": false,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"2009-03-11T12:23:03.713Z\",\n          \"url\": \"string\"\n        },\n        {\n          \"created\": \"1995-06-03T20:40:12.449Z\",\n          \"id\": \"string\",\n          \"lat\": 6086.5321118058955,\n          \"lng\": 2680.8903987651324,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": true,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"1996-09-12T16:26:39.436Z\",\n          \"url\": \"string\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 3495,\n        \"last_name\": \"string\"\n      },\n      \"reviewer_id\": 6247,\n      \"score\": 4729.9180377570265,\n      \"source_page\": \"string\",\n      \"tags\": [\n        {\n          \"allow_for_review\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 9523,\n          \"name\": \"string\",\n          \"owner_user_id\": null,\n          \"position\": 1137,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        },\n        {\n          \"allow_for_review\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 5699,\n          \"name\": \"string\",\n          \"owner_user_id\": 5684,\n          \"position\": 9924,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        }\n      ],\n      \"text\": \"string\",\n      \"timestamp\": \"string\",\n      \"user_id\": 8419,\n      \"user_recommend\": false,\n      \"value_score\": 312.83341644863236\n    },\n    \"skip_enhance\": false,\n    \"status\": \"string\",\n    \"tags\": \"string\",\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"video\": true,\n    \"width\": 8026\n  },\n  {\n    \"ai_aesthetic_score\": 7736.602958952448,\n    \"ai_description\": \"string\",\n    \"ai_position\": 5139,\n    \"ai_summary\": \"string\",\n    \"amenity\": {\n      \"description\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"best\": true,\n    \"category\": {\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    \"description\": \"string\",\n    \"height\": 4112,\n    \"id\": 4829,\n    \"ignore_rejected\": true,\n    \"interior_primary\": false,\n    \"position\": 5195,\n    \"primary\": false,\n    \"rental_id\": 9100,\n    \"review\": {\n      \"apply_credit\": false,\n      \"booking_id\": 9387,\n      \"booking_summary\": {\n        \"from\": \"string\",\n        \"id\": 1895,\n        \"to\": \"string\"\n      },\n      \"can_edit\": false,\n      \"can_edit_until\": \"string\",\n      \"cleanliness_score\": 6952.7185812217485,\n      \"communication_score\": 1071.1236726963225,\n      \"deleted\": \"1968-09-06T06:42:29.621Z\",\n      \"exclude_from_rating\": false,\n      \"id\": 9316,\n      \"images\": [\n        \"string\",\n        \"string\"\n      ],\n      \"imported\": false,\n      \"listing_score\": 9242.63733579102,\n      \"mechanical_score\": 1847.5382157763843,\n      \"name\": \"string\",\n      \"outdoorsy_only\": false,\n      \"owner\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 6182,\n        \"last_name\": \"string\"\n      },\n      \"owner_can_respond\": false,\n      \"owner_response\": {\n        \"text\": \"string\",\n        \"timestamp\": \"string\"\n      },\n      \"published\": false,\n      \"rental_id\": 7623,\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": 1722,\n          \"campground_id\": 1674,\n          \"campground_name\": \"string\",\n          \"campground_sitemap_url\": \"string\",\n          \"display_campsite_type\": \"string\",\n          \"display_max_vehicle_length\": \"string\",\n          \"display_site_type\": \"string\",\n          \"is_odn\": false,\n          \"rental_id\": 3543,\n          \"site_type\": \"string\",\n          \"sleeps\": 9533,\n          \"type\": \"string\"\n        },\n        \"disallow_movement\": false,\n        \"display_type\": \"string\",\n        \"formatted_length\": \"string\",\n        \"id\": 7281,\n        \"interior_primary_image_url\": \"string\",\n        \"internal_id\": \"string\",\n        \"location\": \"string\",\n        \"name\": \"string\",\n        \"primary_image_url\": \"string\",\n        \"rental_category\": \"string\",\n        \"sleeps\": 9039,\n        \"slug\": \"string\",\n        \"stay_summary\": {\n          \"baths\": 8555,\n          \"bedrooms\": 8484,\n          \"beds\": 7909,\n          \"check_in_type\": \"string\",\n          \"display_stay_type\": \"string\",\n          \"location_description\": \"string\",\n          \"max_parking_spaces\": 4534,\n          \"parking_onsite\": false,\n          \"rental_id\": 2683,\n          \"sleeps\": 3606,\n          \"type\": \"string\"\n        },\n        \"style\": \"string\",\n        \"type\": \"string\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"string\",\n          \"ID\": 2466,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 1217,\n          \"usage_by_rental_count\": 3428\n        },\n        {\n          \"Created\": \"string\",\n          \"ID\": 1883,\n          \"Name\": \"string\",\n          \"Slug\": \"string\",\n          \"Updated\": \"string\",\n          \"position\": 2992,\n          \"usage_by_rental_count\": 8592\n        }\n      ],\n      \"review_image_id\": \"string\",\n      \"review_images\": [\n        {\n          \"created\": \"2011-02-07T09:23:16.406Z\",\n          \"id\": \"string\",\n          \"lat\": 7349.55387271051,\n          \"lng\": 8345.575500706103,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": true,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"1967-09-14T10:35:37.123Z\",\n          \"url\": \"string\"\n        },\n        {\n          \"created\": \"1957-01-14T09:29:35.911Z\",\n          \"id\": \"string\",\n          \"lat\": 9121.887214147466,\n          \"lng\": 8527.32946617653,\n          \"rental_id\": \"string\",\n          \"review_id\": \"string\",\n          \"reviewed\": false,\n          \"reviewed_by\": \"string\",\n          \"status\": \"string\",\n          \"updated\": \"1968-02-28T00:05:31.522Z\",\n          \"url\": \"string\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"string\",\n        \"first_name\": \"string\",\n        \"id\": 1070,\n        \"last_name\": \"string\"\n      },\n      \"reviewer_id\": 4747,\n      \"score\": 1870.553907362602,\n      \"source_page\": \"string\",\n      \"tags\": [\n        {\n          \"allow_for_review\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 2625,\n          \"name\": \"string\",\n          \"owner_user_id\": 4194,\n          \"position\": 4592,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        },\n        {\n          \"allow_for_review\": true,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 7580,\n          \"name\": \"string\",\n          \"owner_user_id\": 4110,\n          \"position\": 7015,\n          \"slug\": \"string\",\n          \"updated\": \"string\"\n        }\n      ],\n      \"text\": \"string\",\n      \"timestamp\": \"string\",\n      \"user_id\": 6516,\n      \"user_recommend\": false,\n      \"value_score\": 9150.965178525867\n    },\n    \"skip_enhance\": false,\n    \"status\": \"string\",\n    \"tags\": \"string\",\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"video\": true,\n    \"width\": 6899\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6e98b6b-39e6-44a8-8fd6-c50935a32e4d",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "514405f7-428d-4a7b-a2c6-a59f265f8035",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3111f1a0-96c4-4ba3-ba5c-9fd97166902b",
+          "name": "Creates, updates, and deletes a set of rental images based on list of objects.",
+          "request": {
+            "name": "Creates, updates, and deletes a set of rental images based on list of objects.",
+            "description": {},
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  },\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61f2f2b0-bd64-49af-bdb4-4be5badbf976",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  },\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  },\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a80196e-38f5-4f2f-8976-9b1b6f575c26",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  },\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42ae3f98-9c10-40c4-ae1a-77a2e9e2daca",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  },\n  {\n    \"ai_aesthetic_score\": \"<double>\",\n    \"ai_description\": \"<string>\",\n    \"ai_position\": \"<long>\",\n    \"ai_summary\": \"<string>\",\n    \"amenity\": {\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"best\": \"<boolean>\",\n    \"category\": {\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"ignore_rejected\": \"<boolean>\",\n    \"interior_primary\": \"<boolean>\",\n    \"position\": \"<long>\",\n    \"primary\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"review\": {\n      \"apply_credit\": \"<boolean>\",\n      \"booking_id\": \"<long>\",\n      \"booking_summary\": {\n        \"from\": \"<string>\",\n        \"id\": \"<long>\",\n        \"to\": \"<string>\"\n      },\n      \"can_edit\": \"<boolean>\",\n      \"can_edit_until\": \"<string>\",\n      \"cleanliness_score\": \"<double>\",\n      \"communication_score\": \"<double>\",\n      \"deleted\": \"<dateTime>\",\n      \"exclude_from_rating\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imported\": \"<boolean>\",\n      \"listing_score\": \"<double>\",\n      \"mechanical_score\": \"<double>\",\n      \"name\": \"<string>\",\n      \"outdoorsy_only\": \"<boolean>\",\n      \"owner\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"owner_can_respond\": \"<boolean>\",\n      \"owner_response\": {\n        \"text\": \"<string>\",\n        \"timestamp\": \"<string>\"\n      },\n      \"published\": \"<boolean>\",\n      \"rental_id\": \"<long>\",\n      \"rental_summary\": {\n        \"campsite_summary\": {\n          \"beds\": \"<long>\",\n          \"campground_id\": \"<long>\",\n          \"campground_name\": \"<string>\",\n          \"campground_sitemap_url\": \"<string>\",\n          \"display_campsite_type\": \"<string>\",\n          \"display_max_vehicle_length\": \"<string>\",\n          \"display_site_type\": \"<string>\",\n          \"is_odn\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"site_type\": \"<string>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"disallow_movement\": \"<boolean>\",\n        \"display_type\": \"<string>\",\n        \"formatted_length\": \"<string>\",\n        \"id\": \"<long>\",\n        \"interior_primary_image_url\": \"<string>\",\n        \"internal_id\": \"<string>\",\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"primary_image_url\": \"<string>\",\n        \"rental_category\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"stay_summary\": {\n          \"baths\": \"<long>\",\n          \"bedrooms\": \"<long>\",\n          \"beds\": \"<long>\",\n          \"check_in_type\": \"<string>\",\n          \"display_stay_type\": \"<string>\",\n          \"location_description\": \"<string>\",\n          \"max_parking_spaces\": \"<long>\",\n          \"parking_onsite\": \"<boolean>\",\n          \"rental_id\": \"<long>\",\n          \"sleeps\": \"<long>\",\n          \"type\": \"<string>\"\n        },\n        \"style\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"rental_tags\": [\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        },\n        {\n          \"Created\": \"<string>\",\n          \"ID\": \"<long>\",\n          \"Name\": \"<string>\",\n          \"Slug\": \"<string>\",\n          \"Updated\": \"<string>\",\n          \"position\": \"<long>\",\n          \"usage_by_rental_count\": \"<long>\"\n        }\n      ],\n      \"review_image_id\": \"<string>\",\n      \"review_images\": [\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        },\n        {\n          \"created\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"lat\": \"<double>\",\n          \"lng\": \"<double>\",\n          \"rental_id\": \"<string>\",\n          \"review_id\": \"<string>\",\n          \"reviewed\": \"<boolean>\",\n          \"reviewed_by\": \"<string>\",\n          \"status\": \"<string>\",\n          \"updated\": \"<dateTime>\",\n          \"url\": \"<string>\"\n        }\n      ],\n      \"reviewer\": {\n        \"avatar_url\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"last_name\": \"<string>\"\n      },\n      \"reviewer_id\": \"<long>\",\n      \"score\": \"<double>\",\n      \"source_page\": \"<string>\",\n      \"tags\": [\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        },\n        {\n          \"allow_for_review\": \"<boolean>\",\n          \"created\": \"<string>\",\n          \"description\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"owner_user_id\": \"<integer,null-int64>\",\n          \"position\": \"<long>\",\n          \"slug\": \"<string>\",\n          \"updated\": \"<string>\"\n        }\n      ],\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"user_recommend\": \"<boolean>\",\n      \"value_score\": \"<double>\"\n    },\n    \"skip_enhance\": \"<boolean>\",\n    \"status\": \"<string>\",\n    \"tags\": \"<string>\",\n    \"title\": \"<string>\",\n    \"url\": \"<string>\",\n    \"video\": \"<boolean>\",\n    \"width\": \"<long>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b68bd6e-15ee-4698-96ff-abd639de80cb",
+          "name": "create Raw Rental Image",
+          "request": {
+            "name": "create Raw Rental Image",
+            "description": {
+              "content": "Create a single rental image using raw binary file upload",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "images",
+                "raw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64f9038c-6efb-491d-908f-91e8d476abb6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cd8166a-f34f-4b94-9f34-af225ca68069",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d70f083b-81d3-4d71-8e9c-081768a77a78",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f47d50f-ba25-4fcf-97da-46066b0b4780",
+          "name": "get Rental Image By Id",
+          "request": {
+            "name": "get Rental Image By Id",
+            "description": {
+              "content": "Retrieve a single rental image by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "images",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c618011d-76d0-40b7-a1d2-401d6f687051",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b0e9a03-e62f-4b68-9ecb-81e938460ee8",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6dc63e0f-3e17-476b-ab9e-72d5e55bba41",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d2041fe-307a-407d-ae68-0f5f64222b0f",
+          "name": "delete Rental Image By Id",
+          "request": {
+            "name": "delete Rental Image By Id",
+            "description": {
+              "content": "Deletes the requested rental image by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "images",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0770e8b7-fa87-4f1c-881b-98642bc726de",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7016007-f58f-4783-8fdd-2a3982b766a7",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5898a569-045a-44f1-b793-4a67977d87b8",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8baddcc-8a13-42aa-b665-a7d063fa5bd4",
+          "name": "update Rental Image",
+          "request": {
+            "name": "update Rental Image",
+            "description": {
+              "content": "Update rental image by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rentals",
+                ":rental_id",
+                "images",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4b6c2db-c490-4da3-8e1a-cbfc5535586f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b0bee71-3371-4438-ba69-4dc3c79e318a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8bf15ed7-a507-4f8a-ace6-e595ac833e06",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rentals",
+                    ":rental_id",
+                    "images",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_aesthetic_score\": \"<double>\",\n  \"ai_description\": \"<string>\",\n  \"ai_position\": \"<long>\",\n  \"ai_summary\": \"<string>\",\n  \"amenity\": {\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"best\": \"<boolean>\",\n  \"category\": {\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"height\": \"<long>\",\n  \"id\": \"<long>\",\n  \"ignore_rejected\": \"<boolean>\",\n  \"interior_primary\": \"<boolean>\",\n  \"position\": \"<long>\",\n  \"primary\": \"<boolean>\",\n  \"rental_id\": \"<long>\",\n  \"review\": {\n    \"apply_credit\": \"<boolean>\",\n    \"booking_id\": \"<long>\",\n    \"booking_summary\": {\n      \"from\": \"<string>\",\n      \"id\": \"<long>\",\n      \"to\": \"<string>\"\n    },\n    \"can_edit\": \"<boolean>\",\n    \"can_edit_until\": \"<string>\",\n    \"cleanliness_score\": \"<double>\",\n    \"communication_score\": \"<double>\",\n    \"deleted\": \"<dateTime>\",\n    \"exclude_from_rating\": \"<boolean>\",\n    \"id\": \"<long>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"imported\": \"<boolean>\",\n    \"listing_score\": \"<double>\",\n    \"mechanical_score\": \"<double>\",\n    \"name\": \"<string>\",\n    \"outdoorsy_only\": \"<boolean>\",\n    \"owner\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"owner_can_respond\": \"<boolean>\",\n    \"owner_response\": {\n      \"text\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    \"published\": \"<boolean>\",\n    \"rental_id\": \"<long>\",\n    \"rental_summary\": {\n      \"campsite_summary\": {\n        \"beds\": \"<long>\",\n        \"campground_id\": \"<long>\",\n        \"campground_name\": \"<string>\",\n        \"campground_sitemap_url\": \"<string>\",\n        \"display_campsite_type\": \"<string>\",\n        \"display_max_vehicle_length\": \"<string>\",\n        \"display_site_type\": \"<string>\",\n        \"is_odn\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"site_type\": \"<string>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"disallow_movement\": \"<boolean>\",\n      \"display_type\": \"<string>\",\n      \"formatted_length\": \"<string>\",\n      \"id\": \"<long>\",\n      \"interior_primary_image_url\": \"<string>\",\n      \"internal_id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"primary_image_url\": \"<string>\",\n      \"rental_category\": \"<string>\",\n      \"sleeps\": \"<long>\",\n      \"slug\": \"<string>\",\n      \"stay_summary\": {\n        \"baths\": \"<long>\",\n        \"bedrooms\": \"<long>\",\n        \"beds\": \"<long>\",\n        \"check_in_type\": \"<string>\",\n        \"display_stay_type\": \"<string>\",\n        \"location_description\": \"<string>\",\n        \"max_parking_spaces\": \"<long>\",\n        \"parking_onsite\": \"<boolean>\",\n        \"rental_id\": \"<long>\",\n        \"sleeps\": \"<long>\",\n        \"type\": \"<string>\"\n      },\n      \"style\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"rental_tags\": [\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      },\n      {\n        \"Created\": \"<string>\",\n        \"ID\": \"<long>\",\n        \"Name\": \"<string>\",\n        \"Slug\": \"<string>\",\n        \"Updated\": \"<string>\",\n        \"position\": \"<long>\",\n        \"usage_by_rental_count\": \"<long>\"\n      }\n    ],\n    \"review_image_id\": \"<string>\",\n    \"review_images\": [\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"created\": \"<dateTime>\",\n        \"id\": \"<string>\",\n        \"lat\": \"<double>\",\n        \"lng\": \"<double>\",\n        \"rental_id\": \"<string>\",\n        \"review_id\": \"<string>\",\n        \"reviewed\": \"<boolean>\",\n        \"reviewed_by\": \"<string>\",\n        \"status\": \"<string>\",\n        \"updated\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"reviewer\": {\n      \"avatar_url\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"last_name\": \"<string>\"\n    },\n    \"reviewer_id\": \"<long>\",\n    \"score\": \"<double>\",\n    \"source_page\": \"<string>\",\n    \"tags\": [\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"allow_for_review\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"owner_user_id\": \"<integer,null-int64>\",\n        \"position\": \"<long>\",\n        \"slug\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"text\": \"<string>\",\n    \"timestamp\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"user_recommend\": \"<boolean>\",\n    \"value_score\": \"<double>\"\n  },\n  \"skip_enhance\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"tags\": \"<string>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"video\": \"<boolean>\",\n  \"width\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "015d0344-9db3-4b33-9c42-e448fb86d5e9",
+    "name": "Outdoorsy API Documentation Rental Images API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

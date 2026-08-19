@@ -1,0 +1,1844 @@
+{
+  "item": [
+    {
+      "id": "7a498787-be41-45a4-8844-366a217a0748",
+      "name": "bundles",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9da0114b-34fb-4e53-aa83-2ef9ecc0f7e8",
+          "name": "list Bundles",
+          "request": {
+            "name": "list Bundles",
+            "description": {
+              "content": "List insurance bundles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36b1496e-5038-486d-8b37-1221f5165fea",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"active\": false,\n    \"country\": \"string\",\n    \"created\": \"string\",\n    \"dealer_owned_renter\": false,\n    \"delivery\": true,\n    \"description\": \"string\",\n    \"estimated_miles_per_day\": 61,\n    \"features\": [\n      {\n        \"bundle_id\": \"string\",\n        \"category\": \"string\",\n        \"created\": \"string\",\n        \"details\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"position\": 4723,\n        \"regions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"service_id\": 2978,\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      },\n      {\n        \"bundle_id\": \"string\",\n        \"category\": \"string\",\n        \"created\": \"string\",\n        \"details\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"position\": 7243,\n        \"regions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"service_id\": 5720,\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      }\n    ],\n    \"id\": \"string\",\n    \"internal_description\": \"string\",\n    \"line_item_name\": \"string\",\n    \"name\": \"string\",\n    \"owner_id\": 784,\n    \"per_mile_price\": 6185,\n    \"per_mile_price_fsd\": 8419,\n    \"percent_uptake_drivable\": 9850.80497311286,\n    \"percent_uptake_towable\": 1133.537529698313,\n    \"qualifies_per_mile_pricing\": true,\n    \"rental_category\": \"string\",\n    \"rental_id\": 4986,\n    \"rules\": [\n      {\n        \"bundle_id\": \"string\",\n        \"created\": \"string\",\n        \"id\": \"string\",\n        \"owner_id\": 5217,\n        \"rental_id\": 8546,\n        \"rule\": {\n          \"key_0\": {}\n        },\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      },\n      {\n        \"bundle_id\": \"string\",\n        \"created\": \"string\",\n        \"id\": \"string\",\n        \"owner_id\": 7659,\n        \"rental_id\": 3063,\n        \"rule\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      }\n    ],\n    \"tax_rate_ids\": [\n      3732,\n      8849\n    ],\n    \"tier\": 3669,\n    \"updated\": \"string\",\n    \"use_day_pricing\": false,\n    \"use_per_mile_pricing\": true\n  },\n  {\n    \"active\": false,\n    \"country\": \"string\",\n    \"created\": \"string\",\n    \"dealer_owned_renter\": true,\n    \"delivery\": true,\n    \"description\": \"string\",\n    \"estimated_miles_per_day\": 8995,\n    \"features\": [\n      {\n        \"bundle_id\": \"string\",\n        \"category\": \"string\",\n        \"created\": \"string\",\n        \"details\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"position\": 8213,\n        \"regions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"service_id\": null,\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      },\n      {\n        \"bundle_id\": \"string\",\n        \"category\": \"string\",\n        \"created\": \"string\",\n        \"details\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"position\": 1798,\n        \"regions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"service_id\": null,\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      }\n    ],\n    \"id\": \"string\",\n    \"internal_description\": \"string\",\n    \"line_item_name\": \"string\",\n    \"name\": \"string\",\n    \"owner_id\": 2902,\n    \"per_mile_price\": 3598,\n    \"per_mile_price_fsd\": 8346,\n    \"percent_uptake_drivable\": 8476.871670804567,\n    \"percent_uptake_towable\": 8594.365804314277,\n    \"qualifies_per_mile_pricing\": true,\n    \"rental_category\": \"string\",\n    \"rental_id\": 5144,\n    \"rules\": [\n      {\n        \"bundle_id\": \"string\",\n        \"created\": \"string\",\n        \"id\": \"string\",\n        \"owner_id\": 2002,\n        \"rental_id\": 4333,\n        \"rule\": {\n          \"key_0\": {}\n        },\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      },\n      {\n        \"bundle_id\": \"string\",\n        \"created\": \"string\",\n        \"id\": \"string\",\n        \"owner_id\": 7923,\n        \"rental_id\": 4025,\n        \"rule\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"type\": \"string\",\n        \"updated\": \"string\"\n      }\n    ],\n    \"tax_rate_ids\": [\n      2138,\n      7963\n    ],\n    \"tier\": 7775,\n    \"updated\": \"string\",\n    \"use_day_pricing\": false,\n    \"use_per_mile_pricing\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8702f89-cd39-46b8-ab30-498344259b20",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55fda75f-b1b6-4210-acd1-2eb0728fad8d",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da1ad558-c6ea-4604-91e0-3ad36aff37a3",
+          "name": "create Bundle",
+          "request": {
+            "name": "create Bundle",
+            "description": {
+              "content": "Create a bundle",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "81bda14f-1c0c-46a3-8fb6-f1a7c95612ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8cea135-5c91-440f-b1e3-714649124b2f",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ea3b019-33a4-4193-b139-55cb36ab5dad",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f529d5b0-6293-4de7-91d5-428830d08ab9",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f48482d0-d941-47f8-bccd-10cde1858b89",
+          "name": "get Bundle By Id",
+          "request": {
+            "name": "get Bundle By Id",
+            "description": {
+              "content": "Retrieve bundle by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4c62d26-3a6b-4a24-ad88-49c7a1a45d07",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c8754b9-13b0-4345-87f2-e6a55739aaa0",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25c9f604-4b44-4879-b8d0-0bac7340b378",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9fb124e-26ca-41bc-96b4-efea2450a8b9",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "238211c0-4a24-409f-84d1-c8a0577cee07",
+          "name": "delete Bundle",
+          "request": {
+            "name": "delete Bundle",
+            "description": {
+              "content": "Delete insurance bundle",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1478879a-dafd-4aa5-8413-ac675f1e5fee",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a374edb0-e98a-4dcf-8240-434e64764128",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e60d3b72-6af5-4dd4-b048-48163d553d88",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e88488a-3628-4d64-9060-c21c15859561",
+          "name": "update Bundle",
+          "request": {
+            "name": "update Bundle",
+            "description": {
+              "content": "Update insurance bundle",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9bc08ab8-898a-43c2-862a-877ebf425e83",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb49884d-8fe1-4b74-bdb1-551ca40c8ec1",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dda69b97-0a57-4729-87a3-b53e33634b00",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac856b8f-0ba0-45b2-8d93-6bb74cefee34",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"country\": \"<string>\",\n  \"created\": \"<string>\",\n  \"dealer_owned_renter\": \"<boolean>\",\n  \"delivery\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"estimated_miles_per_day\": \"<long>\",\n  \"features\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created\": \"<string>\",\n      \"details\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<long>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"service_id\": \"<integer,null-int64>\",\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"id\": \"<string>\",\n  \"internal_description\": \"<string>\",\n  \"line_item_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"per_mile_price\": \"<long>\",\n  \"per_mile_price_fsd\": \"<long>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"qualifies_per_mile_pricing\": \"<boolean>\",\n  \"rental_category\": \"<string>\",\n  \"rental_id\": \"<long>\",\n  \"rules\": [\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    },\n    {\n      \"bundle_id\": \"<string>\",\n      \"created\": \"<string>\",\n      \"id\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"rental_id\": \"<long>\",\n      \"rule\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"type\": \"<string>\",\n      \"updated\": \"<string>\"\n    }\n  ],\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tier\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"use_day_pricing\": \"<boolean>\",\n  \"use_per_mile_pricing\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e463c6a-8a47-4547-8917-22520c16293b",
+          "name": "list Bundles Available For User",
+          "request": {
+            "name": "list Bundles Available For User",
+            "description": {
+              "content": "List insurance bundles available to renter of the user (owner) who calls this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id",
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "renter_id",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5600b652-62f7-462d-bd1f-54b6209817a2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "renter_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"active\": \"<boolean>\",\n    \"country\": \"<string>\",\n    \"created\": \"<string>\",\n    \"dealer_owned_renter\": \"<boolean>\",\n    \"delivery\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"estimated_miles_per_day\": \"<long>\",\n    \"features\": [\n      {\n        \"bundle_id\": \"<string>\",\n        \"category\": \"<string>\",\n        \"created\": \"<string>\",\n        \"details\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"position\": \"<long>\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"service_id\": \"<integer,null-int64>\",\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"bundle_id\": \"<string>\",\n        \"category\": \"<string>\",\n        \"created\": \"<string>\",\n        \"details\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"position\": \"<long>\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"service_id\": \"<integer,null-int64>\",\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"internal_description\": \"<string>\",\n    \"line_item_name\": \"<string>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"per_mile_price\": \"<long>\",\n    \"per_mile_price_fsd\": \"<long>\",\n    \"percent_uptake_drivable\": \"<double>\",\n    \"percent_uptake_towable\": \"<double>\",\n    \"qualifies_per_mile_pricing\": \"<boolean>\",\n    \"rental_category\": \"<string>\",\n    \"rental_id\": \"<long>\",\n    \"rules\": [\n      {\n        \"bundle_id\": \"<string>\",\n        \"created\": \"<string>\",\n        \"id\": \"<string>\",\n        \"owner_id\": \"<long>\",\n        \"rental_id\": \"<long>\",\n        \"rule\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"bundle_id\": \"<string>\",\n        \"created\": \"<string>\",\n        \"id\": \"<string>\",\n        \"owner_id\": \"<long>\",\n        \"rental_id\": \"<long>\",\n        \"rule\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        },\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"tax_rate_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"tier\": \"<long>\",\n    \"updated\": \"<string>\",\n    \"use_day_pricing\": \"<boolean>\",\n    \"use_per_mile_pricing\": \"<boolean>\"\n  },\n  {\n    \"active\": \"<boolean>\",\n    \"country\": \"<string>\",\n    \"created\": \"<string>\",\n    \"dealer_owned_renter\": \"<boolean>\",\n    \"delivery\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"estimated_miles_per_day\": \"<long>\",\n    \"features\": [\n      {\n        \"bundle_id\": \"<string>\",\n        \"category\": \"<string>\",\n        \"created\": \"<string>\",\n        \"details\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"position\": \"<long>\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"service_id\": \"<integer,null-int64>\",\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"bundle_id\": \"<string>\",\n        \"category\": \"<string>\",\n        \"created\": \"<string>\",\n        \"details\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"position\": \"<long>\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"service_id\": \"<integer,null-int64>\",\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"id\": \"<string>\",\n    \"internal_description\": \"<string>\",\n    \"line_item_name\": \"<string>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"per_mile_price\": \"<long>\",\n    \"per_mile_price_fsd\": \"<long>\",\n    \"percent_uptake_drivable\": \"<double>\",\n    \"percent_uptake_towable\": \"<double>\",\n    \"qualifies_per_mile_pricing\": \"<boolean>\",\n    \"rental_category\": \"<string>\",\n    \"rental_id\": \"<long>\",\n    \"rules\": [\n      {\n        \"bundle_id\": \"<string>\",\n        \"created\": \"<string>\",\n        \"id\": \"<string>\",\n        \"owner_id\": \"<long>\",\n        \"rental_id\": \"<long>\",\n        \"rule\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      },\n      {\n        \"bundle_id\": \"<string>\",\n        \"created\": \"<string>\",\n        \"id\": \"<string>\",\n        \"owner_id\": \"<long>\",\n        \"rental_id\": \"<long>\",\n        \"rule\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"type\": \"<string>\",\n        \"updated\": \"<string>\"\n      }\n    ],\n    \"tax_rate_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"tier\": \"<long>\",\n    \"updated\": \"<string>\",\n    \"use_day_pricing\": \"<boolean>\",\n    \"use_per_mile_pricing\": \"<boolean>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b15a5d63-45b2-4513-805c-0a0749f3074c",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "renter_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de031804-1621-40b4-bd09-9aa5f03eb7a1",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "renter_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cdbdd08-8b12-4d86-b905-bf0bc6f3cba4",
+          "name": "set Bundle Uptake",
+          "request": {
+            "name": "set Bundle Uptake",
+            "description": {
+              "content": "Creates a bundle rule with the specified bundle and the specified uptake percents for the user (owner) who calls this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id",
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"rental_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39d062ab-4f5b-49bb-9ac7-091520ee74a4",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"rental_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "babf5edf-f529-4f0e-9384-524c88fc0670",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"rental_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "520fb532-58bd-4674-838b-eb923cc88082",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"rental_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "148927e5-7bf2-41cb-aa5d-2c0babdc64c3",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"percent_uptake_drivable\": \"<double>\",\n  \"percent_uptake_towable\": \"<double>\",\n  \"rental_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3848452f-79c5-40a5-a67b-7b659604597a",
+          "name": "delete Bundle Uptake",
+          "request": {
+            "name": "delete Bundle Uptake",
+            "description": {
+              "content": "Deletes a bundle rule with the specified bundle for the user (owner) who calls this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id",
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e1facb9-6c27-461c-9a65-6bab0d1cb33f",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ddc12b6-0ef1-428a-89e7-ab8556109663",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "61b3cb6c-e3ce-44d1-955c-95bf12aa2cab",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e06e081-830f-49b7-bc06-148706837e66",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "116cf9d5-901b-4d02-a221-e0b11349cd57",
+    "name": "Outdoorsy API Documentation Bundles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

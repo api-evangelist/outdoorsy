@@ -1,0 +1,95 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Amenities API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: amenities
+paths:
+  /amenities:
+    get:
+      description: Returns a list of amenities and the group they belong to
+      tags:
+      - amenities
+      operationId: listAmenitiesGroups
+      responses:
+        '200':
+          $ref: '#/components/responses/amenitiesResponse'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  schemas:
+    DBStringMap:
+      description: DBStringMap is a map[string]string with database conversion methods
+      type: object
+      additionalProperties:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    AmenityGroup:
+      type: object
+      properties:
+        amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          x-go-name: Amenities
+        group:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/amenities
+    Amenity:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          $ref: '#/components/schemas/DBStringMap'
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        slug:
+          type: string
+          x-go-name: Slug
+      x-go-package: github.com/outdoorsy/api/internal/amenities
+  responses:
+    amenitiesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AmenityGroup'
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

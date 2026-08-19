@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Search Documentation Localities API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "localities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getLocalities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/localities",
+            "params": [
+              {
+                "name": "Locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Radius",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "NELat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "NELon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SWLat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SWLon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Filters",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search localities"
+        },
+        {
+          "info": {
+            "name": "getLocality",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/localities/:id"
+          },
+          "docs": "Returns a specific locality by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,349 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Search API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "searchBookingsRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/search/bookings",
+            "params": [
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "new",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Bookings"
+        },
+        {
+          "info": {
+            "name": "globalSearchRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/search/global",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Global Search"
+        },
+        {
+          "info": {
+            "name": "searchMetaCountRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/search/meta-count",
+            "params": [
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Meta Count"
+        },
+        {
+          "info": {
+            "name": "searchParentBookingsRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/search/parent-bookings",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "purpose",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Parent Bookings"
+        },
+        {
+          "info": {
+            "name": "searchRentalsRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/search/rentals",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_unpublished",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_children",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_all_category_meta",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "makes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "categories",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Rentals"
+        },
+        {
+          "info": {
+            "name": "searchCustomersRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/search/:user_id/customers",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "repeat_guest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active_guest",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Customers for a dealer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

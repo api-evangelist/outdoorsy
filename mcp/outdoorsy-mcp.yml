@@ -4,13 +4,11 @@ status: candidate
 source: openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json
 search_result:
   official_server: none
-  note: >-
-    No official or community MCP server for Outdoorsy was found. Probed POST tools/list against
-    https://mcp.outdoorsy.com (404), https://api.outdoorsy.com/mcp (405) and
-    https://developers.outdoorsy.com/mcp (404) on 2026-08-02; no /mcp route exists on any host,
-    no MCP server is listed in the MCP registry or on npm, and the developer portal documents no
-    agent surface. The tool set below is a CANDIDATE derived from the published Swagger contracts —
-    it is API Evangelist's proposal, not something Outdoorsy operates.
+  note: No official or community MCP server for Outdoorsy was found. Probed POST tools/list against https://mcp.outdoorsy.com
+    (404), https://api.outdoorsy.com/mcp (405) and https://developers.outdoorsy.com/mcp (404) on 2026-08-02;
+    no /mcp route exists on any host, no MCP server is listed in the MCP registry or on npm, and the developer
+    portal documents no agent surface. The tool set below is a CANDIDATE derived from the published Swagger
+    contracts — it is API Evangelist's proposal, not something Outdoorsy operates.
 server:
   name: outdoorsy
   transport: http
@@ -37,7 +35,8 @@ tools:
   source_operation: openapi/outdoorsy-openapi-original.json#createQuote
   read_only: false
 - name: list_rental_items
-  description: List the purchasable add-on items (delivery, generator hours, cleaning, pet fee) available on a rental.
+  description: List the purchasable add-on items (delivery, generator hours, cleaning, pet fee) available
+    on a rental.
   source_operation: openapi/outdoorsy-openapi-original.json#listRentalItems
   read_only: true
 - name: create_booking
@@ -107,10 +106,14 @@ tools:
   source_operation: openapi/outdoorsy-search-openapi-original.json#getAddressForIP
   read_only: true
 notes:
-  - >-
-    Every tool above inherits its real input schema from the referenced operation's `parameters` /
-    `body` in the Swagger contract — see mcp/outdoorsy-tool-crosswalk.yml for the binding.
-  - >-
-    `create_booking` and `change_booking_status` move real money and reserve a physical vehicle.
-    Because the API supports no idempotency key (see conventions/outdoorsy-conventions.yml), a
-    retried tool call can double-book. Any real server MUST gate these behind human confirmation.
+- Every tool above inherits its real input schema from the referenced operation's `parameters` / `body`
+  in the Swagger contract — see mcp/outdoorsy-tool-crosswalk.yml for the binding.
+- '`create_booking` and `change_booking_status` move real money and reserve a physical vehicle. Because
+  the API supports no idempotency key (see conventions/outdoorsy-conventions.yml), a retried tool call
+  can double-book. Any real server MUST gate these behind human confirmation.'
+deployment:
+  mode: none
+  verified: derived
+  tools: 21
+  checked: '2026-08-12'
+  source: catalog MCP census

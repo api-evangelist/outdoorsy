@@ -1,0 +1,2223 @@
+{
+  "item": [
+    {
+      "id": "3a4999b5-ba47-4b7b-ac9b-4078da14128b",
+      "name": "transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71e74c47-8222-43f1-bc22-b88a786a3115",
+          "name": "Global read many transactions, across all bookings.",
+          "request": {
+            "name": "Global read many transactions, across all bookings.",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scheduled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deposited_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deposited_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_dir",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "processor_settlement_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_processor_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "actual_deposited_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "actual_deposited_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "csv-token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "csv",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "simple",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_failed",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_incomplete",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b7a6ebc-5f45-45ad-8189-0f05de74905b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scheduled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rental_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processor_settlement_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simple",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_incomplete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"actual_deposit_date\": \"string\",\n    \"adjustment\": 1100,\n    \"amount\": 7483,\n    \"auto_deposit\": false,\n    \"available\": \"string\",\n    \"booking_id\": 1999,\n    \"brand\": \"string\",\n    \"can_delete\": false,\n    \"can_finance_sync\": false,\n    \"can_refund\": false,\n    \"can_retry\": false,\n    \"can_reverse_transfer\": true,\n    \"can_sync\": false,\n    \"can_transfer\": true,\n    \"cc_fee\": 6517,\n    \"charged\": \"string\",\n    \"created\": \"string\",\n    \"created_by_id\": 4991,\n    \"deposit_date\": \"string\",\n    \"description\": \"string\",\n    \"display_charge_type\": \"string\",\n    \"display_payment_processor_name\": \"string\",\n    \"display_type\": \"string\",\n    \"dispute_reason\": \"string\",\n    \"dispute_status\": null,\n    \"disputed\": false,\n    \"expected_deposit_date\": \"string\",\n    \"failed\": false,\n    \"fraudulent\": true,\n    \"fx_fee\": 1501,\n    \"id\": 8555,\n    \"is_refund\": false,\n    \"last_four\": \"string\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": 4910,\n    \"outdoorsy_fee\": 7727,\n    \"owner_federal_withholding_tax\": 2973,\n    \"owner_fee\": 2766,\n    \"owner_integrations_fee\": 8059,\n    \"owner_quebec_sales_tax\": 5541,\n    \"paid\": false,\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"payment_source\": \"string\",\n    \"processor_settlement_id\": null,\n    \"recipient_id\": 3583,\n    \"refund_source\": \"string\",\n    \"refunded\": 1412,\n    \"refunded_cc_fee\": 1305,\n    \"refunded_fee\": 8507,\n    \"refunded_fx_fee\": 4820,\n    \"refunded_outdoorsy_fee\": 7745,\n    \"refunded_owner_federal_withholding_tax\": 8708,\n    \"refunded_owner_fee\": 6340,\n    \"refunded_owner_integrations_fee\": null,\n    \"refunded_owner_quebec_sales_tax\": 7487,\n    \"refunded_service_fee\": 8994,\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": 5985,\n    \"service_fee\": 800,\n    \"status\": \"string\",\n    \"stripe_fee\": 8515,\n    \"stripe_fee_refund\": 4696,\n    \"stripe_id\": \"string\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"actual_deposit_date\": \"string\",\n    \"adjustment\": 7289,\n    \"amount\": 3443,\n    \"auto_deposit\": false,\n    \"available\": \"string\",\n    \"booking_id\": 4385,\n    \"brand\": \"string\",\n    \"can_delete\": true,\n    \"can_finance_sync\": true,\n    \"can_refund\": true,\n    \"can_retry\": true,\n    \"can_reverse_transfer\": false,\n    \"can_sync\": false,\n    \"can_transfer\": false,\n    \"cc_fee\": 8637,\n    \"charged\": \"string\",\n    \"created\": \"string\",\n    \"created_by_id\": 765,\n    \"deposit_date\": \"string\",\n    \"description\": \"string\",\n    \"display_charge_type\": \"string\",\n    \"display_payment_processor_name\": \"string\",\n    \"display_type\": \"string\",\n    \"dispute_reason\": \"string\",\n    \"dispute_status\": \"string\",\n    \"disputed\": true,\n    \"expected_deposit_date\": \"string\",\n    \"failed\": false,\n    \"fraudulent\": false,\n    \"fx_fee\": 6391,\n    \"id\": 4052,\n    \"is_refund\": true,\n    \"last_four\": \"string\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": 5740,\n    \"outdoorsy_fee\": 6484,\n    \"owner_federal_withholding_tax\": 548,\n    \"owner_fee\": 2845,\n    \"owner_integrations_fee\": null,\n    \"owner_quebec_sales_tax\": 7596,\n    \"paid\": true,\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"payment_source\": \"string\",\n    \"processor_settlement_id\": null,\n    \"recipient_id\": 3470,\n    \"refund_source\": \"string\",\n    \"refunded\": 5872,\n    \"refunded_cc_fee\": 3197,\n    \"refunded_fee\": 5169,\n    \"refunded_fx_fee\": 2747,\n    \"refunded_outdoorsy_fee\": 7397,\n    \"refunded_owner_federal_withholding_tax\": 2712,\n    \"refunded_owner_fee\": 1560,\n    \"refunded_owner_integrations_fee\": 1004,\n    \"refunded_owner_quebec_sales_tax\": 2988,\n    \"refunded_service_fee\": 6262,\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": 7465,\n    \"service_fee\": 4741,\n    \"status\": \"string\",\n    \"stripe_fee\": 4112,\n    \"stripe_fee_refund\": 3316,\n    \"stripe_id\": \"string\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44e57c61-f97f-4de2-a0d9-8a282f8c83b2",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scheduled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rental_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processor_settlement_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simple",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_incomplete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed24aeb1-1ca4-47c8-93fd-b694337bb609",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scheduled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rental_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processor_settlement_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simple",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_incomplete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd3eaa6d-7e4a-4484-8417-c1c16a4bbd5e",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scheduled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rental_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processor_settlement_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simple",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_incomplete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac931c4b-5da4-4719-8b7f-46a7e441c250",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scheduled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rental_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_dir",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processor_settlement_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actual_deposited_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simple",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_incomplete",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d1f94a8-5882-4cfc-8767-04666710de39",
+          "name": "get Batch Events",
+          "request": {
+            "name": "get Batch Events",
+            "description": {
+              "content": "List batch events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "batch-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "payment_processor_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ok",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af4eb34c-f6bb-455c-bb96-b515713fb95d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batch-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ok",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"batch_id\": \"string\",\n    \"contents\": {\n      \"payout_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"reversal_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"withdrawal_ids\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"created\": {},\n    \"fund_id\": \"string\",\n    \"net\": 6758,\n    \"result\": \"string\",\n    \"result_human_readable\": \"string\",\n    \"total_payouts\": 2231,\n    \"total_withdrawals\": 4304,\n    \"type\": \"string\",\n    \"type_human_readable\": \"string\"\n  },\n  {\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"batch_id\": \"string\",\n    \"contents\": {\n      \"payout_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"reversal_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"withdrawal_ids\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"created\": {},\n    \"fund_id\": \"string\",\n    \"net\": 5123,\n    \"result\": \"string\",\n    \"result_human_readable\": \"string\",\n    \"total_payouts\": 2458,\n    \"total_withdrawals\": 7324,\n    \"type\": \"string\",\n    \"type_human_readable\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e437d04-2216-4f28-9c3e-25c44761dcea",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batch-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ok",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "213897d0-0498-4647-8eda-999a58246f2a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batch-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ok",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64af42de-53ed-4444-ad58-5f6d0b67aad1",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batch-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ok",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a12a665-7cff-4bfd-bd1f-cc95978f70b3",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batch-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ok",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d93b3cc-cce7-485f-8b1b-419fac178df2",
+          "name": "get Batch Details",
+          "request": {
+            "name": "get Batch Details",
+            "description": {
+              "content": "List batch events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "batches",
+                ":batch_id",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a1ad89b-c9ab-4bd6-a32c-0d41c25dd5a5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batches",
+                    ":batch_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78b98193-0b5c-4c28-a3f1-9c2e8879bff6",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batches",
+                    ":batch_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b57c024c-1a02-4cb1-bb31-6883120a4b20",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batches",
+                    ":batch_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dee2473b-be85-4e9d-b6a7-478c7d61e1f4",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batches",
+                    ":batch_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0abf8f1-3c93-4ac3-bb17-a1ee931af517",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "batches",
+                    ":batch_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a5c2cb0-c6a6-47c6-92b6-7f06686559d1",
+          "name": "get Grouped Deposits",
+          "request": {
+            "name": "get Grouped Deposits",
+            "description": {
+              "content": "Grouped deposits report",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "deposits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "csv-token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_gt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_lt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "csv",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_processor_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "booking_id",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4bb8fef-9c66-4913-9296-63bb1d0c6a9e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 4577,\n    \"date\": \"string\",\n    \"processor_settlement_id\": \"string\",\n    \"transaction_ids\": [\n      6961,\n      5301\n    ]\n  },\n  {\n    \"amount\": 5549,\n    \"date\": \"string\",\n    \"processor_settlement_id\": \"string\",\n    \"transaction_ids\": [\n      5421,\n      1777\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fb9371c-9fa5-4dc3-89f2-0ae148669d7b",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bc2f9f5-6ce5-491c-a31b-f8a941ce19e0",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb386b68-c336-450a-9c14-beae7eccb664",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3dfed5a-3487-41f7-af89-7e1f29496c31",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "csv-token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_gt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_lt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "csv",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "payment_processor_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5ea06b4-a92f-4c05-885e-1aa5214d9fd9",
+          "name": "get Deposit Details",
+          "request": {
+            "name": "get Deposit Details",
+            "description": {
+              "content": "Details for requested transfers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "deposits",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "transfer_ids",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95ce43c9-0619-4529-beec-a562b633deca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transfer_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 2938,\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"booking_id\": 66,\n    \"date\": \"string\",\n    \"location_name\": \"string\",\n    \"processor_settlement_id\": \"string\",\n    \"renter_name\": \"string\",\n    \"transaction_type\": \"string\"\n  },\n  {\n    \"amount\": 5182,\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"booking_id\": 3013,\n    \"date\": \"string\",\n    \"location_name\": \"string\",\n    \"processor_settlement_id\": \"string\",\n    \"renter_name\": \"string\",\n    \"transaction_type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b4348fc-be40-4606-b508-73b105168abb",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transfer_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a7dd220-f2f8-4deb-a4e9-73ded1643c43",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transfer_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74573f41-aa0b-4e73-8cea-8ac0b103f95d",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transfer_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81650f2f-5994-4212-9715-bce6475fc51d",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "deposits",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transfer_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d47a4e73-0a63-4fa8-a0a6-79830d6a4894",
+    "name": "Outdoorsy API Documentation Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

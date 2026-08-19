@@ -1,0 +1,1155 @@
+{
+  "item": [
+    {
+      "id": "10e8be8a-e3be-4b62-853f-ec61b222abaa",
+      "name": "specialHours",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76b96325-44d7-482c-bfd7-7a47c503bcb0",
+          "name": "get Special Hours",
+          "request": {
+            "name": "get Special Hours",
+            "description": {
+              "content": "Retrieve list of special hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "special-hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "EmployeeLocations",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "EmployeeLocations",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd9b5237-311b-4115-9508-70c13d359037",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "EmployeeLocations",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "EmployeeLocations",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created\": \"string\",\n    \"created_from_id\": 926,\n    \"dropoff\": {\n      \"end_time\": 8810,\n      \"start_time\": 1174,\n      \"unavailable\": true\n    },\n    \"end_date\": \"string\",\n    \"id\": 7532,\n    \"location_id\": null,\n    \"name\": \"string\",\n    \"owner_id\": 9659,\n    \"pickup\": {\n      \"end_time\": 8254,\n      \"start_time\": 2992,\n      \"unavailable\": false\n    },\n    \"repeats\": false,\n    \"start_date\": \"string\",\n    \"updated\": \"string\",\n    \"weekdays\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"created\": \"string\",\n    \"created_from_id\": 4683,\n    \"dropoff\": {\n      \"end_time\": 2189,\n      \"start_time\": 987,\n      \"unavailable\": false\n    },\n    \"end_date\": \"string\",\n    \"id\": 9437,\n    \"location_id\": null,\n    \"name\": \"string\",\n    \"owner_id\": 7911,\n    \"pickup\": {\n      \"end_time\": 433,\n      \"start_time\": 2653,\n      \"unavailable\": false\n    },\n    \"repeats\": true,\n    \"start_date\": \"string\",\n    \"updated\": \"string\",\n    \"weekdays\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1528f30-cc84-4c5e-9b60-2ce0df8e8205",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "EmployeeLocations",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "EmployeeLocations",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a692ef6f-469c-4d5d-8e36-07761decc354",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "EmployeeLocations",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "EmployeeLocations",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f71d3d01-eb5b-482c-afc1-4b3c0f8b69a2",
+          "name": "create Special Hour",
+          "request": {
+            "name": "create Special Hour",
+            "description": {
+              "content": "Create special hours for the specified date",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "special-hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f05cd88-d6db-4660-8aa1-5d7ae7b7a043",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59984e1b-aa6b-4aa8-8305-bf9871088c77",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b408be7-c74c-46ad-949f-784dd64f4117",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc018f2a-6098-40ff-a5ed-760318769291",
+          "name": "get Special Hour",
+          "request": {
+            "name": "get Special Hour",
+            "description": {
+              "content": "Retrieve special hour by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "special-hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bfe3f63-129a-44b6-89f5-adedafdc393c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b1da3bb-6fe5-41a8-a90c-33cb194d0907",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14d0cd50-cf66-4073-8086-b10fc6f83e11",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f06c569-27de-4bd9-a9e5-88c39b1f50e9",
+          "name": "delete Special Hour",
+          "request": {
+            "name": "delete Special Hour",
+            "description": {
+              "content": "Delete special hour",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "special-hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08e33355-61f2-4b1d-a50a-44bdec47e150",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "209dc2f5-f72b-4bd6-9af4-d1d7857e76b6",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c3b0863-110b-4ee9-9612-0aef609f6bf9",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84c294cc-7a67-4218-a18c-06fa101d975f",
+          "name": "update Special Hour",
+          "request": {
+            "name": "update Special Hour",
+            "description": {
+              "content": "Update special hour",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "special-hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d86bd113-8a05-45b8-b1a1-20b964db77d5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "caa0246c-6cc1-4c9b-8441-10b12f359b30",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16db981d-afed-465c-bf2f-5a155890febf",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "special-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"created_from_id\": \"<long>\",\n  \"dropoff\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"end_date\": \"<string>\",\n  \"id\": \"<long>\",\n  \"location_id\": \"<integer,null-int64>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"pickup\": {\n    \"end_time\": \"<long>\",\n    \"start_time\": \"<long>\",\n    \"unavailable\": \"<boolean>\"\n  },\n  \"repeats\": \"<boolean>\",\n  \"start_date\": \"<string>\",\n  \"updated\": \"<string>\",\n  \"weekdays\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6847685-deba-4e85-834b-0160c810917d",
+    "name": "Outdoorsy API Documentation Special Hours API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

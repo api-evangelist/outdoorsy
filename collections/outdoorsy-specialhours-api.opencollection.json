@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Special Hours API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "specialHours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSpecialHours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/special-hours",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "EmployeeLocations",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve list of special hours"
+        },
+        {
+          "info": {
+            "name": "createSpecialHour",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/special-hours",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create special hours for the specified date"
+        },
+        {
+          "info": {
+            "name": "getSpecialHour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/special-hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve special hour by id"
+        },
+        {
+          "info": {
+            "name": "updateSpecialHour",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/special-hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update special hour"
+        },
+        {
+          "info": {
+            "name": "deleteSpecialHour",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/special-hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete special hour"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

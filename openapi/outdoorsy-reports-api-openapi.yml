@@ -1,0 +1,823 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Reports API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: reports
+paths:
+  /reports/checkout-questions:
+    get:
+      description: Generate checkout questions report request
+      tags:
+      - reports
+      operationId: checkoutQuestionsReport
+      responses:
+        '200':
+          $ref: '#/components/responses/checkoutQuestionsReportResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /reports/credit:
+    get:
+      description: Generate credit report request
+      tags:
+      - reports
+      operationId: creditReportRequest
+      parameters:
+      - x-go-name: IsOutstanding
+        name: outstanding
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Consumed
+        name: consumed
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: From
+        name: from
+        in: query
+        schema:
+          type: string
+      - x-go-name: To
+        name: to
+        in: query
+        schema:
+          type: string
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: uint64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: uint64
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/creditReportResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /reports/end-of-day:
+    get:
+      description: Generate end of day report request
+      tags:
+      - reports
+      operationId: endOfDayReportRequest
+      parameters:
+      - x-go-name: From
+        name: from
+        in: query
+        schema:
+          type: string
+      - x-go-name: To
+        name: to
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/endOfDayReportResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /reports/rental-prep:
+    get:
+      description: Generate morning report request
+      tags:
+      - reports
+      operationId: morningReportRequest
+      parameters:
+      - x-go-name: Status
+        name: status
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: Start
+        name: start
+        in: query
+        schema:
+          type: string
+      - x-go-name: End
+        name: end
+        in: query
+        schema:
+          type: string
+      - x-go-name: SkipNextDeparture
+        name: skip_next_departure
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ShowDeparting
+        name: show_departing
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ShowReturning
+        name: show_returning
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: uint64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: uint64
+      responses:
+        '200':
+          $ref: '#/components/responses/morningReportResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /reports/security-deposits:
+    get:
+      description: Generate security deposits report request
+      tags:
+      - reports
+      operationId: securityDepositsReport
+      responses:
+        '200':
+          $ref: '#/components/responses/securityDepositsReportResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+components:
+  schemas:
+    CreditReportResponse:
+      type: object
+      properties:
+        Meta:
+          type: object
+          properties:
+            Limit:
+              type: integer
+              format: uint64
+            Offset:
+              type: integer
+              format: uint64
+            Total:
+              type: integer
+              format: int64
+            total_amount:
+              type: number
+              format: double
+              x-go-name: TotalAmount
+        data:
+          type: object
+          properties:
+            credits:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreditReportUser'
+              x-go-name: Credits
+          x-go-name: Data
+      x-go-package: github.com/outdoorsy/api/internal/report/credit_report
+    Report:
+      type: object
+      properties:
+        booking_display_insurance:
+          type: string
+          x-go-name: BookingDisplayInsurance
+        booking_display_status:
+          type: string
+          x-go-name: BookingDisplayStatus
+        booking_from:
+          type: string
+        booking_from_city:
+          type: string
+          x-go-name: BookingFromCity
+        booking_from_delivery:
+          type: boolean
+          x-go-name: BookingFromDelivery
+        booking_from_state:
+          type: string
+          x-go-name: BookingFromState
+        booking_from_street:
+          type: string
+          x-go-name: BookingFromStreet
+        booking_from_zip:
+          type: string
+          x-go-name: BookingFromZip
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        booking_insurance:
+          type: string
+          x-go-name: BookingInsurance
+        booking_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: BookingItems
+        booking_notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+          x-go-name: BookingNotes
+        booking_remainder:
+          type: integer
+          format: uint64
+          x-go-name: BookingRemainder
+        booking_status:
+          type: string
+          x-go-name: BookingStatus
+        booking_to:
+          type: string
+        booking_to_city:
+          type: string
+          x-go-name: BookingToCity
+        booking_to_delivery:
+          type: boolean
+          x-go-name: BookingToDelivery
+        booking_to_state:
+          type: string
+          x-go-name: BookingToState
+        booking_to_street:
+          type: string
+          x-go-name: BookingToStreet
+        booking_to_zip:
+          type: string
+          x-go-name: BookingToZip
+        coachnet_id:
+          type: integer
+          format: int64
+          x-go-name: CoachnetID
+        coachnet_status:
+          type: boolean
+          x-go-name: CoachnetStatus
+        dropoff_time:
+          type: integer
+          format: int64
+          x-go-name: DropoffTime
+        insurance_bundle:
+          x-go-name: BookingBundle
+        insurance_coverage:
+          type: string
+          x-go-name: InsuranceCoverage
+        insurance_status:
+          type: boolean
+          x-go-name: InsuranceStatus
+        next_departure_booking_id:
+          type: integer
+          format: int64
+          x-go-name: NextDepartureBookingID
+        next_departure_date:
+          type: string
+        pickup_time:
+          type: integer
+          format: int64
+          x-go-name: PickupTime
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rental_internal_id:
+          type: string
+          x-go-name: RentalInternalID
+        rental_name:
+          type: string
+          x-go-name: RentalName
+        renter_id:
+          type: integer
+          format: int64
+          x-go-name: RenterID
+        renter_name:
+          type: string
+          x-go-name: RenterName
+        renter_phone:
+          type: string
+          x-go-name: RenterPhone
+      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
+    CreditReportUser:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+      x-go-package: github.com/outdoorsy/api/internal/report/credit_report
+    BookingItem:
+      type: object
+      properties:
+        _deleted:
+          description: special flag for handling batch update/delete
+          type: boolean
+          x-go-name: BatchDeleted
+        booking_id:
+          type: integer
+          format: int64
+        coachnet_item:
+          type: boolean
+          x-go-name: CoachnetItem
+        consigned_pay_amount:
+          type: integer
+          format: int64
+          x-go-name: ConsignedPayAmount
+        count:
+          type: integer
+          format: uint64
+          x-go-name: Count
+        created:
+          $ref: '#/components/schemas/NullTime'
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        deferred_total:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        deleted_at:
+          $ref: '#/components/schemas/NullTime'
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        description:
+          type: string
+          x-go-name: Description
+        discount_amount:
+          type: integer
+          format: int64
+          x-go-name: DiscountAmount
+        generator:
+          type: boolean
+          x-go-name: Generator
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_url:
+          type: string
+          x-go-name: ImageURL
+        maximum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        mileage:
+          type: boolean
+          x-go-name: Mileage
+        minimum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        original_consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: OriginalConsignedPayPct
+        original_tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: OriginalTaxRateID
+        other_claim:
+          type: boolean
+          x-go-name: OtherClaim
+        outdoorsy_item:
+          type: boolean
+          x-go-name: OutdoorsyItem
+        parent_item_id:
+          type: integer
+          format: int64
+          x-go-name: ParentItemID
+        parent_item_type:
+          type: string
+          x-go-name: ParentItemType
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        premium_amount:
+          type: integer
+          format: int64
+          x-go-name: PremiumAmount
+        premium_total:
+          type: integer
+          format: int64
+          x-go-name: PremiumTotal
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_amount:
+          description: mutation modifiers
+          type: boolean
+          x-go-name: RentalAmount
+        required:
+          type: boolean
+          x-go-name: Required
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_description:
+          type: string
+          x-go-name: TaxDescription
+        tax_name:
+          type: string
+          x-go-name: TaxName
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: TaxRate
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          $ref: '#/components/schemas/NullTime'
+      x-go-package: github.com/outdoorsy/api/model
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    ReportDateItem:
+      type: object
+      properties:
+        date:
+          type: string
+          x-go-name: Date
+        departing:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: Departing
+        returning:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: Returning
+      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
+    EndOfDayReportBooking:
+      type: object
+      properties:
+        booked:
+          type: string
+          x-go-name: Booked
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_source:
+          type: string
+          x-go-name: DisplaySource
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        first_name:
+          type: string
+          x-go-name: FirstName
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rental_name:
+          type: string
+          x-go-name: RentalName
+        renter_id:
+          type: integer
+          format: int64
+          x-go-name: RenterID
+        source:
+          type: string
+          x-go-name: Source
+        status:
+          type: string
+          x-go-name: Status
+        subtotal:
+          type: number
+          format: double
+          x-go-name: Subtotal
+        to:
+          type: string
+      x-go-package: github.com/outdoorsy/api/internal/report/end_of_day_report
+    Note:
+      type: object
+      properties:
+        Internal:
+          type: boolean
+        actor_id:
+          type: integer
+          format: int64
+        actor_name:
+          type: string
+          x-go-name: ActorName
+        booking_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by_id:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        label:
+          type: string
+          x-go-name: Label
+        rental_id:
+          type: integer
+          format: int64
+        system_generated:
+          type: boolean
+          x-go-name: SystemGenerated
+        text:
+          type: string
+          x-go-name: Text
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_id:
+          type: integer
+          format: int64
+      x-go-package: github.com/outdoorsy/api/internal/notes
+    EndOfDayReportResponse:
+      type: object
+      properties:
+        Meta:
+          type: object
+          properties:
+            total_card_payments:
+              type: number
+              format: double
+              x-go-name: TotalCardPayments
+            total_cash_payments:
+              type: number
+              format: double
+              x-go-name: TotalCashPayments
+            total_payments:
+              type: number
+              format: double
+              x-go-name: TotalPayments
+            total_refund_amount:
+              type: number
+              format: double
+              x-go-name: TotalRefundAmount
+            total_reservation_amount:
+              type: number
+              format: double
+              x-go-name: TotalReservationAmount
+            total_reservation_count:
+              type: integer
+              format: int64
+              x-go-name: TotalReservationCount
+        data:
+          type: object
+          properties:
+            ended_bookings:
+              type: array
+              items:
+                $ref: '#/components/schemas/EndOfDayReportBooking'
+              x-go-name: EndedBookings
+            new_bookings:
+              type: array
+              items:
+                $ref: '#/components/schemas/EndOfDayReportBooking'
+              x-go-name: NewBookings
+            started_bookings:
+              type: array
+              items:
+                $ref: '#/components/schemas/EndOfDayReportBooking'
+              x-go-name: StartedBookings
+          x-go-name: Data
+      x-go-package: github.com/outdoorsy/api/internal/report/end_of_day_report
+    MorningReportResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            dates:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportDateItem'
+              x-go-name: Dates
+            reports:
+              type: array
+              items:
+                $ref: '#/components/schemas/Report'
+              x-go-name: Reports
+          x-go-name: Data
+        meta:
+          type: object
+          properties:
+            Limit:
+              type: integer
+              format: uint64
+            Offset:
+              type: integer
+              format: uint64
+            Total:
+              type: integer
+              format: int64
+          x-go-name: Meta
+      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
+  responses:
+    morningReportResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MorningReportResponse'
+    endOfDayReportResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EndOfDayReportResponse'
+    creditReportResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreditReportResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    unauthorizedError:
+      description: Unauthorized error
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

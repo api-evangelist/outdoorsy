@@ -1,0 +1,252 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Message Templates API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: messageTemplates
+paths:
+  /message-templates:
+    get:
+      description: Lists message templates
+      tags:
+      - messageTemplates
+      operationId: listMessageTemplates
+      parameters:
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: UserID
+        name: user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: LocationIDs
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/listMessageTemplatesResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: 'When an employee creates a template, it''s owned by their dealer.
+
+        Employees with location restrictions must specify location_ids within their assigned locations.'
+      tags:
+      - messageTemplates
+      summary: Creates a new message template
+      operationId: createMessageTemplate
+      responses:
+        '200':
+          $ref: '#/components/responses/messageTemplateResponse'
+        '400':
+          $ref: '#/components/responses/invalidFieldsError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+  /message-templates/{id}:
+    get:
+      description: Users can only access templates they own (or their dealer's templates if they're an employee).
+      tags:
+      - messageTemplates
+      summary: Get message template by id
+      operationId: getMessageTemplateById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/messageTemplateResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Users can only delete templates they own (or their dealer's templates if they're an employee).
+      tags:
+      - messageTemplates
+      summary: Archive a message template
+      operationId: archiveMessageTemplate
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    patch:
+      description: Employees with location restrictions can only update templates with location_ids within their assigned locations.
+      tags:
+      - messageTemplates
+      summary: Update message template by id
+      operationId: updateMessageTemplate
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/messageTemplateResponse'
+        '400':
+          $ref: '#/components/responses/invalidFieldsError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    listMessageTemplatesResponse:
+      description: HTTP status code 200 and array of conversation models
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Template'
+    noContentResponse:
+      description: Everything went as planned
+    forbiddenError:
+      description: Forbidden error
+    unauthorizedError:
+      description: Unauthorized error
+    messageTemplateResponse:
+      description: HTTP status code 200 and conversation model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Template'
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    Int64Array:
+      type: array
+      title: Int64Array represents a one-dimensional array of the PostgreSQL integer types.
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/lib/pq
+    Template:
+      type: object
+      properties:
+        can_delete:
+          type: boolean
+          x-go-name: CanDelete
+        can_edit:
+          type: boolean
+          x-go-name: CanEdit
+        content:
+          type: string
+          x-go-name: Content
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        location_ids:
+          $ref: '#/components/schemas/Int64Array'
+        title:
+          type: string
+          x-go-name: Title
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: UserID
+      x-go-package: github.com/outdoorsy/api/internal/message_template
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

@@ -1,0 +1,196 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Bundle Rules API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: bundleRules
+paths:
+  /bundles/{bundle_id}/rules:
+    post:
+      description: Creates a bundle rule
+      tags:
+      - bundleRules
+      operationId: createRule
+      responses:
+        '201':
+          $ref: '#/components/responses/bundleRuleResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+  /bundles/{bundle_id}/rules/{id}:
+    get:
+      description: Retrieve bundle rule by id
+      tags:
+      - bundleRules
+      operationId: getBundleRuleById
+      parameters:
+      - x-go-name: BundleID
+        name: bundle_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bundleRuleResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    delete:
+      description: Delete bundle rule
+      tags:
+      - bundleRules
+      operationId: deleteBundleRule
+      parameters:
+      - x-go-name: BundleID
+        name: bundle_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    patch:
+      description: Update bundle rule
+      tags:
+      - bundleRules
+      operationId: updateBundleRule
+      parameters:
+      - x-go-name: BundleID
+        name: bundle_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bundleRuleResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BundleRule'
+components:
+  schemas:
+    BundleRule:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: string
+          x-go-name: ID
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rule:
+          $ref: '#/components/schemas/MSI'
+        type:
+          type: string
+          x-go-name: Type
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/bundle
+    MSI:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/internal/platform/db
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    bundleRuleResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BundleRule'
+    unauthorizedError:
+      description: Unauthorized error
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

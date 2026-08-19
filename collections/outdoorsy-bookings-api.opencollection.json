@@ -1,0 +1,560 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Bookings API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bookings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/soonest"
+          },
+          "docs": "Get the current trip or an upcoming trip or returned trip that are within 14 days"
+        },
+        {
+          "info": {
+            "name": "listBookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "FromLT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "FromGT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ToLT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ToGT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UpdatedLT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UpdatedGT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreatedLT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreatedGT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "BookedLT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "BookedGT",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "csv-token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "blocking",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "calendar",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_coachnet",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "csv",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "full_object",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_children",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "renter_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dealer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "instamatch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_consigned_payout",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "returned_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "returned_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "abandoned",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_abandoned",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "needs_review",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "refunded",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "new",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "coachnet_id_set",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "for_user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_shared",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "shared",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "handoff_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_quote_metadata",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliverable_campground",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_category",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Read many bookings"
+        },
+        {
+          "info": {
+            "name": "createBooking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a booking"
+        },
+        {
+          "info": {
+            "name": "readManyByStageRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/stage",
+            "params": [
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_items",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_passengers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "exclude_abandoned",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Read Many By Stage"
+        },
+        {
+          "info": {
+            "name": "estimatedDeliveryRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/calculate-delivery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Calculate estimated delivery for booking"
+        },
+        {
+          "info": {
+            "name": "collectBookingPostTripCharges",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/collect-post-trip-charges",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Collect post-trip charges for booking"
+        },
+        {
+          "info": {
+            "name": "getBookingById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Read one booking"
+        },
+        {
+          "info": {
+            "name": "Updates the booking with requested changes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Certain changes are only allowed while the booking is in the negotiating state.\nDealers, owners, renters and admins all have different access level on what can be changed.\nThis often results in a recalculation of the booking total."
+        },
+        {
+          "info": {
+            "name": "Archives the booking which hides it from view.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archives the booking which hides it from view."
+        },
+        {
+          "info": {
+            "name": "getBookingCancellationDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:id/cancellation-details",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the cancellation details for the requested booking"
+        },
+        {
+          "info": {
+            "name": "collectBookingOverageFee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:id/collect-overage-fee",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Collect booking overage fee"
+        },
+        {
+          "info": {
+            "name": "Progresses the status of the booking to the requested state.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Examples:\n\nnegotiating -> approved\napproved -> handed_off\nhanded_off -> returned\napproved -> renter_cancelled/owner_cancelled"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

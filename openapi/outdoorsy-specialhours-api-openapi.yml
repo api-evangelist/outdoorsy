@@ -1,0 +1,288 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Special Hours API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: specialHours
+paths:
+  /special-hours:
+    get:
+      description: Retrieve list of special hours
+      tags:
+      - specialHours
+      operationId: getSpecialHours
+      parameters:
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationID
+        name: location_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OwnerID
+        name: owner_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: EmployeeLocations
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/specialHoursResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+    post:
+      description: Create special hours for the specified date
+      tags:
+      - specialHours
+      operationId: createSpecialHour
+      responses:
+        '200':
+          $ref: '#/components/responses/specialHourResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpecialHour'
+  /special-hours/{id}:
+    get:
+      description: Retrieve special hour by id
+      tags:
+      - specialHours
+      operationId: getSpecialHour
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/specialHourResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    delete:
+      description: Delete special hour
+      tags:
+      - specialHours
+      operationId: deleteSpecialHour
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    patch:
+      description: Update special hour
+      tags:
+      - specialHours
+      operationId: updateSpecialHour
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/specialHourResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpecialHour'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    specialHourResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SpecialHour'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    specialHoursResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/SpecialHour'
+    unauthorizedError:
+      description: Unauthorized error
+  schemas:
+    SpecialHourDropoff:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    SpecialHour:
+      description: '───────────────────────────────────────────────────────────────────────────
+
+        Special Hours
+
+        ───────────────────────────────────────────────────────────────────────────'
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_from_id:
+          type: integer
+          format: int64
+          x-go-name: CreatedFromId
+        dropoff:
+          $ref: '#/components/schemas/SpecialHourDropoff'
+        end_date:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        pickup:
+          $ref: '#/components/schemas/SpecialHourPickup'
+        repeats:
+          type: boolean
+          x-go-name: Repeats
+        start_date:
+          type: string
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        weekdays:
+          $ref: '#/components/schemas/DBStringSlice'
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    SpecialHourPickup:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

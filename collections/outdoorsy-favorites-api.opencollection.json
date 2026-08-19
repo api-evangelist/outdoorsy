@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Favorites API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "favorites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getFavorites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/favorites"
+          },
+          "docs": "Get list of rental favorites for authenticated user"
+        },
+        {
+          "info": {
+            "name": "createFavorite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/favorites"
+          },
+          "docs": "Marks a rental as a favorite for the user"
+        },
+        {
+          "info": {
+            "name": "deleteFavoriteByRentalId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/favorites",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete favorite using the rental id"
+        },
+        {
+          "info": {
+            "name": "deleteFavoriteById",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/favorites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete favorite by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

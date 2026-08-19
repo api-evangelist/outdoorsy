@@ -1,0 +1,1492 @@
+{
+  "item": [
+    {
+      "id": "1c420dc5-fc10-411b-b754-a8bb1f109a3b",
+      "name": "locations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae6f7abd-64b1-4e89-9b55-5acc85dfda46",
+          "name": "list Locations",
+          "request": {
+            "name": "list Locations",
+            "description": {
+              "content": "List dealer locations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "discard_limit",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "IDs",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "IDs",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79ad17e9-bec2-4edd-921b-7e5005b4c929",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "discard_limit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "IDs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "IDs",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"archived\": false,\n    \"availability\": {\n      \"days\": {\n        \"key_0\": {\n          \"dropoff\": {\n            \"end_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unavailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pickup\": {\n            \"end_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unavailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"county\": \"string\",\n    \"created\": \"string\",\n    \"custom_insurance_text\": null,\n    \"dropoff_end_time\": 4887,\n    \"dropoff_start_time\": 9101,\n    \"eligible_for_system_tax_rates\": false,\n    \"employer_identification_number\": \"string\",\n    \"id\": 1521,\n    \"lat\": 453.49763547420486,\n    \"lng\": 3493.9579791440433,\n    \"locale\": {\n      \"base_currency\": \"string\"\n    },\n    \"name\": \"string\",\n    \"opt_out_marketplace_taxes\": true,\n    \"owner_id\": 3694,\n    \"payment_processing_info_id\": 4173,\n    \"phone\": \"string\",\n    \"pickup_end_time\": 5079,\n    \"pickup_start_time\": 433,\n    \"rental_count\": 4583,\n    \"special_hours\": [\n      {\n        \"created\": \"string\",\n        \"created_from_id\": 1548,\n        \"dropoff\": {\n          \"end_time\": 8522,\n          \"start_time\": 2882,\n          \"unavailable\": false\n        },\n        \"end_date\": \"string\",\n        \"id\": 3243,\n        \"location_id\": null,\n        \"name\": \"string\",\n        \"owner_id\": 4551,\n        \"pickup\": {\n          \"end_time\": 920,\n          \"start_time\": 9619,\n          \"unavailable\": true\n        },\n        \"repeats\": false,\n        \"start_date\": \"string\",\n        \"updated\": \"string\",\n        \"weekdays\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"created\": \"string\",\n        \"created_from_id\": 2986,\n        \"dropoff\": {\n          \"end_time\": 1115,\n          \"start_time\": 6499,\n          \"unavailable\": true\n        },\n        \"end_date\": \"string\",\n        \"id\": 4966,\n        \"location_id\": 1742,\n        \"name\": \"string\",\n        \"owner_id\": 2030,\n        \"pickup\": {\n          \"end_time\": 187,\n          \"start_time\": 9912,\n          \"unavailable\": true\n        },\n        \"repeats\": true,\n        \"start_date\": \"string\",\n        \"updated\": \"string\",\n        \"weekdays\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"state\": \"string\",\n    \"state_tax_id\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"tax_rate_id\": {\n      \"archived\": true,\n      \"created\": \"string\",\n      \"description\": \"string\",\n      \"id\": 7312,\n      \"marketplace\": false,\n      \"name\": \"string\",\n      \"owner_id\": 331,\n      \"rate\": 3937.678028154583,\n      \"state\": \"string\",\n      \"updated\": \"string\",\n      \"zip_code\": \"string\"\n    },\n    \"tax_rate_ids\": [\n      39,\n      6480\n    ],\n    \"tax_split_eligible\": false,\n    \"updated\": \"string\",\n    \"waived_insurance_text\": \"string\",\n    \"zip\": \"string\"\n  },\n  {\n    \"archived\": false,\n    \"availability\": {\n      \"days\": {\n        \"key_0\": {\n          \"dropoff\": {\n            \"end_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unavailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pickup\": {\n            \"end_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unavailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"key_1\": {\n          \"dropoff\": {\n            \"end_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unavailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pickup\": {\n            \"end_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unavailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"county\": \"string\",\n    \"created\": \"string\",\n    \"custom_insurance_text\": \"string\",\n    \"dropoff_end_time\": 6287,\n    \"dropoff_start_time\": 4622,\n    \"eligible_for_system_tax_rates\": false,\n    \"employer_identification_number\": \"string\",\n    \"id\": 8873,\n    \"lat\": 360.280154883712,\n    \"lng\": 9903.55881432594,\n    \"locale\": {\n      \"base_currency\": \"string\"\n    },\n    \"name\": \"string\",\n    \"opt_out_marketplace_taxes\": true,\n    \"owner_id\": 7780,\n    \"payment_processing_info_id\": 9136,\n    \"phone\": \"string\",\n    \"pickup_end_time\": 8243,\n    \"pickup_start_time\": 5132,\n    \"rental_count\": 456,\n    \"special_hours\": [\n      {\n        \"created\": \"string\",\n        \"created_from_id\": 4588,\n        \"dropoff\": {\n          \"end_time\": 7777,\n          \"start_time\": 9279,\n          \"unavailable\": false\n        },\n        \"end_date\": \"string\",\n        \"id\": 2194,\n        \"location_id\": 9963,\n        \"name\": \"string\",\n        \"owner_id\": 1597,\n        \"pickup\": {\n          \"end_time\": 6789,\n          \"start_time\": 7105,\n          \"unavailable\": false\n        },\n        \"repeats\": true,\n        \"start_date\": \"string\",\n        \"updated\": \"string\",\n        \"weekdays\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"created\": \"string\",\n        \"created_from_id\": 8411,\n        \"dropoff\": {\n          \"end_time\": 6876,\n          \"start_time\": 9336,\n          \"unavailable\": true\n        },\n        \"end_date\": \"string\",\n        \"id\": 5692,\n        \"location_id\": 9110,\n        \"name\": \"string\",\n        \"owner_id\": 8073,\n        \"pickup\": {\n          \"end_time\": 2445,\n          \"start_time\": 6652,\n          \"unavailable\": true\n        },\n        \"repeats\": true,\n        \"start_date\": \"string\",\n        \"updated\": \"string\",\n        \"weekdays\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"state\": \"string\",\n    \"state_tax_id\": \"string\",\n    \"street\": \"string\",\n    \"street_etc\": \"string\",\n    \"tax_rate_id\": {\n      \"archived\": false,\n      \"created\": \"string\",\n      \"description\": \"string\",\n      \"id\": 8217,\n      \"marketplace\": false,\n      \"name\": \"string\",\n      \"owner_id\": 510,\n      \"rate\": 7194.181268171717,\n      \"state\": \"string\",\n      \"updated\": \"string\",\n      \"zip_code\": \"string\"\n    },\n    \"tax_rate_ids\": [\n      3801,\n      4974\n    ],\n    \"tax_split_eligible\": true,\n    \"updated\": \"string\",\n    \"waived_insurance_text\": null,\n    \"zip\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66307dff-a020-4322-94ea-7a828b3ec62c",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "discard_limit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "IDs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "IDs",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1ec76b2-27e9-43d8-9738-381c1c4e190c",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "discard_limit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "IDs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "IDs",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32676674-1ee4-44cd-a90f-85e1efbbbf6f",
+          "name": "create Location",
+          "request": {
+            "name": "create Location",
+            "description": {
+              "content": "Create dealer location",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e3851f9-5ebd-441c-a3c7-e8f8fe100a57",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7c514bb-ec56-4495-bfa2-00beed347816",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87e5dd1f-221c-4145-b429-3fb024143b0b",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc014a9f-daf8-493c-9dd1-bf64253ae38c",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "446cafbe-62e2-47c6-87e6-b93784917823",
+          "name": "get Location By Owner",
+          "request": {
+            "name": "get Location By Owner",
+            "description": {
+              "content": "Retrieve location by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f446689-7211-4182-82f2-71edb5ca267d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43d46bd0-d592-44a0-be63-00d719e3a427",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98db9d36-1822-4e3f-9dd5-7227e3631700",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62a0ae03-28f0-4d46-b57e-bc7519137532",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba68fe20-d878-4220-8d9b-dae5a377f251",
+          "name": "delete Location",
+          "request": {
+            "name": "delete Location",
+            "description": {
+              "content": "Delete dealer location",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "201ac751-b248-459c-abcb-0c8d5f3585df",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "877f41e9-1d2d-4ecf-9fff-c11d0b0debe2",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46e8c204-9985-4cd0-a98d-8e311c2f2c0e",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b1f4c3b-091b-45b5-919c-af238fca1ccf",
+          "name": "update Location",
+          "request": {
+            "name": "update Location",
+            "description": {
+              "content": "Update dealer location details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07494173-667f-4e6c-b37a-2a3ccd304b4f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03d59be4-6829-4fde-adc9-c24f444c1a7e",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3391dd86-6430-4860-9f56-9dd6bdb6a6c5",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4166d2f8-cd4f-45c3-9042-9f2a15b15c61",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"availability\": {\n    \"days\": {\n      \"key_0\": {\n        \"dropoff\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        },\n        \"pickup\": {\n          \"end_time\": \"<long>\",\n          \"start_time\": \"<long>\",\n          \"unavailable\": \"<boolean>\"\n        }\n      }\n    }\n  },\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"county\": \"<string>\",\n  \"created\": \"<string>\",\n  \"custom_insurance_text\": \"<string,null>\",\n  \"dropoff_end_time\": \"<long>\",\n  \"dropoff_start_time\": \"<long>\",\n  \"eligible_for_system_tax_rates\": \"<boolean>\",\n  \"employer_identification_number\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"locale\": {\n    \"base_currency\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"opt_out_marketplace_taxes\": \"<boolean>\",\n  \"owner_id\": \"<long>\",\n  \"payment_processing_info_id\": \"<long>\",\n  \"phone\": \"<string>\",\n  \"pickup_end_time\": \"<long>\",\n  \"pickup_start_time\": \"<long>\",\n  \"rental_count\": \"<long>\",\n  \"special_hours\": [\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"created\": \"<string>\",\n      \"created_from_id\": \"<long>\",\n      \"dropoff\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"end_date\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer,null-int64>\",\n      \"name\": \"<string>\",\n      \"owner_id\": \"<long>\",\n      \"pickup\": {\n        \"end_time\": \"<long>\",\n        \"start_time\": \"<long>\",\n        \"unavailable\": \"<boolean>\"\n      },\n      \"repeats\": \"<boolean>\",\n      \"start_date\": \"<string>\",\n      \"updated\": \"<string>\",\n      \"weekdays\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"state_tax_id\": \"<string>\",\n  \"street\": \"<string>\",\n  \"street_etc\": \"<string>\",\n  \"tax_rate_id\": {\n    \"archived\": \"<boolean>\",\n    \"created\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<long>\",\n    \"marketplace\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"owner_id\": \"<long>\",\n    \"rate\": \"<double>\",\n    \"state\": \"<string>\",\n    \"updated\": \"<string>\",\n    \"zip_code\": \"<string>\"\n  },\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tax_split_eligible\": \"<boolean>\",\n  \"updated\": \"<string>\",\n  \"waived_insurance_text\": \"<string,null>\",\n  \"zip\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "059e82e9-29ff-451c-b2d9-dbe20dcb4656",
+          "name": "get Locations By Owner ID",
+          "request": {
+            "name": "get Locations By Owner ID",
+            "description": {
+              "content": "List dealer locations for his pro page (locations with connected bank account, ordered by having the most rentals desc). Provide falback in the form of city and state with most bookable rentals",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                ":owner_id",
+                "for-pro-page"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "owner_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "139f4f89-a9be-4dfb-8d87-d1f2ad83a138",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":owner_id",
+                    "for-pro-page"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "owner_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fallback\": {\n    \"city\": \"string\",\n    \"state\": \"string\"\n  },\n  \"locations\": [\n    {\n      \"archived\": \"<boolean>\",\n      \"availability\": {\n        \"days\": {\n          \"key_0\": {\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"created\": \"<string>\",\n      \"custom_insurance_text\": \"<string,null>\",\n      \"dropoff_end_time\": \"<long>\",\n      \"dropoff_start_time\": \"<long>\",\n      \"eligible_for_system_tax_rates\": \"<boolean>\",\n      \"employer_identification_number\": \"<string>\",\n      \"id\": \"<long>\",\n      \"lat\": \"<double>\",\n      \"lng\": \"<double>\",\n      \"locale\": {\n        \"base_currency\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"opt_out_marketplace_taxes\": \"<boolean>\",\n      \"owner_id\": \"<long>\",\n      \"payment_processing_info_id\": \"<long>\",\n      \"phone\": \"<string>\",\n      \"pickup_end_time\": \"<long>\",\n      \"pickup_start_time\": \"<long>\",\n      \"rental_count\": \"<long>\",\n      \"special_hours\": [\n        {\n          \"created\": \"<string>\",\n          \"created_from_id\": \"<long>\",\n          \"dropoff\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"end_date\": \"<string>\",\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer,null-int64>\",\n          \"name\": \"<string>\",\n          \"owner_id\": \"<long>\",\n          \"pickup\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"repeats\": \"<boolean>\",\n          \"start_date\": \"<string>\",\n          \"updated\": \"<string>\",\n          \"weekdays\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"created\": \"<string>\",\n          \"created_from_id\": \"<long>\",\n          \"dropoff\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"end_date\": \"<string>\",\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer,null-int64>\",\n          \"name\": \"<string>\",\n          \"owner_id\": \"<long>\",\n          \"pickup\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"repeats\": \"<boolean>\",\n          \"start_date\": \"<string>\",\n          \"updated\": \"<string>\",\n          \"weekdays\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"state\": \"<string>\",\n      \"state_tax_id\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"tax_rate_id\": {\n        \"archived\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"marketplace\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"owner_id\": \"<long>\",\n        \"rate\": \"<double>\",\n        \"state\": \"<string>\",\n        \"updated\": \"<string>\",\n        \"zip_code\": \"<string>\"\n      },\n      \"tax_rate_ids\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"tax_split_eligible\": \"<boolean>\",\n      \"updated\": \"<string>\",\n      \"waived_insurance_text\": \"<string,null>\",\n      \"zip\": \"<string>\"\n    },\n    {\n      \"archived\": \"<boolean>\",\n      \"availability\": {\n        \"days\": {\n          \"key_0\": {\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"county\": \"<string>\",\n      \"created\": \"<string>\",\n      \"custom_insurance_text\": \"<string,null>\",\n      \"dropoff_end_time\": \"<long>\",\n      \"dropoff_start_time\": \"<long>\",\n      \"eligible_for_system_tax_rates\": \"<boolean>\",\n      \"employer_identification_number\": \"<string>\",\n      \"id\": \"<long>\",\n      \"lat\": \"<double>\",\n      \"lng\": \"<double>\",\n      \"locale\": {\n        \"base_currency\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"opt_out_marketplace_taxes\": \"<boolean>\",\n      \"owner_id\": \"<long>\",\n      \"payment_processing_info_id\": \"<long>\",\n      \"phone\": \"<string>\",\n      \"pickup_end_time\": \"<long>\",\n      \"pickup_start_time\": \"<long>\",\n      \"rental_count\": \"<long>\",\n      \"special_hours\": [\n        {\n          \"created\": \"<string>\",\n          \"created_from_id\": \"<long>\",\n          \"dropoff\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"end_date\": \"<string>\",\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer,null-int64>\",\n          \"name\": \"<string>\",\n          \"owner_id\": \"<long>\",\n          \"pickup\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"repeats\": \"<boolean>\",\n          \"start_date\": \"<string>\",\n          \"updated\": \"<string>\",\n          \"weekdays\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"created\": \"<string>\",\n          \"created_from_id\": \"<long>\",\n          \"dropoff\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"end_date\": \"<string>\",\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer,null-int64>\",\n          \"name\": \"<string>\",\n          \"owner_id\": \"<long>\",\n          \"pickup\": {\n            \"end_time\": \"<long>\",\n            \"start_time\": \"<long>\",\n            \"unavailable\": \"<boolean>\"\n          },\n          \"repeats\": \"<boolean>\",\n          \"start_date\": \"<string>\",\n          \"updated\": \"<string>\",\n          \"weekdays\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"state\": \"<string>\",\n      \"state_tax_id\": \"<string>\",\n      \"street\": \"<string>\",\n      \"street_etc\": \"<string>\",\n      \"tax_rate_id\": {\n        \"archived\": \"<boolean>\",\n        \"created\": \"<string>\",\n        \"description\": \"<string>\",\n        \"id\": \"<long>\",\n        \"marketplace\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"owner_id\": \"<long>\",\n        \"rate\": \"<double>\",\n        \"state\": \"<string>\",\n        \"updated\": \"<string>\",\n        \"zip_code\": \"<string>\"\n      },\n      \"tax_rate_ids\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"tax_split_eligible\": \"<boolean>\",\n      \"updated\": \"<string>\",\n      \"waived_insurance_text\": \"<string,null>\",\n      \"zip\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03ccbe38-34f1-4c21-aad0-d9066f1bf55b",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":owner_id",
+                    "for-pro-page"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "owner_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f85b5d6c-f4c9-4c19-8163-1ccffa3af748",
+    "name": "Outdoorsy API Documentation Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

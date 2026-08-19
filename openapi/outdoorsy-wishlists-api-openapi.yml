@@ -1,0 +1,771 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Wishlists API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: wishlists
+paths:
+  /wishlists:
+    get:
+      description: 'Gets wishlists for current user
+
+        Use `examples_only=false&exclude_examples=false` to get all user wishlists and a set of random examples
+
+        Use `examples_only=true&exclude_examples=false` to get all example wishlists and exclude user wishlists
+
+        Use `examples_only=false&exclude_examples=true` to get all user wishlists and exclude examples
+
+        Use `examples_only=true&exclude_examples=true` is not allowed
+
+        Use `rental_category=rv` to filter rentals to RV category (includes campgrounds)
+
+        Use `rental_category=auto` to filter rentals to auto category (excludes campgrounds)'
+      tags:
+      - wishlists
+      operationId: readManyWishlists
+      parameters:
+      - x-go-name: ExamplesOnly
+        name: examples_only
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ExcludeExamples
+        name: exclude_examples
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: RentalCategory
+        name: rental_category
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/readManyWishlistResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Creates a wishlist with current user as owner
+      tags:
+      - wishlists
+      operationId: createWishlist
+      responses:
+        '201':
+          $ref: '#/components/responses/createWishlistResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWishlistRequest'
+  /wishlists-recently-saved:
+    get:
+      description: 'Gets up to 10 most recently saved rentals for current user
+
+        Use `rental_category=rv` to filter rentals to RV category only
+
+        Use `rental_category=auto` to filter rentals to auto category only'
+      tags:
+      - wishlists
+      operationId: readRecentlySavedWishlists
+      parameters:
+      - x-go-name: RentalCategory
+        name: rental_category
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/readRecentlySavedWishlistsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /wishlists/change-wishlist:
+    post:
+      description: Removes a rental from one wishlist and adds it to another
+      tags:
+      - wishlists
+      operationId: changeWishlist
+      responses:
+        '201':
+          $ref: '#/components/responses/changeWishlistResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeWishlistRequest'
+  /wishlists/{wishlist_id}:
+    get:
+      description: 'Gets one wishlist by id
+
+        Use `rental_category=rv` to filter rentals to RV category (includes campgrounds)
+
+        Use `rental_category=auto` to filter rentals to auto category (excludes campgrounds)'
+      tags:
+      - wishlists
+      operationId: getWishlist
+      parameters:
+      - x-go-name: RentalCategory
+        name: rental_category
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/readOneWishlistResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Deletes one wishlist by id
+      tags:
+      - wishlists
+      operationId: deleteWishlist
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Updates the details of an existing wishlist
+      tags:
+      - wishlists
+      operationId: updateWishlist
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWishlistRequest'
+  /wishlists/{wishlist_id}/accept-invite:
+    post:
+      description: Accepts an invite to a wishlist with a given token
+      tags:
+      - wishlists
+      operationId: acceptWishlistInvite
+      responses:
+        '201':
+          $ref: '#/components/responses/acceptWishlistInviteResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcceptWishlistInviteRequest'
+  /wishlists/{wishlist_id}/add:
+    put:
+      description: Adds a rental to an existing wishlist
+      tags:
+      - wishlists
+      operationId: addToWishlist
+      responses:
+        '200':
+          $ref: '#/components/responses/addToWishlistResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddToWishlistRequest'
+  /wishlists/{wishlist_id}/remove:
+    post:
+      description: Removes a rental from an existing wishlist
+      tags:
+      - wishlists
+      operationId: removeFromWishlist
+      responses:
+        '201':
+          $ref: '#/components/responses/removeFromWishlistResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveFromWishlistRequest'
+  /wishlists/{wishlist_id}/remove-user:
+    delete:
+      description: Removes a user from a wishlist
+      tags:
+      - wishlists
+      operationId: removeUserFromWishlist
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveUserFromWishlistRequest'
+  /wishlists/{wishlist_id}/token:
+    post:
+      description: Gets existing, non-expired invite token for a wishlist or creates and returns a new one
+      tags:
+      - wishlists
+      operationId: getOrCreateInviteToken
+      responses:
+        '201':
+          $ref: '#/components/responses/getOrCreateInviteTokenResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    readRecentlySavedWishlistsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+    getOrCreateInviteTokenResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetWishlistInviteTokenResponse'
+    acceptWishlistInviteResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AcceptWishlistInviteResponse'
+    createWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateWishlistResponse'
+    changeWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ChangeWishlistResponse'
+    addToWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddToWishlistResponse'
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    readManyWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ReadManyWishlist'
+    forbiddenError:
+      description: Forbidden error
+    readOneWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadOneWishlist'
+    removeFromWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RemoveFromWishlistResponse'
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    ChangeWishlistRequest:
+      type: object
+      properties:
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        new_wishlist_id:
+          type: integer
+          format: int64
+          x-go-name: NewWishlistID
+        old_wishlist_id:
+          type: integer
+          format: int64
+          x-go-name: OldWishlistID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    RemoveUserFromWishlistRequest:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: UserID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    RemoveFromWishlistResponse:
+      type: object
+      properties:
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageUrl
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    StringArray:
+      type: array
+      title: StringArray represents a one-dimensional array of the PostgreSQL character types.
+      items:
+        type: string
+      x-go-package: github.com/lib/pq
+    CreateWishlistRequest:
+      type: object
+      properties:
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    DBIntSlice:
+      description: DBIntSlice is a []int with database conversion methods
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/utils
+    AddToWishlistRequest:
+      type: object
+      properties:
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    ChangeWishlistResponse:
+      type: object
+      properties:
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageUrl
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    AcceptWishlistInviteRequest:
+      type: object
+      properties:
+        token:
+          type: string
+          x-go-name: Token
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    ReadOneWishlist:
+      type: object
+      properties:
+        ada:
+          type: boolean
+          x-go-name: ADA
+        campgrounds:
+          $ref: '#/components/schemas/DBIntSlice'
+        campgrounds_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/LandingPageCampground'
+          x-go-name: CampgroundDetails
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageUrl
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        end_date:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_example:
+          type: boolean
+          x-go-name: IsExample
+        is_public:
+          type: boolean
+          x-go-name: IsPublic
+        number_of_adults:
+          type: integer
+          format: int64
+          x-go-name: NumberOfAdults
+        number_of_children:
+          type: integer
+          format: int64
+          x-go-name: NumberOfChildren
+        pets:
+          type: boolean
+          x-go-name: Pets
+        rentals:
+          $ref: '#/components/schemas/DBIntSlice'
+        start_date:
+          type: string
+        title:
+          type: string
+          x-go-name: Title
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_details:
+          $ref: '#/components/schemas/WishlistUserDetails'
+        user_role:
+          type: string
+          x-go-name: UserRole
+        users:
+          $ref: '#/components/schemas/DBIntSlice'
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    UpdateWishlistRequest:
+      type: object
+      properties:
+        ada:
+          type: boolean
+          x-go-name: ADA
+        end_date:
+          type: string
+        is_public:
+          type: boolean
+          x-go-name: IsPublic
+        number_of_adults:
+          type: integer
+          format: int64
+          x-go-name: NumberOfAdults
+        number_of_children:
+          type: integer
+          format: int64
+          x-go-name: NumberOfChildren
+        pets:
+          type: boolean
+          x-go-name: Pets
+        start_date:
+          type: string
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    CreateWishlistResponse:
+      type: object
+      properties:
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageURL
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    AddToWishlistResponse:
+      type: object
+      properties:
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageUrl
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    Address:
+      description: Address holds address information for a user
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    LandingPageCampground:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        categories:
+          $ref: '#/components/schemas/StringArray'
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_urls:
+          $ref: '#/components/schemas/StringArray'
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        min_bundle_base_price:
+          type: integer
+          format: int64
+          x-go-name: MinBundleBasePrice
+        name:
+          type: string
+          x-go-name: Name
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        slug:
+          type: string
+          x-go-name: Slug
+        vacation_package_slug:
+          type: string
+          x-go-name: VacationPackageSlug
+      x-go-package: github.com/outdoorsy/api/internal/campgrounds
+    GetWishlistInviteTokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          x-go-name: Token
+        wishlist_id:
+          type: integer
+          format: int64
+          x-go-name: WishlistID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    RemoveFromWishlistRequest:
+      type: object
+      properties:
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    AcceptWishlistInviteResponse:
+      type: object
+      properties:
+        role:
+          type: string
+          x-go-name: Role
+        title:
+          type: string
+          x-go-name: Title
+        user_details:
+          $ref: '#/components/schemas/WishlistUserDetails'
+        wishlist_id:
+          type: integer
+          format: int64
+          x-go-name: WishlistID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    ReadManyWishlist:
+      type: object
+      properties:
+        campground_count:
+          type: integer
+          format: int64
+          x-go-name: CampgroundCount
+        campgrounds:
+          $ref: '#/components/schemas/DBIntSlice'
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageUrl
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_example:
+          type: boolean
+          x-go-name: IsExample
+        is_public:
+          type: boolean
+          x-go-name: IsPublic
+        rental_count:
+          type: integer
+          format: int64
+          x-go-name: RentalCount
+        rentals:
+          $ref: '#/components/schemas/DBIntSlice'
+        title:
+          type: string
+          x-go-name: Title
+        user_details:
+          $ref: '#/components/schemas/WishlistUserDetails'
+        user_role:
+          type: string
+          x-go-name: UserRole
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    WishlistUserDetail:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: Id
+        last_name:
+          type: string
+          x-go-name: LastName
+        user_role:
+          type: string
+          x-go-name: UserRole
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    WishlistUserDetails:
+      type: array
+      items:
+        $ref: '#/components/schemas/WishlistUserDetail'
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

@@ -1,0 +1,1184 @@
+{
+  "item": [
+    {
+      "id": "68b14cc6-158c-42e8-a384-8c495ec29658",
+      "name": "gateways",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f5d972f9-6917-469e-9e76-c8e2dc474def",
+          "name": "get Gateway Creation Form",
+          "request": {
+            "name": "get Gateway Creation Form",
+            "description": {
+              "content": "Get gateway creation form",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gateways",
+                "fund_creation_form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth_mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fund_id",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24f5e3fb-c2ee-4035-9ffb-c0accb3a2b61",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "fund_creation_form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b0f3bff-f797-4cac-a217-ac34a3430ad4",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "fund_creation_form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc627069-da4d-4b1d-bef9-9bbdaf0fabfb",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "fund_creation_form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auth_mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a64e5d78-9636-45c7-85b1-8088a6d550d2",
+          "name": "list Gateway Options",
+          "request": {
+            "name": "list Gateway Options",
+            "description": {
+              "content": "List available gateways",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gateways",
+                "list_options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fead957-a2e4-4f7b-8114-6e57cc5e0371",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "list_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27fef0f4-d4c0-4b36-ab01-ea711d9d0541",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "list_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06943003-ca1d-414e-93f1-fe72ce2e8d31",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "list_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "808d0bda-403f-4a87-8c1b-596bac257d37",
+          "name": "list User Gateways",
+          "request": {
+            "name": "list User Gateways",
+            "description": {
+              "content": "List available gateways",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "booking_id",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "managed_accounts_only",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fund_type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5a95716-da2e-4e98-82d0-c9c88b9c3e0c",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "managed_accounts_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"archived\": true,\n    \"bank_address\": \"string\",\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"base_currency\": \"string\",\n    \"can_accept_payments\": true,\n    \"can_archive_bank\": true,\n    \"can_send_payments\": true,\n    \"capabilities\": {\n      \"key_0\": {}\n    },\n    \"created\": \"string\",\n    \"customer_id\": \"string\",\n    \"debit_agreement_date\": \"string\",\n    \"deposits_disabled\": false,\n    \"form\": {\n      \"key_0\": {}\n    },\n    \"fund_id\": \"string\",\n    \"gateway_type\": \"string\",\n    \"id\": 7772,\n    \"managed_account_id\": \"string\",\n    \"missing_fields\": [\n      \"string\",\n      \"string\"\n    ],\n    \"missing_fields_change_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"needs_migration\": true,\n    \"nickname\": \"string\",\n    \"notes\": \"string\",\n    \"owner_id\": 1965,\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"phone\": \"string\",\n    \"reference_number\": \"string\",\n    \"sort_code\": \"string\",\n    \"status\": \"string\",\n    \"support_phone\": \"string\",\n    \"updated\": \"string\"\n  },\n  {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"archived\": false,\n    \"bank_address\": \"string\",\n    \"bank_last_four\": \"string\",\n    \"bank_name\": \"string\",\n    \"base_currency\": \"string\",\n    \"can_accept_payments\": false,\n    \"can_archive_bank\": false,\n    \"can_send_payments\": false,\n    \"capabilities\": {\n      \"key_0\": {}\n    },\n    \"created\": \"string\",\n    \"customer_id\": \"string\",\n    \"debit_agreement_date\": \"string\",\n    \"deposits_disabled\": true,\n    \"form\": {\n      \"key_0\": {}\n    },\n    \"fund_id\": \"string\",\n    \"gateway_type\": \"string\",\n    \"id\": 6884,\n    \"managed_account_id\": \"string\",\n    \"missing_fields\": [\n      \"string\",\n      \"string\"\n    ],\n    \"missing_fields_change_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"needs_migration\": true,\n    \"nickname\": \"string\",\n    \"notes\": \"string\",\n    \"owner_id\": 7072,\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"phone\": \"string\",\n    \"reference_number\": \"string\",\n    \"sort_code\": \"string\",\n    \"status\": \"string\",\n    \"support_phone\": \"string\",\n    \"updated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "077e4d6c-080c-4809-88fd-09f6a1fabd96",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "managed_accounts_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cce98795-0695-48ce-86df-a47a65a98df6",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "booking_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "managed_accounts_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fund_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68c1affd-361d-48a0-a4ca-fbc22abedd60",
+          "name": "create Gateway",
+          "request": {
+            "name": "create Gateway",
+            "description": {
+              "content": "Create payment gateway",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e8b8d07-64dd-4b05-a511-4ce2758e58cc",
+              "name": "HTTP status code 200 and user model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accept_percent\": 9468.089519634848,\n  \"accepted_tos_version\": 1565,\n  \"accepted_tos_versions\": [\n    {\n      \"accepted_on\": \"string\",\n      \"id\": 7064,\n      \"metadata\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"tos_version\": \"string\",\n      \"user_id\": 7464\n    },\n    {\n      \"accepted_on\": \"string\",\n      \"id\": 6304,\n      \"metadata\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      },\n      \"tos_version\": \"string\",\n      \"user_id\": 1764\n    }\n  ],\n  \"account_id\": null,\n  \"active_quotes_count\": 5642,\n  \"active_reservations_count\": 9004,\n  \"addon_fee_percentage\": 3741.1650938425546,\n  \"admin\": false,\n  \"admin_level\": 5555,\n  \"api_key\": \"string\",\n  \"approved_drivers\": false,\n  \"archived\": true,\n  \"auto_owner\": true,\n  \"average_response_time\": {\n    \"Float64\": 7973.566314135452,\n    \"Valid\": false\n  },\n  \"bank_country\": \"string\",\n  \"banned\": true,\n  \"campground_owner\": true,\n  \"campground_user\": false,\n  \"can_accept_payments\": true,\n  \"cash_credits\": 5309,\n  \"cc_fee_percentage\": 3101.694360810896,\n  \"commercial_insurance\": false,\n  \"completed_bookings\": 3412,\n  \"confirmed\": false,\n  \"created\": \"string\",\n  \"credits\": 4177,\n  \"csm_agent_id\": 4259,\n  \"deal_id\": \"string\",\n  \"dealer\": true,\n  \"deposits_disabled\": false,\n  \"display_w9_reminder\": true,\n  \"driver_checks_enabled\": true,\n  \"drivers\": [\n    {\n      \"approved_by_admin_id\": 6558,\n      \"archived\": false,\n      \"birthdate\": \"string\",\n      \"candidate_id\": \"string\",\n      \"country\": \"string\",\n      \"created\": \"string\",\n      \"display_status\": \"string\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"gender\": \"string\",\n      \"id\": 6709,\n      \"is_old_enough\": false,\n      \"last_mvr\": \"string\",\n      \"last_name\": \"string\",\n      \"license_number\": \"string\",\n      \"license_state\": \"string\",\n      \"middle_name\": \"string\",\n      \"status\": \"string\",\n      \"updated\": \"string\",\n      \"user_id\": 3567,\n      \"verification_upload_link\": \"string\",\n      \"verified\": false,\n      \"zendesk_ticket_id\": 4264\n    },\n    {\n      \"approved_by_admin_id\": 1412,\n      \"archived\": false,\n      \"birthdate\": \"string\",\n      \"candidate_id\": \"string\",\n      \"country\": \"string\",\n      \"created\": \"string\",\n      \"display_status\": \"string\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"gender\": \"string\",\n      \"id\": 7947,\n      \"is_old_enough\": false,\n      \"last_mvr\": \"string\",\n      \"last_name\": \"string\",\n      \"license_number\": \"string\",\n      \"license_state\": \"string\",\n      \"middle_name\": \"string\",\n      \"status\": \"string\",\n      \"updated\": \"string\",\n      \"user_id\": 3659,\n      \"verification_upload_link\": \"string\",\n      \"verified\": true,\n      \"zendesk_ticket_id\": 1163\n    }\n  ],\n  \"earned_credits\": [\n    {\n      \"amount\": 2705,\n      \"booking_id\": null,\n      \"can_delete\": false,\n      \"can_edit\": false,\n      \"created\": \"string\",\n      \"created_by_id\": null,\n      \"deleted\": \"string\",\n      \"description\": \"string\",\n      \"expires\": \"string\",\n      \"has_children\": false,\n      \"id\": 8748,\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"parent_id\": 886,\n      \"referred_by_user_id\": 3583,\n      \"referred_user_id\": 8454,\n      \"source\": \"string\",\n      \"system_action\": \"string\",\n      \"updated\": \"string\",\n      \"user_id\": 9498\n    },\n    {\n      \"amount\": 9698,\n      \"booking_id\": 3076,\n      \"can_delete\": true,\n      \"can_edit\": false,\n      \"created\": \"string\",\n      \"created_by_id\": 6437,\n      \"deleted\": \"string\",\n      \"description\": \"string\",\n      \"expires\": \"string\",\n      \"has_children\": false,\n      \"id\": 1456,\n      \"metadata\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"parent_id\": null,\n      \"referred_by_user_id\": null,\n      \"referred_user_id\": null,\n      \"source\": \"string\",\n      \"system_action\": \"string\",\n      \"updated\": \"string\",\n      \"user_id\": 1126\n    }\n  ],\n  \"employee\": true,\n  \"esign_enabled\": false,\n  \"fleet_api_key\": \"string\",\n  \"force_reconnect_bank\": false,\n  \"fraud_review_complete\": true,\n  \"fraudulent\": false,\n  \"gps_device_data\": {\n    \"account_api_key\": \"string\",\n    \"created\": \"string\",\n    \"deleted\": \"string\",\n    \"device_count\": 3839,\n    \"id\": 5782,\n    \"metadata\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"provider_type\": \"string\",\n    \"updated\": \"string\",\n    \"user_id\": 945\n  },\n  \"group_on_map\": true,\n  \"guest\": false,\n  \"has_connected_gateway\": false,\n  \"has_gps_device\": true,\n  \"has_notes_to_renters_migrated\": false,\n  \"has_setup_intent_enabled\": false,\n  \"hidden\": true,\n  \"host_type_by_rental_category\": \"string\",\n  \"host_type_by_rental_count\": \"string\",\n  \"id\": 7703,\n  \"impersonated\": true,\n  \"import_id\": \"string\",\n  \"inactive_by\": 39,\n  \"inactive_on\": \"string\",\n  \"is_admin_managed_superhost\": true,\n  \"is_award_winner\": false,\n  \"is_csm_agent\": true,\n  \"is_military_host\": false,\n  \"is_superhost\": false,\n  \"items\": [\n    {\n      \"applies_to_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"available\": 6905,\n      \"category\": \"string\",\n      \"category_id\": 580,\n      \"consigned_pay_pct\": 3653.2492952831053,\n      \"created\": {\n        \"Time\": \"2002-11-13T05:40:42.717Z\",\n        \"Valid\": false\n      },\n      \"daily\": false,\n      \"deferred\": false,\n      \"description\": \"string\",\n      \"hidden\": false,\n      \"id\": 3881,\n      \"image_url\": \"string\",\n      \"ledger_account_number\": 2958,\n      \"location_id\": 9085,\n      \"location_ids\": [\n        4836,\n        6281\n      ],\n      \"maximum_price\": 4443,\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"minimum_price\": null,\n      \"name\": \"string\",\n      \"percent\": 2709.5466934909273,\n      \"percent_type\": \"string\",\n      \"position\": 75,\n      \"presentment_currency\": \"string\",\n      \"price\": 4521,\n      \"rental_items_category_id\": 5242,\n      \"rental_items_category_name\": \"string\",\n      \"rental_items_category_owner_name\": \"string\",\n      \"rental_items_category_reason\": \"string\",\n      \"rental_items_category_requested_name\": \"string\",\n      \"rental_items_category_status\": \"string\",\n      \"required\": true,\n      \"settlement_currency\": \"string\",\n      \"tax\": 8014,\n      \"tax_rate_id\": {\n        \"archived\": true,\n        \"created\": \"string\",\n        \"description\": \"string\",\n        \"id\": 7791,\n        \"marketplace\": false,\n        \"name\": \"string\",\n        \"owner_id\": 2989,\n        \"rate\": 2440.3002473659085,\n        \"state\": \"string\",\n        \"updated\": \"string\",\n        \"zip_code\": \"string\"\n      },\n      \"tax_rate_ids\": [\n        9133,\n        5324\n      ],\n      \"travelers\": 756,\n      \"updated\": {\n        \"Time\": \"2023-02-02T20:47:32.949Z\",\n        \"Valid\": false\n      }\n    },\n    {\n      \"applies_to_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"available\": 3099,\n      \"category\": \"string\",\n      \"category_id\": 6747,\n      \"consigned_pay_pct\": 2908.3892433567084,\n      \"created\": {\n        \"Time\": \"1955-11-22T09:03:26.008Z\",\n        \"Valid\": false\n      },\n      \"daily\": true,\n      \"deferred\": false,\n      \"description\": \"string\",\n      \"hidden\": true,\n      \"id\": 6594,\n      \"image_url\": \"string\",\n      \"ledger_account_number\": 3821,\n      \"location_id\": 2559,\n      \"location_ids\": [\n        4162,\n        4336\n      ],\n      \"maximum_price\": null,\n      \"metadata\": {\n        \"key_0\": {}\n      },\n      \"minimum_price\": 7693,\n      \"name\": \"string\",\n      \"percent\": 2442.3495169074695,\n      \"percent_type\": \"string\",\n      \"position\": 4021,\n      \"presentment_currency\": \"string\",\n      \"price\": 8506,\n      \"rental_items_category_id\": null,\n      \"rental_items_category_name\": \"string\",\n      \"rental_items_category_owner_name\": \"string\",\n      \"rental_items_category_reason\": \"string\",\n      \"rental_items_category_requested_name\": \"string\",\n      \"rental_items_category_status\": \"string\",\n      \"required\": false,\n      \"settlement_currency\": \"string\",\n      \"tax\": 5616,\n      \"tax_rate_id\": {\n        \"archived\": false,\n        \"created\": \"string\",\n        \"description\": \"string\",\n        \"id\": 5470,\n        \"marketplace\": true,\n        \"name\": \"string\",\n        \"owner_id\": 1589,\n        \"rate\": 3973.763543080714,\n        \"state\": \"string\",\n        \"updated\": \"string\",\n        \"zip_code\": \"string\"\n      },\n      \"tax_rate_ids\": [\n        3115,\n        5371\n      ],\n      \"travelers\": 2150,\n      \"updated\": {\n        \"Time\": \"1953-09-19T21:09:34.322Z\",\n        \"Valid\": false\n      }\n    }\n  ],\n  \"last_accessed_ip\": \"string\",\n  \"last_activity_at\": \"string\",\n  \"legacy_tracking_device_count\": 3482,\n  \"metadata\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"missing_fields\": [\n    \"string\",\n    \"string\"\n  ],\n  \"num_reservations\": 3378,\n  \"offer_roamly\": true,\n  \"offers_delivery\": true,\n  \"owned_by_id\": 5712,\n  \"owner\": false,\n  \"owner_fee_percentage\": 7550.475151589645,\n  \"owner_score\": 7055.186001337304,\n  \"owner_score_count\": 3612,\n  \"partner_app_id\": null,\n  \"partner_id\": null,\n  \"payment_processing_info\": [\n    {\n      \"address\": {\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"state\": \"string\",\n        \"street\": \"string\",\n        \"street_etc\": \"string\",\n        \"zip\": \"string\"\n      },\n      \"archived\": true,\n      \"bank_address\": \"string\",\n      \"bank_last_four\": \"string\",\n      \"bank_name\": \"string\",\n      \"base_currency\": \"string\",\n      \"can_accept_payments\": false,\n      \"can_archive_bank\": true,\n      \"can_send_payments\": false,\n      \"capabilities\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"created\": \"string\",\n      \"customer_id\": \"string\",\n      \"debit_agreement_date\": \"string\",\n      \"deposits_disabled\": true,\n      \"form\": {\n        \"key_0\": {}\n      },\n      \"fund_id\": \"string\",\n      \"gateway_type\": \"string\",\n      \"id\": 5394,\n      \"managed_account_id\": \"string\",\n      \"missing_fields\": [\n        \"string\",\n        \"string\"\n      ],\n      \"missing_fields_change_description\": [\n        \"string\",\n        \"string\"\n      ],\n      \"needs_migration\": true,\n      \"nickname\": \"string\",\n      \"notes\": \"string\",\n      \"owner_id\": 505,\n      \"payment_processor\": {\n        \"country\": \"string\",\n        \"external_processor\": \"string\",\n        \"external_processor_id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"phone\": \"string\",\n      \"reference_number\": \"string\",\n      \"sort_code\": \"string\",\n      \"status\": \"string\",\n      \"support_phone\": \"string\",\n      \"updated\": \"string\"\n    },\n    {\n      \"address\": {\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"state\": \"string\",\n        \"street\": \"string\",\n        \"street_etc\": \"string\",\n        \"zip\": \"string\"\n      },\n      \"archived\": false,\n      \"bank_address\": \"string\",\n      \"bank_last_four\": \"string\",\n      \"bank_name\": \"string\",\n      \"base_currency\": \"string\",\n      \"can_accept_payments\": true,\n      \"can_archive_bank\": true,\n      \"can_send_payments\": true,\n      \"capabilities\": {\n        \"key_0\": {}\n      },\n      \"created\": \"string\",\n      \"customer_id\": \"string\",\n      \"debit_agreement_date\": \"string\",\n      \"deposits_disabled\": false,\n      \"form\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      },\n      \"fund_id\": \"string\",\n      \"gateway_type\": \"string\",\n      \"id\": 1152,\n      \"managed_account_id\": \"string\",\n      \"missing_fields\": [\n        \"string\",\n        \"string\"\n      ],\n      \"missing_fields_change_description\": [\n        \"string\",\n        \"string\"\n      ],\n      \"needs_migration\": true,\n      \"nickname\": \"string\",\n      \"notes\": \"string\",\n      \"owner_id\": 3286,\n      \"payment_processor\": {\n        \"country\": \"string\",\n        \"external_processor\": \"string\",\n        \"external_processor_id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"phone\": \"string\",\n      \"reference_number\": \"string\",\n      \"sort_code\": \"string\",\n      \"status\": \"string\",\n      \"support_phone\": \"string\",\n      \"updated\": \"string\"\n    }\n  ],\n  \"pending_email\": \"string\",\n  \"permissions\": {\n    \"key_0\": true,\n    \"key_1\": true,\n    \"key_2\": false\n  },\n  \"pro\": false,\n  \"pro_status\": {\n    \"approval_rate\": 1576.0396174026391,\n    \"bank_account\": false,\n    \"completed_points\": 1192,\n    \"description\": false,\n    \"eligible_insurance\": true,\n    \"pending_rentals\": [\n      {\n        \"id\": 8193,\n        \"insurance_state\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 3913,\n        \"insurance_state\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"pro\": false,\n    \"profile_percent_complete\": 5338,\n    \"rating\": 3372.731350953393,\n    \"response_time\": 4678,\n    \"response_time_rank\": 7086,\n    \"total_points\": 3651,\n    \"verified_phone\": true\n  },\n  \"profile\": {\n    \"address\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"street_etc\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"affiliate_description\": \"string\",\n    \"anonymized_by\": 8651,\n    \"anonymized_on\": \"string\",\n    \"avatar_url\": \"string\",\n    \"bio\": {\n      \"description\": \"string\",\n      \"experience\": \"string\",\n      \"years_owned\": 8793,\n      \"years_rving\": 9528\n    },\n    \"birthdate\": \"string\",\n    \"booking_options\": {\n      \"bid_quality_preference\": {\n        \"Float64\": 9106.988572096456,\n        \"Valid\": false\n      },\n      \"coachnet_premium\": 3096,\n      \"custom_insurance_text\": null,\n      \"default_auto_insurance_bundle_tier\": 8342,\n      \"default_insurance_bundle_tier\": 7823,\n      \"deposit_percentage\": 3164.5380555110123,\n      \"disable_coachnet\": false,\n      \"disable_instamatch\": null,\n      \"final_payment_due_days\": 7970,\n      \"from_time\": 5263,\n      \"instant_book\": true,\n      \"instant_book_leeway\": 2510,\n      \"instant_book_type\": \"string\",\n      \"insurance_coverage\": \"string\",\n      \"insurance_renter_adjustable\": true,\n      \"minimum_days\": 2218,\n      \"minimum_deposit\": 9611,\n      \"request_less_than_minimum_days\": 9503,\n      \"require_booking_time\": true,\n      \"require_driver_checks\": true,\n      \"require_insurance\": true,\n      \"security_deposit_due_days\": 2608,\n      \"tax_rate_id\": 7418,\n      \"tax_rate_ids\": [\n        4924,\n        6118\n      ],\n      \"to_time\": 3723,\n      \"turnaround_days_after\": 3658,\n      \"use_day_pricing\": false,\n      \"use_tax_inclusive_pricing\": true,\n      \"variable_fees_upfront\": false\n    },\n    \"booking_restrictions\": {\n      \"all_booking_cancellation_threshold\": 2035,\n      \"all_booking_cancellations_six_months\": 1882,\n      \"cancellation_penalty_less_than_7_days\": 5396,\n      \"cancellation_penalty_more_than_7_days\": 9469,\n      \"instant_book_cancellation_threshold\": 5077,\n      \"instant_book_cancellations_six_months\": 3826,\n      \"is_instant_book_banned\": false\n    },\n    \"business\": {\n      \"cancel_policy\": \"string\",\n      \"cancel_policy_combo_bookings\": \"string\",\n      \"cancel_text\": \"string\",\n      \"checkout_questions\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {}\n        }\n      ],\n      \"consigned_keep_pct_addon_fee\": 8734.84461245774,\n      \"consigned_keep_pct_cc_fee\": 8107.8259301602975,\n      \"consigned_keep_pct_insurance_fee\": 1622.9764260627855,\n      \"consigned_pay_pct\": 8406.42097958567,\n      \"consigned_pay_pct_generator\": 9389.569751304176,\n      \"consigned_pay_pct_mileage\": 9411.781472278979,\n      \"description\": \"string\",\n      \"fax\": \"string\",\n      \"ga4_id\": \"string\",\n      \"google_analytics_id\": null,\n      \"google_tag_manager_id\": \"string\",\n      \"hide_rentals\": true,\n      \"house_rules\": \"string\",\n      \"localized_languages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"outdoorsy_display_name\": \"string\",\n      \"phone\": \"string\",\n      \"segment_token\": \"string\",\n      \"terms_of_service\": \"string\",\n      \"website\": \"string\"\n    },\n    \"coaching_completed\": true,\n    \"coaching_completed_on_date\": \"string\",\n    \"coaching_dismissed_count\": 2972,\n    \"dealer_locations\": [\n      {\n        \"archived\": false,\n        \"availability\": {\n          \"days\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"county\": \"string\",\n        \"created\": \"string\",\n        \"custom_insurance_text\": \"string\",\n        \"dropoff_end_time\": 336,\n        \"dropoff_start_time\": 7345,\n        \"eligible_for_system_tax_rates\": false,\n        \"employer_identification_number\": \"string\",\n        \"id\": 9900,\n        \"lat\": 9384.394513460762,\n        \"lng\": 3631.7418929517044,\n        \"locale\": {\n          \"base_currency\": \"string\"\n        },\n        \"name\": \"string\",\n        \"opt_out_marketplace_taxes\": true,\n        \"owner_id\": 9662,\n        \"payment_processing_info_id\": 5129,\n        \"phone\": \"string\",\n        \"pickup_end_time\": 2793,\n        \"pickup_start_time\": 4298,\n        \"rental_count\": 2289,\n        \"special_hours\": [\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 6465,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 7808,\n            \"location_id\": null,\n            \"name\": \"string\",\n            \"owner_id\": 6355,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": false,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 5292,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 4564,\n            \"location_id\": null,\n            \"name\": \"string\",\n            \"owner_id\": 6956,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": true,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"state\": \"string\",\n        \"state_tax_id\": \"string\",\n        \"street\": \"string\",\n        \"street_etc\": \"string\",\n        \"tax_rate_id\": {\n          \"archived\": true,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 4522,\n          \"marketplace\": false,\n          \"name\": \"string\",\n          \"owner_id\": 8149,\n          \"rate\": 6819.161704323531,\n          \"state\": \"string\",\n          \"updated\": \"string\",\n          \"zip_code\": \"string\"\n        },\n        \"tax_rate_ids\": [\n          8720,\n          4363\n        ],\n        \"tax_split_eligible\": false,\n        \"updated\": \"string\",\n        \"waived_insurance_text\": \"string\",\n        \"zip\": \"string\"\n      },\n      {\n        \"archived\": false,\n        \"availability\": {\n          \"days\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"county\": \"string\",\n        \"created\": \"string\",\n        \"custom_insurance_text\": null,\n        \"dropoff_end_time\": 2466,\n        \"dropoff_start_time\": 8289,\n        \"eligible_for_system_tax_rates\": true,\n        \"employer_identification_number\": \"string\",\n        \"id\": 7523,\n        \"lat\": 9828.97696122784,\n        \"lng\": 7634.447100019854,\n        \"locale\": {\n          \"base_currency\": \"string\"\n        },\n        \"name\": \"string\",\n        \"opt_out_marketplace_taxes\": false,\n        \"owner_id\": 2543,\n        \"payment_processing_info_id\": 3919,\n        \"phone\": \"string\",\n        \"pickup_end_time\": 6172,\n        \"pickup_start_time\": 3934,\n        \"rental_count\": 2084,\n        \"special_hours\": [\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 6581,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 7921,\n            \"location_id\": 8232,\n            \"name\": \"string\",\n            \"owner_id\": 7777,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": false,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 9296,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 3203,\n            \"location_id\": null,\n            \"name\": \"string\",\n            \"owner_id\": 8108,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": false,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"state\": \"string\",\n        \"state_tax_id\": \"string\",\n        \"street\": \"string\",\n        \"street_etc\": \"string\",\n        \"tax_rate_id\": {\n          \"archived\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 2617,\n          \"marketplace\": false,\n          \"name\": \"string\",\n          \"owner_id\": 9579,\n          \"rate\": 4996.579650815326,\n          \"state\": \"string\",\n          \"updated\": \"string\",\n          \"zip_code\": \"string\"\n        },\n        \"tax_rate_ids\": [\n          4638,\n          9601\n        ],\n        \"tax_split_eligible\": false,\n        \"updated\": \"string\",\n        \"waived_insurance_text\": null,\n        \"zip\": \"string\"\n      }\n    ],\n    \"disable_phone\": false,\n    \"email\": \"string\",\n    \"employee_locations\": [\n      {\n        \"archived\": false,\n        \"availability\": {\n          \"days\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"county\": \"string\",\n        \"created\": \"string\",\n        \"custom_insurance_text\": \"string\",\n        \"dropoff_end_time\": 3671,\n        \"dropoff_start_time\": 2188,\n        \"eligible_for_system_tax_rates\": false,\n        \"employer_identification_number\": \"string\",\n        \"id\": 8609,\n        \"lat\": 8812.694559183767,\n        \"lng\": 6347.233274163335,\n        \"locale\": {\n          \"base_currency\": \"string\"\n        },\n        \"name\": \"string\",\n        \"opt_out_marketplace_taxes\": true,\n        \"owner_id\": 7892,\n        \"payment_processing_info_id\": 1619,\n        \"phone\": \"string\",\n        \"pickup_end_time\": 1809,\n        \"pickup_start_time\": 5935,\n        \"rental_count\": 3021,\n        \"special_hours\": [\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 2008,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 3275,\n            \"location_id\": null,\n            \"name\": \"string\",\n            \"owner_id\": 8327,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": true,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 5597,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 4933,\n            \"location_id\": 8953,\n            \"name\": \"string\",\n            \"owner_id\": 3591,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": true,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"state\": \"string\",\n        \"state_tax_id\": \"string\",\n        \"street\": \"string\",\n        \"street_etc\": \"string\",\n        \"tax_rate_id\": {\n          \"archived\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 2445,\n          \"marketplace\": true,\n          \"name\": \"string\",\n          \"owner_id\": 7984,\n          \"rate\": 2563.499404913355,\n          \"state\": \"string\",\n          \"updated\": \"string\",\n          \"zip_code\": \"string\"\n        },\n        \"tax_rate_ids\": [\n          5830,\n          3549\n        ],\n        \"tax_split_eligible\": true,\n        \"updated\": \"string\",\n        \"waived_insurance_text\": \"string\",\n        \"zip\": \"string\"\n      },\n      {\n        \"archived\": false,\n        \"availability\": {\n          \"days\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"county\": \"string\",\n        \"created\": \"string\",\n        \"custom_insurance_text\": null,\n        \"dropoff_end_time\": 9704,\n        \"dropoff_start_time\": 5883,\n        \"eligible_for_system_tax_rates\": true,\n        \"employer_identification_number\": \"string\",\n        \"id\": 6934,\n        \"lat\": 4410.516857757208,\n        \"lng\": 485.0174240532767,\n        \"locale\": {\n          \"base_currency\": \"string\"\n        },\n        \"name\": \"string\",\n        \"opt_out_marketplace_taxes\": false,\n        \"owner_id\": 6742,\n        \"payment_processing_info_id\": 2637,\n        \"phone\": \"string\",\n        \"pickup_end_time\": 5782,\n        \"pickup_start_time\": 2125,\n        \"rental_count\": 7897,\n        \"special_hours\": [\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 2213,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 3564,\n            \"location_id\": 2021,\n            \"name\": \"string\",\n            \"owner_id\": 8587,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": true,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"created\": \"string\",\n            \"created_from_id\": 4765,\n            \"dropoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_date\": \"string\",\n            \"id\": 701,\n            \"location_id\": 5475,\n            \"name\": \"string\",\n            \"owner_id\": 1195,\n            \"pickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"repeats\": true,\n            \"start_date\": \"string\",\n            \"updated\": \"string\",\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"state\": \"string\",\n        \"state_tax_id\": \"string\",\n        \"street\": \"string\",\n        \"street_etc\": \"string\",\n        \"tax_rate_id\": {\n          \"archived\": false,\n          \"created\": \"string\",\n          \"description\": \"string\",\n          \"id\": 1351,\n          \"marketplace\": false,\n          \"name\": \"string\",\n          \"owner_id\": 4728,\n          \"rate\": 3316.681628058409,\n          \"state\": \"string\",\n          \"updated\": \"string\",\n          \"zip_code\": \"string\"\n        },\n        \"tax_rate_ids\": [\n          1659,\n          2738\n        ],\n        \"tax_split_eligible\": false,\n        \"updated\": \"string\",\n        \"waived_insurance_text\": null,\n        \"zip\": \"string\"\n      }\n    ],\n    \"exclude_locations\": [\n      \"string\",\n      \"string\"\n    ],\n    \"extra\": {\n      \"key_0\": {}\n    },\n    \"first_name\": \"string\",\n    \"gender\": \"string\",\n    \"google_place_id\": \"string\",\n    \"guest_smart_match_opt_out\": true,\n    \"last_name\": \"string\",\n    \"license\": {},\n    \"listing_coach_dismiss_flag\": true,\n    \"locale\": {\n      \"base_currency\": \"string\",\n      \"date_format\": \"string\",\n      \"distance_unit\": \"string\",\n      \"language\": \"string\",\n      \"length_unit\": \"string\",\n      \"liquid_unit\": \"string\",\n      \"time_format\": \"string\",\n      \"timezone\": \"string\",\n      \"weight_unit\": \"string\"\n    },\n    \"logo_url\": \"string\",\n    \"mast_image_url\": \"string\",\n    \"nationality\": \"string\",\n    \"notifications\": {\n      \"browser\": {\n        \"all\": true\n      },\n      \"email\": {\n        \"abandoned_checkout\": true,\n        \"all\": true\n      },\n      \"mobile\": {\n        \"all\": false\n      },\n      \"sms\": {\n        \"abandoned_checkout\": true,\n        \"bookings\": true,\n        \"marketing\": false,\n        \"messages\": true\n      }\n    },\n    \"od_stays_opt_in\": true,\n    \"phone\": \"string\",\n    \"sd_waiver_enabled\": null,\n    \"sms_exclude_locations\": [\n      2089,\n      4776\n    ],\n    \"social\": [\n      {\n        \"count\": 841,\n        \"link\": \"string\",\n        \"rating\": 5476.844282172439,\n        \"site\": \"string\"\n      },\n      {\n        \"count\": 4673,\n        \"link\": \"string\",\n        \"rating\": 274.56599933047056,\n        \"site\": \"string\"\n      }\n    ],\n    \"title\": \"string\",\n    \"unavailable_color_labels\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"user_type\": \"string\"\n  },\n  \"reconnect_bank\": false,\n  \"referral_code\": \"string\",\n  \"referred_by_id\": 3881,\n  \"referred_owner_paid\": true,\n  \"referred_owner_payout_amount\": 1308,\n  \"referred_renter_paid\": true,\n  \"referred_renter_payout_amount\": 8944,\n  \"renter\": true,\n  \"renter_fee_percentage\": 7285.092551571377,\n  \"require_w9_form\": false,\n  \"require_w9_to_accept_booking\": true,\n  \"response_percent\": {\n    \"Float64\": 4153.013431209065,\n    \"Valid\": true\n  },\n  \"roadside_missing\": [\n    \"string\",\n    \"string\"\n  ],\n  \"roamly_carshare_user\": true,\n  \"roamly_policy_id\": \"string\",\n  \"roamly_policy_number\": \"string\",\n  \"roamly_status\": \"string\",\n  \"role\": {\n    \"active\": false,\n    \"created\": \"1975-03-14T07:11:33.410Z\",\n    \"deleted\": true,\n    \"id\": 2976,\n    \"name\": \"string\",\n    \"owner_user_id\": 231,\n    \"permissions\": [\n      {\n        \"can_create\": true,\n        \"can_delete\": true,\n        \"can_read\": false,\n        \"can_update\": false,\n        \"created\": \"1992-04-27T02:52:15.845Z\",\n        \"id\": 6354,\n        \"label\": \"string\",\n        \"name\": \"string\",\n        \"permission_id\": 3538,\n        \"role_id\": 3699,\n        \"updated\": \"1980-07-08T23:51:37.418Z\"\n      },\n      {\n        \"can_create\": true,\n        \"can_delete\": true,\n        \"can_read\": true,\n        \"can_update\": true,\n        \"created\": \"2009-08-22T20:15:31.544Z\",\n        \"id\": 5121,\n        \"label\": \"string\",\n        \"name\": \"string\",\n        \"permission_id\": 8844,\n        \"role_id\": 1608,\n        \"updated\": \"1984-05-13T16:27:43.854Z\"\n      }\n    ],\n    \"updated\": \"1985-09-28T00:00:10.086Z\"\n  },\n  \"rv_owner\": true,\n  \"score\": 8299.64688361981,\n  \"score_count\": 4728,\n  \"search_metrics_start_date\": \"string\",\n  \"security\": {\n    \"force_password_reset\": false,\n    \"social_login_disabled\": true,\n    \"user_id\": 8824\n  },\n  \"self_serve_signup\": null,\n  \"session_id\": \"string\",\n  \"show_gps_deprecation_warning\": false,\n  \"signup_source\": \"string\",\n  \"skip_w9_to_publish\": true,\n  \"slug\": \"string\",\n  \"sso\": {\n    \"auth_url\": \"string\",\n    \"client_id\": \"string\",\n    \"client_secret\": \"string\",\n    \"token_url\": \"string\"\n  },\n  \"stay_owner\": true,\n  \"superhost_cancel_rate\": 7532.513023261259,\n  \"superhost_departed_bookings\": 9156,\n  \"superhost_last_assessment\": \"string\",\n  \"superhost_last_start_assessment\": \"string\",\n  \"superhost_response_rate\": 5021.2764103355985,\n  \"superhost_review_rate\": 9118.93711885977,\n  \"superhost_reviewed_bookings\": 3049,\n  \"time_to_first_action\": 3940,\n  \"tolls_enabled\": true,\n  \"tollspot_account_number\": \"string\",\n  \"tollspot_account_status\": \"string\",\n  \"tos_acceptance_date\": \"string\",\n  \"total_bookings\": 1356,\n  \"tracking\": {\n    \"campaign\": \"string\",\n    \"content\": \"string\",\n    \"intent\": \"string\",\n    \"medium\": \"string\",\n    \"source\": \"string\",\n    \"term\": \"string\"\n  },\n  \"undelivered_emails_count\": 2111,\n  \"use_fees_increase\": null,\n  \"use_insurance_bundles\": true,\n  \"verifications\": {\n    \"email\": true,\n    \"facebook\": {\n      \"key_0\": {}\n    },\n    \"has_sent_message_without_phone_verified\": false,\n    \"phone\": true\n  },\n  \"viewed_outdoorsy_host_beta\": true,\n  \"viewed_roamly_ad\": false,\n  \"viewed_smart_match_banner\": false,\n  \"viewed_smart_pricing_banner\": false,\n  \"viewed_super_host_banner\": false,\n  \"w9_completed_at\": \"string\",\n  \"w9_eligible\": false,\n  \"w9_tax_form_completed\": true,\n  \"w9_tin_status\": \"string\",\n  \"waive_w9_completion\": false,\n  \"wheelbase_fee\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd07f735-9002-40ae-a282-dfcec339d719",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "71b7671a-ef22-49a1-9048-b2638fd13287",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ef75c68-e663-487f-bbb2-83d836e397e9",
+          "name": "archive User Gateway",
+          "request": {
+            "name": "archive User Gateway",
+            "description": {
+              "content": "Archive payment gateway",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "gateways",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40d170bd-60fe-4eae-903a-1b570738eb28",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78c8bcac-ac93-4073-9746-dbd68e7027c6",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7ea05dc-9f51-4525-a861-9d7191e6fd7e",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "gateways",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "35db7e99-c5d8-44a0-98ed-6fd14b4df3af",
+    "name": "Outdoorsy API Documentation Gateways API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

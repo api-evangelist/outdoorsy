@@ -1,0 +1,158 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Checkout Steps API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: checkoutSteps
+paths:
+  /checkout_steps/{booking_id}:
+    get:
+      description: 'Returns the list objects, containing step name, order and status for clients to use when
+
+        sending a renter through the reservation (checkout) flow.'
+      tags:
+      - checkoutSteps
+      operationId: getCheckoutSteps
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/checkoutStepsResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: 'Updates the status of steps for the specified booking. Send incomplete/complete for each
+
+        step in the list.'
+      tags:
+      - checkoutSteps
+      operationId: updateCheckoutSteps
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/checkoutStepsResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRequest'
+components:
+  schemas:
+    ReadResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        imminent_departure:
+          type: boolean
+          x-go-name: ImminentDeparture
+        readonly_insurance:
+          type: boolean
+          x-go-name: ReadOnlyInsurance
+        route:
+          type: string
+          x-go-name: Route
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckoutStep'
+          x-go-name: Steps
+      x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
+    CheckoutStep:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        order:
+          type: integer
+          format: int64
+          x-go-name: Order
+        status:
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
+    UpdateRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        status:
+          type: string
+          x-go-name: Status
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckoutStep'
+          x-go-name: Steps
+      x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
+  responses:
+    notFoundError:
+      description: Not found error
+    checkoutStepsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadResponse'
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

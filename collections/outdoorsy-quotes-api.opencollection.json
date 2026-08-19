@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Quotes API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "quotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generates a quote for a given rental based on start and stop dates.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/quotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a quote for a given rental based on start and stop dates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

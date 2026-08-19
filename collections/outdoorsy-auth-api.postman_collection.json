@@ -1,0 +1,1288 @@
+{
+  "item": [
+    {
+      "id": "d78795ea-da77-413c-88ba-ca47e32ce299",
+      "name": "auth",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a119b3d-a8d4-4ee3-a362-09f0b43828c9",
+          "name": "Register a new user given a name and email address.",
+          "request": {
+            "name": "Register a new user given a name and email address.",
+            "description": {
+              "content": "If no password is provided then user is considered a guest.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "creds",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"campaign\": \"<string>\",\n  \"content\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"enable_sms\": \"<boolean>\",\n  \"first_name\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"medium\": \"<string>\",\n  \"password\": \"<string>\",\n  \"password_validation_user_inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"phone\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"referral_code\": \"<string>\",\n  \"signup_source\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff2f9c38-7ce5-4050-b9df-40d87e331831",
+              "name": "HTTP status code 200 and user model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"campaign\": \"<string>\",\n  \"content\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"enable_sms\": \"<boolean>\",\n  \"first_name\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"medium\": \"<string>\",\n  \"password\": \"<string>\",\n  \"password_validation_user_inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"phone\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"referral_code\": \"<string>\",\n  \"signup_source\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"email\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\",\n  \"preferred_2fa_method\": \"string\",\n  \"refresh_token\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"session_id_2fa\": \"string\",\n  \"show_2fa_screen\": true,\n  \"show_verify_email_screen\": true,\n  \"token\": \"string\",\n  \"user_id\": 6793,\n  \"verifications\": {\n    \"email\": false,\n    \"phone\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43ceb315-2c08-4018-be9d-204d3098c61d",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"campaign\": \"<string>\",\n  \"content\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"enable_sms\": \"<boolean>\",\n  \"first_name\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"medium\": \"<string>\",\n  \"password\": \"<string>\",\n  \"password_validation_user_inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"phone\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"referral_code\": \"<string>\",\n  \"signup_source\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52e5555c-788e-4e2c-9415-ee44134768e7",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"campaign\": \"<string>\",\n  \"content\": \"<string>\",\n  \"country\": \"<string>\",\n  \"email\": \"<string>\",\n  \"enable_sms\": \"<boolean>\",\n  \"first_name\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"medium\": \"<string>\",\n  \"password\": \"<string>\",\n  \"password_validation_user_inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"phone\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"referral_code\": \"<string>\",\n  \"signup_source\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "108b77a4-b503-462c-8081-c32aa0f1d12d",
+          "name": "auth Creds Forget",
+          "request": {
+            "name": "auth Creds Forget",
+            "description": {
+              "content": "Sends email to registered email with password reset instructions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "creds",
+                "forgot"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8529aee2-5b0a-49cb-b898-55e279b5d60f",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "forgot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a4b614e-7ec8-45d3-8f3a-40fe39a599cb",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "forgot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "79a14d8e-620b-4d42-b7e7-ddd8b76b7812",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "forgot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "199bebe8-f162-4089-809a-f3e8a7c62a1e",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "forgot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d031162-d380-4025-9cc1-a4bae1aa9165",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "forgot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdf23a38-d66f-480b-800c-0e2119fc12e4",
+          "name": "auth Creds Login",
+          "request": {
+            "name": "auth Creds Login",
+            "description": {},
+            "url": {
+              "path": [
+                "auth",
+                "creds",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_id\": \"<string>\",\n  \"biometric_id\": \"<string>\",\n  \"dealer_user\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4b14a45-ce59-4789-af1d-12ca4a864f98",
+              "name": "HTTP status code 200 and user model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_id\": \"<string>\",\n  \"biometric_id\": \"<string>\",\n  \"dealer_user\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"email\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\",\n  \"preferred_2fa_method\": \"string\",\n  \"refresh_token\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"session_id_2fa\": \"string\",\n  \"show_2fa_screen\": true,\n  \"show_verify_email_screen\": true,\n  \"token\": \"string\",\n  \"user_id\": 3942,\n  \"verifications\": {\n    \"email\": false,\n    \"phone\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9a7a367-6c37-4b1e-9453-8883abea43a0",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_id\": \"<string>\",\n  \"biometric_id\": \"<string>\",\n  \"dealer_user\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb28ff44-5b6d-4fd0-b038-dae444fcf6e5",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_id\": \"<string>\",\n  \"biometric_id\": \"<string>\",\n  \"dealer_user\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc5214cd-922d-4eb8-8456-4f61930e4099",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_id\": \"<string>\",\n  \"biometric_id\": \"<string>\",\n  \"dealer_user\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"recaptcha_response\": \"<string>\",\n  \"with_refresh_token\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13f85d56-d410-4043-b5c6-80cdcc1aac49",
+          "name": "auth Creds Resend",
+          "request": {
+            "name": "auth Creds Resend",
+            "description": {
+              "content": "Resends password reset email",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "creds",
+                "resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39973186-4baa-412b-a75f-a8234173d537",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8491c14-67bb-4bf2-8f61-c0d717b9be70",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "caec2c11-e5f5-41a3-8167-1497e904cd9d",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa5a08ba-59ef-4127-ba62-dd11b0715927",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "creds",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e79ede4d-8a1e-4799-88f4-61756d3249ed",
+          "name": "Register a new self-serve dealer account.",
+          "request": {
+            "name": "Register a new self-serve dealer account.",
+            "description": {
+              "content": "Creates a dealer account for unauthenticated users through the self-serve signup flow.\nThe dealer will need to complete email verification and subscription payment before\ngaining full access to Wheelbase.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "dealers",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bcf8ddc-402a-4aa0-8b85-ed34e64c6ae4",
+              "name": "HTTP status code 200 and user model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "dealers",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"email\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\",\n  \"preferred_2fa_method\": \"string\",\n  \"refresh_token\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"session_id_2fa\": \"string\",\n  \"show_2fa_screen\": true,\n  \"show_verify_email_screen\": true,\n  \"token\": \"string\",\n  \"user_id\": 3942,\n  \"verifications\": {\n    \"email\": false,\n    \"phone\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1835022b-65c8-4a60-af43-5a411fb58916",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "dealers",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "458294de-c4ae-4fb0-a99e-126bdd426ee2",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "dealers",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c90ef431-d6ab-454c-a90d-87edf74a505b",
+          "name": "Redirect endpoint after performing oauth flow with facebook, google, apple.",
+          "request": {
+            "name": "Redirect endpoint after performing oauth flow with facebook, google, apple.",
+            "description": {},
+            "url": {
+              "path": [
+                "auth",
+                ":provider",
+                "callback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "896b5640-d02e-4368-8a12-550a69f472e7",
+          "name": "Entry point for starting oauth flow with specified provider.",
+          "request": {
+            "name": "Entry point for starting oauth flow with specified provider.",
+            "description": {
+              "content": "Redirects to respective identity provider.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                ":provider",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "588fcae7-fb89-45f7-8b14-0629aac06821",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    ":provider",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea325c65-8867-4c33-bc8c-9e0960b9cb1d",
+    "name": "Outdoorsy API Documentation Auth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

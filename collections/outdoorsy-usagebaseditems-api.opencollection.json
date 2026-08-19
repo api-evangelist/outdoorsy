@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Usage Based Items API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "usageBasedItems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns an array of usage based items owned by the user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/usage-based-items"
+          },
+          "docs": "Returns an array of usage based items owned by the user."
+        },
+        {
+          "info": {
+            "name": "createUsageBasedItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/usage-based-items",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new usage based item (Ex. mileage, generator, delivery)"
+        },
+        {
+          "info": {
+            "name": "Returns the usage based item by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/usage-based-items/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the usage based item by id."
+        },
+        {
+          "info": {
+            "name": "Update record by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/usage-based-items/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update record by id."
+        },
+        {
+          "info": {
+            "name": "deleteUsageBasedItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/usage-based-items/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete record by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

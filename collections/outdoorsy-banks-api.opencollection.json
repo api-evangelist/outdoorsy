@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Banks API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "banks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getBanksWithPayoutsTriggered",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/users/banks/payouts-triggered"
+          },
+          "docs": "List all payment processing infos with payouts-triggered missing field (admin only)"
+        },
+        {
+          "info": {
+            "name": "updateBankAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/admin/users/banks/update",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified connected bank"
+        },
+        {
+          "info": {
+            "name": "Create/Update a single stripe connected bank account. Does not support new Finance funds.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/bank",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "See POST /users/banks"
+        },
+        {
+          "info": {
+            "name": "Deletes a connected bank account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/users/bank/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a connected bank account."
+        },
+        {
+          "info": {
+            "name": "listBanks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/banks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "managed_accounts_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fund_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List active bank accounts"
+        },
+        {
+          "info": {
+            "name": "addBankAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/users/banks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new bank account"
+        },
+        {
+          "info": {
+            "name": "getBankById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/users/banks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve single bank by id"
+        },
+        {
+          "info": {
+            "name": "updateBankAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/users/banks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified connected bank"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

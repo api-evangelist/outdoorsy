@@ -1,0 +1,729 @@
+{
+  "item": [
+    {
+      "id": "1bc8287d-307d-4b24-af86-027b33e0bffb",
+      "name": "pricing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b9d1632-945a-4403-b0a0-2755f62a4770",
+          "name": "Return estimated price when listing your vehicle by make, model and location.",
+          "request": {
+            "name": "Return estimated price when listing your vehicle by make, model and location.",
+            "description": {
+              "content": "Only used during the LYRV flow to show an owner a range of possible income.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75155847-e40e-4bcf-b9f3-8b6c8f9b93d9",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"high\": {\n    \"day\": 5063,\n    \"month\": 3191,\n    \"week\": 3218\n  },\n  \"low\": {\n    \"day\": 9339,\n    \"month\": 6758,\n    \"week\": 5937\n  },\n  \"mmi\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c91672f-2f7a-4505-8c4a-027771927fa3",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21d5c51e-e6a9-4206-bbbd-961aa58933ae",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7366fff-7c61-4349-ba74-c55a7fb0b533",
+          "name": "Return price aggregation for nearby rentals around given lat and lng in 50 miles radius.",
+          "request": {
+            "name": "Return price aggregation for nearby rentals around given lat and lng in 50 miles radius.",
+            "description": {},
+            "url": {
+              "path": [
+                "pricing",
+                "aggregate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<double>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a038253-9182-4fe8-a751-1b1e1cd66c74",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "aggregate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_price\": 7802.238285951252,\n  \"min_price\": 1198.643740544957,\n  \"rental_count\": 8369\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7be6210f-2a2b-4f17-97c2-50d82d389428",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "aggregate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "886359a6-951c-4336-b984-c9fd98488e89",
+          "name": "Return estimated price when listing your vehicle by make, model and location.",
+          "request": {
+            "name": "Return estimated price when listing your vehicle by make, model and location.",
+            "description": {
+              "content": "Only used during the LYRV flow to show an owner a range of possible income.\nBetter calculation than the original endpoint. i think this is the actual one we use",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "length",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rental_category",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "172a58f6-ab22-4079-81e5-31a384d27f14",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"high\": {\n    \"day\": 345,\n    \"month\": 1680,\n    \"week\": 5248\n  },\n  \"low\": {\n    \"day\": 5424,\n    \"month\": 8009,\n    \"week\": 324\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "865c44f5-6a1e-4950-8559-ece7cadd527c",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc4b40ef-f718-47f9-8838-1a80085ab5b9",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rental_category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "911b06eb-eed4-47b5-a482-c7a85b33fd64",
+    "name": "Outdoorsy API Documentation Pricing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

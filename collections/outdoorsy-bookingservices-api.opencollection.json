@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Booking Services API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookingServices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the list of available premium services for the requested booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/services",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Not all services will be available for all bookings, depending on the owner,\nvehicle, or location of the vehicle (country)."
+        },
+        {
+          "info": {
+            "name": "deleteBookingService",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:booking_id/services/:id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a premium service from the booking"
+        },
+        {
+          "info": {
+            "name": "Returns the booking service associated with the booking.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/services/:service_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the booking service associated with the booking."
+        },
+        {
+          "info": {
+            "name": "Adds an available premium service to the booking based on the service id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/services/:service_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds an available premium service to the booking based on the service id."
+        },
+        {
+          "info": {
+            "name": "Updates an existing premium service on this booking using the service id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:booking_id/services/:service_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing premium service on this booking using the service id."
+        },
+        {
+          "info": {
+            "name": "Returns the booking weather from Roamly.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/weather",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns the booking weather from Roamly."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,357 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Files API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: files
+paths:
+  /files:
+    get:
+      description: Return files
+      tags:
+      - files
+      operationId: listFiles
+      parameters:
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: UserID
+        name: user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: BookingID
+        name: booking_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Signable
+        name: signable
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IDs
+        name: ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: AutoInclude
+        name: auto_include
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: AccountOnly
+        name: account_only
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeEsign
+        name: include_esign
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Type
+        name: type
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/filesResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    post:
+      description: Create file
+      tags:
+      - files
+      operationId: createFile
+      responses:
+        '200':
+          $ref: '#/components/responses/fileResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+  /files/{id}:
+    get:
+      description: Response will redirect to authenticated file
+      tags:
+      - files
+      operationId: getFile
+      parameters:
+      - x-go-name: FileID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: JSON
+        name: json
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: UpdateURL
+        name: update_url
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '302':
+          $ref: '#/components/responses/redirectResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    delete:
+      description: Delete file
+      tags:
+      - files
+      operationId: deleteFile
+      parameters:
+      - x-go-name: FileID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    patch:
+      description: Update file details
+      tags:
+      - files
+      operationId: updateFile
+      parameters:
+      - x-go-name: FileID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/fileResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    fileResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/File'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    filesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/File'
+  schemas:
+    File:
+      type: object
+      properties:
+        actor_id:
+          type: integer
+          format: int64
+        auto_include:
+          type: boolean
+          x-go-name: AutoInclude
+        booking_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by_id:
+          type: integer
+          format: int64
+        description:
+          type: string
+          x-go-name: Description
+        description_location:
+          type: string
+          x-go-name: DescriptionLocation
+        description_text:
+          type: string
+          x-go-name: DescriptionText
+        exif_created:
+          type: string
+          x-go-name: ExifCreated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        format:
+          type: string
+          x-go-name: Format
+        geo_latitude:
+          type: number
+          format: double
+          x-go-name: GeoLatitude
+        geo_longitude:
+          type: number
+          format: double
+          x-go-name: GeoLongitude
+        guid:
+          type:
+          - string
+          - 'null'
+        has_damage:
+          type: boolean
+          x-go-name: HasDamage
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        include_esign:
+          type:
+          - boolean
+          - 'null'
+        message_id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        out_of_date:
+          type:
+          - boolean
+          - 'null'
+        public_id:
+          type: string
+          x-go-name: PublicID
+        rental_id:
+          type: integer
+          format: int64
+        shared:
+          type: boolean
+          x-go-name: Shared
+        signable:
+          type: boolean
+          x-go-name: Signable
+        signers:
+          type: array
+          items: {}
+          x-go-name: Signers
+        signing_canceled:
+          type:
+          - boolean
+          - 'null'
+        signing_complete:
+          type:
+          - boolean
+          - 'null'
+        signing_service_id:
+          description: Unique identifier for digital signature record
+          type: string
+          x-go-name: SigningServiceID
+        title:
+          type: string
+          x-go-name: Title
+        type:
+          type:
+          - string
+          - 'null'
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        url:
+          type: string
+          x-go-name: URL
+        user_id:
+          type: integer
+          format: int64
+      x-go-package: github.com/outdoorsy/api/model
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

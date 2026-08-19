@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Towing Info API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: towingInfo
+paths:
+  /towing_info:
+    get:
+      description: Returns a list of towing info for vehicles
+      tags:
+      - towingInfo
+      operationId: towingInfoRequest
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Year
+        name: year
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Make
+        name: make
+        in: query
+        schema:
+          type: string
+      - x-go-name: Model
+        name: model
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/towingInfoResponse'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    genericError:
+      description: An unknown, unexpected error.
+    towingInfoResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TowingInfo'
+  schemas:
+    TowingInfo:
+      type: object
+      properties:
+        axle_ratio:
+          type: string
+          x-go-name: AxleRatio
+        body_type:
+          type: string
+          x-go-name: BodyType
+        drivetrain:
+          type: string
+          x-go-name: Drivetrain
+        engine:
+          type: string
+          x-go-name: Engine
+        hitch_type:
+          type: string
+          x-go-name: HitchType
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        make:
+          type: string
+          x-go-name: Make
+        max_towing_capacity:
+          type: integer
+          format: int64
+          x-go-name: MaxTowingCapacity
+        model:
+          type: string
+          x-go-name: Model
+        suggested_towing_capacity:
+          type: integer
+          format: int64
+          x-go-name: SuggestedTowingCapacity
+        transmission:
+          type: string
+          x-go-name: Transmission
+        year:
+          type: integer
+          format: int64
+          x-go-name: Year
+      x-go-package: github.com/outdoorsy/api/internal/towing_info
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

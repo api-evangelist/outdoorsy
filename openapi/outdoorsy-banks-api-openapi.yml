@@ -1,0 +1,692 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Banks API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: banks
+paths:
+  /admin/users/banks/payouts-triggered:
+    get:
+      description: List all payment processing infos with payouts-triggered missing field (admin only)
+      tags:
+      - banks
+      operationId: getBanksWithPayoutsTriggered
+      responses:
+        '200':
+          $ref: '#/components/responses/listBankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /admin/users/banks/update:
+    post:
+      description: Updates the specified connected bank
+      tags:
+      - banks
+      operationId: updateBankAccount
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/bankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorBody'
+  /users/bank:
+    post:
+      description: See POST /users/banks
+      tags:
+      - banks
+      summary: Create/Update a single stripe connected bank account. Does not support new Finance funds.
+      operationId: connectStripeBank
+      deprecated: true
+      responses:
+        '200':
+          $ref: '#/components/responses/bankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorBody'
+  /users/bank/{id}:
+    delete:
+      tags:
+      - banks
+      summary: Deletes a connected bank account.
+      operationId: deleteBankAccount
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /users/banks:
+    get:
+      description: List active bank accounts
+      tags:
+      - banks
+      operationId: listBanks
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: IDs
+        name: ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: OwnerID
+        name: owner_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LocationID
+        name: location_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: BookingID
+        name: booking_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Country
+        name: country
+        in: query
+        schema:
+          type: string
+      - x-go-name: Archived
+        name: archived
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ManagedAccountsOnly
+        name: managed_accounts_only
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Order
+        name: order
+        in: query
+        schema:
+          type: string
+      - x-go-name: FundType
+        name: fund_type
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/listBankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Creates a new bank account
+      tags:
+      - banks
+      operationId: addBankAccount
+      responses:
+        '204':
+          $ref: '#/components/responses/bankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorBody'
+  /users/banks/{id}:
+    get:
+      description: Retrieve single bank by id
+      tags:
+      - banks
+      operationId: getBankById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/bankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Updates the specified connected bank
+      tags:
+      - banks
+      operationId: updateBankAccount
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/bankResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorBody'
+components:
+  schemas:
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    VendorBody:
+      type: object
+      properties:
+        token:
+          type: string
+          x-go-name: Token
+        vendor:
+          $ref: '#/components/schemas/Vendor'
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    Address:
+      description: Address holds address information for a user
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    Business:
+      type: object
+      properties:
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_policy_combo_bookings:
+          type: string
+          x-go-name: CancelPolicyComboBookings
+        cancel_text:
+          type: string
+          x-go-name: CancelText
+        checkout_questions:
+          $ref: '#/components/schemas/DBMSISlice'
+        consigned_keep_pct_addon_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctAddonFee
+        consigned_keep_pct_cc_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctCCFee
+        consigned_keep_pct_insurance_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctInsuranceFee
+        consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: ConsignedPayPct
+        consigned_pay_pct_generator:
+          type: number
+          format: double
+          x-go-name: ConsignedPayPctGenerator
+        consigned_pay_pct_mileage:
+          type: number
+          format: double
+          x-go-name: ConsignedPayPctMileage
+        description:
+          type: string
+          x-go-name: Description
+        fax:
+          type: string
+          x-go-name: Fax
+        ga4_id:
+          type: string
+          x-go-name: GA4ID
+        google_analytics_id:
+          type:
+          - string
+          - 'null'
+        google_tag_manager_id:
+          type:
+          - string
+          - 'null'
+        hide_rentals:
+          type: boolean
+          x-go-name: HideRentals
+        house_rules:
+          type: string
+          x-go-name: HouseRules
+        localized_languages:
+          $ref: '#/components/schemas/DBStringSlice'
+        name:
+          type: string
+          x-go-name: Name
+        outdoorsy_display_name:
+          type: string
+          x-go-name: OutdoorsyDisplayName
+        phone:
+          type: string
+          x-go-name: Phone
+        segment_token:
+          type: string
+          x-go-name: SegmentToken
+        terms_of_service:
+          type: string
+          x-go-name: TermsOfService
+        website:
+          type: string
+          x-go-name: Website
+      x-go-package: github.com/outdoorsy/api/model
+    DBMSISlice:
+      description: DBMSISlice is a []string with database conversion methods
+      type: array
+      items:
+        type: object
+        additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    PaymentProcessor:
+      description: 'Typically this object is composed into a struct, but embedded into the
+
+        same table using the `db:",embed"` struct tag.'
+      type: object
+      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
+
+        payment processor should be used when communicating with a payment processor.'
+      properties:
+        country:
+          type: string
+          x-go-name: Country
+        external_processor:
+          type: string
+          x-go-name: ExternalProcessor
+        external_processor_id:
+          type: string
+          x-go-name: ExternalProcessorID
+        name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+      x-go-package: github.com/outdoorsy/api/model
+    Vendor:
+      description: 'Vendor contains details about a vendor in the provider''s system. It is
+
+        used for creating, updating and retrieving.'
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        bank_address:
+          type: string
+          x-go-name: BankAddress
+        birth_date:
+          type: string
+          format: date-time
+          x-go-name: BirthDate
+        business:
+          $ref: '#/components/schemas/Business'
+        currency:
+          type: string
+          x-go-name: Currency
+        debit_agreement_ip:
+          type: string
+          x-go-name: DebitAgreementIP
+        debit_agreement_shown_and_accepted:
+          type: boolean
+          x-go-name: DebitAgreementShownAndAcceptedDate
+        debit_agreement_user_agent:
+          type: string
+          x-go-name: DebitAgreementUserAgent
+        deposit_account:
+          $ref: '#/components/schemas/DepositAccount'
+        email:
+          type: string
+          x-go-name: Email
+        external_accounts:
+          type: integer
+          format: int64
+          x-go-name: ExternalAccounts
+        first_name:
+          type: string
+          x-go-name: FirstName
+        fund_id:
+          type: string
+          x-go-name: FundID
+        id:
+          type: string
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        merchant_of_record:
+          type: boolean
+          x-go-name: MerchantOfRecord
+        missing_fields:
+          type: array
+          items:
+            type: string
+          x-go-name: MissingFields
+        nickname:
+          type: string
+          x-go-name: Nickname
+        no_additional_owners:
+          type: boolean
+          x-go-name: NoAdditionalOwners
+        payouts_enabled:
+          type: boolean
+          x-go-name: PayoutsEnabled
+        personal_id:
+          type: string
+          x-go-name: PersonalID
+        phone:
+          type: string
+          x-go-name: Phone
+        reference_number:
+          type: string
+          x-go-name: ReferenceNumber
+        sort_code:
+          type: string
+          x-go-name: SortCode
+        ssn_last_four:
+          type: string
+          x-go-name: SSNLastFour
+        status:
+          type: string
+          x-go-name: Status
+        support_phone:
+          type: string
+          x-go-name: SupportPhone
+        type:
+          type: string
+          x-go-name: Type
+        url:
+          type: string
+          x-go-name: URL
+        verified:
+          type: boolean
+          x-go-name: Verified
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    DepositAccount:
+      description: 'DepositAccount defines fields representing the account in which funds will be
+
+        deposited when a deposit is issued.'
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        last_four:
+          type: string
+          x-go-name: LastFour
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    PaymentAddress:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    PaymentProcessingInfo:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/PaymentAddress'
+        archived:
+          type: boolean
+          x-go-name: Archived
+        bank_address:
+          type: string
+          x-go-name: BankAddress
+        bank_last_four:
+          type: string
+          x-go-name: BankLastFour
+        bank_name:
+          type: string
+          x-go-name: BankName
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+        can_accept_payments:
+          description: Dynamic Fields
+          type: boolean
+          x-go-name: CanAcceptPayments
+        can_archive_bank:
+          type: boolean
+          x-go-name: CanArchiveBank
+        can_send_payments:
+          type: boolean
+          x-go-name: CanSendPayments
+        capabilities:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        customer_id:
+          type: string
+          x-go-name: CustomerID
+        debit_agreement_date:
+          type: string
+          x-go-name: DebitAgreementDate
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deposits_disabled:
+          type: boolean
+          x-go-name: DepositsDisabled
+        form:
+          type: object
+          additionalProperties: {}
+          x-go-name: Form
+        fund_id:
+          type: string
+          x-go-name: FundID
+        gateway_type:
+          type: string
+          x-go-name: GatewayType
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        managed_account_id:
+          type: string
+          x-go-name: ManagedAccountID
+        missing_fields:
+          $ref: '#/components/schemas/DBStringSlice'
+        missing_fields_change_description:
+          type: array
+          items:
+            type: string
+          x-go-name: MissingFieldsChangeDescription
+        needs_migration:
+          description: can be used to force an account to re-authorize their bank via plaid
+          type: boolean
+          x-go-name: NeedsMigration
+        nickname:
+          type: string
+          x-go-name: Nickname
+        notes:
+          type: string
+          x-go-name: Notes
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        phone:
+          type: string
+          x-go-name: Phone
+        reference_number:
+          type: string
+          x-go-name: ReferenceNumber
+        sort_code:
+          type: string
+          x-go-name: SortCode
+        status:
+          type: string
+          x-go-name: Status
+        support_phone:
+          type: string
+          x-go-name: SupportPhone
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    listBankResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/PaymentProcessingInfo'
+    forbiddenError:
+      description: Forbidden error
+    unauthorizedError:
+      description: Unauthorized error
+    bankResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaymentProcessingInfo'
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

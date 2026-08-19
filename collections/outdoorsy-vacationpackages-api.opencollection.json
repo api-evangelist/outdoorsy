@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Search Documentation Vacation Packages API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "vacationPackages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "searchVacationPackages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vacation-packages"
+          },
+          "docs": "Search performs search on vacation packages"
+        },
+        {
+          "info": {
+            "name": "searchVacationPackagesCampgrounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vacation-packages/campgrounds"
+          },
+          "docs": "Search performs search on vacation packages campgrounds"
+        },
+        {
+          "info": {
+            "name": "searchVacationPackagesRentals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vacation-packages/rentals"
+          },
+          "docs": "Search performs search on vacation packages rentals"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

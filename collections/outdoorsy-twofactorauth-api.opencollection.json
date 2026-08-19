@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Two Factor Auth API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "twoFactorAuth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "sendCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/2fa/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create and send verification code"
+        },
+        {
+          "info": {
+            "name": "setupPreferredMethod",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/2fa/setup-method",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Setup preferred method"
+        },
+        {
+          "info": {
+            "name": "verifyCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/2fa/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify code"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

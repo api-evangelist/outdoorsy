@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation User Notice Events API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userNoticeEvents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listUserNoticeEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user-notice-events",
+            "params": [
+              {
+                "name": "IDs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RequiresBookingRequest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Enabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "From",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "To",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Lng",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExcludeBundleBookings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "OrderBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists user notice events"
+        },
+        {
+          "info": {
+            "name": "createUserNoticeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/user-notice-events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a user notice event"
+        },
+        {
+          "info": {
+            "name": "getUserNoticeEventById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/user-notice-events/:event_id",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reads a user notice event by id"
+        },
+        {
+          "info": {
+            "name": "updateUserNoticeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/user-notice-events/:event_id"
+          },
+          "docs": "Updates a user notice event"
+        },
+        {
+          "info": {
+            "name": "disableUserNoticeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/user-notice-events/:event_id",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Disables a user notice event by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

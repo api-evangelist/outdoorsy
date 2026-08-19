@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Ics Calendars API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ics-calendars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns list of ICSCalendar for a given user. Optionally could filter by user owned rental.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/ics-calendars",
+            "params": [
+              {
+                "name": "owner_user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns list of ICSCalendar for a given user. Optionally could filter by user owned rental."
+        },
+        {
+          "info": {
+            "name": "Create calendar record with pending calendar log and trigger SyncICSCalendar job to sync it.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/ics-calendars",
+            "params": [
+              {
+                "name": "owner_user_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create calendar record with pending calendar log and trigger SyncICSCalendar job to sync it."
+        },
+        {
+          "info": {
+            "name": "Trigger a job to sync all user eligible (last sync started at least 3 minutes ago) callendars. Optionally could be triggered for a specific user's calendar or user owned rental.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/ics-calendars/sync",
+            "params": [
+              {
+                "name": "owner_user_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger a job to sync all user eligible (last sync started at least 3 minutes ago) callendars. Optionally could be triggered for a specific user's calendar or user owned rental."
+        },
+        {
+          "info": {
+            "name": "Delete calendar record with and calendar's logs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/ics-calendars/:calendar_id",
+            "params": [
+              {
+                "name": "owner_user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "calendar_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete calendar record with and calendar's logs."
+        },
+        {
+          "info": {
+            "name": "Returns an .ics file with Outdoorsy availability per rental.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/ics-export.ics",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns an .ics file with Outdoorsy availability per rental."
+        },
+        {
+          "info": {
+            "name": "Returns URL to the .ics file download link.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/ics/export-url",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns URL to the .ics file download link."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

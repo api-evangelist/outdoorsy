@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Rental Items Categories API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RentalItemsCategories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available rental items categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/rental-items-categories"
+          },
+          "docs": "Returns a list of approved rental items categories, optionally filtered by rental_category (rv, auto, stay).\nIf owner_user_id is provided, the host's pending categories are also returned."
+        },
+        {
+          "info": {
+            "name": "Admin endpoint to list all rental items categories with comprehensive filtering and sorting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/rental-items-categories/admin"
+          },
+          "docs": "Returns a list of rental items categories with support for filtering by id, type, name,\nrental_category, status, ai_decision, and reason_code. Supports sorting by any field.\nSupports pagination via limit and offset parameters (omit limit to return all matching records)."
+        },
+        {
+          "info": {
+            "name": "Admin endpoint to create a new rental items category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/rental-items-categories/admin"
+          },
+          "docs": "Allows admins to manually create rental items categories with full control over all fields."
+        },
+        {
+          "info": {
+            "name": "Admin endpoint to retrieve add-on triage analytics for a time period",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/rental-items-categories/admin/analytics"
+          },
+          "docs": "Returns aggregated counts of AI decisions (rejected, merged, approved) and category\nstatuses (rejected, approved, pending, processing) for categories created within the\nspecified date range. Useful for monitoring the AI triage system in shadow mode."
+        },
+        {
+          "info": {
+            "name": "Admin endpoint to update a rental items category",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/rental-items-categories/admin/:id"
+          },
+          "docs": "Allows admins to update any field of a rental items category. Only provided fields will be updated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

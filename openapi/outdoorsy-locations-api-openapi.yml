@@ -1,0 +1,559 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Locations API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: locations
+paths:
+  /locations:
+    get:
+      description: List dealer locations
+      tags:
+      - locations
+      operationId: listLocations
+      parameters:
+      - x-go-name: LocationID
+        name: location_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LocationIDs
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: OwnerID
+        name: owner_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OwnerIDs
+        name: owner_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Order
+        name: order
+        in: query
+        schema:
+          type: string
+      - x-go-name: Archived
+        name: archived
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Keyword
+        name: keyword
+        in: query
+        schema:
+          type: string
+      - x-go-name: DiscardLimit
+        name: discard_limit
+        in: query
+        schema:
+          type: boolean
+      - name: IDs
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/locationsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+    post:
+      description: Create dealer location
+      tags:
+      - locations
+      operationId: createLocation
+      responses:
+        '200':
+          $ref: '#/components/responses/locationResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+  /locations/{id}:
+    get:
+      description: Retrieve location by id
+      tags:
+      - locations
+      operationId: getLocationByOwner
+      responses:
+        '200':
+          $ref: '#/components/responses/locationResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    delete:
+      description: Delete dealer location
+      tags:
+      - locations
+      operationId: deleteLocation
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+    patch:
+      description: Update dealer location details
+      tags:
+      - locations
+      operationId: updateLocation
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/locationResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+  /locations/{owner_id}/for-pro-page:
+    get:
+      description: List dealer locations for his pro page (locations with connected bank account, ordered by having the most rentals desc). Provide falback in the form of city and state with most bookable rentals
+      tags:
+      - locations
+      operationId: getLocationsByOwnerID
+      parameters:
+      - x-go-name: OwnerID
+        name: owner_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/locationsProPageResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+components:
+  schemas:
+    LocAvailabilityDay:
+      type: object
+      properties:
+        dropoff:
+          $ref: '#/components/schemas/LocAvailabilityInfo'
+        pickup:
+          $ref: '#/components/schemas/LocAvailabilityInfo'
+      x-go-package: github.com/outdoorsy/api/internal/location
+    ProPageResponse:
+      type: object
+      properties:
+        fallback:
+          $ref: '#/components/schemas/ProPageFallback'
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          x-go-name: Locations
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    TaxRate:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        marketplace:
+          type: boolean
+          x-go-name: MarketPlace
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        state:
+          description: carry through to booking_tax_rates table from avalara
+          type: string
+          x-go-name: State
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    LocationLocale:
+      type: object
+      properties:
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+      x-go-package: github.com/outdoorsy/api/internal/location
+    SpecialHour:
+      description: '───────────────────────────────────────────────────────────────────────────
+
+        Special Hours
+
+        ───────────────────────────────────────────────────────────────────────────'
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_from_id:
+          type: integer
+          format: int64
+          x-go-name: CreatedFromId
+        dropoff:
+          $ref: '#/components/schemas/SpecialHourDropoff'
+        end_date:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        pickup:
+          $ref: '#/components/schemas/SpecialHourPickup'
+        repeats:
+          type: boolean
+          x-go-name: Repeats
+        start_date:
+          type: string
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        weekdays:
+          $ref: '#/components/schemas/DBStringSlice'
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    SpecialHourPickup:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    Location:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        availability:
+          $ref: '#/components/schemas/LocAvailability'
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        custom_insurance_text:
+          type:
+          - string
+          - 'null'
+        dropoff_end_time:
+          type: integer
+          format: int64
+          x-go-name: DropoffEndTime
+        dropoff_start_time:
+          type: integer
+          format: int64
+          x-go-name: DropoffStartTime
+        eligible_for_system_tax_rates:
+          description: Wheelbase only field
+          type: boolean
+          x-go-name: EligibleForSystemTaxRates
+        employer_identification_number:
+          description: EIN in the US, RCS in France
+          type: string
+          x-go-name: EmployerIdentificationNumber
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        locale:
+          $ref: '#/components/schemas/LocationLocale'
+        name:
+          type: string
+          x-go-name: Name
+        opt_out_marketplace_taxes:
+          description: these fields are stored in metadata
+          type: boolean
+          x-go-name: OptOutMarketplaceTaxes
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        payment_processing_info_id:
+          type: integer
+          format: int64
+          x-go-name: PaymentProcessingInfoID
+        phone:
+          type: string
+          x-go-name: Phone
+        pickup_end_time:
+          type: integer
+          format: int64
+          x-go-name: PickupEndTime
+        pickup_start_time:
+          type: integer
+          format: int64
+          x-go-name: PickupStartTime
+        rental_count:
+          type: integer
+          format: int64
+          x-go-name: RentalCount
+        special_hours:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpecialHour'
+          x-go-name: SpecialHours
+        state:
+          type: string
+          x-go-name: State
+        state_tax_id:
+          type: string
+          x-go-name: StateTaxID
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        tax_rate_id:
+          $ref: '#/components/schemas/TaxRate'
+        tax_rate_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: TaxRateIDs
+        tax_split_eligible:
+          description: find tax_rates.ShouldSplitTaxes()
+          type: boolean
+          x-go-name: TaxSplitEligible
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        waived_insurance_text:
+          type:
+          - string
+          - 'null'
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/internal/location
+    ProPageFallback:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        state:
+          type: string
+          x-go-name: State
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    LocAvailability:
+      type: object
+      properties:
+        days:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LocAvailabilityDay'
+          x-go-name: Days
+      x-go-package: github.com/outdoorsy/api/internal/location
+    SpecialHourDropoff:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    LocAvailabilityInfo:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/location
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    locationsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Location'
+    locationsProPageResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProPageResponse'
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    locationResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Location'
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

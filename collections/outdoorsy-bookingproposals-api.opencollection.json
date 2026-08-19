@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Booking Proposals API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookingProposals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getProposals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/proposals",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a list of proposals for the booking"
+        },
+        {
+          "info": {
+            "name": "createProposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/proposals",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new booking proposal"
+        },
+        {
+          "info": {
+            "name": "batchDeleteProposals",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:booking_id/proposals/batch-delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a proposal"
+        },
+        {
+          "info": {
+            "name": "batchUpdateProposals",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:booking_id/proposals/batch-update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch update a proposals only for addons"
+        },
+        {
+          "info": {
+            "name": "getProposalById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/proposals/:id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single booking proposal by id"
+        },
+        {
+          "info": {
+            "name": "updateProposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/bookings/:booking_id/proposals/:id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a proposal"
+        },
+        {
+          "info": {
+            "name": "deleteProposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/bookings/:booking_id/proposals/:id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a proposal"
+        },
+        {
+          "info": {
+            "name": "actOnProposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/proposals/:id/act",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Accept or decline the open proposal"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

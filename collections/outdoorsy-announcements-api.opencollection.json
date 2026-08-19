@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Announcements API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "announcements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "readManyAnnouncementGroups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/announcement-groups",
+            "params": [
+              {
+                "name": "announcement_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all announcement groups (admin only)"
+        },
+        {
+          "info": {
+            "name": "createAnnouncementGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/admin/announcement-groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new announcement group (admin only)"
+        },
+        {
+          "info": {
+            "name": "readOneAnnouncementGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/announcement-groups/:announcement_group_id"
+          },
+          "docs": "Gets a specific announcement group by ID (admin only)"
+        },
+        {
+          "info": {
+            "name": "updateAnnouncementGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/admin/announcement-groups/:announcement_group_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an announcement (admin only)"
+        },
+        {
+          "info": {
+            "name": "deleteAnnouncementGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/admin/announcement-groups/:announcement_group_id"
+          },
+          "docs": "Deletes an announcement (admin only)"
+        },
+        {
+          "info": {
+            "name": "readManyAnnouncements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/announcements",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all announcements (admin only)"
+        },
+        {
+          "info": {
+            "name": "createAnnouncement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/admin/announcements",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new announcement (admin only)"
+        },
+        {
+          "info": {
+            "name": "readOneAnnouncement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/announcements/:announcement_id"
+          },
+          "docs": "Gets a specific announcement by ID (admin only)"
+        },
+        {
+          "info": {
+            "name": "updateAnnouncement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/admin/announcements/:announcement_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an announcement (admin only)"
+        },
+        {
+          "info": {
+            "name": "deleteAnnouncement",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/admin/announcements/:announcement_id"
+          },
+          "docs": "Deletes an announcement (admin only)"
+        },
+        {
+          "info": {
+            "name": "getAnnouncementsForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/announcements"
+          },
+          "docs": "Gets announcements for current user"
+        },
+        {
+          "info": {
+            "name": "getAnnouncementForID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/announcements/:announcement_id"
+          },
+          "docs": "Gets a specific announcement by ID"
+        },
+        {
+          "info": {
+            "name": "markAnnouncementAsRead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/announcements/:announcement_id/read"
+          },
+          "docs": "Marks an announcement as read for the current user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

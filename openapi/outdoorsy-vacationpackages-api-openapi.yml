@@ -1,0 +1,2463 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy Search API is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy Search Documentation Vacation Packages API
+  version: 0.0.1
+security:
+- Bearer:
+  - '[]'
+tags:
+- name: vacationPackages
+paths:
+  /vacation-packages:
+    get:
+      description: Search performs search on vacation packages
+      tags:
+      - vacationPackages
+      operationId: searchVacationPackages
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiVacationPackagesResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+  /vacation-packages/campgrounds:
+    get:
+      description: Search performs search on vacation packages campgrounds
+      tags:
+      - vacationPackages
+      operationId: searchVacationPackagesCampgrounds
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiExternalCampgroundsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+  /vacation-packages/rentals:
+    get:
+      description: Search performs search on vacation packages rentals
+      tags:
+      - vacationPackages
+      operationId: searchVacationPackagesRentals
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiRentalsSearchResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+components:
+  schemas:
+    JSONBStringArr:
+      description: JSONBStringArr type to handle postgres jsonb string array data type
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/odc-search/types
+    User:
+      description: User type
+      type: object
+      properties:
+        accept_percent:
+          type: number
+          format: double
+          x-go-name: AcceptPercent
+        accepted_bookings:
+          type: integer
+          format: int64
+          x-go-name: AcceptedBookings
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        average_response_time:
+          type: number
+          format: double
+          x-go-name: AverageResponseTime
+        business_description:
+          type: string
+          x-go-name: BusinessDescription
+        business_name:
+          description: business
+          type: string
+          x-go-name: BusinessName
+        business_phone:
+          type: string
+          x-go-name: BusinessPhone
+        business_website:
+          type: string
+          x-go-name: BusinessWebsite
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_policy_combo_bookings:
+          type: string
+          x-go-name: CancelPolicyComboBookings
+        created:
+          type: string
+          format: date-time
+          x-go-name: Created
+        dealer:
+          type: boolean
+          x-go-name: Dealer
+        description:
+          description: bio
+          type: string
+          x-go-name: Description
+        disable_phone:
+          type: boolean
+          x-go-name: DisablePhone
+        experience:
+          type: string
+          x-go-name: Experience
+        filtered_business_description:
+          type: string
+          x-go-name: FilteredBusinessDescription
+        first_name:
+          type: string
+          x-go-name: FirstName
+        guest:
+          type: boolean
+          x-go-name: Guest
+        hidden:
+          type: boolean
+          x-go-name: Hidden
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        locale_base_currency:
+          type: string
+          x-go-name: LocaleBaseCurrency
+        locale_language:
+          description: locale
+          type: string
+          x-go-name: LocaleLanguage
+        logo_url:
+          type: string
+          x-go-name: Logo
+        mast_image_url:
+          type: string
+          x-go-name: MastImageURL
+        median_response_time:
+          type: number
+          format: double
+          x-go-name: MedianResponseTime
+        outdoorsy_display_name:
+          type: string
+          x-go-name: OutdoorsyDisplayName
+        owner_reviews_count:
+          type: integer
+          format: int64
+          x-go-name: OwnerReviewsCount
+        owner_score:
+          type: number
+          format: double
+          x-go-name: OwnerScore
+        phone:
+          description: metric influencing fields
+          type: string
+          x-go-name: Phone
+        pro:
+          type: boolean
+          x-go-name: Pro
+        response_percent:
+          type: number
+          format: double
+          x-go-name: ResponsePercent
+        reviews_count:
+          type: integer
+          format: int64
+          x-go-name: ReviewsCount
+        score:
+          description: score
+          type: number
+          format: double
+          x-go-name: Score
+        search_metrics_start_date:
+          type: string
+          format: date-time
+          x-go-name: SearchMetricsStartDate
+        slug:
+          type: string
+          x-go-name: Slug
+        social:
+          $ref: '#/components/schemas/JSONBArr'
+        time_to_first_action:
+          type: integer
+          format: int64
+          x-go-name: TimeToFirstAction
+        total_bookings:
+          type: integer
+          format: int64
+          x-go-name: TotalBookings
+        years_owned:
+          type: integer
+          format: int64
+          x-go-name: YearsOwned
+        years_rving:
+          type: integer
+          format: int64
+          x-go-name: YearsRVing
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ListingQuestions:
+      type: object
+      properties:
+        answer:
+          type: string
+          x-go-name: Answer
+        question:
+          type: string
+          x-go-name: Question
+      x-go-package: github.com/outdoorsy/odc-search/types
+    SearchExplanation:
+      description: See https://www.elastic.co/guide/en/elasticsearch/reference/7.0/search-request-explain.html.
+      type: object
+      title: SearchExplanation explains how the score for a hit was computed.
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchExplanation'
+          x-go-name: Details
+        value:
+          type: number
+          format: double
+          x-go-name: Value
+      x-go-package: github.com/olivere/elastic/v7
+    JSONB:
+      description: JSONB type to handle postgres jsonb data type
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/odc-search/types
+    TotalCategoryCounts:
+      type: object
+      properties:
+        lodging_site:
+          type: integer
+          format: uint64
+          x-go-name: LodgingSite
+        rv_site:
+          type: integer
+          format: uint64
+          x-go-name: RvSite
+        stationary_camper_site:
+          type: integer
+          format: uint64
+          x-go-name: StationaryCamperSite
+        tent_site:
+          type: integer
+          format: uint64
+          x-go-name: TentSite
+      x-go-package: github.com/outdoorsy/odc-search/types
+    PrepFee:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        description:
+          type: string
+          x-go-name: Description
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Locale:
+      description: Locale to hold locale units and currency details
+      type: object
+      properties:
+        base_currency:
+          type: string
+          x-go-name: Currency
+        distance_unit:
+          type: string
+          x-go-name: DistanceUnit
+        length_unit:
+          type: string
+          x-go-name: LengthUnit
+        liquid_unit:
+          type: string
+          x-go-name: LiquidUnit
+        weight_unit:
+          type: string
+          x-go-name: WeightUnit
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ProcessedAmenity:
+      type: object
+      properties:
+        available:
+          type: boolean
+          x-go-name: Available
+        category:
+          type: string
+          x-go-name: Category
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        name_available:
+          type: string
+          x-go-name: NameAvailable
+        name_unavailable:
+          type: string
+          x-go-name: NameUnavailable
+      x-go-package: github.com/outdoorsy/odc-search/types
+    AmenityCategory:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CampgroundCarouselImages:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        group_slug:
+          type: string
+          x-go-name: GroupSlug
+        image_id:
+          type: integer
+          format: int64
+          x-go-name: ImageID
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CampgroundActivityFeature:
+      type: object
+      properties:
+        feature:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          $ref: '#/components/schemas/JSONB'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    JSONBArr:
+      description: JSONBArr type to handle postgres jsonb array data type
+      type: array
+      items:
+        $ref: '#/components/schemas/JSONB'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Relationship:
+      type: object
+      title: Relationship represents a member of the JSON API relationships object.
+      properties:
+        data:
+          type: object
+          x-go-name: Data
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+    CampgroundRentalCatalog:
+      type: object
+      properties:
+        activity_features:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampgroundActivityFeature'
+          x-go-name: ActivityFeatures
+        amenities_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampsiteCategoryAmenityCategory'
+          x-go-name: ProcessedCampgroundCategoryAmenity
+        processed_amenities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProcessedCampsiteCategoryAmenity'
+          x-go-name: ProcessedCampgroundCategory
+        scenery_features:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampgroundSceneryFeature'
+          x-go-name: SceneryFeatures
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ReviewScores:
+      type: object
+      properties:
+        bayesian_rating:
+          type: number
+          format: double
+          x-go-name: BayesianRating
+      x-go-package: github.com/outdoorsy/odc-search/types
+    UbiTier:
+      description: UbiTier to hold usage based item tier
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        maximum:
+          type: integer
+          format: int64
+          x-go-name: Maximum
+        minimum_fee:
+          type: integer
+          format: uint64
+          x-go-name: MinimumFee
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        usage_based_item_id:
+          type: integer
+          format: int64
+          x-go-name: UsageBasedItemID
+      x-go-package: github.com/outdoorsy/odc-search/types
+    DateRange:
+      description: DateRanges to handle Elastic date range
+      type: object
+      properties:
+        gte:
+          type: string
+          x-go-name: From
+        lte:
+          type: string
+          x-go-name: To
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CampgroundSceneryFeature:
+      type: object
+      properties:
+        feature:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          $ref: '#/components/schemas/JSONB'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    LocalizedContent:
+      type: object
+      properties:
+        field:
+          type: string
+          x-go-name: Field
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        locale:
+          type: string
+          x-go-name: Locale
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        text:
+          type: string
+          x-go-name: Text
+      x-go-package: github.com/outdoorsy/odc-search/types
+    NearbyGuideParkContent:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        images:
+          type: array
+          items: {}
+          x-go-name: Images
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        title:
+          type: string
+          x-go-name: Title
+        url:
+          type: string
+          x-go-name: URL
+        url_path:
+          type: string
+          x-go-name: URLPath
+      x-go-package: github.com/outdoorsy/odc-search/types
+    TaxRate:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        rate:
+          type: number
+          format: double
+          x-go-name: Rate
+      x-go-package: github.com/outdoorsy/odc-search/types
+    DistributedRatings:
+      type: object
+      properties:
+        score:
+          type: object
+          properties:
+            r1:
+              type: number
+              format: double
+              x-go-name: R1
+            r2:
+              type: number
+              format: double
+              x-go-name: R2
+            r3:
+              type: number
+              format: double
+              x-go-name: R3
+            r4:
+              type: number
+              format: double
+              x-go-name: R4
+            r5:
+              type: number
+              format: double
+              x-go-name: R5
+          x-go-name: Score
+      x-go-package: github.com/outdoorsy/odc-search/types
+    TowableFeature:
+      type: object
+      properties:
+        feature:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          $ref: '#/components/schemas/JSONB'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Rental:
+      description: Rental type
+      type: object
+      properties:
+        FeaturesMap:
+          type: object
+          additionalProperties: {}
+        active_options:
+          $ref: '#/components/schemas/CustomPrices'
+        ai_data:
+          $ref: '#/components/schemas/JSONB'
+        allows_long_term:
+          type: boolean
+          x-go-name: AllowsLongTerm
+        availability_set:
+          type: boolean
+          x-go-name: AvailabilitySet
+        average_ratings:
+          $ref: '#/components/schemas/AverageRatings'
+        average_reviews:
+          $ref: '#/components/schemas/AverageReviews'
+        blend_logic_source:
+          type: string
+          x-go-name: BlendLogicSource
+        booking_leeway_days:
+          type: integer
+          format: int64
+          x-go-name: BookingLeewayDays
+        booking_prices:
+          description: Pricing
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingPrice'
+          x-go-name: BookingPrices
+        bookings:
+          $ref: '#/components/schemas/DateRanges'
+        breadcrumb:
+          $ref: '#/components/schemas/Breadcrumb'
+        campground:
+          $ref: '#/components/schemas/ExternalCampground'
+        campground_catalog:
+          $ref: '#/components/schemas/CampgroundRentalCatalog'
+        campground_odn_id:
+          type: string
+          x-go-name: CampgroundOdnID
+        campsite_category:
+          $ref: '#/components/schemas/CampsiteCategory'
+        campsite_category_catalog:
+          $ref: '#/components/schemas/CampsiteCategoryRentalCatalog'
+        can_charge_security_deposit:
+          type: boolean
+          x-go-name: CanChargeSecurityDeposit
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_policy_combo_bookings:
+          type: string
+          x-go-name: CancelPolicyComboBookings
+        cancel_text:
+          type: string
+          x-go-name: CancelText
+        catalog:
+          $ref: '#/components/schemas/RentalCatalog'
+        check_in:
+          type: integer
+          format: int64
+          x-go-name: CheckIn
+        check_out:
+          type: integer
+          format: int64
+          x-go-name: CheckOut
+        child_rental_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: ChildRentalIDs
+        child_rentals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChildRental'
+          x-go-name: ChildRentals
+        children_count:
+          type: integer
+          format: int64
+          x-go-name: ChildrenCount
+        coachnet_ready:
+          type: boolean
+          x-go-name: CoachnetReady
+        coachnet_required:
+          type: boolean
+          x-go-name: CoachnetRequired
+        combined_special_hours:
+          $ref: '#/components/schemas/SpecialHours'
+        created:
+          type: string
+          format: date-time
+          x-go-name: Created
+        current_location_id:
+          type: integer
+          format: int64
+          x-go-name: CurrentLocationID
+        custom_insurance_text:
+          type: string
+          x-go-name: CustomInsuranceText
+        dates:
+          $ref: '#/components/schemas/DateRanges'
+        dealer:
+          type: boolean
+          x-go-name: Dealer
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        delivery_radius:
+          type: integer
+          format: int64
+          x-go-name: DeliveryRadius
+        delivery_radius_miles:
+          type: number
+          format: double
+          x-go-name: DeliveryRadiusMiles
+        delivery_radius_unit:
+          type: string
+          x-go-name: DeliveryRadiusUnit
+        delivery_usage_item:
+          $ref: '#/components/schemas/UsageBasedItem'
+        delivery_usage_item_id:
+          type: integer
+          format: int64
+          x-go-name: DeliveryUsageItemID
+        deposit_percentage:
+          type: number
+          format: double
+          x-go-name: DepositPercentage
+        description:
+          type: string
+          x-go-name: Description
+        description_included:
+          description: Experimental fields
+          type: string
+          x-go-name: DescriptionIncluded
+        description_other:
+          type: string
+          x-go-name: DescriptionOther
+        description_recommendations:
+          type: string
+          x-go-name: DescriptionRecommendations
+        disallow_movement:
+          type: boolean
+          x-go-name: DisallowMovement
+        display_vehicle_type:
+          type: string
+          x-go-name: DisplayType
+        distance:
+          type: number
+          format: double
+          x-go-name: Distance
+        distributed_ratings:
+          $ref: '#/components/schemas/DistributedRatings'
+        driving_distance:
+          type: number
+          format: double
+          x-go-name: DrivingDistance
+        dropoff_unavailable:
+          $ref: '#/components/schemas/BlockedWeekDays'
+        education:
+          type: array
+          items:
+            $ref: '#/components/schemas/EducationalModule'
+          x-go-name: EducationalContent
+        estimated_delivery_price_per_mile:
+          type: integer
+          format: int64
+          x-go-name: EstimatedDeliveryPricePerMile
+        explanation:
+          $ref: '#/components/schemas/SearchExplanation'
+        external:
+          type: boolean
+          x-go-name: External
+        external_site_url:
+          type: string
+          x-go-name: ExternalSiteURL
+        favorite:
+          description: 'Using a bool pointer trick to get around indexing this computed field in elastic
+
+            If this was a regular bool, it would index the `favorite` field which we don''t need to do.
+
+            we do want to return this field when raw_json=true is used since ios and android apps don''t
+            use the json-api response'
+          type: boolean
+          x-go-name: Favorite
+        favorite_count:
+          type: integer
+          format: int64
+          x-go-name: FavoriteCount
+        features:
+          $ref: '#/components/schemas/JSONB'
+        filtered_description:
+          type: string
+          x-go-name: FilteredDescription
+        filtered_name:
+          type: string
+          x-go-name: FilteredName
+        first_published:
+          type: string
+          format: date-time
+          x-go-name: FirstPublished
+        generator_usage_item:
+          $ref: '#/components/schemas/UsageBasedItem'
+        generator_usage_item_id:
+          description: Usage Items
+          type: integer
+          format: int64
+          x-go-name: GeneratorUsageItemID
+        geopoint:
+          $ref: '#/components/schemas/Geopoint'
+        group_on_map:
+          type: boolean
+          x-go-name: GroupOnMap
+        group_reviews_num:
+          type: integer
+          format: int64
+          x-go-name: GroupReviewsNum
+        group_reviews_score:
+          type: number
+          format: double
+          x-go-name: GroupReviewsScore
+        group_score:
+          type: number
+          format: double
+          x-go-name: GroupScore
+        has_been_published:
+          type: boolean
+          x-go-name: HasBeenPublished
+        has_checkout_questions:
+          type: boolean
+          x-go-name: HasCheckoutQuestions
+        hidden:
+          type: boolean
+          x-go-name: Hidden
+        host_notes:
+          type: string
+          x-go-name: HostNotes
+        house_rules:
+          type: string
+          x-go-name: HouseRules
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        images:
+          $ref: '#/components/schemas/Images'
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        instant_book_banned:
+          type: boolean
+          x-go-name: InstantBookBanned
+        instant_book_leeway:
+          type: integer
+          format: int64
+          x-go-name: InstantBookLeeway
+        instant_book_type:
+          type: string
+          x-go-name: InstantBookType
+        insurance_coverage:
+          type: string
+          x-go-name: InsuranceCoverage
+        insurance_eligible:
+          type: boolean
+          x-go-name: InsuranceEligible
+        insurance_plan:
+          $ref: '#/components/schemas/InsurancePlan'
+        insurance_renter_adjustable:
+          description: Insurance
+          type: boolean
+          x-go-name: InsuranceRenterAdjustable
+        insurance_state:
+          type: string
+          x-go-name: InsuranceState
+        items:
+          $ref: '#/components/schemas/RentalItems'
+        last_published:
+          type: string
+          format: date-time
+          x-go-name: LastPublished
+        listing_questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListingQuestions'
+          x-go-name: ListingQuestions
+        locale:
+          $ref: '#/components/schemas/Locale'
+        localized_content:
+          $ref: '#/components/schemas/LocalizedContents'
+        location:
+          $ref: '#/components/schemas/Location'
+        low_price_per_day:
+          type: integer
+          format: int64
+          x-go-name: LowPricePerDay
+        low_price_per_month:
+          type: integer
+          format: int64
+          x-go-name: LowPricePerMonth
+        low_price_per_week:
+          type: integer
+          format: int64
+          x-go-name: LowPricePerWeek
+        mileage_usage_item:
+          $ref: '#/components/schemas/UsageBasedItem'
+        mileage_usage_item_id:
+          type: integer
+          format: int64
+          x-go-name: MileageUsageItemID
+        min_bundle_day_price:
+          type: integer
+          format: int64
+          x-go-name: MinBundleDayPrice
+        min_bundle_day_price_with_delivery:
+          type: integer
+          format: int64
+          x-go-name: MinBundleDayPriceWithDelivery
+        minimum_days:
+          type: integer
+          format: int64
+          x-go-name: MinimumDays
+        minimum_days_pricing_rule:
+          type: integer
+          format: int64
+          x-go-name: MinimumDaysPricingRule
+        minimum_deposit:
+          type: integer
+          format: int64
+          x-go-name: MinimumDeposit
+        minimum_renter_age:
+          type: integer
+          format: int64
+          x-go-name: MinimumRenterAge
+        misc:
+          type: object
+          additionalProperties: {}
+          x-go-name: Misc
+        monthly_discount:
+          type: integer
+          format: int64
+          x-go-name: MonthlyDiscount
+        name:
+          type: string
+          x-go-name: Name
+        nearby_content:
+          type: array
+          items:
+            $ref: '#/components/schemas/NearbyContent'
+          x-go-name: NearbyContent
+        od_stays_opt_in:
+          type: boolean
+          x-go-name: ODStaysOptIn
+        original_url:
+          type: string
+          x-go-name: OriginalURL
+        owner:
+          $ref: '#/components/schemas/User'
+        owner_metric_scores:
+          description: Debugging
+          type: object
+          additionalProperties: {}
+          x-go-name: OwnerMetricScores
+        owner_score:
+          type: number
+          format: double
+          x-go-name: OwnerScore
+        owner_user_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerUserID
+        parent_id:
+          description: Grouping
+          type: integer
+          format: int64
+          x-go-name: ParentID
+        pickup_unavailable:
+          $ref: '#/components/schemas/BlockedWeekDays'
+        platform_blocks:
+          $ref: '#/components/schemas/DateRanges'
+        position:
+          description: Score
+          type: integer
+          format: int64
+          x-go-name: Position
+        preferred_primary_image:
+          $ref: '#/components/schemas/Image'
+        prep_fee:
+          $ref: '#/components/schemas/PrepFee'
+        presentment_currency:
+          description: 'json keys are used for elastic serialization AND raw_json=true response.
+
+            use omitempty to keep these fields out of elastic since they are calculated'
+          type: string
+          x-go-name: PresentmentCurrency
+        price_estimate:
+          type: integer
+          format: int64
+          x-go-name: PriceEstimate
+        price_gap:
+          type: integer
+          format: int64
+          x-go-name: PriceGap
+        price_per_day:
+          type: integer
+          format: int64
+          x-go-name: PricePerDay
+        price_per_month:
+          type: integer
+          format: int64
+          x-go-name: PricePerMonth
+        price_per_week:
+          type: integer
+          format: int64
+          x-go-name: PricePerWeek
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        pro:
+          type: boolean
+          x-go-name: Pro
+        published:
+          description: flags
+          type: boolean
+          x-go-name: Published
+        ranking:
+          type: object
+          additionalProperties: {}
+          x-go-name: Ranking
+        rental_category:
+          type: string
+          x-go-name: RentalCategory
+        rental_price_usage_item:
+          $ref: '#/components/schemas/UsageBasedItem'
+        rental_price_usage_item_id:
+          type: integer
+          format: int64
+          x-go-name: RentalPriceUsageItemID
+        rental_score:
+          type: number
+          format: double
+          x-go-name: RentalScore
+        rental_views_last_30_days:
+          type: integer
+          format: int64
+          x-go-name: RentalViewsLast30Days
+        request_less_than_minimum_days:
+          type: integer
+          format: int64
+          x-go-name: RequestLessThanMinimumDays
+        review_scores:
+          $ref: '#/components/schemas/ReviewScores'
+        reviews_num:
+          type: integer
+          format: int64
+          x-go-name: ReviewsNum
+        same_sort_count:
+          type: integer
+          format: int64
+          x-go-name: SameSortCount
+        same_sort_types:
+          type: integer
+          format: int64
+          x-go-name: SameSortTypes
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        seatbelts:
+          type: integer
+          format: int64
+          x-go-name: Seatbelts
+        security_deposit:
+          type: integer
+          format: int64
+          x-go-name: SecurityDeposit
+        seo_content:
+          description: SEO Links fetched from the Content index and CMS API during rental indexing
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              additionalProperties: {}
+          x-go-name: SEOContent
+        settlement_currency:
+          type: string
+          x-go-name: SettlementCurrency
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        sleeps_adults:
+          type: integer
+          format: int64
+          x-go-name: SleepsAdults
+        sleeps_kids:
+          type: integer
+          format: int64
+          x-go-name: SleepsKids
+        slug:
+          type: string
+          x-go-name: Slug
+        smart_photo_score:
+          type: number
+          format: double
+          x-go-name: SmartPhotoScore
+        sort_score:
+          type: number
+          format: double
+          x-go-name: SortScore
+        summary:
+          type: string
+          x-go-name: Summary
+        tags:
+          $ref: '#/components/schemas/Tags'
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxRate'
+          x-go-name: TaxRates
+        type:
+          type: string
+          x-go-name: Type
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+        updated:
+          type: string
+          format: date-time
+          x-go-name: Updated
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+        use_tax_inclusive_pricing:
+          type: boolean
+          x-go-name: UseTaxInclusivePricing
+        user_slug:
+          type: string
+          x-go-name: UserSlug
+        vacation_package_min_nightly_rate:
+          type: integer
+          format: int64
+          x-go-name: VacationPackageMinNightlyRate
+        vacation_package_nightly_rate:
+          type: integer
+          format: int64
+          x-go-name: VacationPackageNightlyRate
+        vehicle_amps:
+          type: integer
+          format: int64
+          x-go-name: VehicleAmps
+        vehicle_box_length:
+          type: number
+          format: double
+          x-go-name: VehicleBoxLength
+        vehicle_class:
+          type: string
+          x-go-name: VehicleClass
+        vehicle_dry_weight:
+          type: integer
+          format: int64
+          x-go-name: VehicleDryWeight
+        vehicle_gvwr:
+          type: integer
+          format: int64
+          x-go-name: VehicleGVWR
+        vehicle_height:
+          type: number
+          format: double
+          x-go-name: VehicleHeight
+        vehicle_length:
+          type: number
+          format: double
+          x-go-name: VehicleLength
+        vehicle_length_with_hitch:
+          type: number
+          format: double
+          x-go-name: VehicleLengthWithHitch
+        vehicle_license_plate_state:
+          type: string
+          x-go-name: VehicleLicensePlateState
+        vehicle_make:
+          type: string
+          x-go-name: VehicleMake
+        vehicle_model:
+          type: string
+          x-go-name: VehicleModel
+        vehicle_title:
+          type: string
+          x-go-name: VehicleTitle
+        vehicle_width:
+          type: number
+          format: double
+          x-go-name: VehicleWidth
+        vehicle_year:
+          type: integer
+          format: int64
+          x-go-name: VehicleYear
+        weekly_discount:
+          type: integer
+          format: int64
+          x-go-name: WeeklyDiscount
+      x-go-package: github.com/outdoorsy/odc-search/types
+    OwnerReviewResponse:
+      type: object
+      properties:
+        text:
+          type: string
+          x-go-name: Text
+        timestamp:
+          type: string
+          format: date-time
+          x-go-name: Timestamp
+      x-go-package: github.com/outdoorsy/odc-search/types
+    SpecialHour:
+      description: used to handle special hours for rental
+      type: object
+      properties:
+        drop_off_unavailable:
+          type: boolean
+          x-go-name: DropOffUnavailable
+        end_date:
+          type: string
+          x-go-name: EndDate
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        pick_up_unavailable:
+          type: boolean
+          x-go-name: PickUpUnavailable
+        repeats:
+          type: boolean
+          x-go-name: Repeats
+        start_date:
+          type: string
+          x-go-name: StartDate
+      x-go-package: github.com/outdoorsy/odc-search/types
+    AverageReviewsScores:
+      type: object
+      properties:
+        key:
+          type: string
+          x-go-name: Key
+        name:
+          type: string
+          x-go-name: Name
+        percentage:
+          type: number
+          format: double
+          x-go-name: Percentage
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+      x-go-package: github.com/outdoorsy/odc-search/types
+    BookingPrice:
+      type: object
+      properties:
+        booking_end:
+          type: string
+          x-go-name: BookingEnd
+        booking_start:
+          type: string
+          x-go-name: BookingStart
+        date_range:
+          $ref: '#/components/schemas/DateRange'
+        max_price:
+          type: integer
+          format: int64
+          x-go-name: MaxPrice
+        minimum_booking_days:
+          type: integer
+          format: int64
+          x-go-name: MinimumBookingDays
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        range:
+          type: string
+          x-go-name: Range
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings
+        representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    Review:
+      description: Review type
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        cleanliness_score:
+          type: number
+          format: double
+          x-go-name: CleanlinessScore
+        communication_score:
+          type: number
+          format: double
+          x-go-name: CommunicationScore
+        created:
+          type: string
+          format: date-time
+          x-go-name: Created
+        first_name:
+          type: string
+          x-go-name: FirstName
+        geopoint:
+          $ref: '#/components/schemas/Geopoint'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        images:
+          $ref: '#/components/schemas/JSONBStringArr'
+        last_name:
+          type: string
+          x-go-name: LastName
+        listing_score:
+          type: number
+          format: double
+          x-go-name: ListingAccuracyScore
+        mechanical_score:
+          type: number
+          format: double
+          x-go-name: MechanicalScore
+        outdoorsy_only:
+          type: boolean
+          x-go-name: OutdoorsyOnly
+        owner_can_respond:
+          type: boolean
+          x-go-name: OwnerCanRespond
+        owner_response:
+          $ref: '#/components/schemas/OwnerReviewResponse'
+        rental:
+          $ref: '#/components/schemas/Rental'
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rental_name:
+          type: string
+          x-go-name: RentalName
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        slug:
+          type: string
+          x-go-name: RentalSlug
+        text:
+          type: string
+          x-go-name: Text
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: UserID
+        user_recommend:
+          type: boolean
+          x-go-name: UserRecommend
+        value_score:
+          type: number
+          format: double
+          x-go-name: ValueScore
+      x-go-package: github.com/outdoorsy/odc-search/types
+    NearbyLocation:
+      description: NearbyLocation type
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        city_page_path:
+          type: string
+          x-go-name: Path
+        data_type:
+          type: string
+          x-go-name: DataType
+        description:
+          type: string
+          x-go-name: Description
+        display:
+          type: string
+          x-go-name: Display
+        geopoint:
+          $ref: '#/components/schemas/GeopointMySQL'
+        id:
+          type: string
+          x-go-name: ID
+        listing_count:
+          type: integer
+          format: int64
+          x-go-name: ListingCount
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        state:
+          type: string
+          x-go-name: State
+        state_name:
+          type: string
+          x-go-name: StateName
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ProcessedCampsiteCategoryAmenity:
+      type: object
+      properties:
+        available:
+          type: boolean
+          x-go-name: Available
+        category:
+          type: string
+          x-go-name: Category
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Tags:
+      description: Tags type to handle rental tags from prostgres jsonb data type
+      type: array
+      items:
+        $ref: '#/components/schemas/tag'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        slug:
+          type: string
+          x-go-name: Slug
+      x-go-package: github.com/outdoorsy/odc-search/types
+    EducationalModule:
+      type: object
+      x-go-package: github.com/outdoorsy/odc-search/internal/educational_module
+    AverageReviews:
+      type: object
+      properties:
+        owner:
+          type: array
+          items:
+            $ref: '#/components/schemas/AverageReviewsScores'
+          x-go-name: Owner
+        rental:
+          type: array
+          items:
+            $ref: '#/components/schemas/AverageReviewsScores'
+          x-go-name: Rental
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+      x-go-package: github.com/outdoorsy/odc-search/types
+    InsurancePlan:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        label:
+          type: string
+          x-go-name: Label
+        renter_body:
+          type: string
+          x-go-name: RenterBody
+        renter_headline:
+          description: Generated after load
+          type: string
+          x-go-name: RenterHeadline
+        requires_driver_verification:
+          type: boolean
+          x-go-name: RequiresDriverVerification
+      x-go-package: github.com/outdoorsy/odc-search/types
+    NearbyContent:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NearbyLocation'
+          x-go-name: Data
+        title:
+          type: string
+          x-go-name: Title
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/odc-search/types
+    DateRanges:
+      type: array
+      items:
+        type: object
+        properties:
+          gte:
+            type: string
+            x-go-name: From
+          lte:
+            type: string
+            x-go-name: To
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Location:
+      description: Location to hold address details
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Breadcrumb:
+      type: object
+      x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb
+    Resource:
+      description: 'Note that any of the optional keys will be omitted if a value is not provided.
+
+
+        For more information, see the specification at:
+
+
+        http://jsonapi.org/format/#document-resource-object
+
+
+        http://jsonapi.org/format/#document-resource-identifier-objects'
+      type: object
+      title: 'Resource represents a JSON API resource identifier or resource object.
+
+        Each valid JSON API resource object must contain at least the "id" and "type" keys,
+
+        and may contain the optional "attributes", "relationships", "links" and "meta" keys.'
+      properties:
+        attributes:
+          type: object
+          additionalProperties: {}
+          x-go-name: Attributes
+        id:
+          type: string
+          x-go-name: ID
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+        relationships:
+          $ref: '#/components/schemas/Relationships'
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/smotes/jsonapi
+    Amenity:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          $ref: '#/components/schemas/JSONB'
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        slug:
+          type: string
+          x-go-name: Slug
+        unavailable_name:
+          type: string
+          x-go-name: UnavailableName
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Geopoint:
+      description: Geopoint type to handle postgres jsonb location data type string
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lon:
+          type: number
+          format: double
+          x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Item:
+      description: Item type to handle all items
+      type: object
+      properties:
+        available:
+          type: integer
+          format: int64
+          x-go-name: Available
+        category:
+          type: string
+          x-go-name: Category
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        required:
+          type: boolean
+          x-go-name: Required
+      x-go-package: github.com/outdoorsy/odc-search/types
+    LocalizedContents:
+      type: array
+      items:
+        $ref: '#/components/schemas/LocalizedContent'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CampsiteCategoryAmenityCategory:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/odc-search/types
+    GeopointMySQL:
+      description: GeopointMySQL type to handle mysql json location data type which scans as []byte
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lon:
+          type: number
+          format: double
+          x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/types
+    AverageRatings:
+      type: object
+      properties:
+        cleanliness_score:
+          type: number
+          format: double
+          x-go-name: CleanlinessScore
+        cleanliness_score_percentage:
+          type: number
+          format: double
+          x-go-name: CleanlinessScorePercentage
+        communication_score:
+          type: number
+          format: double
+          x-go-name: CommunicationScore
+        communication_score_percentage:
+          type: number
+          format: double
+          x-go-name: CommunicationScorePercentage
+        listing_score:
+          type: number
+          format: double
+          x-go-name: ListingAccuracyScore
+        listing_score_percentage:
+          type: number
+          format: double
+          x-go-name: ListingAccuracyScorePercentage
+        mechanical_score:
+          type: number
+          format: double
+          x-go-name: MechanicalScore
+        mechanical_score_percentage:
+          type: number
+          format: double
+          x-go-name: MechanicalScorePercentage
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        score_percentage:
+          type: number
+          format: double
+          x-go-name: ScorePercentage
+        value_score:
+          type: number
+          format: double
+          x-go-name: ValueScore
+        value_score_percentage:
+          type: number
+          format: double
+          x-go-name: ValueScorePercentage
+      x-go-package: github.com/outdoorsy/odc-search/types
+    BlockedWeekDays:
+      description: 'BlockedWeekDays to handle day of the week availability
+
+        if set to true means unavailable'
+      type: object
+      properties:
+        friday:
+          type: boolean
+          x-go-name: Friday
+        monday:
+          type: boolean
+          x-go-name: Monday
+        saturday:
+          type: boolean
+          x-go-name: Saturday
+        sunday:
+          type: boolean
+          x-go-name: Sunday
+        thursday:
+          type: boolean
+          x-go-name: Thursday
+        tuesday:
+          type: boolean
+          x-go-name: Tuesday
+        wednesday:
+          type: boolean
+          x-go-name: Wednesday
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CampsiteCategoryRentalCatalog:
+      type: object
+      properties:
+        amenities_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampsiteCategoryAmenityCategory'
+          x-go-name: AmenitiesCategories
+        processed_amenities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProcessedCampsiteCategoryAmenity'
+          x-go-name: ProcessedAmenities
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CustomPrices:
+      type: object
+      properties:
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_policy_combo_bookings:
+          type: string
+          x-go-name: CancelPolicyComboBookings
+        date:
+          type: string
+          x-go-name: Date
+        day_price:
+          type: integer
+          format: int64
+          x-go-name: DayPrice
+        estimated_price_breakdown:
+          $ref: '#/components/schemas/PriceBreakdownResponse'
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        max_override_price:
+          type: integer
+          format: int64
+          x-go-name: MaxOverridePrice
+        minimum_days:
+          type: integer
+          format: int64
+          x-go-name: MinimumDays
+        month_price:
+          type: integer
+          format: int64
+          x-go-name: MonthPrice
+        monthly_discount_percentage:
+          type: number
+          format: double
+          x-go-name: MonthlyDiscountPercentage
+        monthly_rate_per_day:
+          type: integer
+          format: int64
+          x-go-name: MonthlyRatePerDay
+        tax:
+          type: integer
+          format: int64
+          x-go-name: Tax
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+        use_tax_inclusive_pricing:
+          type: boolean
+          x-go-name: UseTaxInclusivePricing
+        week_price:
+          type: integer
+          format: int64
+          x-go-name: WeekPrice
+        weekly_discount_percentage:
+          type: number
+          format: double
+          x-go-name: WeeklyDiscountPercentage
+        weekly_rate_per_day:
+          type: integer
+          format: int64
+          x-go-name: WeeklyRatePerDay
+      x-go-package: github.com/outdoorsy/odc-search/types
+    RentalItems:
+      description: RentalItems type to handle jsonb items
+      type: array
+      items:
+        $ref: '#/components/schemas/Item'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    RentalCatalog:
+      type: object
+      properties:
+        amenities_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AmenityCategory'
+          x-go-name: AmenitiesCategories
+        amenity_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/AmenityGroup'
+          x-go-name: AmenityGroups
+        processed_amenities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProcessedAmenity'
+          x-go-name: ProcessedAmenities
+        towable_features:
+          type: array
+          items:
+            $ref: '#/components/schemas/TowableFeature'
+          x-go-name: TowableFeatures
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ExternalCampground:
+      description: New Campground type
+      type: object
+      properties:
+        average_reviews:
+          $ref: '#/components/schemas/AverageReviews'
+        breadcrumb:
+          $ref: '#/components/schemas/Breadcrumb'
+        campground_catalog:
+          $ref: '#/components/schemas/CampgroundRentalCatalog'
+        campsite_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampsiteCategory'
+          x-go-name: CampsiteCategories
+        campsite_category_ids:
+          description: Campsite Categories
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: CampsiteCategoriesIDs
+        carousel_images:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampgroundCarouselImages'
+          x-go-name: CarouselImages
+        categories:
+          $ref: '#/components/schemas/JSONBStringArr'
+        category_counts_display_subtitle:
+          description: category counts display subtitle
+          type: string
+          x-go-name: CategoryCountsDisplaySubtitle
+        check_in_time:
+          type: string
+          x-go-name: CheckInTime
+        check_out_time:
+          type: string
+          x-go-name: CheckOutTime
+        created:
+          description: Publication data
+          type: string
+          format: date-time
+          x-go-name: Created
+        description:
+          type: string
+          x-go-name: Description
+        display_type:
+          type: string
+          x-go-name: DisplayType
+        distance:
+          type: number
+          format: double
+          x-go-name: Distance
+        distance_in_miles:
+          description: When calculating distance from campground to a given point
+          type: number
+          format: double
+          x-go-name: DistanceInMiles
+        email:
+          type: string
+          x-go-name: Email
+        explanation:
+          $ref: '#/components/schemas/SearchExplanation'
+        features:
+          $ref: '#/components/schemas/JSONB'
+        filtered_description:
+          type: string
+          x-go-name: FilteredDescription
+        filtered_name:
+          type: string
+          x-go-name: FilteredName
+        filtered_tagline:
+          type: string
+          x-go-name: FilteredTagline
+        first_published:
+          type: string
+          format: date-time
+          x-go-name: FirstPublished
+        geopoint:
+          $ref: '#/components/schemas/Geopoint'
+        has_been_published:
+          type: boolean
+          x-go-name: HasBeenPublished
+        hidden:
+          description: Flags
+          type: boolean
+          x-go-name: Hidden
+        id:
+          description: Main
+          type: integer
+          format: int64
+          x-go-name: ID
+        images:
+          $ref: '#/components/schemas/Images'
+        is_odn:
+          type: boolean
+          x-go-name: IsODN
+        last_published:
+          type: string
+          format: date-time
+          x-go-name: LastPublished
+        locale:
+          $ref: '#/components/schemas/Locale'
+        location:
+          $ref: '#/components/schemas/Location'
+        lowest_price:
+          type: integer
+          format: int64
+          x-go-name: LowestPrice
+        matching_campsite_category_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: MatchingCampsiteCategoriesIDs
+        meta_description:
+          type: string
+          x-go-name: MetaDescription
+        meta_title:
+          type: string
+          x-go-name: MetaTitle
+        name:
+          type: string
+          x-go-name: Name
+        nearby_content:
+          type: array
+          items:
+            $ref: '#/components/schemas/NearbyContent'
+          x-go-name: NearbyContent
+        nearby_guide_parks:
+          type: array
+          items:
+            $ref: '#/components/schemas/NearbyGuideParkContent'
+          x-go-name: NearbyGuideParks
+        odn_id:
+          type: string
+          x-go-name: OdnID
+        operating_months:
+          $ref: '#/components/schemas/JSONB'
+        owner:
+          $ref: '#/components/schemas/User'
+        phone:
+          type: string
+          x-go-name: Phone
+        presentment_currency:
+          type: string
+          x-go-name: PresentmentCurrency
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        published:
+          type: boolean
+          x-go-name: Published
+        reviews_num:
+          type: integer
+          format: int64
+          x-go-name: ReviewsNum
+        rules:
+          type: string
+          x-go-name: Rules
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        settlement_currency:
+          type: string
+          x-go-name: SettlementCurrency
+        site_map_image_url:
+          type: string
+          x-go-name: SiteMapImageURL
+        slug:
+          type: string
+          x-go-name: Slug
+        supported_rv_types:
+          $ref: '#/components/schemas/JSONBStringArr'
+        tagline:
+          type: string
+          x-go-name: Tagline
+        total_category_counts:
+          $ref: '#/components/schemas/TotalCategoryCounts'
+        type:
+          type: string
+          x-go-name: Type
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+        unavailable_campsite_category_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: UnavailableCampsiteCategoriesIDs
+        updated:
+          type: string
+          format: date-time
+          x-go-name: Updated
+        vacation_package_min_nightly_rate:
+          type: integer
+          format: int64
+          x-go-name: VacationPackageMinNightlyRate
+        vacation_package_slug:
+          type: string
+          x-go-name: VacationPackageSlug
+        website_url:
+          description: Links and Images
+          type: string
+          x-go-name: WebsiteURL
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
+      x-go-package: github.com/smotes/jsonapi
+    Image:
+      description: Image type to handle all images
+      type: object
+      properties:
+        ai_description:
+          type: string
+          x-go-name: AIDescription
+        ai_position:
+          type: integer
+          format: int64
+          x-go-name: AIPosition
+        amenity:
+          $ref: '#/components/schemas/ImageAmenity'
+        best:
+          type: boolean
+          x-go-name: Best
+        category:
+          $ref: '#/components/schemas/Category'
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        interior_primary:
+          type: boolean
+          x-go-name: InteriorPrimary
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        primary:
+          type: boolean
+          x-go-name: Primary
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        review:
+          $ref: '#/components/schemas/Review'
+        skip_enhance:
+          type: boolean
+          x-go-name: SkipEnhance
+        status:
+          type: string
+          x-go-name: Status
+        tags:
+          type: string
+          x-go-name: Tags
+        url:
+          type: string
+          x-go-name: URL
+        video:
+          type: boolean
+          x-go-name: Video
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Images:
+      description: Images type to handle jsonb images
+      type: array
+      items:
+        $ref: '#/components/schemas/Image'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    PriceBreakdownResponse:
+      type: object
+      properties:
+        delivery_fee:
+          type: integer
+          format: int64
+          x-go-name: DeliveryFee
+        duration:
+          type: integer
+          format: int64
+          x-go-name: Duration
+        guest_fee:
+          type: integer
+          format: int64
+          x-go-name: GuestFee
+        insurance:
+          type: integer
+          format: int64
+          x-go-name: Insurance
+        original_total:
+          type: integer
+          format: int64
+          x-go-name: OriginalTotal
+        prep_fee:
+          type: integer
+          format: int64
+          x-go-name: PrepFee
+        rental_amount:
+          type: integer
+          format: int64
+          x-go-name: RentalAmount
+        rental_amount_per_day:
+          type: integer
+          format: int64
+          x-go-name: RentalAmountPerDay
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ImageAmenity:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        name:
+          type: string
+          x-go-name: Name
+        slug:
+          type: string
+          x-go-name: Slug
+      x-go-package: github.com/outdoorsy/odc-search/types
+    UsageBasedItem:
+      description: UsageBasedItem based on usage items added by user for their rentals
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        fee_type:
+          type: string
+          x-go-name: FeeType
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        included:
+          type: number
+          format: double
+          x-go-name: Included
+        included_period:
+          type: string
+          x-go-name: IncludedPeriod
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        single_tier:
+          type: boolean
+          x-go-name: SingleTier
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        tiers:
+          $ref: '#/components/schemas/UbiTiers'
+        unit:
+          type: string
+          x-go-name: Unit
+        unlimited:
+          type: boolean
+          x-go-name: Unlimited
+      x-go-package: github.com/outdoorsy/odc-search/types
+    UbiTiers:
+      description: UbiTiers of type []UbiTier
+      type: array
+      items:
+        $ref: '#/components/schemas/UbiTier'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    AmenityGroup:
+      type: object
+      properties:
+        amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          x-go-name: Amenities
+        group:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/odc-search/types
+    tag:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          x-go-name: Count
+        slug:
+          type: string
+          x-go-name: Slug
+        tag:
+          type: string
+          x-go-name: Tag
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ChildRental:
+      type: object
+      properties:
+        bookings:
+          $ref: '#/components/schemas/DateRanges'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        platform_blocks:
+          $ref: '#/components/schemas/DateRanges'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    SpecialHours:
+      type: array
+      items:
+        $ref: '#/components/schemas/SpecialHour'
+      x-go-package: github.com/outdoorsy/odc-search/types
+    CampsiteCategory:
+      type: object
+      properties:
+        active_options:
+          $ref: '#/components/schemas/CustomPrices'
+        available_for_dates:
+          type: boolean
+          x-go-name: AvailableForDates
+        bathrooms:
+          type: integer
+          format: int64
+          x-go-name: Bathrooms
+        bedrooms:
+          type: integer
+          format: int64
+          x-go-name: Bedrooms
+        beds:
+          type: integer
+          format: int64
+          x-go-name: Beds
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        campground_is_odn:
+          type: boolean
+          x-go-name: CampgroundIsODN
+        campground_name:
+          type: string
+          x-go-name: CampgroundName
+        campground_odn_id:
+          type: string
+          x-go-name: CampgroundOdnID
+        campground_slug:
+          type: string
+          x-go-name: CampgroundSlug
+        campsite_category_catalog:
+          $ref: '#/components/schemas/CampsiteCategoryRentalCatalog'
+        category_type:
+          type: string
+          x-go-name: CategoryType
+        description:
+          type: string
+          x-go-name: Description
+        display_category_type:
+          type: string
+          x-go-name: DisplayCategoryType
+        display_site_type:
+          type: string
+          x-go-name: DisplaySiteType
+        enabled_for_rental_categories:
+          $ref: '#/components/schemas/JSONB'
+        features:
+          $ref: '#/components/schemas/JSONB'
+        has_pricing:
+          type: boolean
+          x-go-name: HasPricing
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        images:
+          $ref: '#/components/schemas/Images'
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        matching:
+          type: boolean
+          x-go-name: Matching
+        max_occupancy:
+          type: integer
+          format: int64
+          x-go-name: MaxOccupancy
+        max_occupancy_adult:
+          type: integer
+          format: int64
+          x-go-name: MaxOccupancyAdult
+        max_occupancy_kids:
+          type: integer
+          format: int64
+          x-go-name: MaxOccupancyKids
+        max_parking_spaces:
+          type: integer
+          format: int64
+          x-go-name: MaxParkingSpaces
+        max_vehicle_length:
+          type: number
+          format: double
+          x-go-name: MaxVehicleLength
+        name:
+          type: string
+          x-go-name: Name
+        parking_onsite:
+          type: boolean
+          x-go-name: ParkingOnsite
+        presentment_currency:
+          type: string
+          x-go-name: PresentmentCurrency
+        price_per_day:
+          type: integer
+          format: int64
+          x-go-name: PricePerDay
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        quantity:
+          type: integer
+          format: int64
+          x-go-name: Quantity
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        reviews_num:
+          type: integer
+          format: int64
+          x-go-name: ReviewsNum
+        score:
+          description: Score (applicable only for external campground)
+          type: number
+          format: double
+          x-go-name: Score
+        settlement_currency:
+          type: string
+          x-go-name: SettlementCurrency
+        site_type:
+          type: string
+          x-go-name: SiteType
+        slug:
+          type: string
+          x-go-name: Slug
+      x-go-package: github.com/outdoorsy/odc-search/types
+  responses:
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    jsonApiVacationPackagesResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+    jsonApiExternalCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+    jsonApiRentalsSearchResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Rental'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Rental'
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

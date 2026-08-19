@@ -1,0 +1,420 @@
+{
+  "item": [
+    {
+      "id": "c456822e-645c-4eb4-b7c1-646c83715bdd",
+      "name": "localities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a92f4533-adcb-4c76-be0b-e51f83aab3db",
+          "name": "get Localities",
+          "request": {
+            "name": "get Localities",
+            "description": {
+              "content": "Search localities",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Slug",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lon",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Radius",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "NELat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "NELon",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "SWLat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "SWLon",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filters",
+                  "value": "{\"Key\":\"<string>\",\"Operator\":\"<string>\",\"Value\":\"\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filters",
+                  "value": "{\"Key\":\"<string>\",\"Operator\":\"<string>\",\"Value\":\"\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "543fc39b-eb62-45ad-9e85-1a5a6d1e8fda",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "NELat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "NELon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "SWLat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "SWLon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Filters",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Filters",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "bounds",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"ne\": {\n    \"lat\": 4890.651150494504,\n    \"lon\": 2385.6256536435094\n  },\n  \"sw\": {\n    \"lat\": 1817.330714123302,\n    \"lon\": 627.7416396244107\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4a507aa-dfe8-41a1-9366-fb61ec970342",
+          "name": "get Locality",
+          "request": {
+            "name": "get Locality",
+            "description": {
+              "content": "Returns a specific locality by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localities",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b706550e-fc51-475e-b378-fafdc927f769",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "bounds",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"ne\": {\n    \"lat\": 4890.651150494504,\n    \"lon\": 2385.6256536435094\n  },\n  \"sw\": {\n    \"lat\": 1817.330714123302,\n    \"lon\": 627.7416396244107\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "45470c75-8250-492e-bf19-4a02a79a72f5",
+    "name": "Outdoorsy Search Documentation Localities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy Search API is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

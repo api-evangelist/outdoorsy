@@ -1,0 +1,979 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Search API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: search
+paths:
+  /search/bookings:
+    get:
+      description: Search Bookings
+      tags:
+      - search
+      operationId: searchBookingsRequest
+      parameters:
+      - x-go-name: Archived
+        name: archived
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: Filter
+        name: filter
+        in: query
+        schema:
+          type: string
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Search
+        name: search
+        in: query
+        schema:
+          type: string
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: CreatedGT
+        name: created_gt
+        in: query
+        schema:
+          type: string
+      - x-go-name: CreatedLT
+        name: created_lt
+        in: query
+        schema:
+          type: string
+      - x-go-name: FromGT
+        name: from_gt
+        in: query
+        schema:
+          type: string
+      - x-go-name: FromLT
+        name: from_lt
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: StatusesRaw
+        name: statuses
+        in: query
+        schema:
+          type: string
+      - x-go-name: New
+        name: new
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          $ref: '#/components/responses/searchBookingsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /search/global:
+    get:
+      description: Global Search
+      tags:
+      - search
+      operationId: globalSearchRequest
+      parameters:
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Search
+        name: search
+        in: query
+        schema:
+          type: string
+      - x-go-name: Types
+        name: types
+        in: query
+        schema:
+          type: string
+      - x-go-name: Status
+        name: status
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/globalSearchResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /search/meta-count:
+    get:
+      description: Search Meta Count
+      tags:
+      - search
+      operationId: searchMetaCountRequest
+      parameters:
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/searchMetaCountResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /search/parent-bookings:
+    get:
+      description: Search Parent Bookings
+      tags:
+      - search
+      operationId: searchParentBookingsRequest
+      parameters:
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Search
+        name: search
+        in: query
+        schema:
+          type: string
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: CreatedGT
+        name: created_gt
+        in: query
+        schema:
+          type: string
+      - x-go-name: CreatedLT
+        name: created_lt
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: Purpose
+        name: purpose
+        in: query
+        schema:
+          type: string
+      - x-go-name: Deleted
+        name: deleted
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          $ref: '#/components/responses/searchParentBookingsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /search/rentals:
+    get:
+      description: Search Rentals
+      tags:
+      - search
+      operationId: searchRentalsRequest
+      parameters:
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Search
+        name: search
+        in: query
+        schema:
+          type: string
+      - x-go-name: OrderBy
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - x-go-name: IncludeUnpublished
+        name: include_unpublished
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeChildren
+        name: include_children
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: IncludeAllCategoryMeta
+        name: include_all_category_meta
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: TypesRaw
+        name: types
+        in: query
+        schema:
+          type: string
+      - x-go-name: MakesRaw
+        name: makes
+        in: query
+        schema:
+          type: string
+      - x-go-name: CategoriesRaw
+        name: categories
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/searchRentalsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  /search/{user_id}/customers:
+    get:
+      description: Search Customers for a dealer
+      tags:
+      - search
+      operationId: searchCustomersRequest
+      parameters:
+      - x-go-name: UserID
+        name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Search
+        name: search
+        in: query
+        schema:
+          type: string
+      - x-go-name: FromGT
+        name: from_gt
+        in: query
+        schema:
+          type: string
+      - x-go-name: FromLT
+        name: from_lt
+        in: query
+        schema:
+          type: string
+      - x-go-name: LocationsRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: RepeatGuest
+        name: repeat_guest
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: ActiveGuest
+        name: active_guest
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          $ref: '#/components/responses/searchCustomersResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+components:
+  responses:
+    globalSearchResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GlobalSearchResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    searchParentBookingsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchParentBookingsResponse'
+    searchMetaCountResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchMetaCountResponse'
+    searchCustomersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Customer'
+    unauthorizedError:
+      description: Unauthorized error
+    searchBookingsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchBookingsResponse'
+    searchRentalsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchRentalsResponse'
+  schemas:
+    SearchParentBookingsMeta:
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int64
+          x-go-name: Limit
+        offset:
+          type: integer
+          format: int64
+          x-go-name: Offset
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchBookingsMetaCount:
+      type: object
+      properties:
+        status_count:
+          $ref: '#/components/schemas/BookingsStatusCount'
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/search
+    CheckoutAnswers:
+      type: array
+      items:
+        $ref: '#/components/schemas/CheckoutAnswer'
+      x-go-package: github.com/outdoorsy/api/internal/search
+    ResultCount:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          x-go-name: Count
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchBookingsMeta:
+      type: object
+      properties:
+        abandoned:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        cancelled:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        expired:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        pending:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        returned:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        upcoming:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+      x-go-package: github.com/outdoorsy/api/internal/search
+    GlobalSearchResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlobalSearchItem'
+          x-go-name: Items
+        meta:
+          $ref: '#/components/schemas/GlobalSearchMeta'
+      x-go-package: github.com/outdoorsy/api/internal/search
+    GlobalSearchMeta:
+      type: object
+      properties:
+        booking_status_count:
+          $ref: '#/components/schemas/BookingStatusCount'
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        type_count:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultCount'
+          x-go-name: TypeCount
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchMetaCountResponse:
+      type: object
+      properties:
+        bookings_with_requested_change:
+          type: integer
+          format: int64
+          x-go-name: BookingsWithRequestedChange
+        rentals_with_rejected_image:
+          type: integer
+          format: int64
+          x-go-name: RentalsWithRejectedImage
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchParentBookingItem:
+      type: object
+      properties:
+        bookings_count:
+          type: integer
+          format: int64
+          x-go-name: BookingsCount
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        notes:
+          type: string
+          x-go-name: Notes
+        purpose:
+          type: string
+          x-go-name: Purpose
+        status:
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/internal/search
+    Customer:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        city:
+          type: string
+          x-go-name: City
+        email:
+          type: string
+          x-go-name: Email
+        employee:
+          type: boolean
+          x-go-name: Employee
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_departure:
+          type: string
+        last_name:
+          type: string
+          x-go-name: LastName
+        lifetime_value:
+          type: number
+          format: double
+          x-go-name: LifetimeValue
+        num_reservations:
+          type: integer
+          format: int64
+          x-go-name: NumReservations
+        owned_by_user_id:
+          type: integer
+          format: int64
+          x-go-name: OwnedByUserID
+        phone:
+          type: string
+          x-go-name: Phone
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        total_reservations:
+          type: integer
+          format: int64
+          x-go-name: TotalReservations
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchRentalsMeta:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRentalGroup'
+          x-go-name: Categories
+        makes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRentalGroup'
+          x-go-name: Makes
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRentalGroup'
+          x-go-name: Types
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchBooking:
+      type: object
+      properties:
+        created:
+          type: string
+        dealer_minimum_days:
+          type: integer
+          format: uint64
+          x-go-name: DealerMinimumDays
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        is_request_less_than_minimum_days:
+          type: boolean
+          x-go-name: IsRequestLessThanMinimumDays
+        num_reservations:
+          type: integer
+          format: int64
+          x-go-name: NumReservations
+        owner_approved:
+          type: boolean
+          x-go-name: OwnerApproved
+        owner_read:
+          type: boolean
+          x-go-name: OwnerRead
+        rental_category:
+          type: string
+          x-go-name: RentalCategory
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rental_name:
+          type: string
+          x-go-name: RentalName
+        renter_approved:
+          type: boolean
+          x-go-name: RenterApproved
+        renter_first_name:
+          type: string
+          x-go-name: RenterFirstName
+        renter_id:
+          type: integer
+          format: int64
+          x-go-name: RenterID
+        renter_last_name:
+          type: string
+          x-go-name: RenterLastName
+        status:
+          type: string
+          x-go-name: Status
+        to:
+          type: string
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        undelivered_emails_count:
+          type: integer
+          format: uint64
+          x-go-name: UndeliveredEmailsCount
+        updated:
+          type: string
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchRentalGroup:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          x-go-name: Count
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/search
+    BookingsStatusCount:
+      type: object
+      properties:
+        approved:
+          type: integer
+          format: int64
+          x-go-name: Approved
+        change_requested:
+          type: integer
+          format: int64
+          x-go-name: ChangeRequested
+        handed_off:
+          type: integer
+          format: int64
+          x-go-name: HandedOff
+        imminent:
+          type: integer
+          format: int64
+          x-go-name: Imminent
+        owner_cancelled:
+          type: integer
+          format: int64
+          x-go-name: OwnerCancelled
+        renter_cancelled:
+          type: integer
+          format: int64
+          x-go-name: RenterCancelled
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchRentalsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/SearchRentalsMeta'
+        rentals:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRental'
+          x-go-name: Rentals
+      x-go-package: github.com/outdoorsy/api/internal/search
+    GlobalSearchItem:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: UserAvatarUrl
+        checkout_answers:
+          $ref: '#/components/schemas/CheckoutAnswers'
+        children_count:
+          type: integer
+          format: int64
+          x-go-name: RentalChildrenCount
+        first_name:
+          type: string
+          x-go-name: UserFirstName
+        from:
+          type: string
+        full_name:
+          type: string
+          x-go-name: UserFullName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: UserLastName
+        make:
+          type: string
+          x-go-name: RentalMake
+        model:
+          type: string
+          x-go-name: RentalModel
+        name:
+          type: string
+          x-go-name: RentalName
+        parent_booking_name:
+          type: string
+          x-go-name: ParentBookingName
+        parent_booking_notes:
+          type: string
+          x-go-name: ParentBookingNotes
+        parent_booking_purpose:
+          type: string
+          x-go-name: ParentBookingPurpose
+        parent_id:
+          type: integer
+          format: int64
+          x-go-name: RentalParentID
+        parent_name:
+          type: string
+          x-go-name: RentalParentName
+        phone:
+          type: string
+          x-go-name: UserPhone
+        primary_image_url:
+          type: string
+          x-go-name: RentalPrimaryImageUrl
+        rental_name:
+          type: string
+          x-go-name: BookingRentalName
+        renter_name:
+          type: string
+          x-go-name: BookingRenterName
+        result_type:
+          type: string
+          x-go-name: ResultType
+        status:
+          type: string
+          x-go-name: BookingStatus
+        to:
+          type: string
+        type:
+          type: string
+          x-go-name: RentalType
+        year:
+          type: integer
+          format: int64
+          x-go-name: RentalYear
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchBookingsResponse:
+      type: object
+      properties:
+        bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchBooking'
+          x-go-name: Bookings
+        meta:
+          $ref: '#/components/schemas/SearchBookingsMeta'
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchRental:
+      type: object
+      properties:
+        children_count:
+          type: integer
+          format: int64
+          x-go-name: ChildrenCount
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        has_rejected_image:
+          type: boolean
+          x-go-name: HasRejectedImage
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        internal_id:
+          type: string
+          x-go-name: InternalID
+        length:
+          type: number
+          format: double
+          x-go-name: Length
+        location_id:
+          type: integer
+          format: int64
+          x-go-name: LocationID
+        location_name:
+          type: string
+          x-go-name: LocationName
+        make:
+          type: string
+          x-go-name: Make
+        model:
+          type: string
+          x-go-name: Model
+        name:
+          type: string
+          x-go-name: Name
+        parent_id:
+          type: integer
+          format: int64
+          x-go-name: ParentID
+        primary_image_id:
+          type: integer
+          format: int64
+          x-go-name: PrimaryImageID
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        published:
+          type: boolean
+          x-go-name: Published
+        type:
+          type: string
+          x-go-name: Type
+        vin:
+          type: string
+          x-go-name: VIN
+        year:
+          type: integer
+          format: int64
+          x-go-name: Year
+      x-go-package: github.com/outdoorsy/api/internal/search
+    CheckoutAnswer:
+      type: object
+      properties:
+        label:
+          type: string
+          x-go-name: Label
+        value:
+          type: string
+          x-go-name: Value
+      x-go-package: github.com/outdoorsy/api/internal/search
+    BookingStatusCount:
+      type: object
+      properties:
+        approved:
+          type: integer
+          format: int64
+          x-go-name: Approved
+        draft:
+          type: integer
+          format: int64
+          x-go-name: Draft
+        expired:
+          type: integer
+          format: int64
+          x-go-name: Expired
+        handed_off:
+          type: integer
+          format: int64
+          x-go-name: HandedOff
+        imminent:
+          type: integer
+          format: int64
+          x-go-name: Imminent
+        negotiating:
+          type: integer
+          format: int64
+          x-go-name: Negotiating
+        owner_cancelled:
+          type: integer
+          format: int64
+          x-go-name: OwnerCancelled
+        owner_declined:
+          type: integer
+          format: int64
+          x-go-name: OwnerDeclined
+        renter_cancelled:
+          type: integer
+          format: int64
+          x-go-name: RenterCancelled
+        renter_withdrew:
+          type: integer
+          format: int64
+          x-go-name: RenterWithdrew
+        returned:
+          type: integer
+          format: int64
+          x-go-name: Returned
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchParentBookingsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/SearchParentBookingsMeta'
+        parent_bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchParentBookingItem'
+          x-go-name: ParentBookings
+      x-go-package: github.com/outdoorsy/api/internal/search
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

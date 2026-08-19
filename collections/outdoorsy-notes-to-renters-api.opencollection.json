@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Notes To Renters API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notes-to-renters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listNotesToRenters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/notes-to-renters",
+            "params": [
+              {
+                "name": "available_for_rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "translate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of notes to renters"
+        },
+        {
+          "info": {
+            "name": "createNoteToRenters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/notes-to-renters"
+          },
+          "docs": "Create a note to renters"
+        },
+        {
+          "info": {
+            "name": "updateNoteToRenters",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/notes-to-renters/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a note to renters"
+        },
+        {
+          "info": {
+            "name": "deleteNoteToRenters",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/notes-to-renters/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a note to renters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

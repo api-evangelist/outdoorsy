@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation System Emails API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "systemEmails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "readManyScheduledEmails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/scheduled-emails",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch paginated scheduled emails (custom email jobs with status = \"scheduled\") for a booking"
+        },
+        {
+          "info": {
+            "name": "readSystemEmailsRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/system-emails"
+          },
+          "docs": "Returns list of System Emails for a given limit and offset"
+        },
+        {
+          "info": {
+            "name": "resendSystemEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/system-emails/resend",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resend or forward an email from the System Emails tab on the reservation page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,141 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Favorites API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: favorites
+paths:
+  /favorites:
+    get:
+      description: Get list of rental favorites for authenticated user
+      tags:
+      - favorites
+      operationId: getFavorites
+      responses:
+        '200':
+          $ref: '#/components/responses/favoritesResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Marks a rental as a favorite for the user
+      tags:
+      - favorites
+      operationId: createFavorite
+      responses:
+        '200':
+          $ref: '#/components/responses/favoriteResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Delete favorite using the rental id
+      tags:
+      - favorites
+      operationId: deleteFavoriteByRentalId
+      parameters:
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /favorites/{id}:
+    delete:
+      description: Delete favorite by id
+      tags:
+      - favorites
+      operationId: deleteFavoriteById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    favoritesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Favorite'
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    favoriteResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Favorite'
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    Favorite:
+      type: object
+      properties:
+        User:
+          type: integer
+          format: int64
+        added_at:
+          type: string
+          x-go-name: Added
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        rental_id:
+          type: integer
+          format: int64
+      x-go-package: github.com/outdoorsy/api/internal/favorite
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

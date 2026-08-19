@@ -1,0 +1,1270 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Messages API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: messages
+paths:
+  /messages:
+    get:
+      description: Returns a list of messages based on search criteria
+      tags:
+      - messages
+      operationId: listMessages
+      parameters:
+      - name: OrderBy
+        in: query
+        schema:
+          type: string
+      - name: Offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: ConversationID
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: UserID
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: ReceiverID
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: SenderID
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Sentiments
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        name: From
+        in: query
+        schema:
+          type: string
+      - x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        name: To
+        in: query
+        schema:
+          type: string
+      - name: SkipBannedFilter
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          $ref: '#/components/responses/messagesResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      tags:
+      - messages
+      summary: Creates a new message as part of a conversation between owner and renter.
+      operationId: createMessage
+      responses:
+        '200':
+          $ref: '#/components/responses/messageResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+  /messages/twilio/sms:
+    get:
+      description: Returns the reply if someone responds to one of our twilio sms messages
+      tags:
+      - messages
+      operationId: getTwilioSmsReply
+      responses:
+        '200':
+          $ref: '#/components/responses/string'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /messages/{id}:
+    get:
+      description: Returns a message by id
+      tags:
+      - messages
+      operationId: getMessageById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/messageResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Marks a message as being read or unread
+      tags:
+      - messages
+      operationId: updateMessage
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/messageResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageUpdate'
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        actor_id:
+          type: integer
+          format: int64
+        archived:
+          type: boolean
+          x-go-name: Archived
+        booking:
+          $ref: '#/components/schemas/MinBooking'
+        booking_summary:
+          $ref: '#/components/schemas/BookingSummary'
+        clicked:
+          type: string
+          x-go-name: Clicked
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        conversation_id:
+          type: integer
+          format: int64
+        destination_data:
+          $ref: '#/components/schemas/RenterDestinationData'
+        file_urls:
+          type: array
+          items:
+            type: string
+          x-go-name: FileURLs
+        files:
+          $ref: '#/components/schemas/DBIntSlice'
+        flagged:
+          type:
+          - boolean
+          - 'null'
+        flagged_text:
+          type:
+          - string
+          - 'null'
+        from_email:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type:
+          - string
+          - 'null'
+        latest_status:
+          type:
+          - string
+          - 'null'
+        opened:
+          type: string
+          x-go-name: Opened
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        origin:
+          type:
+          - string
+          - 'null'
+        proxy_interaction_id:
+          type:
+          - string
+          - 'null'
+        read:
+          type: boolean
+          x-go-name: Read
+        receiver_id:
+          type: integer
+          format: int64
+        ref_booking_id:
+          type: integer
+          format: int64
+          x-go-name: RefBookingID
+        ref_rental_id:
+          type: integer
+          format: int64
+          x-go-name: RefRentalID
+        rental_summary:
+          x-go-name: RentalSummary
+        sender_id:
+          type: integer
+          format: int64
+        sentiment:
+          type: string
+          x-go-name: Sentiment
+        sentiment_confidence:
+          type: number
+          format: double
+          x-go-name: SentimentConfidence
+        spam:
+          type: boolean
+          x-go-name: Spam
+        system:
+          type: boolean
+          x-go-name: System
+        template:
+          type: string
+          x-go-name: Template
+        text:
+          type: string
+          x-go-name: Text
+        timestamp:
+          type: string
+          x-go-name: Timestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    RenterDestinationData:
+      type: object
+      properties:
+        region:
+          type: string
+          x-go-name: Region
+        spot_types:
+          type: array
+          items:
+            type: string
+          x-go-name: SpotTypes
+        stops:
+          type: array
+          items:
+            type: string
+          x-go-name: Stops
+      x-go-package: github.com/outdoorsy/api/types
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    AttentionItem:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AttentionItemData'
+        is_actionable:
+          type: boolean
+          x-go-name: IsActionable
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/model
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    DBIntSlice:
+      description: DBIntSlice is a []int with database conversion methods
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/utils
+    MinBooking:
+      type: object
+      properties:
+        attention_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttentionItem'
+          x-go-name: Attention
+        conversation_id:
+          type: integer
+          format: int64
+          x-go-name: ConversationID
+        created:
+          type: string
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        display_status_style:
+          type: string
+          x-go-name: DisplayStatusStyle
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        is_actionable:
+          type: boolean
+          x-go-name: IsActionable
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: Items
+        locale:
+          $ref: '#/components/schemas/BookingLocale'
+        owner_approved:
+          type: boolean
+          x-go-name: OwnerApproved
+        owner_payout:
+          type: integer
+          format: int64
+          x-go-name: OwnerPayout
+        passengers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingDriver'
+          x-go-name: Passengers
+        rental:
+          $ref: '#/components/schemas/RentalSummary'
+        renter:
+          $ref: '#/components/schemas/UserPartial'
+        renter_approved:
+          type: boolean
+          x-go-name: RenterApproved
+        stage:
+          type: string
+          x-go-name: Stage
+        status:
+          type: string
+          x-go-name: Status
+        to:
+          type: string
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+        waiver_summary:
+          $ref: '#/components/schemas/WaiverSummary'
+      x-go-package: github.com/outdoorsy/api/model
+    WaiverSummary:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        owner_completed:
+          type: boolean
+          x-go-name: OwnerCompleted
+        owner_terms:
+          type: string
+          x-go-name: OwnerTerms
+        renter_completed:
+          type: boolean
+          x-go-name: RenterCompleted
+        renter_confirmation_description:
+          type: string
+          x-go-name: RenterConfirmationDescription
+        renter_confirmation_title:
+          type: string
+          x-go-name: RenterConfirmationTitle
+        renter_terms:
+          type: string
+          x-go-name: RenterTerms
+      x-go-package: github.com/outdoorsy/api/types
+    BookingDriver:
+      description: BookingDriver is the driver(s) of the 'rv' rental or the renter of the 'stay' rental
+      type: object
+      properties:
+        age_verified:
+          type: boolean
+          x-go-name: AgeVerified
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        birthdate:
+          type: string
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        checkr_trust_verified:
+          type: boolean
+          x-go-name: CheckrTrustVerified
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingDriverCheck'
+          x-go-name: Checks
+        driver_check_verified:
+          type: boolean
+          x-go-name: DriverCheckVerified
+        driver_verification_status:
+          type: string
+          x-go-name: DriverVerificationStatus
+        email:
+          type: string
+          x-go-name: Email
+        evident_check_verified:
+          type: boolean
+          x-go-name: EvidentCheckVerified
+        first_name:
+          type: string
+          x-go-name: FirstName
+        has_driving_record_check:
+          type: boolean
+          x-go-name: HasDrivingRecordCheck
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        invite_status:
+          type: string
+          x-go-name: InviteStatus
+        last_name:
+          type: string
+          x-go-name: LastName
+        legacy_driver:
+          type: boolean
+          x-go-name: LegacyDriver
+        named_passenger:
+          type: boolean
+          x-go-name: NamedPassenger
+        owned_by_id:
+          type: integer
+          format: int64
+          x-go-name: OwnedByID
+        persona_check_verified:
+          type: boolean
+          x-go-name: PersonaCheckVerified
+        require_evident:
+          type: boolean
+          x-go-name: RequireEvident
+        require_persona:
+          type: boolean
+          x-go-name: RequirePersona
+        roamly_risk_check_verified:
+          type: boolean
+          x-go-name: RoamlyRiskCheckVerified
+        role:
+          description: attrs from Passenger struct so frontend can treat them the same
+          type: string
+          x-go-name: Role
+        show_persona_flow:
+          type: boolean
+          x-go-name: ShowPersonaFlow
+        tessera_check_verified:
+          type: boolean
+          x-go-name: TesseraCheckVerified
+        tint_check_verified:
+          type: boolean
+          x-go-name: TintCheckVerified
+        token:
+          type: string
+          x-go-name: ConfirmationToken
+        validation_status:
+          type: string
+          x-go-name: ValidationStatus
+        verified:
+          type: boolean
+          x-go-name: Verified
+        verified_checks_count:
+          type: integer
+          format: int64
+          x-go-name: VerifiedChecksCount
+      x-go-package: github.com/outdoorsy/api/internal/booking_helper
+    NoticeResponse:
+      type: object
+      properties:
+        guest_acknowledgement_text:
+          type: string
+          x-go-name: GuestAcknowledgementText
+        guest_need_to_acknowledge:
+          type: boolean
+          x-go-name: GuestNeedToAcknowledge
+        guest_user_text:
+          type: string
+          x-go-name: GuestUserText
+        host_acknowledgement_text:
+          type: string
+          x-go-name: HostAcknowledgementText
+        host_help_url:
+          type: string
+          x-go-name: HostHelpUrl
+        host_need_to_acknowledge:
+          type: boolean
+          x-go-name: HostNeedToAcknowledge
+        host_user_text:
+          type: string
+          x-go-name: HostUserText
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/user_notice_events
+    MessageUpdate:
+      type: object
+      properties:
+        read:
+          type: boolean
+          x-go-name: Read
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    ISlice:
+      type: array
+      items: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    BookingDriverCheck:
+      type: object
+      properties:
+        arguments:
+          type: object
+          additionalProperties: {}
+          x-go-name: Arguments
+        country:
+          type: string
+          x-go-name: Country
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_status:
+          description: checkr and sterling specific
+          type: string
+          x-go-name: DisplayStatus
+        external_id:
+          type: string
+          x-go-name: ExternalID
+        failure_reason:
+          type: string
+          x-go-name: FailureReason
+        forced_approval_by:
+          type: string
+          x-go-name: ForcedApprovalBy
+        forced_approval_reason:
+          type: string
+          x-go-name: ForcedApprovalReason
+        forced_failure_by:
+          type: integer
+          format: int64
+          x-go-name: ForcedFailureBy
+        forced_failure_reason:
+          type: string
+          x-go-name: ForcedFailureReason
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_old_enough:
+          type: boolean
+          x-go-name: IsOldEnough
+        last_created:
+          type: string
+          x-go-name: LastCreated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        license_state:
+          type: string
+          x-go-name: LicenseState
+        method:
+          type: string
+          x-go-name: Method
+        ofac_sdn_score:
+          type: number
+          format: double
+          x-go-name: OFACScore
+        rv_length:
+          type: string
+          x-go-name: RVLength
+        score:
+          description: tint specific
+          type: integer
+          format: int64
+          x-go-name: Score
+        status:
+          type: string
+          x-go-name: Status
+        theft_score:
+          type: integer
+          format: int64
+          x-go-name: TheftScore
+        validation_id:
+          type: string
+          x-go-name: ValidationID
+        verification_upload_link:
+          type: string
+          x-go-name: VerificationUploadLink
+        verified:
+          type: boolean
+          x-go-name: Verified
+      x-go-package: github.com/outdoorsy/api/internal/booking_helper
+    DailyChange:
+      type: object
+      properties:
+        date:
+          type: string
+          x-go-name: Date
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rules:
+          $ref: '#/components/schemas/ISlice'
+      x-go-package: github.com/outdoorsy/api/internal/booking_price_log
+    CampsiteSummary:
+      type: object
+      properties:
+        beds:
+          type: integer
+          format: int64
+          x-go-name: Beds
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        campground_name:
+          type: string
+          x-go-name: CampgroundName
+        campground_sitemap_url:
+          type: string
+          x-go-name: CampgroundSiteMapURL
+        display_campsite_type:
+          type: string
+          x-go-name: DisplayCampsiteType
+        display_max_vehicle_length:
+          type: string
+          x-go-name: DisplayMaxVehicleLength
+        display_site_type:
+          type: string
+          x-go-name: DisplaySiteType
+        is_odn:
+          type: boolean
+          x-go-name: IsOdn
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        site_type:
+          type: string
+          x-go-name: SiteType
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        type:
+          type: string
+          x-go-name: CategoryType
+      x-go-package: github.com/outdoorsy/api/types
+    BookingSummary:
+      type: object
+      properties:
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        to:
+          type: string
+      x-go-package: github.com/outdoorsy/api/types
+    StaySummary:
+      type: object
+      properties:
+        baths:
+          type: integer
+          format: int64
+          x-go-name: Baths
+        bedrooms:
+          type: integer
+          format: int64
+          x-go-name: Bedrooms
+        beds:
+          type: integer
+          format: int64
+          x-go-name: Beds
+        check_in_type:
+          type: string
+          x-go-name: CheckInType
+        display_stay_type:
+          type: string
+          x-go-name: DisplayStayType
+        location_description:
+          type: string
+          x-go-name: LocationDescription
+        max_parking_spaces:
+          type: integer
+          format: int64
+          x-go-name: MaxParkingSpaces
+        parking_onsite:
+          type: boolean
+          x-go-name: ParkingOnsite
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/types
+    RentalSummary:
+      type: object
+      properties:
+        campsite_summary:
+          $ref: '#/components/schemas/CampsiteSummary'
+        disallow_movement:
+          type: boolean
+          x-go-name: DisallowMovement
+        display_type:
+          type: string
+          x-go-name: DisplayType
+        formatted_length:
+          type: string
+          x-go-name: FormattedLength
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        interior_primary_image_url:
+          type: string
+          x-go-name: InteriorPrimaryImageURL
+        internal_id:
+          type: string
+          x-go-name: InternalID
+        location:
+          type: string
+          x-go-name: Location
+        name:
+          type: string
+          x-go-name: Name
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        rental_category:
+          type: string
+          x-go-name: RentalCategory
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        slug:
+          type: string
+          x-go-name: Slug
+        stay_summary:
+          $ref: '#/components/schemas/StaySummary'
+        style:
+          type: string
+          x-go-name: Style
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/types
+    UserPartial:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        business_name:
+          type: string
+          x-go-name: BusinessName
+        email:
+          type: string
+          x-go-name: Email
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        phone:
+          type: string
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/pkg/zapier
+    Proposal:
+      type: object
+      properties:
+        action:
+          type: string
+          x-go-name: Action
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DailyChange'
+          x-go-name: DailyChanges
+        details:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        dry_create:
+          type: boolean
+          x-go-name: DryCreate
+        future_booking:
+          x-go-name: FutureBooking
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        note:
+          type: string
+          x-go-name: Note
+        object_id:
+          type: integer
+          format: uint64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        owner_acknowledged:
+          type: string
+          x-go-name: OwnerAcknowledged
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        renter_acknowledged:
+          type: string
+          x-go-name: RenterAcknowledged
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        renter_dismissed:
+          type: string
+          x-go-name: RenterDismissed
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_notice_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeResponse'
+          x-go-name: UserNoticeEvents
+        user_notices_acknowledged:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: UserNoticesAcknowledged
+      x-go-package: github.com/outdoorsy/api/internal/proposal
+    BookingLocale:
+      type: object
+      properties:
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+        distance_unit:
+          type: string
+          x-go-name: DistanceUnit
+      x-go-package: github.com/outdoorsy/api/model
+    BookingItem:
+      type: object
+      properties:
+        _deleted:
+          description: special flag for handling batch update/delete
+          type: boolean
+          x-go-name: BatchDeleted
+        booking_id:
+          type: integer
+          format: int64
+        coachnet_item:
+          type: boolean
+          x-go-name: CoachnetItem
+        consigned_pay_amount:
+          type: integer
+          format: int64
+          x-go-name: ConsignedPayAmount
+        count:
+          type: integer
+          format: uint64
+          x-go-name: Count
+        created:
+          $ref: '#/components/schemas/NullTime'
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        deferred_total:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        deleted_at:
+          $ref: '#/components/schemas/NullTime'
+        delivery:
+          type: boolean
+          x-go-name: Delivery
+        description:
+          type: string
+          x-go-name: Description
+        discount_amount:
+          type: integer
+          format: int64
+          x-go-name: DiscountAmount
+        generator:
+          type: boolean
+          x-go-name: Generator
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_url:
+          type: string
+          x-go-name: ImageURL
+        maximum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        mileage:
+          type: boolean
+          x-go-name: Mileage
+        minimum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        original_consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: OriginalConsignedPayPct
+        original_tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: OriginalTaxRateID
+        other_claim:
+          type: boolean
+          x-go-name: OtherClaim
+        outdoorsy_item:
+          type: boolean
+          x-go-name: OutdoorsyItem
+        parent_item_id:
+          type: integer
+          format: int64
+          x-go-name: ParentItemID
+        parent_item_type:
+          type: string
+          x-go-name: ParentItemType
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        premium_amount:
+          type: integer
+          format: int64
+          x-go-name: PremiumAmount
+        premium_total:
+          type: integer
+          format: int64
+          x-go-name: PremiumTotal
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_amount:
+          description: mutation modifiers
+          type: boolean
+          x-go-name: RentalAmount
+        required:
+          type: boolean
+          x-go-name: Required
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_description:
+          type: string
+          x-go-name: TaxDescription
+        tax_name:
+          type: string
+          x-go-name: TaxName
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: TaxRate
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          $ref: '#/components/schemas/NullTime'
+      x-go-package: github.com/outdoorsy/api/model
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    AttentionItemData:
+      type: object
+      properties:
+        auto_expires:
+          type: boolean
+          x-go-name: AutoExpires
+        completed_at:
+          type: string
+          x-go-name: CompletedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        confirmation_message:
+          type: string
+          x-go-name: ConfirmationMessage
+        conversation_first_message:
+          type: integer
+          format: int64
+        created_at:
+          type: string
+          x-go-name: CreatedAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily:
+          type: boolean
+          x-go-name: Daily
+        description:
+          type: string
+          x-go-name: Description
+        expires_at:
+          type: string
+          x-go-name: ExpiresAt
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        from:
+          type: string
+        group_item_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Proposal'
+          x-go-name: GroupItemDetails
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        message:
+          type: string
+          x-go-name: Message
+        name:
+          type: string
+          x-go-name: Name
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        quantity:
+          type: integer
+          format: int64
+          x-go-name: Quantity
+        rental_amount:
+          type: integer
+          format: int64
+          x-go-name: RentalAmount
+        to:
+          type: string
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/model
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    unauthorizedError:
+      description: Unauthorized error
+    messagesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Message'
+    messageResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Message'
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

@@ -1,0 +1,3657 @@
+{
+  "item": [
+    {
+      "id": "6daa5bfa-9de9-4aab-a3f9-7e8b7ebf94d8",
+      "name": "externalCampgrounds",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3ac16106-20b9-4afd-a00c-f61b1a75bda1",
+          "name": "search External Campgrounds",
+          "request": {
+            "name": "search External Campgrounds",
+            "description": {
+              "content": "Search performs search on external campgrounds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "external-campgrounds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[keywords]",
+                  "value": "<string>",
+                  "description": "List of keywords, comma-separated, e.g. \"Komfort,wifi\"\nThe fields checked for keywords are: name, description, vehicle_make, vehicle_model, and tags"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type]",
+                  "value": "<string>",
+                  "description": "List of rental types, e.g. \"b,c,camper-van\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[rental_category]",
+                  "value": "<string>",
+                  "description": "Rental category, e.g. \"rv\", \"stay\", \"campground\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[category_types]",
+                  "value": "<string>",
+                  "description": "Campsite category types, e.g. \"rv_site\", \"lodging_site\", \"tent_site\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[rv_site_features]",
+                  "value": "<string>",
+                  "description": "Campsite category rv site Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[tent_site_features]",
+                  "value": "<string>",
+                  "description": "Campsite category tent site Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[lodging_features]",
+                  "value": "<string>",
+                  "description": "Campsite category lodging site Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exclude_type]",
+                  "value": "<string>",
+                  "description": "List of rental types to exclude, e.g. \"b,c\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[style]",
+                  "value": "<string>",
+                  "description": "List of styles, e.g. \"drivable,towable,both\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tags]",
+                  "value": "<string>",
+                  "description": "List of tags, e.g. \"Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for couples\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[feature]",
+                  "value": "<string>",
+                  "description": "Feature list, e.g. \"dining_table,inside_shower,wifi\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[owner_type]",
+                  "value": "<string>",
+                  "description": "Owner type, one of: \"dealer\",\" pro\""
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "Location IDs, e.g. \"1697,791,1369\""
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Rental IDs to return, e.g. \"50302,50303\""
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>",
+                  "description": "Rental IDs to exclude, e.g. \"50303,503034\""
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_ids",
+                  "value": "<string>",
+                  "description": "Owner IDs, e.g. \"255926,251875\""
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "One or many of \"price\", \"-price\", \"position\", \"-position\", \"seatbelts\", \"-seatbelts\", \"sleeps\", \"-sleeps\", \"rating\", \"-rating\", \"distance\", \"-distance\", \"num_reviews\", \"-num_reviews\", \"new_listings\""
+                },
+                {
+                  "disabled": false,
+                  "key": "auto_radius",
+                  "value": "<boolean>",
+                  "description": "Increment search radius until enough results are provided (specified by 'page[limit]' parameter.)\nMax radius is 1000 miles. (default false)"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "making a variable for source"
+                },
+                {
+                  "disabled": false,
+                  "key": "random",
+                  "value": "<boolean>",
+                  "description": "Random Score"
+                },
+                {
+                  "disabled": false,
+                  "key": "seatbelts",
+                  "value": "<long>",
+                  "description": "Number of seatbelts"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps",
+                  "value": "<long>",
+                  "description": "Total people to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps[adults]",
+                  "value": "<long>",
+                  "description": "Adults to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps[kids]",
+                  "value": "<long>",
+                  "description": "Kids to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps[infants]",
+                  "value": "<long>",
+                  "description": "Infants to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "renter_age",
+                  "value": "<long>",
+                  "description": "Minimum renter age required for rental"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<long>",
+                  "description": "Limit the number of results (default 25, max 150)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<long>",
+                  "description": "Skip some results and return results starting with this offset (min 0, max 1000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "price[min]",
+                  "value": "<long>",
+                  "description": "Min price"
+                },
+                {
+                  "disabled": false,
+                  "key": "price[max]",
+                  "value": "<long>",
+                  "description": "Max price"
+                },
+                {
+                  "disabled": false,
+                  "key": "total_price[min]",
+                  "value": "<long>",
+                  "description": "Min price"
+                },
+                {
+                  "disabled": false,
+                  "key": "total_price[max]",
+                  "value": "<long>",
+                  "description": "Max price"
+                },
+                {
+                  "disabled": false,
+                  "key": "date[from]",
+                  "value": "<string>",
+                  "description": "Date from, for date range query, e.g. 2021-06-01"
+                },
+                {
+                  "disabled": false,
+                  "key": "date[to]",
+                  "value": "<string>",
+                  "description": "Date to, for date range query, e.g. 2021-06-14"
+                },
+                {
+                  "disabled": false,
+                  "key": "flexible_days",
+                  "value": "<long>",
+                  "description": "Flexible Days +/- 1-3 days. (default 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "near",
+                  "value": "<string>",
+                  "description": "Latitude,longitude to search near, e.g. \"38.302,-121.972\". Supersedes address. Superseded by bounding box."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Street address to search near. Superseded by latitude/longitude and by bounding box.\nIf no `address` is passed, GeoIP is used to get geo coordinates."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Street address to search near. Superseded by latitude/longitude and by bounding box.\nIf no `address` is passed, GeoIP is used to get geo coordinates."
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_address",
+                  "value": "<string>",
+                  "description": "Street address to be delivered to. Supersedes `address` field. Default radius 100 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_address",
+                  "value": "<string>",
+                  "description": "Street address to be delivered to. Supersedes `address` field. Default radius 100 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "bounds[ne]",
+                  "value": "<string>",
+                  "description": "Bounding box'es north-east, e.g. \"37.812, -122.3482\""
+                },
+                {
+                  "disabled": false,
+                  "key": "bounds[sw]",
+                  "value": "<string>",
+                  "description": "Bounding box'es south-west, e.g. \"37.703399, -122.526999\""
+                },
+                {
+                  "disabled": false,
+                  "key": "near_rental",
+                  "value": "<string>",
+                  "description": "Rental ID to search near, e.g. 37183. Superseded by bounding box.\nSpecified rental is boosted to be at the top of the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "<long>",
+                  "description": "Search radius (miles)"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>",
+                  "description": "Owner ID, e.g. 255926"
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Pro user slug, e.g. \"hwyonerentals\""
+                },
+                {
+                  "disabled": false,
+                  "key": "hidden",
+                  "value": "<boolean>",
+                  "description": "Show hidden results? (Non-hidden results will not be returned.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "score",
+                  "value": "<double>",
+                  "description": "Only return results with scores greater or equal than this"
+                },
+                {
+                  "disabled": false,
+                  "key": "unlimited_miles",
+                  "value": "<boolean>",
+                  "description": "Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true, False"
+                },
+                {
+                  "disabled": false,
+                  "key": "unlimited_generator",
+                  "value": "<boolean>",
+                  "description": "Only return results with unlimited generator hours? Boolean string"
+                },
+                {
+                  "disabled": false,
+                  "key": "instant_book",
+                  "value": "<boolean>",
+                  "description": "Only return results with instant book? Boolean string"
+                },
+                {
+                  "disabled": false,
+                  "key": "requires_driver_verification",
+                  "value": "<boolean>",
+                  "description": "Only return results with insurance requiring driver verification? Boolean string"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Currency unit for price range requests (default USD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "distance_unit",
+                  "value": "<string>",
+                  "description": "Distance unit for location search requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[lte]",
+                  "value": "<long>",
+                  "description": "Max vehicle length, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[gte]",
+                  "value": "<long>",
+                  "description": "Min vehicle length, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[between]",
+                  "value": "[\"<long>\",\"<long>\"]",
+                  "description": "Length ranges (e.g.: \"18-24,25-31,32-38\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[between]",
+                  "value": "[\"<long>\",\"<long>\"]",
+                  "description": "Length ranges (e.g.: \"18-24,25-31,32-38\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "year[lte]",
+                  "value": "<long>",
+                  "description": "Max vehicle year, e.g. 2019"
+                },
+                {
+                  "disabled": false,
+                  "key": "year[gte]",
+                  "value": "<long>",
+                  "description": "Min vehicle year, e.g. 1960"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_published[lte]",
+                  "value": "<dateTime>",
+                  "description": "Published on or before date, e.g. 2020-12-02"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_published[gte]",
+                  "value": "<dateTime>",
+                  "description": "Published on or after date, e.g. 2006-01-02"
+                },
+                {
+                  "disabled": false,
+                  "key": "trailer_weight[lte]",
+                  "value": "<long>",
+                  "description": "Max trailer weight, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "trailer_weight[gte]",
+                  "value": "<long>",
+                  "description": "Min trailer weight, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "weight_unit",
+                  "value": "<string>",
+                  "description": "Weight unit, one of: \"kg\", \"lbs\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cancel_policy",
+                  "value": "<string>",
+                  "description": "Cancel policy: values \"strict\", \"moderate\", \"flexible\", \"custom\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cancel_policy",
+                  "value": "<string>",
+                  "description": "Cancel policy: values \"strict\", \"moderate\", \"flexible\", \"custom\""
+                },
+                {
+                  "disabled": false,
+                  "key": "insurance_state",
+                  "value": "<string>",
+                  "description": "State of insurance, e.g. \"approved\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[vehicle_make]",
+                  "value": "<string>",
+                  "description": "Vehicle make. Examples: \"Jeep\", \"Horse\", \"Catering\", \"Winnebago\", \"Champion\", \"Komfort\", \"Thor Motor Coach\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[vehicle_model]",
+                  "value": "<string>",
+                  "description": "Vehicle model. Examples: \"Wrangler\", \"Trailer Bar\", \"Westfalia\", \"Four Winds\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[transmission]",
+                  "value": "<string>",
+                  "description": "Transmission type. Examples: \"automatic\", \"manual\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[fuel_type]",
+                  "value": "<string>",
+                  "description": "Fuel type. Examples: \"gas\", \"diesel\", \"electric\""
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery",
+                  "value": "<boolean>",
+                  "description": "Delivery available?"
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_stationary",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_campground_id",
+                  "value": "<long>",
+                  "description": "Are we searching for vehicles to deliver to a campground?"
+                },
+                {
+                  "disabled": false,
+                  "key": "debug",
+                  "value": "<boolean>",
+                  "description": "Include some debug output, such as hit count and query source"
+                },
+                {
+                  "disabled": false,
+                  "key": "allows_long_term",
+                  "value": "<boolean>",
+                  "description": "Include rentals which have a monthly discount"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_unavailable",
+                  "value": "<boolean>",
+                  "description": "Include vehicles already booked for the specified date range?\nIn results, each rental will get a boolean field unavailable set to true or false."
+                },
+                {
+                  "disabled": false,
+                  "key": "only",
+                  "value": "<string>",
+                  "description": "Limit returned keys. One of: \"meta\", \"rentals\""
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Limit search to a specific locale, e.g. en-us (default en-us)"
+                },
+                {
+                  "disabled": false,
+                  "key": "new_owners",
+                  "value": "<boolean>",
+                  "description": "Rentals of owners who have published a first listing in the past 30 days"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[max_vehicle_length]",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[beds]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[bedrooms]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[bathrooms]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[parking_onsite]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[max_parking_spaces]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[is_odn]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_types]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_types]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_length]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_slideouts]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_slideouts]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[has_pricing]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[property]",
+                  "value": "<string>",
+                  "description": "Property type filter Examples: \"campground\", \"private-property\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[property]",
+                  "value": "<string>",
+                  "description": "Property type filter Examples: \"campground\", \"private-property\""
+                },
+                {
+                  "disabled": false,
+                  "key": "include_nearby_campgrounds",
+                  "value": "<boolean>",
+                  "description": "Include nearby campgrounds in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "TotalPriceSortDirection",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cg[features]",
+                  "value": "<string>",
+                  "description": "Campground specific: */\nCampground Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cg[near_campground]",
+                  "value": "<string>",
+                  "description": "Specified external campground is boosted to be at the top of the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "cg[vacation_package_slug]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cg[categories]",
+                  "value": "<string>",
+                  "description": "Campground Categories list, e.g. \"city,forest,etc.\""
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8b7c0b5-53d2-4a65-a930-24bbe4df7ab3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external-campgrounds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[keywords]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[rental_category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[category_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[rv_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[tent_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[lodging_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exclude_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[style]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tags]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[feature]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[owner_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_radius",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "random",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "seatbelts",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[adults]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[kids]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[infants]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "renter_age",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date[from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date[to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flexible_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "near",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[ne]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[sw]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "near_rental",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "score",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "unlimited_miles",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "unlimited_generator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "instant_book",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "requires_driver_verification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distance_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "year[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last_published[lte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "last_published[gte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "trailer_weight[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "trailer_weight[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "weight_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "insurance_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_make]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_model]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[transmission]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[fuel_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "delivery_stationary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_campground_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allows_long_term",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_owners",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_vehicle_length]",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "cs[beds]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bedrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bathrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[parking_onsite]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_parking_spaces]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[is_odn]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_length]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[has_pricing]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_nearby_campgrounds",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TotalPriceSortDirection",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cg[features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cg[near_campground]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cg[vacation_package_slug]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cg[categories]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {}\n    },\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16f4b57d-b977-427a-8232-49a541f46496",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external-campgrounds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[keywords]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[rental_category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[category_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[rv_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[tent_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[lodging_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exclude_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[style]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tags]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[feature]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[owner_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_radius",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "random",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "seatbelts",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[adults]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[kids]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[infants]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "renter_age",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date[from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date[to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flexible_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "near",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[ne]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[sw]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "near_rental",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "score",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "unlimited_miles",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "unlimited_generator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "instant_book",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "requires_driver_verification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distance_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "year[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last_published[lte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "last_published[gte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "trailer_weight[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "trailer_weight[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "weight_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "insurance_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_make]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_model]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[transmission]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[fuel_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "delivery_stationary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_campground_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allows_long_term",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_owners",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_vehicle_length]",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "cs[beds]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bedrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bathrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[parking_onsite]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_parking_spaces]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[is_odn]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_length]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[has_pricing]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_nearby_campgrounds",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TotalPriceSortDirection",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cg[features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cg[near_campground]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cg[vacation_package_slug]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cg[categories]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f78ede0c-40c0-4b59-b020-4d4598218c4c",
+          "name": "search Nearby Campgrounds",
+          "request": {
+            "name": "search Nearby Campgrounds",
+            "description": {
+              "content": "Searches nearby claimed and unclaimed campgrounds for a given rental with rental_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "external-campgrounds",
+                "nearby-for-rental",
+                ":rental_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "rental_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9543008e-c992-426c-9169-9d92be857663",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external-campgrounds",
+                    "nearby-for-rental",
+                    ":rental_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "rental_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"claimed_campground_id\": 6,\n    \"distance_in_miles\": 4610.922481223269,\n    \"is_claimed\": true,\n    \"is_odn\": true,\n    \"location\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"county\": \"string\",\n      \"lat\": 6919.477918969975,\n      \"lng\": 9707.073158160285,\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"name\": \"string\",\n    \"odn_id\": \"string\",\n    \"primary_image_url\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"claimed_campground_id\": 1709,\n    \"distance_in_miles\": 7445.657979444523,\n    \"is_claimed\": false,\n    \"is_odn\": false,\n    \"location\": {\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"county\": \"string\",\n      \"lat\": 1029.7589756543612,\n      \"lng\": 4255.764185886102,\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"zip\": \"string\"\n    },\n    \"name\": \"string\",\n    \"odn_id\": \"string\",\n    \"primary_image_url\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d316b651-faee-4471-9f09-47e1a2a30e42",
+          "name": "get External Campground",
+          "request": {
+            "name": "get External Campground",
+            "description": {
+              "content": "Get external campgrounds by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "external-campgrounds",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[keywords]",
+                  "value": "<string>",
+                  "description": "List of keywords, comma-separated, e.g. \"Komfort,wifi\"\nThe fields checked for keywords are: name, description, vehicle_make, vehicle_model, and tags"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type]",
+                  "value": "<string>",
+                  "description": "List of rental types, e.g. \"b,c,camper-van\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[rental_category]",
+                  "value": "<string>",
+                  "description": "Rental category, e.g. \"rv\", \"stay\", \"campground\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[category_types]",
+                  "value": "<string>",
+                  "description": "Campsite category types, e.g. \"rv_site\", \"lodging_site\", \"tent_site\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[rv_site_features]",
+                  "value": "<string>",
+                  "description": "Campsite category rv site Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[tent_site_features]",
+                  "value": "<string>",
+                  "description": "Campsite category tent site Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[lodging_features]",
+                  "value": "<string>",
+                  "description": "Campsite category lodging site Features list, e.g. \"pet_friendly,accessible\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exclude_type]",
+                  "value": "<string>",
+                  "description": "List of rental types to exclude, e.g. \"b,c\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[style]",
+                  "value": "<string>",
+                  "description": "List of styles, e.g. \"drivable,towable,both\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tags]",
+                  "value": "<string>",
+                  "description": "List of tags, e.g. \"Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for couples\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[feature]",
+                  "value": "<string>",
+                  "description": "Feature list, e.g. \"dining_table,inside_shower,wifi\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[owner_type]",
+                  "value": "<string>",
+                  "description": "Owner type, one of: \"dealer\",\" pro\""
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "Location IDs, e.g. \"1697,791,1369\""
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Rental IDs to return, e.g. \"50302,50303\""
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>",
+                  "description": "Rental IDs to exclude, e.g. \"50303,503034\""
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_ids",
+                  "value": "<string>",
+                  "description": "Owner IDs, e.g. \"255926,251875\""
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "One or many of \"price\", \"-price\", \"position\", \"-position\", \"seatbelts\", \"-seatbelts\", \"sleeps\", \"-sleeps\", \"rating\", \"-rating\", \"distance\", \"-distance\", \"num_reviews\", \"-num_reviews\", \"new_listings\""
+                },
+                {
+                  "disabled": false,
+                  "key": "auto_radius",
+                  "value": "<boolean>",
+                  "description": "Increment search radius until enough results are provided (specified by 'page[limit]' parameter.)\nMax radius is 1000 miles. (default false)"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "making a variable for source"
+                },
+                {
+                  "disabled": false,
+                  "key": "random",
+                  "value": "<boolean>",
+                  "description": "Random Score"
+                },
+                {
+                  "disabled": false,
+                  "key": "seatbelts",
+                  "value": "<long>",
+                  "description": "Number of seatbelts"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps",
+                  "value": "<long>",
+                  "description": "Total people to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps[adults]",
+                  "value": "<long>",
+                  "description": "Adults to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps[kids]",
+                  "value": "<long>",
+                  "description": "Kids to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "sleeps[infants]",
+                  "value": "<long>",
+                  "description": "Infants to sleep"
+                },
+                {
+                  "disabled": false,
+                  "key": "renter_age",
+                  "value": "<long>",
+                  "description": "Minimum renter age required for rental"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<long>",
+                  "description": "Limit the number of results (default 25, max 150)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<long>",
+                  "description": "Skip some results and return results starting with this offset (min 0, max 1000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "price[min]",
+                  "value": "<long>",
+                  "description": "Min price"
+                },
+                {
+                  "disabled": false,
+                  "key": "price[max]",
+                  "value": "<long>",
+                  "description": "Max price"
+                },
+                {
+                  "disabled": false,
+                  "key": "total_price[min]",
+                  "value": "<long>",
+                  "description": "Min price"
+                },
+                {
+                  "disabled": false,
+                  "key": "total_price[max]",
+                  "value": "<long>",
+                  "description": "Max price"
+                },
+                {
+                  "disabled": false,
+                  "key": "date[from]",
+                  "value": "<string>",
+                  "description": "Date from, for date range query, e.g. 2021-06-01"
+                },
+                {
+                  "disabled": false,
+                  "key": "date[to]",
+                  "value": "<string>",
+                  "description": "Date to, for date range query, e.g. 2021-06-14"
+                },
+                {
+                  "disabled": false,
+                  "key": "flexible_days",
+                  "value": "<long>",
+                  "description": "Flexible Days +/- 1-3 days. (default 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "near",
+                  "value": "<string>",
+                  "description": "Latitude,longitude to search near, e.g. \"38.302,-121.972\". Supersedes address. Superseded by bounding box."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Street address to search near. Superseded by latitude/longitude and by bounding box.\nIf no `address` is passed, GeoIP is used to get geo coordinates."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Street address to search near. Superseded by latitude/longitude and by bounding box.\nIf no `address` is passed, GeoIP is used to get geo coordinates."
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_address",
+                  "value": "<string>",
+                  "description": "Street address to be delivered to. Supersedes `address` field. Default radius 100 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_address",
+                  "value": "<string>",
+                  "description": "Street address to be delivered to. Supersedes `address` field. Default radius 100 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "bounds[ne]",
+                  "value": "<string>",
+                  "description": "Bounding box'es north-east, e.g. \"37.812, -122.3482\""
+                },
+                {
+                  "disabled": false,
+                  "key": "bounds[sw]",
+                  "value": "<string>",
+                  "description": "Bounding box'es south-west, e.g. \"37.703399, -122.526999\""
+                },
+                {
+                  "disabled": false,
+                  "key": "near_rental",
+                  "value": "<string>",
+                  "description": "Rental ID to search near, e.g. 37183. Superseded by bounding box.\nSpecified rental is boosted to be at the top of the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "<long>",
+                  "description": "Search radius (miles)"
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<long>",
+                  "description": "Owner ID, e.g. 255926"
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Pro user slug, e.g. \"hwyonerentals\""
+                },
+                {
+                  "disabled": false,
+                  "key": "hidden",
+                  "value": "<boolean>",
+                  "description": "Show hidden results? (Non-hidden results will not be returned.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "score",
+                  "value": "<double>",
+                  "description": "Only return results with scores greater or equal than this"
+                },
+                {
+                  "disabled": false,
+                  "key": "unlimited_miles",
+                  "value": "<boolean>",
+                  "description": "Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true, False"
+                },
+                {
+                  "disabled": false,
+                  "key": "unlimited_generator",
+                  "value": "<boolean>",
+                  "description": "Only return results with unlimited generator hours? Boolean string"
+                },
+                {
+                  "disabled": false,
+                  "key": "instant_book",
+                  "value": "<boolean>",
+                  "description": "Only return results with instant book? Boolean string"
+                },
+                {
+                  "disabled": false,
+                  "key": "requires_driver_verification",
+                  "value": "<boolean>",
+                  "description": "Only return results with insurance requiring driver verification? Boolean string"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Currency unit for price range requests (default USD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "distance_unit",
+                  "value": "<string>",
+                  "description": "Distance unit for location search requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[lte]",
+                  "value": "<long>",
+                  "description": "Max vehicle length, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[gte]",
+                  "value": "<long>",
+                  "description": "Min vehicle length, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[between]",
+                  "value": "[\"<long>\",\"<long>\"]",
+                  "description": "Length ranges (e.g.: \"18-24,25-31,32-38\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "length[between]",
+                  "value": "[\"<long>\",\"<long>\"]",
+                  "description": "Length ranges (e.g.: \"18-24,25-31,32-38\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "year[lte]",
+                  "value": "<long>",
+                  "description": "Max vehicle year, e.g. 2019"
+                },
+                {
+                  "disabled": false,
+                  "key": "year[gte]",
+                  "value": "<long>",
+                  "description": "Min vehicle year, e.g. 1960"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_published[lte]",
+                  "value": "<dateTime>",
+                  "description": "Published on or before date, e.g. 2020-12-02"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_published[gte]",
+                  "value": "<dateTime>",
+                  "description": "Published on or after date, e.g. 2006-01-02"
+                },
+                {
+                  "disabled": false,
+                  "key": "trailer_weight[lte]",
+                  "value": "<long>",
+                  "description": "Max trailer weight, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "trailer_weight[gte]",
+                  "value": "<long>",
+                  "description": "Min trailer weight, integer"
+                },
+                {
+                  "disabled": false,
+                  "key": "weight_unit",
+                  "value": "<string>",
+                  "description": "Weight unit, one of: \"kg\", \"lbs\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cancel_policy",
+                  "value": "<string>",
+                  "description": "Cancel policy: values \"strict\", \"moderate\", \"flexible\", \"custom\""
+                },
+                {
+                  "disabled": false,
+                  "key": "cancel_policy",
+                  "value": "<string>",
+                  "description": "Cancel policy: values \"strict\", \"moderate\", \"flexible\", \"custom\""
+                },
+                {
+                  "disabled": false,
+                  "key": "insurance_state",
+                  "value": "<string>",
+                  "description": "State of insurance, e.g. \"approved\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[vehicle_make]",
+                  "value": "<string>",
+                  "description": "Vehicle make. Examples: \"Jeep\", \"Horse\", \"Catering\", \"Winnebago\", \"Champion\", \"Komfort\", \"Thor Motor Coach\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[vehicle_model]",
+                  "value": "<string>",
+                  "description": "Vehicle model. Examples: \"Wrangler\", \"Trailer Bar\", \"Westfalia\", \"Four Winds\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[transmission]",
+                  "value": "<string>",
+                  "description": "Transmission type. Examples: \"automatic\", \"manual\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[fuel_type]",
+                  "value": "<string>",
+                  "description": "Fuel type. Examples: \"gas\", \"diesel\", \"electric\""
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery",
+                  "value": "<boolean>",
+                  "description": "Delivery available?"
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_stationary",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "delivery_campground_id",
+                  "value": "<long>",
+                  "description": "Are we searching for vehicles to deliver to a campground?"
+                },
+                {
+                  "disabled": false,
+                  "key": "debug",
+                  "value": "<boolean>",
+                  "description": "Include some debug output, such as hit count and query source"
+                },
+                {
+                  "disabled": false,
+                  "key": "allows_long_term",
+                  "value": "<boolean>",
+                  "description": "Include rentals which have a monthly discount"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_unavailable",
+                  "value": "<boolean>",
+                  "description": "Include vehicles already booked for the specified date range?\nIn results, each rental will get a boolean field unavailable set to true or false."
+                },
+                {
+                  "disabled": false,
+                  "key": "only",
+                  "value": "<string>",
+                  "description": "Limit returned keys. One of: \"meta\", \"rentals\""
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Limit search to a specific locale, e.g. en-us (default en-us)"
+                },
+                {
+                  "disabled": false,
+                  "key": "new_owners",
+                  "value": "<boolean>",
+                  "description": "Rentals of owners who have published a first listing in the past 30 days"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[max_vehicle_length]",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[beds]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[bedrooms]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[bathrooms]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[parking_onsite]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[max_parking_spaces]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[is_odn]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_types]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_types]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_length]",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_slideouts]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[supported_slideouts]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cs[has_pricing]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[property]",
+                  "value": "<string>",
+                  "description": "Property type filter Examples: \"campground\", \"private-property\""
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[property]",
+                  "value": "<string>",
+                  "description": "Property type filter Examples: \"campground\", \"private-property\""
+                },
+                {
+                  "disabled": false,
+                  "key": "include_nearby_campgrounds",
+                  "value": "<boolean>",
+                  "description": "Include nearby campgrounds in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "TotalPriceSortDirection",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7885b26a-26a0-4e17-88b7-95d34cd1676a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external-campgrounds",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[keywords]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[rental_category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[category_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[rv_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[tent_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[lodging_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exclude_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[style]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tags]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[feature]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[owner_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_radius",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "random",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "seatbelts",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[adults]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[kids]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[infants]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "renter_age",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date[from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date[to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flexible_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "near",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[ne]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[sw]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "near_rental",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "score",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "unlimited_miles",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "unlimited_generator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "instant_book",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "requires_driver_verification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distance_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "year[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last_published[lte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "last_published[gte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "trailer_weight[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "trailer_weight[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "weight_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "insurance_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_make]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_model]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[transmission]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[fuel_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "delivery_stationary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_campground_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allows_long_term",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_owners",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_vehicle_length]",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "cs[beds]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bedrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bathrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[parking_onsite]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_parking_spaces]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[is_odn]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_length]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[has_pricing]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_nearby_campgrounds",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TotalPriceSortDirection",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        }\n      },\n      \"key_2\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "695c855c-4632-496a-af8d-5f02071b8cff",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external-campgrounds",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[keywords]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[rental_category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[category_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[rv_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[tent_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[lodging_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exclude_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[style]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tags]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[feature]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[owner_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_radius",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "random",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "seatbelts",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[adults]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[kids]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[infants]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "renter_age",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date[from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date[to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flexible_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "near",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[ne]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[sw]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "near_rental",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "score",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "unlimited_miles",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "unlimited_generator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "instant_book",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "requires_driver_verification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distance_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "year[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last_published[lte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "last_published[gte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "trailer_weight[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "trailer_weight[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "weight_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "insurance_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_make]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_model]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[transmission]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[fuel_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "delivery_stationary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_campground_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allows_long_term",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_owners",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_vehicle_length]",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "cs[beds]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bedrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bathrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[parking_onsite]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_parking_spaces]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[is_odn]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_length]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[has_pricing]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_nearby_campgrounds",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TotalPriceSortDirection",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ea3640c-f809-48af-90aa-0d58bf8a7c93",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external-campgrounds",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[keywords]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[rental_category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[category_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[rv_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[tent_site_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[lodging_features]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exclude_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[style]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tags]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[feature]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[owner_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auto_radius",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "random",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "seatbelts",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[adults]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[kids]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sleeps[infants]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "renter_age",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[min]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "total_price[max]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date[from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date[to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flexible_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "near",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[ne]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounds[sw]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "near_rental",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "score",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "unlimited_miles",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "unlimited_generator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "instant_book",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "requires_driver_verification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distance_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "length[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "length[between]",
+                      "value": "<long>,<long>"
+                    },
+                    {
+                      "key": "year[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "year[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last_published[lte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "last_published[gte]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "trailer_weight[lte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "trailer_weight[gte]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "weight_unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cancel_policy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "insurance_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_make]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[vehicle_model]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[transmission]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[fuel_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "delivery_stationary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "delivery_campground_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allows_long_term",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "include_unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_owners",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_vehicle_length]",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "cs[beds]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bedrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[bathrooms]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[parking_onsite]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[max_parking_spaces]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[is_odn]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_length]",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[supported_slideouts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cs[has_pricing]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[property]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_nearby_campgrounds",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TotalPriceSortDirection",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "50c5b48f-8245-4f54-98a6-37616c911c41",
+    "name": "Outdoorsy Search Documentation External Campgrounds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy Search API is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

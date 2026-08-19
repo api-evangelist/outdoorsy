@@ -1,0 +1,1147 @@
+{
+  "item": [
+    {
+      "id": "e5c25a54-aa3e-4fdf-8169-c5f80968e61a",
+      "name": "bundleFeatures",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e9e7acf-4254-4f1c-88c8-c52cbd00bd74",
+          "name": "create Bundle Feature",
+          "request": {
+            "name": "create Bundle Feature",
+            "description": {
+              "content": "Create a bundle feature",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id",
+                "features"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12ab0e63-9e0b-4e25-8f01-b31c888fc006",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdfbc4a4-b1fe-484b-a74f-257ce0f86424",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aba1f74d-67d1-42a5-b9e6-726fa59e1d5a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15bd262f-18d8-4ad1-a2dc-8e9876b6a282",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0bc113d-6505-42ac-92c7-49da03792ef6",
+          "name": "get Bundle Feature By Id",
+          "request": {
+            "name": "get Bundle Feature By Id",
+            "description": {
+              "content": "Retrieve bundle feature by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id",
+                "features",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "bundle_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3064c9b-0bd2-43d3-bee3-1142c2cc4edd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a1ad898-581e-4dbe-86c6-71e5be8bb289",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10f4d0e1-6c2b-46fa-a097-e6d8298d5b7b",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "150ffa80-1230-4c08-ae8e-27e4641478b0",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "787e9754-d8fa-4dd5-9122-0998e0c8b315",
+          "name": "delete Bundle Feature",
+          "request": {
+            "name": "delete Bundle Feature",
+            "description": {
+              "content": "Delete bundle feature",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id",
+                "features",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "bundle_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29c79a6b-9c61-42c7-b999-95aaafbb74b2",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c03a141-f4b7-4e49-8952-a9b8568539fc",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ac5986c-6990-4892-a6e6-17a1a2aab67b",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09e42b02-9c3d-44cd-aec3-e9f4acb8ff78",
+          "name": "update Bundle Feature",
+          "request": {
+            "name": "update Bundle Feature",
+            "description": {
+              "content": "Update bundle feature",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id",
+                "features",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "bundle_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5e0831c-1834-449c-9b87-16f16d85b7ed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18174cf9-8553-48d0-bd05-d6cf4a746d39",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "409e1e63-4434-4725-a31e-c932137591e4",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0697a6b2-3ac7-4e96-b11b-2cf189603d7a",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "bundle_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"created\": \"<string>\",\n  \"details\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<long>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service_id\": \"<integer,null-int64>\",\n  \"type\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b7395123-53b2-4687-a1f5-f1a182ba21c9",
+    "name": "Outdoorsy API Documentation Bundle Features API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

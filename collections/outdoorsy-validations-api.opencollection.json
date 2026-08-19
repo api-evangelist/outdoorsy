@@ -1,0 +1,250 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Validations API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "validations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of validations in the system.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/validations",
+            "params": [
+              {
+                "name": "args",
+                "value": "",
+                "type": "query",
+                "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{\"booking_id\":\"1234\",\"driver_id\":\"5678\",\"validator\":\"tint\"}`"
+              },
+              {
+                "name": "contains_args",
+                "value": "",
+                "type": "query",
+                "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values are contained by one or more entries, those entries will be returned. For example, this could be used to fetch all tint validations for a specific booking by sending `{\"booking_id\":\"1234\",\"validator\":\"tint\"}`"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status on which you wish to filter. Valid options are `pending, processing, passed, flagged, error, failed`"
+              },
+              {
+                "name": "validator",
+                "value": "",
+                "type": "query",
+                "description": "The validator on which you wish to filter. Valid options are `tint`."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order in which to return results. Typically you may pass the name of a field in the object to order by that field ASC. If you want DESC, prepend the name with `-`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of results for a given limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of results for a given offset."
+              }
+            ]
+          },
+          "docs": "Returns a list of validations in the system."
+        },
+        {
+          "info": {
+            "name": "Returns a validation in the system by its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/validations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A 24 character hex-encoded ObjectID value."
+              }
+            ]
+          },
+          "docs": "Returns a validation in the system by its ID."
+        },
+        {
+          "info": {
+            "name": "Flags a validation as deleted.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/admin/validations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A 24 character hex-encoded ObjectID value."
+              }
+            ]
+          },
+          "docs": "Flags a validation as deleted."
+        },
+        {
+          "info": {
+            "name": "Duplicates a validation, overwriting its arguments to copy its data to another object in the system. This is intended to be used when creating a more specific version of a validation. For example, a user-level validation that needs to be \\\"locked\\\" to a booking by using a user_id,booking_id tuple. Send the tuple you wish this duplicate to use as its identifier as the new_args key in the body.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/admin/validations/:id/duplicate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A 24 character hex-encoded ObjectID value."
+              }
+            ]
+          },
+          "docs": "Duplicates a validation, overwriting its arguments to copy its data to another object in the system. This is intended to be used when creating a more specific version of a validation. For example, a user-level validation that needs to be \\\"locked\\\" to a booking by using a user_id,booking_id tuple. Send the tuple you wish this duplicate to use as its identifier as the new_args key in the body."
+        },
+        {
+          "info": {
+            "name": "Forces an validation into a `passed` state.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/admin/validations/:id/force",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A 24 character hex-encoded ObjectID value."
+              }
+            ]
+          },
+          "docs": "Forces an validation into a `passed` state."
+        },
+        {
+          "info": {
+            "name": "Returns the historical list of validation entries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/admin/validations/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A 24 character hex-encoded ObjectID value."
+              }
+            ]
+          },
+          "docs": "Returns the historical list of validation entries."
+        },
+        {
+          "info": {
+            "name": "Retry a validation request if failed or error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/admin/validations/:id/retry",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A 24 character hex-encoded ObjectID value."
+              }
+            ]
+          },
+          "docs": "Retry a validation request if failed or error"
+        },
+        {
+          "info": {
+            "name": "Returns a list of validations in the system. The data returned is a public-facing subset of the internal data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/validations",
+            "params": [
+              {
+                "name": "args",
+                "value": "",
+                "type": "query",
+                "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{\"booking_id\":\"1234\",\"driver_id\":\"5678\",\"validator\":\"tint\"}`"
+              },
+              {
+                "name": "contains_args",
+                "value": "",
+                "type": "query",
+                "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values are contained by one or more entries, those entries will be returned. For example, this could be used to fetch all tint validations for a specific booking by sending `{\"booking_id\":\"1234\",\"validator\":\"tint\"}`"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status on which you wish to filter. Valid options are `pending, processing, passed, flagged, error, failed`"
+              },
+              {
+                "name": "validator",
+                "value": "",
+                "type": "query",
+                "description": "The validator on which you wish to filter. Valid options are `tint`."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "The order in which to return results. Typically you may pass the name of a field in the object to order by that field ASC. If you want DESC, prepend the name with `-`"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of results for a given limit."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Returns list of results for a given offset."
+              }
+            ]
+          },
+          "docs": "Returns a list of validations in the system. The data returned is a public-facing subset of the internal data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

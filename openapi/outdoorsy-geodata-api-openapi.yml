@@ -1,0 +1,91 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy Search API is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy Search Documentation Geodata API
+  version: 0.0.1
+security:
+- Bearer:
+  - '[]'
+tags:
+- name: geodata
+paths:
+  /geodata/my-ip:
+    get:
+      description: Returns geographic data based on request IP
+      tags:
+      - geodata
+      operationId: getAddressForIP
+      parameters:
+      - x-go-name: Locale
+        name: locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/jsonApiGetAddressForIPResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+components:
+  schemas:
+    GeodataResponse:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        country_code:
+          type: string
+          x-go-name: CountryCode
+        country_name:
+          type: string
+          x-go-name: CountryName
+        county:
+          type: string
+          x-go-name: County
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lon
+        state:
+          type: string
+          x-go-name: State
+      x-go-package: github.com/outdoorsy/odc-search/app/controllers
+  responses:
+    jsonApiGetAddressForIPResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/GeodataResponse'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeodataResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

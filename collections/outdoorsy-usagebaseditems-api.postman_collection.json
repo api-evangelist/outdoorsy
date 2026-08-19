@@ -1,0 +1,1408 @@
+{
+  "item": [
+    {
+      "id": "445dbee5-c4a9-4649-b677-386bd5610191",
+      "name": "usageBasedItems",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2550fd0f-56fd-43e1-ba8d-ae8a82cacf3c",
+          "name": "Returns an array of usage based items owned by the user.",
+          "request": {
+            "name": "Returns an array of usage based items owned by the user.",
+            "description": {},
+            "url": {
+              "path": [
+                "usage-based-items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4d57576-cd02-4c9d-873e-b2492dccc581",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"archived\": false,\n    \"created\": \"string\",\n    \"fee_type\": \"string\",\n    \"formatted\": {\n      \"included_text\": \"string\",\n      \"overage_fee_calculation\": {\n        \"calculation_tiers\": [\n          {\n            \"cost\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usage_price_per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"cost\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usage_price_per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"formatted_included_usage\": \"string\",\n        \"formatted_total_amount\": \"string\",\n        \"total_amount\": 7056,\n        \"total_days\": 8144,\n        \"total_free_used\": 9.061441839584017,\n        \"total_included\": 6627.183781959053,\n        \"total_over_free\": 6066.399185820712,\n        \"total_used\": 6145.265215557304\n      },\n      \"short_unit\": \"string\",\n      \"tiers\": [\n        {\n          \"cost\": \"string\",\n          \"label\": \"string\",\n          \"per_unit\": \"string\",\n          \"usage_price_per_unit\": \"string\"\n        },\n        {\n          \"cost\": \"string\",\n          \"label\": \"string\",\n          \"per_unit\": \"string\",\n          \"usage_price_per_unit\": \"string\"\n        }\n      ]\n    },\n    \"id\": 9526,\n    \"included\": 8362.99068643753,\n    \"included_period\": \"string\",\n    \"name\": \"string\",\n    \"owner_id\": 3286,\n    \"single_tier\": true,\n    \"tax_amount\": 947,\n    \"tax_rate_id\": 1556,\n    \"tax_rate_ids\": [\n      6989,\n      7976\n    ],\n    \"tiers\": [\n      {\n        \"created\": \"string\",\n        \"id\": 4311,\n        \"maximum\": 547.2475316737957,\n        \"minimum_fee\": 4786,\n        \"owner_id\": 433,\n        \"price\": 7672.646500296284,\n        \"tax_amount\": 7060,\n        \"total\": 6279,\n        \"updated\": \"string\",\n        \"usage_based_item_id\": 9038\n      },\n      {\n        \"created\": \"string\",\n        \"id\": 5632,\n        \"maximum\": 8111.895500983106,\n        \"minimum_fee\": 8068,\n        \"owner_id\": 1313,\n        \"price\": 3157.037932039505,\n        \"tax_amount\": 5330,\n        \"total\": 1918,\n        \"updated\": \"string\",\n        \"usage_based_item_id\": 2711\n      }\n    ],\n    \"total_included\": 6078.479245082654,\n    \"unit\": \"string\",\n    \"unlimited\": false,\n    \"updated\": \"string\"\n  },\n  {\n    \"archived\": true,\n    \"created\": \"string\",\n    \"fee_type\": \"string\",\n    \"formatted\": {\n      \"included_text\": \"string\",\n      \"overage_fee_calculation\": {\n        \"calculation_tiers\": [\n          {\n            \"cost\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usage_price_per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"cost\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usage_price_per_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"formatted_included_usage\": \"string\",\n        \"formatted_total_amount\": \"string\",\n        \"total_amount\": 7786,\n        \"total_days\": 3524,\n        \"total_free_used\": 1387.8867953188123,\n        \"total_included\": 4923.331690148542,\n        \"total_over_free\": 2089.378261842738,\n        \"total_used\": 9552.583455709779\n      },\n      \"short_unit\": \"string\",\n      \"tiers\": [\n        {\n          \"cost\": \"string\",\n          \"label\": \"string\",\n          \"per_unit\": \"string\",\n          \"usage_price_per_unit\": \"string\"\n        },\n        {\n          \"cost\": \"string\",\n          \"label\": \"string\",\n          \"per_unit\": \"string\",\n          \"usage_price_per_unit\": \"string\"\n        }\n      ]\n    },\n    \"id\": 6675,\n    \"included\": 9384.487552806628,\n    \"included_period\": \"string\",\n    \"name\": \"string\",\n    \"owner_id\": 6173,\n    \"single_tier\": false,\n    \"tax_amount\": 1992,\n    \"tax_rate_id\": 4099,\n    \"tax_rate_ids\": [\n      6501,\n      2746\n    ],\n    \"tiers\": [\n      {\n        \"created\": \"string\",\n        \"id\": 2238,\n        \"maximum\": 2320.540646912692,\n        \"minimum_fee\": 2317,\n        \"owner_id\": 9801,\n        \"price\": 2021.837096308242,\n        \"tax_amount\": 5282,\n        \"total\": 3831,\n        \"updated\": \"string\",\n        \"usage_based_item_id\": 2947\n      },\n      {\n        \"created\": \"string\",\n        \"id\": 463,\n        \"maximum\": 6278.58266505567,\n        \"minimum_fee\": 4642,\n        \"owner_id\": 3808,\n        \"price\": 9445.26476739049,\n        \"tax_amount\": 5952,\n        \"total\": 4144,\n        \"updated\": \"string\",\n        \"usage_based_item_id\": 7917\n      }\n    ],\n    \"total_included\": 5749.692023402377,\n    \"unit\": \"string\",\n    \"unlimited\": true,\n    \"updated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a04d0574-a26d-4f2a-9ea1-5bde4ff39e24",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "037e5c1a-38f6-4cd0-bd0b-20d07796e2ec",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dabf1c6-3623-4933-924a-ec0a80760c1e",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5b003a5-37ae-4cb6-9d63-8723f5d49b61",
+          "name": "create Usage Based Item",
+          "request": {
+            "name": "create Usage Based Item",
+            "description": {
+              "content": "Create new usage based item (Ex. mileage, generator, delivery)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0410c9e6-7701-4d61-a168-bcf968f211a4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4aadbb5f-65fd-4b31-a94a-31a0b0615598",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3129cc1d-ad6f-45c4-af0c-b08a96dc87ba",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f860e11-e408-4dee-be19-eb8546a2805c",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16b0d2d8-7160-460e-b17d-dbe5e46a8cb8",
+          "name": "Returns the usage based item by id.",
+          "request": {
+            "name": "Returns the usage based item by id.",
+            "description": {},
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "913a9a3d-ac64-4592-af1f-4e311a249e7c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7190911-eaa8-4815-bd68-5a38891f9255",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60aa7ecd-b598-415e-be98-fb3d494df4e8",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0222b55-0b31-46f2-a224-ea3342d27f4b",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06b00d21-de5c-418b-98f9-736e7a55ed1c",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb612208-33a5-46e5-a5fa-64a56c24b79f",
+          "name": "delete Usage Based Item",
+          "request": {
+            "name": "delete Usage Based Item",
+            "description": {
+              "content": "Delete record by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "543af320-e5c8-481a-865d-7ab52c3379d6",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "adf78806-abf6-41da-9ae3-3f5cfdb274cc",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a42791d-037b-424a-ae7f-20b118d07305",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "146ba5a7-5b40-4e77-b514-d7f004d4eb0e",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c37a3f7-9d15-4642-9edb-624355df81d6",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9db7039d-912f-4752-844a-89dd87c1a714",
+          "name": "Update record by id.",
+          "request": {
+            "name": "Update record by id.",
+            "description": {},
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e734d5db-7398-46f4-a07a-32943f159c85",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e0f96ad-d965-4632-8346-b3be7af3babb",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b2f44a8-0844-436a-8c14-2357c37d8596",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "551d289b-6150-41c7-b7a3-e37c66322488",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0dab7a6d-b5bc-4276-b213-b3deef26cd7e",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"<boolean>\",\n  \"created\": \"<string>\",\n  \"fee_type\": \"<string>\",\n  \"formatted\": {\n    \"included_text\": \"<string>\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        },\n        {\n          \"cost\": \"<string>\",\n          \"label\": \"<string>\",\n          \"per_unit\": \"<string>\",\n          \"usage_price_per_unit\": \"<string>\"\n        }\n      ],\n      \"formatted_included_usage\": \"<string>\",\n      \"formatted_total_amount\": \"<string>\",\n      \"total_amount\": \"<long>\",\n      \"total_days\": \"<long>\",\n      \"total_free_used\": \"<double>\",\n      \"total_included\": \"<double>\",\n      \"total_over_free\": \"<double>\",\n      \"total_used\": \"<double>\"\n    },\n    \"short_unit\": \"<string>\",\n    \"tiers\": [\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      },\n      {\n        \"cost\": \"<string>\",\n        \"label\": \"<string>\",\n        \"per_unit\": \"<string>\",\n        \"usage_price_per_unit\": \"<string>\"\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"included\": \"<double>\",\n  \"included_period\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner_id\": \"<long>\",\n  \"single_tier\": \"<boolean>\",\n  \"tax_amount\": \"<long>\",\n  \"tax_rate_id\": \"<long>\",\n  \"tax_rate_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"unlimited\": \"<boolean>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d0d787e-3ade-4e79-906a-268b4f71ddd0",
+    "name": "Outdoorsy API Documentation Usage Based Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

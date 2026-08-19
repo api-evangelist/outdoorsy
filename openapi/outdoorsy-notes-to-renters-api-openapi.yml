@@ -1,0 +1,261 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Notes To Renters API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: notes-to-renters
+paths:
+  /notes-to-renters:
+    get:
+      description: Returns a list of notes to renters
+      tags:
+      - notes-to-renters
+      operationId: listNotesToRenters
+      parameters:
+      - x-go-name: AvailableForRentalID
+        name: available_for_rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: UserID
+        name: user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LocationRaw
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Translate
+        name: translate
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/notesToRentersResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Create a note to renters
+      tags:
+      - notes-to-renters
+      operationId: createNoteToRenters
+      responses:
+        '201':
+          $ref: '#/components/responses/noteToRentersResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /notes-to-renters/{id}:
+    delete:
+      description: Delete a note to renters
+      tags:
+      - notes-to-renters
+      operationId: deleteNoteToRenters
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Update a note to renters
+      tags:
+      - notes-to-renters
+      operationId: updateNoteToRenters
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/noteToRentersResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteToRenters'
+components:
+  schemas:
+    NoteMetadata:
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int64
+          x-go-name: Limit
+        offset:
+          type: integer
+          format: int64
+          x-go-name: Offset
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
+    NoteListResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/NoteMetadata'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoteToRenters'
+          x-go-name: Notes
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
+    StringSlice:
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    NoteToRenters:
+      type: object
+      properties:
+        applies_to_type:
+          $ref: '#/components/schemas/StringSlice'
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        location_ids:
+          $ref: '#/components/schemas/IntSlice'
+        name:
+          type: string
+          x-go-name: Name
+        owner_user_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerUserID
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
+    IntSlice:
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+  responses:
+    notFoundError:
+      description: Not found error
+    noteToRentersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoteToRenters'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    notesToRentersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoteListResponse'
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

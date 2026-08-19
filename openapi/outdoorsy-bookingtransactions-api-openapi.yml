@@ -1,0 +1,519 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Booking Transactions API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: bookingTransactions
+paths:
+  /bookings/{booking_id}/payout/{transaction_id}:
+    delete:
+      description: Delete scheduled payout on the specified booking
+      tags:
+      - bookingTransactions
+      operationId: deleteScheduledPayout
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TransactionID
+        name: transaction_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /bookings/{booking_id}/transactions:
+    get:
+      tags:
+      - bookingTransactions
+      summary: Returns all transactions for a booking. Optionally filtered by type.
+      operationId: listBookingTransactions
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TransactionTypes
+        name: type
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/transactionsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Create transaction or pending transaction when due date is set
+      tags:
+      - bookingTransactions
+      operationId: createTransaction
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/transactionResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+  /bookings/{booking_id}/transactions/{transaction_id}:
+    get:
+      description: Retrieve booking transaction record by id
+      tags:
+      - bookingTransactions
+      operationId: getBookingTransaction
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TransactionID
+        name: transaction_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/transactionResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Delete pending transaction on the specified booking
+      tags:
+      - bookingTransactions
+      operationId: deletePendingTransaction
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TransactionID
+        name: transaction_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Update booking pending transaction
+      tags:
+      - bookingTransactions
+      operationId: updateBookingTransaction
+      parameters:
+      - x-go-name: BookingID
+        name: booking_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: TransactionID
+        name: transaction_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/transactionResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ptxUpdate'
+components:
+  schemas:
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    PaymentProcessor:
+      description: 'Typically this object is composed into a struct, but embedded into the
+
+        same table using the `db:",embed"` struct tag.'
+      type: object
+      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
+
+        payment processor should be used when communicating with a payment processor.'
+      properties:
+        country:
+          type: string
+          x-go-name: Country
+        external_processor:
+          type: string
+          x-go-name: ExternalProcessor
+        external_processor_id:
+          type: string
+          x-go-name: ExternalProcessorID
+        name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+      x-go-package: github.com/outdoorsy/api/model
+    ptxUpdate:
+      type: object
+      properties:
+        card_id:
+          type: integer
+          format: int64
+          x-go-name: CardID
+        due:
+          type: string
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    Transaction:
+      type: object
+      properties:
+        actual_deposit_date:
+          type: string
+        adjustment:
+          type: integer
+          format: uint64
+          x-go-name: Adjustment
+        amount:
+          type: integer
+          format: uint64
+          x-go-name: Amount
+        auto_deposit:
+          type: boolean
+          x-go-name: AutoDeposit
+        available:
+          description: Available tells us when the funds are expected to have cleared the bank
+          type: string
+          x-go-name: Available
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        booking_id:
+          type: integer
+          format: int64
+        brand:
+          type: string
+          x-go-name: Brand
+        can_delete:
+          type: boolean
+          x-go-name: CanDelete
+        can_finance_sync:
+          type: boolean
+          x-go-name: CanFinanceSync
+        can_refund:
+          type: boolean
+          x-go-name: CanRefund
+        can_retry:
+          type: boolean
+          x-go-name: CanRetry
+        can_reverse_transfer:
+          type: boolean
+          x-go-name: CanReverseTransfer
+        can_sync:
+          type: boolean
+          x-go-name: CanSync
+        can_transfer:
+          type: boolean
+          x-go-name: CanTransfer
+        cc_fee:
+          type: integer
+          format: uint64
+          x-go-name: CCFee
+        charged:
+          type: string
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_by_id:
+          type: integer
+          format: int64
+          x-go-name: CreatedByID
+        deposit_date:
+          type: string
+        description:
+          type: string
+          x-go-name: Description
+        display_charge_type:
+          type: string
+          x-go-name: DisplayChargeType
+        display_payment_processor_name:
+          type: string
+          x-go-name: DisplayPaymentProcessorName
+        display_type:
+          type: string
+          x-go-name: DisplayType
+        dispute_reason:
+          type:
+          - string
+          - 'null'
+        dispute_status:
+          type:
+          - string
+          - 'null'
+        disputed:
+          type: boolean
+          x-go-name: Disputed
+        expected_deposit_date:
+          type: string
+        failed:
+          type: boolean
+          x-go-name: Failed
+        fraudulent:
+          type: boolean
+          x-go-name: Fraudulent
+        fx_fee:
+          description: DEPRECATED - DO NOT USE
+          type: integer
+          format: uint64
+          x-go-name: FXFee
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_refund:
+          type: boolean
+          x-go-name: IsRefund
+        last_four:
+          type: string
+          x-go-name: LastFour
+        original_charge_id:
+          $ref: '#/components/schemas/Transaction'
+        our_fee:
+          type: integer
+          format: uint64
+          x-go-name: OurFee
+        outdoorsy_fee:
+          type: integer
+          format: uint64
+          x-go-name: RenterIntegrationsFee
+        owner_federal_withholding_tax:
+          type: integer
+          format: uint64
+          x-go-name: OwnerFederalWithholdingTax
+        owner_fee:
+          type: integer
+          format: uint64
+          x-go-name: OwnerFee
+        owner_integrations_fee:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        owner_quebec_sales_tax:
+          type: integer
+          format: uint64
+          x-go-name: OwnerQuebecSalesTax
+        paid:
+          type: boolean
+          x-go-name: Paid
+        payment_meta:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        payment_source:
+          type: string
+          x-go-name: PaymentSource
+        processor_settlement_id:
+          type:
+          - string
+          - 'null'
+        recipient_id:
+          type: integer
+          format: int64
+          x-go-name: RecipientID
+        refund_source:
+          type: string
+          x-go-name: RefundSource
+        refunded:
+          type: integer
+          format: uint64
+          x-go-name: Refunded
+        refunded_cc_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedCCFee
+        refunded_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedFee
+        refunded_fx_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedFXFee
+        refunded_outdoorsy_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedRenterIntegrationsFee
+        refunded_owner_federal_withholding_tax:
+          type: integer
+          format: uint64
+          x-go-name: RefundedOwnerFederalWithholdingTax
+        refunded_owner_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedOwnerFee
+        refunded_owner_integrations_fee:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        refunded_owner_quebec_sales_tax:
+          type: integer
+          format: uint64
+          x-go-name: RefundedOwnerQuebecSalesTax
+        refunded_service_fee:
+          type: integer
+          format: uint64
+          x-go-name: RefundedServiceFee
+        retry_payout_id:
+          $ref: '#/components/schemas/Transaction'
+        sales_tax:
+          type: integer
+          format: uint64
+          x-go-name: SalesTax
+        service_fee:
+          type: integer
+          format: uint64
+          x-go-name: ServiceFee
+        status:
+          type: string
+          x-go-name: Status
+        stripe_fee:
+          type: integer
+          format: int64
+          x-go-name: Fee
+        stripe_fee_refund:
+          type: integer
+          format: uint64
+          x-go-name: StripeFeeRefund
+        stripe_id:
+          type: string
+          x-go-name: StripeID
+        transfer:
+          $ref: '#/components/schemas/Transaction'
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/model
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+  responses:
+    transactionResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Transaction'
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    transactionsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

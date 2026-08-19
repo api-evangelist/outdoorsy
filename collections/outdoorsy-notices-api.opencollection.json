@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Notices API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listNotices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/notices"
+          },
+          "docs": "Return list of available notices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

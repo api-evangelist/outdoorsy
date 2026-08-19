@@ -1,0 +1,364 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Usage Based Items API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: usageBasedItems
+paths:
+  /usage-based-items:
+    get:
+      tags:
+      - usageBasedItems
+      summary: Returns an array of usage based items owned by the user.
+      operationId: getUsageBasedItems
+      responses:
+        '200':
+          $ref: '#/components/responses/usageBasedItemsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Create new usage based item (Ex. mileage, generator, delivery)
+      tags:
+      - usageBasedItems
+      operationId: createUsageBasedItem
+      responses:
+        '200':
+          $ref: '#/components/responses/usageBasedItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsageBasedItem'
+  /usage-based-items/:id:
+    get:
+      tags:
+      - usageBasedItems
+      summary: Returns the usage based item by id.
+      operationId: getUsageBasedItemById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/usageBasedItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Delete record by id
+      tags:
+      - usageBasedItems
+      operationId: deleteUsageBasedItem
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      tags:
+      - usageBasedItems
+      summary: Update record by id.
+      operationId: updateUsageBasedItem
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/usageBasedItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsageBasedItem'
+components:
+  responses:
+    usageBasedItemResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsageBasedItem'
+    notFoundError:
+      description: Not found error
+    usageBasedItemsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UsageBasedItem'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    UsageTierFormatted:
+      type: object
+      properties:
+        cost:
+          type: string
+          x-go-name: Cost
+        label:
+          type: string
+          x-go-name: Label
+        per_unit:
+          type: string
+          x-go-name: PerUnit
+        usage_price_per_unit:
+          type: string
+          x-go-name: UsagePricePerUnit
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    OverageFeeCalculation:
+      type: object
+      properties:
+        calculation_tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageTierFormatted'
+          x-go-name: CalculationTiers
+        formatted_included_usage:
+          type: string
+          x-go-name: FormattedIncludedUsage
+        formatted_total_amount:
+          type: string
+          x-go-name: FormattedTotalAmount
+        total_amount:
+          type: integer
+          format: int64
+          x-go-name: TotalAmount
+        total_days:
+          type: integer
+          format: int64
+          x-go-name: Days
+        total_free_used:
+          type: number
+          format: double
+          x-go-name: TotalFreeUsed
+        total_included:
+          type: number
+          format: double
+          x-go-name: TotalIncluded
+        total_over_free:
+          type: number
+          format: double
+          x-go-name: TotalOverFree
+        total_used:
+          type: number
+          format: double
+          x-go-name: TotalUsed
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageBasedItem:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        fee_type:
+          type: string
+          x-go-name: FeeType
+        formatted:
+          $ref: '#/components/schemas/UsageFormatted'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        included:
+          type: number
+          format: double
+          x-go-name: Included
+        included_period:
+          type: string
+          x-go-name: IncludedPeriod
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        single_tier:
+          type: boolean
+          x-go-name: SingleTier
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_rate_id:
+          description: deprecated
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        tax_rate_ids:
+          description: tax rate support
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: TaxRateIDs
+        tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageBasedItemTier'
+          x-go-name: Tiers
+        total_included:
+          type: number
+          format: double
+          x-go-name: TotalIncluded
+        unit:
+          type: string
+          x-go-name: Unit
+        unlimited:
+          type: boolean
+          x-go-name: Unlimited
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageFormatted:
+      type: object
+      properties:
+        included_text:
+          type: string
+          x-go-name: IncludedText
+        overage_fee_calculation:
+          $ref: '#/components/schemas/OverageFeeCalculation'
+        short_unit:
+          type: string
+          x-go-name: ShortUnit
+        tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageTierFormatted'
+          x-go-name: Tiers
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageBasedItemTier:
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        maximum:
+          type: number
+          format: double
+          x-go-name: Maximum
+        minimum_fee:
+          type: integer
+          format: uint64
+          x-go-name: MinimumFee
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        price:
+          type: number
+          format: double
+          x-go-name: Price
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        usage_based_item_id:
+          type: integer
+          format: int64
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

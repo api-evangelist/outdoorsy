@@ -1,0 +1,2025 @@
+{
+  "item": [
+    {
+      "id": "3d82323b-09a5-4b10-9052-46746d74e856",
+      "name": "bookingTransactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "565fa378-b8ab-4f57-8646-1c2a94b6110c",
+          "name": "delete Scheduled Payout",
+          "request": {
+            "name": "delete Scheduled Payout",
+            "description": {
+              "content": "Delete scheduled payout on the specified booking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "payout",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "transaction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6de63119-95db-4178-88df-2a0af8f3338f",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "payout",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7422b93-ec31-443f-ba8c-278c4a393204",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "payout",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66685ae6-6e7d-4440-925d-65f648c38b1d",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "payout",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c33183a-1914-47eb-a573-41b99304e5fc",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "payout",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae3ba4b9-b608-40a1-802e-d6170610ac5a",
+          "name": "Returns all transactions for a booking. Optionally filtered by type.",
+          "request": {
+            "name": "Returns all transactions for a booking. Optionally filtered by type.",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c7708c3-db36-4c01-bc99-705da4f99157",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"actual_deposit_date\": \"string\",\n    \"adjustment\": 962,\n    \"amount\": 5652,\n    \"auto_deposit\": false,\n    \"available\": \"string\",\n    \"booking_id\": 1836,\n    \"brand\": \"string\",\n    \"can_delete\": false,\n    \"can_finance_sync\": true,\n    \"can_refund\": true,\n    \"can_retry\": false,\n    \"can_reverse_transfer\": false,\n    \"can_sync\": true,\n    \"can_transfer\": false,\n    \"cc_fee\": 5984,\n    \"charged\": \"string\",\n    \"created\": \"string\",\n    \"created_by_id\": 7550,\n    \"deposit_date\": \"string\",\n    \"description\": \"string\",\n    \"display_charge_type\": \"string\",\n    \"display_payment_processor_name\": \"string\",\n    \"display_type\": \"string\",\n    \"dispute_reason\": null,\n    \"dispute_status\": null,\n    \"disputed\": true,\n    \"expected_deposit_date\": \"string\",\n    \"failed\": false,\n    \"fraudulent\": true,\n    \"fx_fee\": 2559,\n    \"id\": 6265,\n    \"is_refund\": true,\n    \"last_four\": \"string\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": 2860,\n    \"outdoorsy_fee\": 4005,\n    \"owner_federal_withholding_tax\": 4493,\n    \"owner_fee\": 8552,\n    \"owner_integrations_fee\": null,\n    \"owner_quebec_sales_tax\": 6203,\n    \"paid\": true,\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"payment_source\": \"string\",\n    \"processor_settlement_id\": null,\n    \"recipient_id\": 236,\n    \"refund_source\": \"string\",\n    \"refunded\": 7676,\n    \"refunded_cc_fee\": 9884,\n    \"refunded_fee\": 5280,\n    \"refunded_fx_fee\": 1341,\n    \"refunded_outdoorsy_fee\": 807,\n    \"refunded_owner_federal_withholding_tax\": 3549,\n    \"refunded_owner_fee\": 305,\n    \"refunded_owner_integrations_fee\": 7577,\n    \"refunded_owner_quebec_sales_tax\": 3923,\n    \"refunded_service_fee\": 9887,\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": 9844,\n    \"service_fee\": 8697,\n    \"status\": \"string\",\n    \"stripe_fee\": 5337,\n    \"stripe_fee_refund\": 6530,\n    \"stripe_id\": \"string\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"actual_deposit_date\": \"string\",\n    \"adjustment\": 6304,\n    \"amount\": 8639,\n    \"auto_deposit\": true,\n    \"available\": \"string\",\n    \"booking_id\": 4881,\n    \"brand\": \"string\",\n    \"can_delete\": false,\n    \"can_finance_sync\": true,\n    \"can_refund\": false,\n    \"can_retry\": false,\n    \"can_reverse_transfer\": true,\n    \"can_sync\": true,\n    \"can_transfer\": true,\n    \"cc_fee\": 9259,\n    \"charged\": \"string\",\n    \"created\": \"string\",\n    \"created_by_id\": 345,\n    \"deposit_date\": \"string\",\n    \"description\": \"string\",\n    \"display_charge_type\": \"string\",\n    \"display_payment_processor_name\": \"string\",\n    \"display_type\": \"string\",\n    \"dispute_reason\": \"string\",\n    \"dispute_status\": null,\n    \"disputed\": false,\n    \"expected_deposit_date\": \"string\",\n    \"failed\": true,\n    \"fraudulent\": false,\n    \"fx_fee\": 4598,\n    \"id\": 5234,\n    \"is_refund\": false,\n    \"last_four\": \"string\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": 9814,\n    \"outdoorsy_fee\": 6299,\n    \"owner_federal_withholding_tax\": 1615,\n    \"owner_fee\": 4245,\n    \"owner_integrations_fee\": null,\n    \"owner_quebec_sales_tax\": 6201,\n    \"paid\": false,\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"string\",\n      \"external_processor\": \"string\",\n      \"external_processor_id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"payment_source\": \"string\",\n    \"processor_settlement_id\": null,\n    \"recipient_id\": 8198,\n    \"refund_source\": \"string\",\n    \"refunded\": 7430,\n    \"refunded_cc_fee\": 443,\n    \"refunded_fee\": 9029,\n    \"refunded_fx_fee\": 8960,\n    \"refunded_outdoorsy_fee\": 3454,\n    \"refunded_owner_federal_withholding_tax\": 1916,\n    \"refunded_owner_fee\": 8157,\n    \"refunded_owner_integrations_fee\": 3746,\n    \"refunded_owner_quebec_sales_tax\": 3124,\n    \"refunded_service_fee\": 7289,\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": 1862,\n    \"service_fee\": 2366,\n    \"status\": \"string\",\n    \"stripe_fee\": 3939,\n    \"stripe_fee_refund\": 9174,\n    \"stripe_id\": \"string\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81b5089f-451d-44d8-bf75-d90140a15461",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "461d5671-e1c4-43e2-b230-141b98415574",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03910c97-7957-48a5-be25-be58ac086156",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23af6d64-32e7-4280-b0e7-42606e1e6108",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b0aa97f-c8fa-4763-8ecc-2fd5621cdd31",
+          "name": "create Transaction",
+          "request": {
+            "name": "create Transaction",
+            "description": {
+              "content": "Create transaction or pending transaction when due date is set",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65910705-be21-4c78-b581-39d3182071d4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53200869-fa8f-46d5-8d9d-fd9e41efc570",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9024377b-577d-4103-97b0-7cfbcbbf7a5c",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc959e2b-b51f-424f-a6c2-44e426842f31",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf3e694e-c959-46b5-ae9e-30626dace6c9",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76b346c8-2f9c-4bbb-af30-0655821fe546",
+          "name": "get Booking Transaction",
+          "request": {
+            "name": "get Booking Transaction",
+            "description": {
+              "content": "Retrieve booking transaction record by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "transaction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca30b5a1-33bf-429a-8785-86cdd1664f78",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aaa50b43-2099-4cc4-98b9-b25fb0a337e6",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc1c419c-980a-4792-82fd-70b60a0cc0d3",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17259a3f-7a02-4a39-8a9c-5e7db34de16c",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45fd1a95-77d7-4c3b-b3b3-b2ae291af207",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c61c417-52b4-421e-9f99-cfb28b680493",
+          "name": "delete Pending Transaction",
+          "request": {
+            "name": "delete Pending Transaction",
+            "description": {
+              "content": "Delete pending transaction on the specified booking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "transaction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef07ad25-a2a9-4e12-a27f-886469f68a8e",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9cfbd17-28ba-436b-a9c0-91f9b650ca18",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60b19703-c801-47cc-8d69-277209970588",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac69cded-571a-455a-9aa3-6ef354d20236",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a1e6173-7ec3-4b41-a977-83bc4f525c1b",
+          "name": "update Booking Transaction",
+          "request": {
+            "name": "update Booking Transaction",
+            "description": {
+              "content": "Update booking pending transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "transaction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"card_id\": \"<long>\",\n  \"due\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fdd8823-6206-487f-86ce-9e582e64b56e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<long>\",\n  \"due\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actual_deposit_date\": \"<string>\",\n  \"adjustment\": \"<uint64>\",\n  \"amount\": \"<uint64>\",\n  \"auto_deposit\": \"<boolean>\",\n  \"available\": \"<string>\",\n  \"booking_id\": \"<long>\",\n  \"brand\": \"<string>\",\n  \"can_delete\": \"<boolean>\",\n  \"can_finance_sync\": \"<boolean>\",\n  \"can_refund\": \"<boolean>\",\n  \"can_retry\": \"<boolean>\",\n  \"can_reverse_transfer\": \"<boolean>\",\n  \"can_sync\": \"<boolean>\",\n  \"can_transfer\": \"<boolean>\",\n  \"cc_fee\": \"<uint64>\",\n  \"charged\": \"<string>\",\n  \"created\": \"<string>\",\n  \"created_by_id\": \"<long>\",\n  \"deposit_date\": \"<string>\",\n  \"description\": \"<string>\",\n  \"display_charge_type\": \"<string>\",\n  \"display_payment_processor_name\": \"<string>\",\n  \"display_type\": \"<string>\",\n  \"dispute_reason\": \"<string,null>\",\n  \"dispute_status\": \"<string,null>\",\n  \"disputed\": \"<boolean>\",\n  \"expected_deposit_date\": \"<string>\",\n  \"failed\": \"<boolean>\",\n  \"fraudulent\": \"<boolean>\",\n  \"fx_fee\": \"<uint64>\",\n  \"id\": \"<long>\",\n  \"is_refund\": \"<boolean>\",\n  \"last_four\": \"<string>\",\n  \"original_charge_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"our_fee\": \"<uint64>\",\n  \"outdoorsy_fee\": \"<uint64>\",\n  \"owner_federal_withholding_tax\": \"<uint64>\",\n  \"owner_fee\": \"<uint64>\",\n  \"owner_integrations_fee\": \"<integer,null-int64>\",\n  \"owner_quebec_sales_tax\": \"<uint64>\",\n  \"paid\": \"<boolean>\",\n  \"payment_meta\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"payment_processor\": {\n    \"country\": \"<string>\",\n    \"external_processor\": \"<string>\",\n    \"external_processor_id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"payment_source\": \"<string>\",\n  \"processor_settlement_id\": \"<string,null>\",\n  \"recipient_id\": \"<long>\",\n  \"refund_source\": \"<string>\",\n  \"refunded\": \"<uint64>\",\n  \"refunded_cc_fee\": \"<uint64>\",\n  \"refunded_fee\": \"<uint64>\",\n  \"refunded_fx_fee\": \"<uint64>\",\n  \"refunded_outdoorsy_fee\": \"<uint64>\",\n  \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n  \"refunded_owner_fee\": \"<uint64>\",\n  \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n  \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n  \"refunded_service_fee\": \"<uint64>\",\n  \"retry_payout_id\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"sales_tax\": \"<uint64>\",\n  \"service_fee\": \"<uint64>\",\n  \"status\": \"<string>\",\n  \"stripe_fee\": \"<long>\",\n  \"stripe_fee_refund\": \"<uint64>\",\n  \"stripe_id\": \"<string>\",\n  \"transfer\": {\n    \"actual_deposit_date\": \"<string>\",\n    \"adjustment\": \"<uint64>\",\n    \"amount\": \"<uint64>\",\n    \"auto_deposit\": \"<boolean>\",\n    \"available\": \"<string>\",\n    \"booking_id\": \"<long>\",\n    \"brand\": \"<string>\",\n    \"can_delete\": \"<boolean>\",\n    \"can_finance_sync\": \"<boolean>\",\n    \"can_refund\": \"<boolean>\",\n    \"can_retry\": \"<boolean>\",\n    \"can_reverse_transfer\": \"<boolean>\",\n    \"can_sync\": \"<boolean>\",\n    \"can_transfer\": \"<boolean>\",\n    \"cc_fee\": \"<uint64>\",\n    \"charged\": \"<string>\",\n    \"created\": \"<string>\",\n    \"created_by_id\": \"<long>\",\n    \"deposit_date\": \"<string>\",\n    \"description\": \"<string>\",\n    \"display_charge_type\": \"<string>\",\n    \"display_payment_processor_name\": \"<string>\",\n    \"display_type\": \"<string>\",\n    \"dispute_reason\": \"<string,null>\",\n    \"dispute_status\": \"<string,null>\",\n    \"disputed\": \"<boolean>\",\n    \"expected_deposit_date\": \"<string>\",\n    \"failed\": \"<boolean>\",\n    \"fraudulent\": \"<boolean>\",\n    \"fx_fee\": \"<uint64>\",\n    \"id\": \"<long>\",\n    \"is_refund\": \"<boolean>\",\n    \"last_four\": \"<string>\",\n    \"original_charge_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"our_fee\": \"<uint64>\",\n    \"outdoorsy_fee\": \"<uint64>\",\n    \"owner_federal_withholding_tax\": \"<uint64>\",\n    \"owner_fee\": \"<uint64>\",\n    \"owner_integrations_fee\": \"<integer,null-int64>\",\n    \"owner_quebec_sales_tax\": \"<uint64>\",\n    \"paid\": \"<boolean>\",\n    \"payment_meta\": {\n      \"key_0\": {}\n    },\n    \"payment_processor\": {\n      \"country\": \"<string>\",\n      \"external_processor\": \"<string>\",\n      \"external_processor_id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"payment_source\": \"<string>\",\n    \"processor_settlement_id\": \"<string,null>\",\n    \"recipient_id\": \"<long>\",\n    \"refund_source\": \"<string>\",\n    \"refunded\": \"<uint64>\",\n    \"refunded_cc_fee\": \"<uint64>\",\n    \"refunded_fee\": \"<uint64>\",\n    \"refunded_fx_fee\": \"<uint64>\",\n    \"refunded_outdoorsy_fee\": \"<uint64>\",\n    \"refunded_owner_federal_withholding_tax\": \"<uint64>\",\n    \"refunded_owner_fee\": \"<uint64>\",\n    \"refunded_owner_integrations_fee\": \"<integer,null-int64>\",\n    \"refunded_owner_quebec_sales_tax\": \"<uint64>\",\n    \"refunded_service_fee\": \"<uint64>\",\n    \"retry_payout_id\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"sales_tax\": \"<uint64>\",\n    \"service_fee\": \"<uint64>\",\n    \"status\": \"<string>\",\n    \"stripe_fee\": \"<long>\",\n    \"stripe_fee_refund\": \"<uint64>\",\n    \"stripe_id\": \"<string>\",\n    \"transfer\": {\n      \"value\": \"<Circular reference to #/components/schemas/Transaction detected>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da37730b-4b78-47ab-be51-4e885293cc83",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<long>\",\n  \"due\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "169ca710-2d7f-42ea-b3ee-f1f9105c1d95",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<long>\",\n  \"due\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ca92cac-865c-4494-9a68-99cd122086ab",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<long>\",\n  \"due\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c46e146-14dd-4bb0-b8ea-3b87e7bcfc44",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<long>\",\n  \"due\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "98b8550c-7243-4c9a-a68c-1adc8fdc5cc1",
+    "name": "Outdoorsy API Documentation Booking Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

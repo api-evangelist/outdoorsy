@@ -1,0 +1,425 @@
+{
+  "item": [
+    {
+      "id": "96b1f190-5638-4e30-90ef-3de63bef6cb6",
+      "name": "breadcrumbs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6420837d-20dd-4171-8979-a3e11a666eea",
+          "name": "breadcrumb Search",
+          "request": {
+            "name": "breadcrumb Search",
+            "description": {
+              "content": "Breadcrumb search",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breadcrumbs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lon",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Radius",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce6ec152-d441-4726-a632-17b4fcedb48b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breadcrumbs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c482601-6e20-4465-8e3f-6533c95e3bfb",
+          "name": "closest Breadcrumb",
+          "request": {
+            "name": "closest Breadcrumb",
+            "description": {
+              "content": "Get closest breadcrumb to lag/lng",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breadcrumbs",
+                "closest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lon",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bd92c79-9299-4a9b-bfb1-af58f55b2895",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breadcrumbs",
+                    "closest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Locale",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "crumbs",
+                  "value": "[object Object],[object Object]",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"lat\": 8137.603377745069,\n  \"lon\": 3421.2130108820115\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b6054e3-c35b-423e-b5fb-120ae02e291c",
+          "name": "get Breadcrumb",
+          "request": {
+            "name": "get Breadcrumb",
+            "description": {
+              "content": "Get breadcrumb by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breadcrumbs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d3ce1f0-70aa-4dc0-af41-82741ec259f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breadcrumbs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "bounds",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"ne\": {\n    \"lat\": 2506.9899252839145,\n    \"lon\": 3225.8175207198537\n  },\n  \"sw\": {\n    \"lat\": 5825.931851801655,\n    \"lon\": 5869.208969931428\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1551c13a-b122-44de-92e1-2bcfc9118013",
+    "name": "Outdoorsy Search Documentation Breadcrumbs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy Search API is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

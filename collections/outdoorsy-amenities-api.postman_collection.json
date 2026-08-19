@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "b3439795-6671-4376-a008-09fea3cffcd9",
+      "name": "amenities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3ebf98b-9aab-43c6-9730-a2f2dad1ef54",
+          "name": "list Amenities Groups",
+          "request": {
+            "name": "list Amenities Groups",
+            "description": {
+              "content": "Returns a list of amenities and the group they belong to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "amenities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "998d66d7-d9ad-4a03-8c4c-47590b1c7a36",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "amenities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amenities\": [\n      {\n        \"name\": \"string\",\n        \"options\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"position\": 3508,\n        \"slug\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"options\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"position\": 7097,\n        \"slug\": \"string\"\n      }\n    ],\n    \"group\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"amenities\": [\n      {\n        \"name\": \"string\",\n        \"options\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"position\": 6989,\n        \"slug\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"options\": {\n          \"key_0\": \"string\"\n        },\n        \"position\": 4067,\n        \"slug\": \"string\"\n      }\n    ],\n    \"group\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ec3b83d-0fc9-4e51-a264-ea7191a490fc",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "amenities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5913a1cc-a576-457d-878e-ddee457385fb",
+    "name": "Outdoorsy API Documentation Amenities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

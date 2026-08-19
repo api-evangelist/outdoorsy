@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Wishlists API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "wishlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "readManyWishlists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/wishlists",
+            "params": [
+              {
+                "name": "examples_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "exclude_examples",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets wishlists for current user\nUse `examples_only=false&exclude_examples=false` to get all user wishlists and a set of random examples\nUse `examples_only=true&exclude_examples=false` to get all example wishlists and exclude user wishlists\nUse `examples_only=false&exclude_examples=true` to get all user wishlists and exclude examples\nUse `examples_only=true&exclude_examples=true` is not allowed\nUse `rental_category=rv` to filter rentals to RV category (includes campgrounds)\nUse `rental_category=a"
+        },
+        {
+          "info": {
+            "name": "createWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/wishlists",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a wishlist with current user as owner"
+        },
+        {
+          "info": {
+            "name": "readRecentlySavedWishlists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/wishlists-recently-saved",
+            "params": [
+              {
+                "name": "rental_category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets up to 10 most recently saved rentals for current user\nUse `rental_category=rv` to filter rentals to RV category only\nUse `rental_category=auto` to filter rentals to auto category only"
+        },
+        {
+          "info": {
+            "name": "changeWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/wishlists/change-wishlist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes a rental from one wishlist and adds it to another"
+        },
+        {
+          "info": {
+            "name": "getWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/wishlists/:wishlist_id",
+            "params": [
+              {
+                "name": "rental_category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets one wishlist by id\nUse `rental_category=rv` to filter rentals to RV category (includes campgrounds)\nUse `rental_category=auto` to filter rentals to auto category (excludes campgrounds)"
+        },
+        {
+          "info": {
+            "name": "updateWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/wishlists/:wishlist_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the details of an existing wishlist"
+        },
+        {
+          "info": {
+            "name": "deleteWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/wishlists/:wishlist_id"
+          },
+          "docs": "Deletes one wishlist by id"
+        },
+        {
+          "info": {
+            "name": "acceptWishlistInvite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/wishlists/:wishlist_id/accept-invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts an invite to a wishlist with a given token"
+        },
+        {
+          "info": {
+            "name": "addToWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v0/wishlists/:wishlist_id/add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a rental to an existing wishlist"
+        },
+        {
+          "info": {
+            "name": "removeFromWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/wishlists/:wishlist_id/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes a rental from an existing wishlist"
+        },
+        {
+          "info": {
+            "name": "removeUserFromWishlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/wishlists/:wishlist_id/remove-user",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes a user from a wishlist"
+        },
+        {
+          "info": {
+            "name": "getOrCreateInviteToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/wishlists/:wishlist_id/token"
+          },
+          "docs": "Gets existing, non-expired invite token for a wishlist or creates and returns a new one"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

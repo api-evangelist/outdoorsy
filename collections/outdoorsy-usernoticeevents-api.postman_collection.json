@@ -1,0 +1,1744 @@
+{
+  "item": [
+    {
+      "id": "83f8ac2a-1f84-4001-ada8-49a91e8cef0e",
+      "name": "userNoticeEvents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ab7fc1d0-d3de-4634-884c-6b12678eba48",
+          "name": "list User Notice Events",
+          "request": {
+            "name": "list User Notice Events",
+            "description": {
+              "content": "Lists user notice events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user-notice-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "IDs",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "RequiresBookingRequest",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Enabled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "From",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "To",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lat",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Lng",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ExcludeBundleBookings",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "OrderBy",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72f07fcc-8c2f-426b-8bb0-dd45f76d94c2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "IDs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RequiresBookingRequest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "From",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "To",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExcludeBundleBookings",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "OrderBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total results count",
+                  "key": "Total-Results",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"countries\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created\": \"string\",\n    \"enabled\": true,\n    \"exclude_bundle_bookings\": false,\n    \"from\": \"string\",\n    \"guest_acknowledgement_text\": \"string\",\n    \"guest_need_to_acknowledge\": false,\n    \"guest_user_text\": \"string\",\n    \"host_acknowledgement_text\": \"string\",\n    \"host_help_url\": \"string\",\n    \"host_need_to_acknowledge\": true,\n    \"host_user_text\": \"string\",\n    \"id\": 5314,\n    \"lat\": 3636.089496396556,\n    \"lng\": 6805.133450677346,\n    \"name\": \"string\",\n    \"radius\": 3554.2008423230964,\n    \"requires_booking_request\": true,\n    \"to\": \"string\",\n    \"updated\": \"string\"\n  },\n  {\n    \"countries\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created\": \"string\",\n    \"enabled\": false,\n    \"exclude_bundle_bookings\": false,\n    \"from\": \"string\",\n    \"guest_acknowledgement_text\": \"string\",\n    \"guest_need_to_acknowledge\": true,\n    \"guest_user_text\": \"string\",\n    \"host_acknowledgement_text\": \"string\",\n    \"host_help_url\": \"string\",\n    \"host_need_to_acknowledge\": true,\n    \"host_user_text\": \"string\",\n    \"id\": 1626,\n    \"lat\": 1130.3151983290716,\n    \"lng\": 6740.210384302435,\n    \"name\": \"string\",\n    \"radius\": 5871.0053409037455,\n    \"requires_booking_request\": true,\n    \"to\": \"string\",\n    \"updated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3fba811-800e-4987-9540-700be36afb8e",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "IDs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RequiresBookingRequest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "From",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "To",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExcludeBundleBookings",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "OrderBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "553f742b-1011-4019-897a-943994dd140c",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "IDs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RequiresBookingRequest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "From",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "To",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExcludeBundleBookings",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "OrderBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d4c6fb0-8fa8-4aad-9484-7c9d2928c07c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "IDs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RequiresBookingRequest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "From",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "To",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExcludeBundleBookings",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "OrderBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01b731a2-ed8e-4b96-adee-dda988a2c898",
+          "name": "create User Notice Event",
+          "request": {
+            "name": "create User Notice Event",
+            "description": {
+              "content": "Creates a user notice event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user-notice-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17ddd17f-1e0e-47a9-ad55-c4fd766cfe5a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bc46ec7-3f09-49c7-938d-4cc5aa122330",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e46b6fe5-a5ab-4763-a548-7a39a4d2e1e8",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20ebfb3d-2175-4bd1-a78b-e622ce1916d3",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4c5487a-2fe2-4d98-8ddd-c87724769e56",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b66a73ad-dccd-44fd-8211-9cad1d0c07ff",
+          "name": "get User Notice Event By Id",
+          "request": {
+            "name": "get User Notice Event By Id",
+            "description": {
+              "content": "Reads a user notice event by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user-notice-events",
+                ":event_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "event_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73e43eaf-0175-4949-a3fb-4c851e4020cc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40bae3cc-667a-4573-8cf0-fee910ff0f75",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "364975df-f44b-4bdf-a216-44b6e60b07c9",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bdcc9f2-a7ae-4f15-9b14-4ff7b379d847",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c5000b6-311a-4196-825b-c45db85e8286",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7973afd0-880c-474e-bdaa-8f280ddfffbd",
+          "name": "update User Notice Event",
+          "request": {
+            "name": "update User Notice Event",
+            "description": {
+              "content": "Updates a user notice event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user-notice-events",
+                ":event_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d60622eb-9b05-43f5-805b-ff4baf2852c6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09846561-96f7-478c-96b4-46510b266787",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40bb27e3-2360-456c-930d-2efaf576484d",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6cdc22c8-c832-4ace-81c5-e8b869c481a2",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d5bbe00-8922-4006-8620-19ab8fc5a93e",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b8b5307-537f-40b5-bbea-7e6b8105ed17",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32689843-1804-4742-9189-63ed1e7955fb",
+          "name": "disable User Notice Event",
+          "request": {
+            "name": "disable User Notice Event",
+            "description": {
+              "content": "Disables a user notice event by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user-notice-events",
+                ":event_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "event_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5679107-e610-448e-b965-cdf3db9fe600",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"exclude_bundle_bookings\": \"<boolean>\",\n  \"from\": \"<string>\",\n  \"guest_acknowledgement_text\": \"<string>\",\n  \"guest_need_to_acknowledge\": \"<boolean>\",\n  \"guest_user_text\": \"<string>\",\n  \"host_acknowledgement_text\": \"<string>\",\n  \"host_help_url\": \"<string>\",\n  \"host_need_to_acknowledge\": \"<boolean>\",\n  \"host_user_text\": \"<string>\",\n  \"id\": \"<long>\",\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"name\": \"<string>\",\n  \"radius\": \"<double>\",\n  \"requires_booking_request\": \"<boolean>\",\n  \"to\": \"<string>\",\n  \"updated\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5b45aec-635d-41f9-9b23-df36f8154d32",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44d7b4c6-d4c4-4b9b-8746-970511cfbac8",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f5ee56a-36bd-4657-b231-b8aa4581cecc",
+              "name": "Forbidden error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "366da6c1-5bba-42d9-9ac4-82ac1496586d",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2fd6c3f-4d79-4ac8-8708-bbde6ab067ab",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user-notice-events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "904bcd79-10a9-4433-acb8-0b7bcd660e3f",
+    "name": "Outdoorsy API Documentation User Notice Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,351 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Auth API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: auth
+paths:
+  /auth/creds/create:
+    post:
+      description: If no password is provided then user is considered a guest.
+      tags:
+      - auth
+      summary: Register a new user given a name and email address.
+      operationId: authCredsCreate
+      responses:
+        '200':
+          $ref: '#/components/responses/authCreateResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+  /auth/creds/forgot:
+    post:
+      description: Sends email to registered email with password reset instructions
+      tags:
+      - auth
+      operationId: authCredsForget
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordForgotRequest'
+  /auth/creds/login:
+    post:
+      tags:
+      - auth
+      operationId: authCredsLogin
+      responses:
+        '200':
+          $ref: '#/components/responses/userAuthResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLoginRequest'
+  /auth/creds/resend:
+    post:
+      description: Resends password reset email
+      tags:
+      - auth
+      operationId: authCredsResend
+      responses:
+        '200':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /auth/dealers/create:
+    post:
+      description: 'Creates a dealer account for unauthenticated users through the self-serve signup flow.
+
+        The dealer will need to complete email verification and subscription payment before
+
+        gaining full access to Wheelbase.'
+      tags:
+      - auth
+      summary: Register a new self-serve dealer account.
+      operationId: authDealersSelfServeCreate
+      responses:
+        '201':
+          $ref: '#/components/responses/userAuthResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /auth/{provider}/callback:
+    get:
+      tags:
+      - auth
+      summary: Redirect endpoint after performing oauth flow with facebook, google, apple.
+      operationId: oauthCallback
+      parameters:
+      - name: provider
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - google
+          - facebook
+          - apple
+      responses: {}
+  /auth/{provider}/login:
+    get:
+      description: Redirects to respective identity provider.
+      tags:
+      - auth
+      summary: Entry point for starting oauth flow with specified provider.
+      operationId: oauthLogin
+      parameters:
+      - name: provider
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - google
+          - facebook
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    VerificationStatus:
+      type: object
+      properties:
+        email:
+          type: boolean
+          x-go-name: Email
+        phone:
+          type: boolean
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/types
+    PasswordForgotRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          x-go-name: Email
+      x-go-package: github.com/outdoorsy/api/types
+    UserCreateRequest:
+      description: authentication
+      type: object
+      properties:
+        campaign:
+          type: string
+          x-go-name: Campaign
+        content:
+          type: string
+          x-go-name: Content
+        country:
+          type: string
+          x-go-name: Country
+        email:
+          type: string
+          x-go-name: Email
+        enable_sms:
+          type: boolean
+          x-go-name: EnableSms
+        first_name:
+          type: string
+          x-go-name: FirstName
+        intent:
+          type: string
+          x-go-name: Intent
+        last_name:
+          type: string
+          x-go-name: LastName
+        locale:
+          type: string
+          x-go-name: Locale
+        medium:
+          type: string
+          x-go-name: Medium
+        password:
+          $ref: '#/components/schemas/String'
+        password_validation_user_inputs:
+          type: array
+          items:
+            type: string
+          x-go-name: PasswordValidationUserInputs
+        phone:
+          type: string
+          x-go-name: Phone
+        recaptcha_response:
+          type: string
+          x-go-name: RecaptchaResponse
+        referral_code:
+          type: string
+          x-go-name: ReferralCode
+        signup_source:
+          type: string
+          x-go-name: SignupSource
+        with_refresh_token:
+          description: 'Used mainly for mobile clients to provide some backward
+
+            compatibility for them to work with access tokens only.
+
+            Will be removed when mobile adoption rate hits certain percentage'
+          type: boolean
+          x-go-name: WithRefreshToken
+      x-go-package: github.com/outdoorsy/api/types
+    String:
+      type: string
+      x-go-package: github.com/outdoorsy/api/utils/password
+    UserAuthResponse:
+      type: object
+      properties:
+        account_id:
+          type: string
+          x-go-name: AccountID
+        email:
+          type: string
+          x-go-name: Email
+        first_name:
+          type: string
+          x-go-name: FirstName
+        last_name:
+          type: string
+          x-go-name: LastName
+        phone:
+          type: string
+          x-go-name: Phone
+        preferred_2fa_method:
+          type: string
+          x-go-name: Preferred2FAMethod
+        refresh_token:
+          type: string
+          x-go-name: RefreshToken
+        roles:
+          type: array
+          items:
+            type: string
+          x-go-name: Roles
+        session_id_2fa:
+          type: string
+          x-go-name: SessionID2FA
+        show_2fa_screen:
+          type: boolean
+          x-go-name: Show2FAScreen
+        show_verify_email_screen:
+          type: boolean
+          x-go-name: ShowVerifyEmailScreen
+        token:
+          type: string
+          x-go-name: Token
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        verifications:
+          $ref: '#/components/schemas/VerificationStatus'
+      x-go-package: github.com/outdoorsy/api/types
+    UserLoginRequest:
+      type: object
+      properties:
+        account_id:
+          type: string
+          x-go-name: AccountID
+        biometric_id:
+          type: string
+          x-go-name: BiometricID
+        dealer_user:
+          type: boolean
+          x-go-name: DealerUser
+        email:
+          type: string
+          x-go-name: Email
+        password:
+          $ref: '#/components/schemas/String'
+        recaptcha_response:
+          type: string
+          x-go-name: RecaptchaResponse
+        with_refresh_token:
+          description: 'Used mainly for mobile clients to provide some backward
+
+            compatibility for them to work with access tokens only.
+
+            Will be removed when mobile adoption rate hits certain percentage'
+          type: boolean
+          x-go-name: WithRefreshToken
+      x-go-package: github.com/outdoorsy/api/types
+  responses:
+    authCreateResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
+    notFoundError:
+      description: Not found error
+    userAuthResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

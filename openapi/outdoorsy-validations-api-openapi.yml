@@ -1,0 +1,225 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Validations API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: validations
+paths:
+  /admin/validations:
+    get:
+      tags:
+      - validations
+      summary: Returns a list of validations in the system.
+      operationId: adminListValidations
+      parameters:
+      - description: A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{"booking_id":"1234","driver_id":"5678","validator":"tint"}`
+        name: args
+        in: query
+        schema:
+          type: string
+      - description: A hash[string]string object containing the fields you wish to query on. If the field names and values are contained by one or more entries, those entries will be returned. For example, this could be used to fetch all tint validations for a specific booking by sending `{"booking_id":"1234","validator":"tint"}`
+        name: contains_args
+        in: query
+        schema:
+          type: string
+      - description: The status on which you wish to filter. Valid options are `pending, processing, passed, flagged, error, failed`
+        name: status
+        in: query
+        schema:
+          type: string
+      - description: The validator on which you wish to filter. Valid options are `tint`.
+        name: validator
+        in: query
+        schema:
+          type: string
+      - description: The order in which to return results. Typically you may pass the name of a field in the object to order by that field ASC. If you want DESC, prepend the name with `-`
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - description: Returns list of results for a given limit.
+        name: limit
+        in: query
+        schema:
+          type: integer
+      - description: Returns list of results for a given offset.
+        name: offset
+        in: query
+        schema:
+          type: integer
+      responses: {}
+  /admin/validations/{id}:
+    get:
+      tags:
+      - validations
+      summary: Returns a validation in the system by its ID.
+      operationId: adminGetValidation
+      parameters:
+      - description: A 24 character hex-encoded ObjectID value.
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-f\\d]{24}$
+      responses: {}
+    delete:
+      tags:
+      - validations
+      summary: Flags a validation as deleted.
+      operationId: adminDeleteValidation
+      parameters:
+      - description: A 24 character hex-encoded ObjectID value.
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-f\\d]{24}$
+      responses: {}
+  /admin/validations/{id}/duplicate:
+    post:
+      tags:
+      - validations
+      summary: Duplicates a validation, overwriting its arguments to copy its data to another object in the system. This is intended to be used when creating a more specific version of a validation. For example, a user-level validation that needs to be \"locked\" to a booking by using a user_id,booking_id tuple. Send the tuple you wish this duplicate to use as its identifier as the new_args key in the body.
+      operationId: adminDuplicateValidation
+      parameters:
+      - description: A 24 character hex-encoded ObjectID value.
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-f\\d]{24}$
+      - $ref: '#/components/schemas/adminDuplicateValidationRequest'
+        name: body
+        in: body
+        required: true
+      responses: {}
+  /admin/validations/{id}/force:
+    post:
+      tags:
+      - validations
+      summary: Forces an validation into a `passed` state.
+      operationId: adminForceValidationApproval
+      parameters:
+      - description: A 24 character hex-encoded ObjectID value.
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-f\\d]{24}$
+      responses: {}
+  /admin/validations/{id}/history:
+    get:
+      tags:
+      - validations
+      summary: Returns the historical list of validation entries.
+      operationId: adminGetValidationHistoryByID
+      parameters:
+      - description: A 24 character hex-encoded ObjectID value.
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-f\\d]{24}$
+      responses: {}
+  /admin/validations/{id}/retry:
+    post:
+      tags:
+      - validations
+      summary: Retry a validation request if failed or error
+      operationId: adminRetryValidation
+      parameters:
+      - description: A 24 character hex-encoded ObjectID value.
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-f\\d]{24}$
+      responses: {}
+  /validations:
+    get:
+      tags:
+      - validations
+      summary: Returns a list of validations in the system. The data returned is a public-facing subset of the internal data.
+      operationId: listValidations
+      parameters:
+      - description: A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{"booking_id":"1234","driver_id":"5678","validator":"tint"}`
+        name: args
+        in: query
+        schema:
+          type: string
+      - description: A hash[string]string object containing the fields you wish to query on. If the field names and values are contained by one or more entries, those entries will be returned. For example, this could be used to fetch all tint validations for a specific booking by sending `{"booking_id":"1234","validator":"tint"}`
+        name: contains_args
+        in: query
+        schema:
+          type: string
+      - description: The status on which you wish to filter. Valid options are `pending, processing, passed, flagged, error, failed`
+        name: status
+        in: query
+        schema:
+          type: string
+      - description: The validator on which you wish to filter. Valid options are `tint`.
+        name: validator
+        in: query
+        schema:
+          type: string
+      - description: The order in which to return results. Typically you may pass the name of a field in the object to order by that field ASC. If you want DESC, prepend the name with `-`
+        name: order_by
+        in: query
+        schema:
+          type: string
+      - description: Returns list of results for a given limit.
+        name: limit
+        in: query
+        schema:
+          type: integer
+      - description: Returns list of results for a given offset.
+        name: offset
+        in: query
+        schema:
+          type: integer
+      responses: {}
+components:
+  schemas:
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    adminDuplicateValidationRequest:
+      type: object
+      properties:
+        new_args:
+          $ref: '#/components/schemas/IMap'
+      x-go-package: github.com/outdoorsy/api/internal/validation/http
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

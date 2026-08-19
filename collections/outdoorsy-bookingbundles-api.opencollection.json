@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Booking Bundles API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookingBundles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listBookingBundles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/bundles",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List available insurance bundles for booking"
+        },
+        {
+          "info": {
+            "name": "Assign insurance bundle to booking (assign, replace or delete).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/bookings/:booking_id/bundles",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign insurance bundle to booking (assign, replace or delete)."
+        },
+        {
+          "info": {
+            "name": "getBookingBundleById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/bookings/:booking_id/bundles/:bundle_id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve specific bundle by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

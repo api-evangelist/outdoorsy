@@ -1,0 +1,128 @@
+{
+  "item": [
+    {
+      "id": "29d1f41a-8bef-417b-beff-090c32eacc52",
+      "name": "getHomepageParks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8442f06-fdf1-4398-88ee-2d03f5dad887",
+          "name": "parks",
+          "request": {
+            "name": "parks",
+            "description": {
+              "content": "Get parks for Outdoorsy homepage",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parks",
+                "homepage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41670385-e476-4ea6-93b6-4106c802cbf1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parks",
+                    "homepage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      },\n      \"key_2\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {},\n          \"key_4\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"id\": \"string\",\n    \"links\": {\n      \"key_0\": {}\n    },\n    \"meta\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"relationships\": {\n      \"key_0\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      },\n      \"key_1\": {\n        \"data\": {},\n        \"links\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"meta\": {\n          \"key_0\": {}\n        }\n      }\n    },\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d490c57e-31d6-48df-8970-cae60be8b22d",
+    "name": "Outdoorsy Search Documentation Get Homepage Parks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy Search API is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

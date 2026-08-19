@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Message Templates API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "messageTemplates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listMessageTemplates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/message-templates",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LocationIDs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists message templates"
+        },
+        {
+          "info": {
+            "name": "Creates a new message template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/message-templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When an employee creates a template, it's owned by their dealer.\nEmployees with location restrictions must specify location_ids within their assigned locations."
+        },
+        {
+          "info": {
+            "name": "Get message template by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/message-templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Users can only access templates they own (or their dealer's templates if they're an employee)."
+        },
+        {
+          "info": {
+            "name": "Update message template by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v0/message-templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Employees with location restrictions can only update templates with location_ids within their assigned locations."
+        },
+        {
+          "info": {
+            "name": "Archive a message template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v0/message-templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Users can only delete templates they own (or their dealer's templates if they're an employee)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

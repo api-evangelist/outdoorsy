@@ -1,0 +1,280 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Ics Calendars API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: ics-calendars
+paths:
+  /ics-calendars:
+    get:
+      tags:
+      - ics-calendars
+      summary: Returns list of ICSCalendar for a given user. Optionally could filter by user owned rental.
+      operationId: fetchCalendars
+      parameters:
+      - x-go-name: OwnerId
+        name: owner_user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/calendarsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      tags:
+      - ics-calendars
+      summary: Create calendar record with pending calendar log and trigger SyncICSCalendar job to sync it.
+      operationId: linkCalendar
+      parameters:
+      - x-go-name: OwnerId
+        name: owner_user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/calendarResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkICSCalendarRequest'
+  /ics-calendars/sync:
+    post:
+      tags:
+      - ics-calendars
+      summary: Trigger a job to sync all user eligible (last sync started at least 3 minutes ago) callendars. Optionally could be triggered for a specific user's calendar or user owned rental.
+      operationId: syncCalendars
+      parameters:
+      - x-go-name: OwnerId
+        name: owner_user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetManyRequest'
+  /ics-calendars/{calendar_id}:
+    delete:
+      tags:
+      - ics-calendars
+      summary: Delete calendar record with and calendar's logs.
+      operationId: unlinkCalendar
+      parameters:
+      - x-go-name: OwnerId
+        name: owner_user_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CalendarID
+        name: calendar_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /ics-export.ics:
+    get:
+      tags:
+      - ics-calendars
+      summary: Returns an .ics file with Outdoorsy availability per rental.
+      operationId: downloadICSFile
+      parameters:
+      - x-go-name: RentalId
+        name: rental_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/icsFileResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        default:
+          $ref: '#/components/responses/genericError'
+  /ics/export-url:
+    get:
+      tags:
+      - ics-calendars
+      summary: Returns URL to the .ics file download link.
+      operationId: exportURL
+      parameters:
+      - x-go-name: RentalId
+        name: rental_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/urlResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        default:
+          $ref: '#/components/responses/genericError'
+components:
+  responses:
+    calendarResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ICSCalendar'
+            $ref: '#/components/schemas/ICSCalendar'
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    icsFileResponse:
+      description: ''
+    urlResponse:
+      description: ''
+    genericError:
+      description: An unknown, unexpected error.
+  schemas:
+    LinkICSCalendarRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
+    GetManyRequest:
+      type: object
+      properties:
+        calendar_id:
+          type: integer
+          format: int64
+          x-go-name: CalendarID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
+    ICSCalendar:
+      type: object
+      properties:
+        active:
+          type: boolean
+          x-go-name: Active
+        host:
+          type: string
+          x-go-name: Host
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        owner_user_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerUserID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/api/internal/ics/calendars
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

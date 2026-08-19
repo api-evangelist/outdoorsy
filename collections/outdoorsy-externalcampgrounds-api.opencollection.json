@@ -1,0 +1,1169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy Search Documentation External Campgrounds API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "externalCampgrounds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "searchExternalCampgrounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/external-campgrounds",
+            "params": [
+              {
+                "name": "filter[keywords]",
+                "value": "",
+                "type": "query",
+                "description": "List of keywords, comma-separated, e.g. \"Komfort,wifi\"\nThe fields checked for keywords are: name, description, vehicle_make, vehicle_model, and tags"
+              },
+              {
+                "name": "filter[type]",
+                "value": "",
+                "type": "query",
+                "description": "List of rental types, e.g. \"b,c,camper-van\""
+              },
+              {
+                "name": "filter[rental_category]",
+                "value": "",
+                "type": "query",
+                "description": "Rental category, e.g. \"rv\", \"stay\", \"campground\""
+              },
+              {
+                "name": "cs[category_types]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category types, e.g. \"rv_site\", \"lodging_site\", \"tent_site\""
+              },
+              {
+                "name": "cs[rv_site_features]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category rv site Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "cs[tent_site_features]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category tent site Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "cs[lodging_features]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category lodging site Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "filter[exclude_type]",
+                "value": "",
+                "type": "query",
+                "description": "List of rental types to exclude, e.g. \"b,c\""
+              },
+              {
+                "name": "filter[style]",
+                "value": "",
+                "type": "query",
+                "description": "List of styles, e.g. \"drivable,towable,both\""
+              },
+              {
+                "name": "filter[tags]",
+                "value": "",
+                "type": "query",
+                "description": "List of tags, e.g. \"Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for couples\""
+              },
+              {
+                "name": "filter[feature]",
+                "value": "",
+                "type": "query",
+                "description": "Feature list, e.g. \"dining_table,inside_shower,wifi\""
+              },
+              {
+                "name": "filter[owner_type]",
+                "value": "",
+                "type": "query",
+                "description": "Owner type, one of: \"dealer\",\" pro\""
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query",
+                "description": "Location IDs, e.g. \"1697,791,1369\""
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Rental IDs to return, e.g. \"50302,50303\""
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Rental IDs to exclude, e.g. \"50303,503034\""
+              },
+              {
+                "name": "owner_ids",
+                "value": "",
+                "type": "query",
+                "description": "Owner IDs, e.g. \"255926,251875\""
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "One or many of \"price\", \"-price\", \"position\", \"-position\", \"seatbelts\", \"-seatbelts\", \"sleeps\", \"-sleeps\", \"rating\", \"-rating\", \"distance\", \"-distance\", \"num_reviews\", \"-num_reviews\", \"new_listings\""
+              },
+              {
+                "name": "auto_radius",
+                "value": "",
+                "type": "query",
+                "description": "Increment search radius until enough results are provided (specified by 'page[limit]' parameter.)\nMax radius is 1000 miles. (default false)"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "making a variable for source"
+              },
+              {
+                "name": "random",
+                "value": "",
+                "type": "query",
+                "description": "Random Score"
+              },
+              {
+                "name": "seatbelts",
+                "value": "",
+                "type": "query",
+                "description": "Number of seatbelts"
+              },
+              {
+                "name": "sleeps",
+                "value": "",
+                "type": "query",
+                "description": "Total people to sleep"
+              },
+              {
+                "name": "sleeps[adults]",
+                "value": "",
+                "type": "query",
+                "description": "Adults to sleep"
+              },
+              {
+                "name": "sleeps[kids]",
+                "value": "",
+                "type": "query",
+                "description": "Kids to sleep"
+              },
+              {
+                "name": "sleeps[infants]",
+                "value": "",
+                "type": "query",
+                "description": "Infants to sleep"
+              },
+              {
+                "name": "renter_age",
+                "value": "",
+                "type": "query",
+                "description": "Minimum renter age required for rental"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results (default 25, max 150)"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Skip some results and return results starting with this offset (min 0, max 1000)"
+              },
+              {
+                "name": "price[min]",
+                "value": "",
+                "type": "query",
+                "description": "Min price"
+              },
+              {
+                "name": "price[max]",
+                "value": "",
+                "type": "query",
+                "description": "Max price"
+              },
+              {
+                "name": "total_price[min]",
+                "value": "",
+                "type": "query",
+                "description": "Min price"
+              },
+              {
+                "name": "total_price[max]",
+                "value": "",
+                "type": "query",
+                "description": "Max price"
+              },
+              {
+                "name": "date[from]",
+                "value": "",
+                "type": "query",
+                "description": "Date from, for date range query, e.g. 2021-06-01"
+              },
+              {
+                "name": "date[to]",
+                "value": "",
+                "type": "query",
+                "description": "Date to, for date range query, e.g. 2021-06-14"
+              },
+              {
+                "name": "flexible_days",
+                "value": "",
+                "type": "query",
+                "description": "Flexible Days +/- 1-3 days. (default 0)"
+              },
+              {
+                "name": "near",
+                "value": "",
+                "type": "query",
+                "description": "Latitude,longitude to search near, e.g. \"38.302,-121.972\". Supersedes address. Superseded by bounding box."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Street address to search near. Superseded by latitude/longitude and by bounding box.\nIf no `address` is passed, GeoIP is used to get geo coordinates."
+              },
+              {
+                "name": "delivery_address",
+                "value": "",
+                "type": "query",
+                "description": "Street address to be delivered to. Supersedes `address` field. Default radius 100 miles"
+              },
+              {
+                "name": "bounds[ne]",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box'es north-east, e.g. \"37.812, -122.3482\""
+              },
+              {
+                "name": "bounds[sw]",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box'es south-west, e.g. \"37.703399, -122.526999\""
+              },
+              {
+                "name": "near_rental",
+                "value": "",
+                "type": "query",
+                "description": "Rental ID to search near, e.g. 37183. Superseded by bounding box.\nSpecified rental is boosted to be at the top of the results."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius (miles)"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Owner ID, e.g. 255926"
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Pro user slug, e.g. \"hwyonerentals\""
+              },
+              {
+                "name": "hidden",
+                "value": "",
+                "type": "query",
+                "description": "Show hidden results? (Non-hidden results will not be returned.)"
+              },
+              {
+                "name": "score",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with scores greater or equal than this"
+              },
+              {
+                "name": "unlimited_miles",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true, False"
+              },
+              {
+                "name": "unlimited_generator",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with unlimited generator hours? Boolean string"
+              },
+              {
+                "name": "instant_book",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with instant book? Boolean string"
+              },
+              {
+                "name": "requires_driver_verification",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with insurance requiring driver verification? Boolean string"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency unit for price range requests (default USD)"
+              },
+              {
+                "name": "distance_unit",
+                "value": "",
+                "type": "query",
+                "description": "Distance unit for location search requests"
+              },
+              {
+                "name": "length[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Max vehicle length, integer"
+              },
+              {
+                "name": "length[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Min vehicle length, integer"
+              },
+              {
+                "name": "length[between]",
+                "value": "",
+                "type": "query",
+                "description": "Length ranges (e.g.: \"18-24,25-31,32-38\")"
+              },
+              {
+                "name": "year[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Max vehicle year, e.g. 2019"
+              },
+              {
+                "name": "year[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Min vehicle year, e.g. 1960"
+              },
+              {
+                "name": "last_published[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Published on or before date, e.g. 2020-12-02"
+              },
+              {
+                "name": "last_published[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Published on or after date, e.g. 2006-01-02"
+              },
+              {
+                "name": "trailer_weight[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Max trailer weight, integer"
+              },
+              {
+                "name": "trailer_weight[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Min trailer weight, integer"
+              },
+              {
+                "name": "weight_unit",
+                "value": "",
+                "type": "query",
+                "description": "Weight unit, one of: \"kg\", \"lbs\""
+              },
+              {
+                "name": "cancel_policy",
+                "value": "",
+                "type": "query",
+                "description": "Cancel policy: values \"strict\", \"moderate\", \"flexible\", \"custom\""
+              },
+              {
+                "name": "insurance_state",
+                "value": "",
+                "type": "query",
+                "description": "State of insurance, e.g. \"approved\""
+              },
+              {
+                "name": "filter[vehicle_make]",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle make. Examples: \"Jeep\", \"Horse\", \"Catering\", \"Winnebago\", \"Champion\", \"Komfort\", \"Thor Motor Coach\""
+              },
+              {
+                "name": "filter[vehicle_model]",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle model. Examples: \"Wrangler\", \"Trailer Bar\", \"Westfalia\", \"Four Winds\""
+              },
+              {
+                "name": "filter[transmission]",
+                "value": "",
+                "type": "query",
+                "description": "Transmission type. Examples: \"automatic\", \"manual\""
+              },
+              {
+                "name": "filter[fuel_type]",
+                "value": "",
+                "type": "query",
+                "description": "Fuel type. Examples: \"gas\", \"diesel\", \"electric\""
+              },
+              {
+                "name": "delivery",
+                "value": "",
+                "type": "query",
+                "description": "Delivery available?"
+              },
+              {
+                "name": "delivery_stationary",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "delivery_campground_id",
+                "value": "",
+                "type": "query",
+                "description": "Are we searching for vehicles to deliver to a campground?"
+              },
+              {
+                "name": "debug",
+                "value": "",
+                "type": "query",
+                "description": "Include some debug output, such as hit count and query source"
+              },
+              {
+                "name": "allows_long_term",
+                "value": "",
+                "type": "query",
+                "description": "Include rentals which have a monthly discount"
+              },
+              {
+                "name": "include_unavailable",
+                "value": "",
+                "type": "query",
+                "description": "Include vehicles already booked for the specified date range?\nIn results, each rental will get a boolean field unavailable set to true or false."
+              },
+              {
+                "name": "only",
+                "value": "",
+                "type": "query",
+                "description": "Limit returned keys. One of: \"meta\", \"rentals\""
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Limit search to a specific locale, e.g. en-us (default en-us)"
+              },
+              {
+                "name": "new_owners",
+                "value": "",
+                "type": "query",
+                "description": "Rentals of owners who have published a first listing in the past 30 days"
+              },
+              {
+                "name": "cs[max_vehicle_length]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[beds]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[bedrooms]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[bathrooms]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[parking_onsite]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[max_parking_spaces]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[is_odn]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[supported_types]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[supported_length]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[supported_slideouts]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[has_pricing]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[property]",
+                "value": "",
+                "type": "query",
+                "description": "Property type filter Examples: \"campground\", \"private-property\""
+              },
+              {
+                "name": "include_nearby_campgrounds",
+                "value": "",
+                "type": "query",
+                "description": "Include nearby campgrounds in the response"
+              },
+              {
+                "name": "TotalPriceSortDirection",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cg[features]",
+                "value": "",
+                "type": "query",
+                "description": "Campground specific: */\nCampground Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "cg[near_campground]",
+                "value": "",
+                "type": "query",
+                "description": "Specified external campground is boosted to be at the top of the results."
+              },
+              {
+                "name": "cg[vacation_package_slug]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cg[categories]",
+                "value": "",
+                "type": "query",
+                "description": "Campground Categories list, e.g. \"city,forest,etc.\""
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Search performs search on external campgrounds"
+        },
+        {
+          "info": {
+            "name": "searchNearbyCampgrounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/external-campgrounds/nearby-for-rental/:rental_id",
+            "params": [
+              {
+                "name": "rental_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Searches nearby claimed and unclaimed campgrounds for a given rental with rental_id"
+        },
+        {
+          "info": {
+            "name": "getExternalCampground",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/external-campgrounds/:id",
+            "params": [
+              {
+                "name": "filter[keywords]",
+                "value": "",
+                "type": "query",
+                "description": "List of keywords, comma-separated, e.g. \"Komfort,wifi\"\nThe fields checked for keywords are: name, description, vehicle_make, vehicle_model, and tags"
+              },
+              {
+                "name": "filter[type]",
+                "value": "",
+                "type": "query",
+                "description": "List of rental types, e.g. \"b,c,camper-van\""
+              },
+              {
+                "name": "filter[rental_category]",
+                "value": "",
+                "type": "query",
+                "description": "Rental category, e.g. \"rv\", \"stay\", \"campground\""
+              },
+              {
+                "name": "cs[category_types]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category types, e.g. \"rv_site\", \"lodging_site\", \"tent_site\""
+              },
+              {
+                "name": "cs[rv_site_features]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category rv site Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "cs[tent_site_features]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category tent site Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "cs[lodging_features]",
+                "value": "",
+                "type": "query",
+                "description": "Campsite category lodging site Features list, e.g. \"pet_friendly,accessible\""
+              },
+              {
+                "name": "filter[exclude_type]",
+                "value": "",
+                "type": "query",
+                "description": "List of rental types to exclude, e.g. \"b,c\""
+              },
+              {
+                "name": "filter[style]",
+                "value": "",
+                "type": "query",
+                "description": "List of styles, e.g. \"drivable,towable,both\""
+              },
+              {
+                "name": "filter[tags]",
+                "value": "",
+                "type": "query",
+                "description": "List of tags, e.g. \"Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for couples\""
+              },
+              {
+                "name": "filter[feature]",
+                "value": "",
+                "type": "query",
+                "description": "Feature list, e.g. \"dining_table,inside_shower,wifi\""
+              },
+              {
+                "name": "filter[owner_type]",
+                "value": "",
+                "type": "query",
+                "description": "Owner type, one of: \"dealer\",\" pro\""
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query",
+                "description": "Location IDs, e.g. \"1697,791,1369\""
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Rental IDs to return, e.g. \"50302,50303\""
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Rental IDs to exclude, e.g. \"50303,503034\""
+              },
+              {
+                "name": "owner_ids",
+                "value": "",
+                "type": "query",
+                "description": "Owner IDs, e.g. \"255926,251875\""
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "One or many of \"price\", \"-price\", \"position\", \"-position\", \"seatbelts\", \"-seatbelts\", \"sleeps\", \"-sleeps\", \"rating\", \"-rating\", \"distance\", \"-distance\", \"num_reviews\", \"-num_reviews\", \"new_listings\""
+              },
+              {
+                "name": "auto_radius",
+                "value": "",
+                "type": "query",
+                "description": "Increment search radius until enough results are provided (specified by 'page[limit]' parameter.)\nMax radius is 1000 miles. (default false)"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "making a variable for source"
+              },
+              {
+                "name": "random",
+                "value": "",
+                "type": "query",
+                "description": "Random Score"
+              },
+              {
+                "name": "seatbelts",
+                "value": "",
+                "type": "query",
+                "description": "Number of seatbelts"
+              },
+              {
+                "name": "sleeps",
+                "value": "",
+                "type": "query",
+                "description": "Total people to sleep"
+              },
+              {
+                "name": "sleeps[adults]",
+                "value": "",
+                "type": "query",
+                "description": "Adults to sleep"
+              },
+              {
+                "name": "sleeps[kids]",
+                "value": "",
+                "type": "query",
+                "description": "Kids to sleep"
+              },
+              {
+                "name": "sleeps[infants]",
+                "value": "",
+                "type": "query",
+                "description": "Infants to sleep"
+              },
+              {
+                "name": "renter_age",
+                "value": "",
+                "type": "query",
+                "description": "Minimum renter age required for rental"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results (default 25, max 150)"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Skip some results and return results starting with this offset (min 0, max 1000)"
+              },
+              {
+                "name": "price[min]",
+                "value": "",
+                "type": "query",
+                "description": "Min price"
+              },
+              {
+                "name": "price[max]",
+                "value": "",
+                "type": "query",
+                "description": "Max price"
+              },
+              {
+                "name": "total_price[min]",
+                "value": "",
+                "type": "query",
+                "description": "Min price"
+              },
+              {
+                "name": "total_price[max]",
+                "value": "",
+                "type": "query",
+                "description": "Max price"
+              },
+              {
+                "name": "date[from]",
+                "value": "",
+                "type": "query",
+                "description": "Date from, for date range query, e.g. 2021-06-01"
+              },
+              {
+                "name": "date[to]",
+                "value": "",
+                "type": "query",
+                "description": "Date to, for date range query, e.g. 2021-06-14"
+              },
+              {
+                "name": "flexible_days",
+                "value": "",
+                "type": "query",
+                "description": "Flexible Days +/- 1-3 days. (default 0)"
+              },
+              {
+                "name": "near",
+                "value": "",
+                "type": "query",
+                "description": "Latitude,longitude to search near, e.g. \"38.302,-121.972\". Supersedes address. Superseded by bounding box."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Street address to search near. Superseded by latitude/longitude and by bounding box.\nIf no `address` is passed, GeoIP is used to get geo coordinates."
+              },
+              {
+                "name": "delivery_address",
+                "value": "",
+                "type": "query",
+                "description": "Street address to be delivered to. Supersedes `address` field. Default radius 100 miles"
+              },
+              {
+                "name": "bounds[ne]",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box'es north-east, e.g. \"37.812, -122.3482\""
+              },
+              {
+                "name": "bounds[sw]",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box'es south-west, e.g. \"37.703399, -122.526999\""
+              },
+              {
+                "name": "near_rental",
+                "value": "",
+                "type": "query",
+                "description": "Rental ID to search near, e.g. 37183. Superseded by bounding box.\nSpecified rental is boosted to be at the top of the results."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius (miles)"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Owner ID, e.g. 255926"
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Pro user slug, e.g. \"hwyonerentals\""
+              },
+              {
+                "name": "hidden",
+                "value": "",
+                "type": "query",
+                "description": "Show hidden results? (Non-hidden results will not be returned.)"
+              },
+              {
+                "name": "score",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with scores greater or equal than this"
+              },
+              {
+                "name": "unlimited_miles",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true, False"
+              },
+              {
+                "name": "unlimited_generator",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with unlimited generator hours? Boolean string"
+              },
+              {
+                "name": "instant_book",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with instant book? Boolean string"
+              },
+              {
+                "name": "requires_driver_verification",
+                "value": "",
+                "type": "query",
+                "description": "Only return results with insurance requiring driver verification? Boolean string"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency unit for price range requests (default USD)"
+              },
+              {
+                "name": "distance_unit",
+                "value": "",
+                "type": "query",
+                "description": "Distance unit for location search requests"
+              },
+              {
+                "name": "length[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Max vehicle length, integer"
+              },
+              {
+                "name": "length[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Min vehicle length, integer"
+              },
+              {
+                "name": "length[between]",
+                "value": "",
+                "type": "query",
+                "description": "Length ranges (e.g.: \"18-24,25-31,32-38\")"
+              },
+              {
+                "name": "year[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Max vehicle year, e.g. 2019"
+              },
+              {
+                "name": "year[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Min vehicle year, e.g. 1960"
+              },
+              {
+                "name": "last_published[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Published on or before date, e.g. 2020-12-02"
+              },
+              {
+                "name": "last_published[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Published on or after date, e.g. 2006-01-02"
+              },
+              {
+                "name": "trailer_weight[lte]",
+                "value": "",
+                "type": "query",
+                "description": "Max trailer weight, integer"
+              },
+              {
+                "name": "trailer_weight[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Min trailer weight, integer"
+              },
+              {
+                "name": "weight_unit",
+                "value": "",
+                "type": "query",
+                "description": "Weight unit, one of: \"kg\", \"lbs\""
+              },
+              {
+                "name": "cancel_policy",
+                "value": "",
+                "type": "query",
+                "description": "Cancel policy: values \"strict\", \"moderate\", \"flexible\", \"custom\""
+              },
+              {
+                "name": "insurance_state",
+                "value": "",
+                "type": "query",
+                "description": "State of insurance, e.g. \"approved\""
+              },
+              {
+                "name": "filter[vehicle_make]",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle make. Examples: \"Jeep\", \"Horse\", \"Catering\", \"Winnebago\", \"Champion\", \"Komfort\", \"Thor Motor Coach\""
+              },
+              {
+                "name": "filter[vehicle_model]",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle model. Examples: \"Wrangler\", \"Trailer Bar\", \"Westfalia\", \"Four Winds\""
+              },
+              {
+                "name": "filter[transmission]",
+                "value": "",
+                "type": "query",
+                "description": "Transmission type. Examples: \"automatic\", \"manual\""
+              },
+              {
+                "name": "filter[fuel_type]",
+                "value": "",
+                "type": "query",
+                "description": "Fuel type. Examples: \"gas\", \"diesel\", \"electric\""
+              },
+              {
+                "name": "delivery",
+                "value": "",
+                "type": "query",
+                "description": "Delivery available?"
+              },
+              {
+                "name": "delivery_stationary",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "delivery_campground_id",
+                "value": "",
+                "type": "query",
+                "description": "Are we searching for vehicles to deliver to a campground?"
+              },
+              {
+                "name": "debug",
+                "value": "",
+                "type": "query",
+                "description": "Include some debug output, such as hit count and query source"
+              },
+              {
+                "name": "allows_long_term",
+                "value": "",
+                "type": "query",
+                "description": "Include rentals which have a monthly discount"
+              },
+              {
+                "name": "include_unavailable",
+                "value": "",
+                "type": "query",
+                "description": "Include vehicles already booked for the specified date range?\nIn results, each rental will get a boolean field unavailable set to true or false."
+              },
+              {
+                "name": "only",
+                "value": "",
+                "type": "query",
+                "description": "Limit returned keys. One of: \"meta\", \"rentals\""
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Limit search to a specific locale, e.g. en-us (default en-us)"
+              },
+              {
+                "name": "new_owners",
+                "value": "",
+                "type": "query",
+                "description": "Rentals of owners who have published a first listing in the past 30 days"
+              },
+              {
+                "name": "cs[max_vehicle_length]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[beds]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[bedrooms]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[bathrooms]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[parking_onsite]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[max_parking_spaces]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[is_odn]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[supported_types]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[supported_length]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[supported_slideouts]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cs[has_pricing]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[property]",
+                "value": "",
+                "type": "query",
+                "description": "Property type filter Examples: \"campground\", \"private-property\""
+              },
+              {
+                "name": "include_nearby_campgrounds",
+                "value": "",
+                "type": "query",
+                "description": "Include nearby campgrounds in the response"
+              },
+              {
+                "name": "TotalPriceSortDirection",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get external campgrounds by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

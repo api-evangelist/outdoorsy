@@ -1,0 +1,438 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation Rental Items API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: rentalItems
+paths:
+  /items:
+    get:
+      description: Creates a new item for a given rental
+      tags:
+      - rentalItems
+      operationId: listRentalItems
+      parameters:
+      - x-go-name: AllAvailableItems
+        name: all_available_items
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: AvailableForRentalID
+        name: available_for_rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: RentalID
+        name: rental_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: OwnerID
+        name: owner_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LocationID
+        name: location_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: LocationIDs
+        name: location_ids
+        in: query
+        schema:
+          type: string
+      - x-go-name: Translate
+        name: translate
+        in: query
+        schema:
+          type: boolean
+      - x-go-name: PresentmentCurrency
+        name: presentment_currency
+        in: query
+        schema:
+          type: string
+      - x-go-name: Limit
+        name: limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: Offset
+        name: offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/rentalItemsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Creates a new item for a given rental
+      tags:
+      - rentalItems
+      operationId: createRentalItem
+      responses:
+        '200':
+          $ref: '#/components/responses/rentalItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RentalItem'
+  /items/{id}:
+    get:
+      description: Creates a new item for a given rental
+      tags:
+      - rentalItems
+      operationId: getRentalItemById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/rentalItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    delete:
+      description: Creates a new item for a given rental
+      tags:
+      - rentalItems
+      operationId: deleteRentalItemById
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Creates a new item for a given rental
+      tags:
+      - rentalItems
+      operationId: updateRentalItem
+      parameters:
+      - x-go-name: ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/rentalItemResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RentalItem'
+components:
+  schemas:
+    RentalItem:
+      type: object
+      properties:
+        applies_to_type:
+          $ref: '#/components/schemas/DBStringSlice'
+        available:
+          type: integer
+          format: int64
+          x-go-name: Available
+        category:
+          type: string
+          x-go-name: Category
+        category_id:
+          type: integer
+          format: int64
+          x-go-name: CategoryID
+        consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: ConsignedPayPct
+        created:
+          $ref: '#/components/schemas/NullTime'
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        description:
+          type: string
+          x-go-name: Description
+        hidden:
+          type: boolean
+          x-go-name: Hidden
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_url:
+          type: string
+          x-go-name: ImageURL
+        ledger_account_number:
+          type: integer
+          format: int64
+          x-go-name: LedgerAccountNumber
+        location_id:
+          type: integer
+          format: int64
+          x-go-name: LocationID
+        location_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: LocationIDs
+        maximum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        metadata:
+          $ref: '#/components/schemas/IMap'
+        minimum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        presentment_currency:
+          type: string
+          x-go-name: PresentmentCurrency
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_items_category_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        rental_items_category_name:
+          type: string
+          x-go-name: RentalItemsCategoryName
+        rental_items_category_owner_name:
+          type: string
+          x-go-name: RentalItemsCategoryOwnerName
+        rental_items_category_reason:
+          type: string
+          x-go-name: RentalItemsCategoryReason
+        rental_items_category_requested_name:
+          type: string
+          x-go-name: RentalItemsCategoryRequestedName
+        rental_items_category_status:
+          type: string
+          x-go-name: RentalItemsCategoryStatus
+        required:
+          type: boolean
+          x-go-name: Required
+        settlement_currency:
+          type: string
+          x-go-name: SettlementCurrency
+        tax:
+          description: total tax - calculated
+          type: integer
+          format: int64
+          x-go-name: Tax
+        tax_rate_id:
+          $ref: '#/components/schemas/TaxRate'
+        tax_rate_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: TaxRateIDs
+        travelers:
+          type: integer
+          format: int64
+          x-go-name: Travelers
+        updated:
+          $ref: '#/components/schemas/NullTime'
+      x-go-package: github.com/outdoorsy/api/model
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    TaxRate:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        marketplace:
+          type: boolean
+          x-go-name: MarketPlace
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        state:
+          description: carry through to booking_tax_rates table from avalara
+          type: string
+          x-go-name: State
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+  responses:
+    notFoundError:
+      description: Not found error
+    rentalItemResponse:
+      description: HTTP status code 200 and rental item model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RentalItem'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    rentalItemsResponse:
+      description: HTTP status code 200 and array of rental items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RentalItem'
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

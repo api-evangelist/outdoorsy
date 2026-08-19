@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy Search API is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy Search Documentation Breadcrumbs API
+  version: 0.0.1
+security:
+- Bearer:
+  - '[]'
+tags:
+- name: breadcrumbs
+paths:
+  /breadcrumbs:
+    get:
+      description: Breadcrumb search
+      tags:
+      - breadcrumbs
+      operationId: breadcrumbSearch
+      parameters:
+      - name: Locale
+        in: query
+        schema:
+          type: string
+      - name: Lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Lon
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Radius
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/breadcrumbResponse'
+  /breadcrumbs/closest:
+    get:
+      description: Get closest breadcrumb to lag/lng
+      tags:
+      - breadcrumbs
+      operationId: closestBreadcrumb
+      parameters:
+      - name: Lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Lon
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/closestResponse'
+  /breadcrumbs/{id}:
+    get:
+      description: Get breadcrumb by id
+      tags:
+      - breadcrumbs
+      operationId: getBreadcrumb
+      responses:
+        '200':
+          $ref: '#/components/responses/retrieveResponse'
+components:
+  responses:
+    retrieveResponse:
+      description: ''
+      headers:
+        bounds: {}
+        id:
+          schema:
+            type: string
+        locale:
+          schema:
+            type: string
+        location: {}
+        metadata: {}
+        parent:
+          schema:
+            type: string
+        slug:
+          schema:
+            type: string
+        url:
+          schema:
+            type: string
+      content:
+        application/vnd.api+json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+        application/json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+    closestResponse:
+      description: ''
+      headers:
+        crumbs:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/crumb'
+        locale:
+          schema:
+            type: string
+        location: {}
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/geoPoint'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/geoPoint'
+  schemas:
+    geoBounds:
+      type: object
+      properties:
+        ne:
+          $ref: '#/components/schemas/geoPoint'
+        sw:
+          $ref: '#/components/schemas/geoPoint'
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    geoPoint:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lon:
+          type: number
+          format: double
+          x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    crumb:
+      type: object
+      properties:
+        title:
+          type: string
+          x-go-name: Title
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb/transport/http
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

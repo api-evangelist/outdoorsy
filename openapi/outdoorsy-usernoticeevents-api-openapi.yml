@@ -1,0 +1,305 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation User Notice Events API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: userNoticeEvents
+paths:
+  /user-notice-events:
+    get:
+      description: Lists user notice events
+      tags:
+      - userNoticeEvents
+      operationId: listUserNoticeEvents
+      parameters:
+      - name: IDs
+        in: query
+        schema:
+          type: string
+      - name: Name
+        in: query
+        schema:
+          type: string
+      - name: RequiresBookingRequest
+        in: query
+        schema:
+          type: boolean
+      - name: Enabled
+        in: query
+        schema:
+          type: boolean
+      - name: From
+        in: query
+        schema:
+          type: string
+      - name: To
+        in: query
+        schema:
+          type: string
+      - name: Lat
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Lng
+        in: query
+        schema:
+          type: number
+          format: double
+      - name: Country
+        in: query
+        schema:
+          type: string
+      - name: ExcludeBundleBookings
+        in: query
+        schema:
+          type: boolean
+      - name: Limit
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: Offset
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: OrderBy
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/userNoticeEventsResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    post:
+      description: Creates a user notice event
+      tags:
+      - userNoticeEvents
+      operationId: createUserNoticeEvent
+      responses:
+        '201':
+          $ref: '#/components/responses/userNoticeEventResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoticeEvent'
+  /user-notice-events/{event_id}:
+    get:
+      description: Reads a user notice event by id
+      tags:
+      - userNoticeEvents
+      operationId: getUserNoticeEventById
+      parameters:
+      - x-go-name: EventID
+        name: event_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/userNoticeEventResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    put:
+      description: Updates a user notice event
+      tags:
+      - userNoticeEvents
+      operationId: updateUserNoticeEvent
+      responses:
+        '200':
+          $ref: '#/components/responses/userNoticeEventResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    patch:
+      description: Disables a user notice event by id
+      tags:
+      - userNoticeEvents
+      operationId: disableUserNoticeEvent
+      parameters:
+      - x-go-name: EventID
+        name: event_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/userNoticeEventResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+components:
+  responses:
+    notFoundError:
+      description: Not found error
+    internalServerError:
+      description: Internal server error
+    userNoticeEventResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoticeEvent'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    forbiddenError:
+      description: Forbidden error
+    unauthorizedError:
+      description: Unauthorized error
+    userNoticeEventsResponse:
+      description: ''
+      headers:
+        Total-Results:
+          description: Total results count
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NoticeEvent'
+  schemas:
+    NoticeEvent:
+      type: object
+      properties:
+        countries:
+          $ref: '#/components/schemas/DBStringSlice'
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        enabled:
+          type: boolean
+          x-go-name: Enabled
+        exclude_bundle_bookings:
+          type: boolean
+          x-go-name: ExcludeBundleBookings
+        from:
+          type: string
+        guest_acknowledgement_text:
+          type: string
+          x-go-name: GuestAcknowledgementText
+        guest_need_to_acknowledge:
+          type: boolean
+          x-go-name: GuestNeedToAcknowledge
+        guest_user_text:
+          type: string
+          x-go-name: GuestUserText
+        host_acknowledgement_text:
+          type: string
+          x-go-name: HostAcknowledgementText
+        host_help_url:
+          type: string
+          x-go-name: HostHelpUrl
+        host_need_to_acknowledge:
+          type: boolean
+          x-go-name: HostNeedToAcknowledge
+        host_user_text:
+          type: string
+          x-go-name: HostUserText
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        name:
+          type: string
+          x-go-name: Name
+        radius:
+          type: number
+          format: double
+          x-go-name: Radius
+        requires_booking_request:
+          type: boolean
+          x-go-name: RequiresBookingRequest
+        to:
+          type: string
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/user_notice_events
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

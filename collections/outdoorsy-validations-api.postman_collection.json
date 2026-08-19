@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "98c2c59d-2d8e-4edb-8a41-4d572bd231a0",
+      "name": "validations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b46a518-e4a7-4aa1-94cf-9f2d711d31e7",
+          "name": "Returns a list of validations in the system.",
+          "request": {
+            "name": "Returns a list of validations in the system.",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "args",
+                  "value": "<string>",
+                  "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{\"booking_id\":\"1234\",\"driver_id\":\"5678\",\"validator\":\"tint\"}`"
+                },
+                {
+                  "disabled": false,
+                  "key": "contains_args",
+                  "value": "<string>",
+                  "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values are contained by one or more entries, those entries will be returned. For example, this could be used to fetch all tint validations for a specific booking by sending `{\"booking_id\":\"1234\",\"validator\":\"tint\"}`"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The status on which you wish to filter. Valid options are `pending, processing, passed, flagged, error, failed`"
+                },
+                {
+                  "disabled": false,
+                  "key": "validator",
+                  "value": "<string>",
+                  "description": "The validator on which you wish to filter. Valid options are `tint`."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "The order in which to return results. Typically you may pass the name of a field in the object to order by that field ASC. If you want DESC, prepend the name with `-`"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Returns list of results for a given limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Returns list of results for a given offset."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0378cf6-7700-4a8d-b0d4-39aa22884127",
+          "name": "Returns a validation in the system by its ID.",
+          "request": {
+            "name": "Returns a validation in the system by its ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A 24 character hex-encoded ObjectID value."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5356b724-3fed-495e-975b-db44d046344c",
+          "name": "Flags a validation as deleted.",
+          "request": {
+            "name": "Flags a validation as deleted.",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A 24 character hex-encoded ObjectID value."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d02711db-4b5f-41e5-ba71-6fc4d3989153",
+          "name": "Duplicates a validation, overwriting its arguments to copy its data to another object in the system. This is intended to be used when creating a more specific version of a validation. For example, a user-level validation that needs to be \\\"locked\\\" to a booking by using a user_id,booking_id tuple. Send the tuple you wish this duplicate to use as its identifier as the new_args key in the body.",
+          "request": {
+            "name": "Duplicates a validation, overwriting its arguments to copy its data to another object in the system. This is intended to be used when creating a more specific version of a validation. For example, a user-level validation that needs to be \\\"locked\\\" to a booking by using a user_id,booking_id tuple. Send the tuple you wish this duplicate to use as its identifier as the new_args key in the body.",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations",
+                ":id",
+                "duplicate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A 24 character hex-encoded ObjectID value."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a714d717-35d2-4a71-94bf-2caa5424ac7e",
+          "name": "Forces an validation into a `passed` state.",
+          "request": {
+            "name": "Forces an validation into a `passed` state.",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations",
+                ":id",
+                "force"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A 24 character hex-encoded ObjectID value."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f1a70f7-b945-4871-8f97-5434249e6d86",
+          "name": "Returns the historical list of validation entries.",
+          "request": {
+            "name": "Returns the historical list of validation entries.",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A 24 character hex-encoded ObjectID value."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8b35b17-6138-40bd-aa2c-d09254d16c9d",
+          "name": "Retry a validation request if failed or error",
+          "request": {
+            "name": "Retry a validation request if failed or error",
+            "description": {},
+            "url": {
+              "path": [
+                "admin",
+                "validations",
+                ":id",
+                "retry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A 24 character hex-encoded ObjectID value."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a809376-6595-4aa2-834a-06494c15d954",
+          "name": "Returns a list of validations in the system. The data returned is a public-facing subset of the internal data.",
+          "request": {
+            "name": "Returns a list of validations in the system. The data returned is a public-facing subset of the internal data.",
+            "description": {},
+            "url": {
+              "path": [
+                "validations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "args",
+                  "value": "<string>",
+                  "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{\"booking_id\":\"1234\",\"driver_id\":\"5678\",\"validator\":\"tint\"}`"
+                },
+                {
+                  "disabled": false,
+                  "key": "contains_args",
+                  "value": "<string>",
+                  "description": "A hash[string]string object containing the fields you wish to query on. If the field names and values are contained by one or more entries, those entries will be returned. For example, this could be used to fetch all tint validations for a specific booking by sending `{\"booking_id\":\"1234\",\"validator\":\"tint\"}`"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The status on which you wish to filter. Valid options are `pending, processing, passed, flagged, error, failed`"
+                },
+                {
+                  "disabled": false,
+                  "key": "validator",
+                  "value": "<string>",
+                  "description": "The validator on which you wish to filter. Valid options are `tint`."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "The order in which to return results. Typically you may pass the name of a field in the object to order by that field ASC. If you want DESC, prepend the name with `-`"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Returns list of results for a given limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Returns list of results for a given offset."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2860faac-eac7-4ad2-bdb0-f56c791e8112",
+    "name": "Outdoorsy API Documentation Validations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

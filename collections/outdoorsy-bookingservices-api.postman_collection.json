@@ -1,0 +1,1467 @@
+{
+  "item": [
+    {
+      "id": "0ce543dc-4915-4657-a0b4-22730117009f",
+      "name": "bookingServices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72f04141-d38e-4e6d-9245-92361a53ae41",
+          "name": "Returns the list of available premium services for the requested booking.",
+          "request": {
+            "name": "Returns the list of available premium services for the requested booking.",
+            "description": {
+              "content": "Not all services will be available for all bookings, depending on the owner,\nvehicle, or location of the vehicle (country).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ff2c835-2b80-44f2-8a20-b7f9c53849dd",
+              "name": "HTTP status code 200 and array of premium service integrations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"active\": false,\n    \"allow_dealer_premium\": false,\n    \"allow_dealer_to_require\": true,\n    \"allow_owner_premium\": false,\n    \"auth_token\": \"string\",\n    \"booking_disabled\": false,\n    \"booking_id\": 9236,\n    \"category\": \"string\",\n    \"charge_to\": \"string\",\n    \"countries\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created\": \"string\",\n    \"current_data\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    },\n    \"dealer\": true,\n    \"dealer_default_enabled\": true,\n    \"dealer_flat_split\": 1302,\n    \"dealer_percent\": 2616.4131449813976,\n    \"dealer_percent_split\": 8628.923115459325,\n    \"dealer_percent_type\": \"string\",\n    \"dealer_price\": 5330,\n    \"dealer_price_type\": \"string\",\n    \"dealer_qualifies\": false,\n    \"dealer_split_type\": \"string\",\n    \"default_enabled\": false,\n    \"description\": \"string\",\n    \"details\": {\n      \"features\": [\n        {\n          \"description\": \"string\"\n        },\n        {\n          \"description\": \"string\"\n        }\n      ]\n    },\n    \"hide_from_dealer\": true,\n    \"id\": 5018,\n    \"is_taxable\": true,\n    \"lock_on_booking_status\": \"string\",\n    \"minimum_vehicle_year\": 1344,\n    \"missing_fields\": {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_2\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_3\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"name\": \"string\",\n    \"owner_percent\": 7299.026153866281,\n    \"owner_percent_type\": \"string\",\n    \"owner_price\": 251,\n    \"owner_price_type\": \"string\",\n    \"qualified\": true,\n    \"regions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"renter_region_exclusions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"required\": true,\n    \"required_fields\": [\n      \"string\",\n      \"string\"\n    ],\n    \"roamly_weather_quote\": {\n      \"key_0\": {}\n    },\n    \"service_data\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"service_endpoint\": \"string\",\n    \"slug\": \"string\",\n    \"support_phone\": \"string\",\n    \"tax_amount\": 5269,\n    \"tax_rate_ids\": [\n      6462,\n      7325\n    ],\n    \"total\": 1341,\n    \"updated\": \"string\",\n    \"user_disabled\": false,\n    \"user_premium\": 8510,\n    \"user_required\": true,\n    \"vehicle_types\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"active\": false,\n    \"allow_dealer_premium\": false,\n    \"allow_dealer_to_require\": false,\n    \"allow_owner_premium\": true,\n    \"auth_token\": \"string\",\n    \"booking_disabled\": false,\n    \"booking_id\": 9028,\n    \"category\": \"string\",\n    \"charge_to\": \"string\",\n    \"countries\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created\": \"string\",\n    \"current_data\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"dealer\": true,\n    \"dealer_default_enabled\": true,\n    \"dealer_flat_split\": 8796,\n    \"dealer_percent\": 3208.841269241758,\n    \"dealer_percent_split\": 3243.3476666110814,\n    \"dealer_percent_type\": \"string\",\n    \"dealer_price\": 5785,\n    \"dealer_price_type\": \"string\",\n    \"dealer_qualifies\": false,\n    \"dealer_split_type\": \"string\",\n    \"default_enabled\": true,\n    \"description\": \"string\",\n    \"details\": {\n      \"features\": [\n        {\n          \"description\": \"string\"\n        },\n        {\n          \"description\": \"string\"\n        }\n      ]\n    },\n    \"hide_from_dealer\": true,\n    \"id\": 2989,\n    \"is_taxable\": false,\n    \"lock_on_booking_status\": \"string\",\n    \"minimum_vehicle_year\": 8886,\n    \"missing_fields\": {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"name\": \"string\",\n    \"owner_percent\": 9321.92738715035,\n    \"owner_percent_type\": \"string\",\n    \"owner_price\": 8814,\n    \"owner_price_type\": \"string\",\n    \"qualified\": false,\n    \"regions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"renter_region_exclusions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"required\": false,\n    \"required_fields\": [\n      \"string\",\n      \"string\"\n    ],\n    \"roamly_weather_quote\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"service_data\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"service_endpoint\": \"string\",\n    \"slug\": \"string\",\n    \"support_phone\": \"string\",\n    \"tax_amount\": 1032,\n    \"tax_rate_ids\": [\n      4418,\n      1357\n    ],\n    \"total\": 8959,\n    \"updated\": \"string\",\n    \"user_disabled\": true,\n    \"user_premium\": 2542,\n    \"user_required\": false,\n    \"vehicle_types\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f26ba7cc-5405-4d66-aead-d4edda7fd431",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f23438e-d4a4-4964-9d45-2f3e1e324823",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19d27efd-80a0-4031-9496-cf0da48c5f5f",
+          "name": "delete Booking Service",
+          "request": {
+            "name": "delete Booking Service",
+            "description": {
+              "content": "Removes a premium service from the booking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "service_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a536fc96-b2a3-4fce-ad12-d6b13e747b9e",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02fbec94-a1dc-4dd8-be77-7914786bc1a5",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27b0e97d-ad11-4110-84e9-00818c78ed79",
+              "name": "Not found error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5cc3111-b1eb-467a-ad67-746506d0bdc2",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e318e8db-cd01-4074-bc4b-b8bdc4ada492",
+          "name": "Returns the booking service associated with the booking.",
+          "request": {
+            "name": "Returns the booking service associated with the booking.",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "services",
+                ":service_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "service_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc52419f-5533-4a2e-9609-175a0195a8f7",
+              "name": "HTTP status code 200 and booking service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"booking_id\": 3816,\n  \"bundle_id\": \"string\",\n  \"category\": \"string\",\n  \"charge_to\": \"string\",\n  \"created\": \"string\",\n  \"daily\": true,\n  \"dealer_flat_split\": 3120,\n  \"dealer_percent_split\": 9622.921453935782,\n  \"dealer_split_type\": \"string\",\n  \"deleted_at\": {\n    \"Time\": \"2023-11-18T03:56:33.381Z\",\n    \"Valid\": true\n  },\n  \"description\": \"string\",\n  \"discount_amount\": 4599,\n  \"external_reference_id\": \"string\",\n  \"fee_locked\": true,\n  \"id\": 1994,\n  \"is_taxable\": false,\n  \"last_service_log\": {},\n  \"lock_on_booking_status\": \"string\",\n  \"minimum_price\": 4784,\n  \"missing_fields\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"name\": \"string\",\n  \"payable_to\": \"string\",\n  \"percent\": 4793.920276810566,\n  \"percent_type\": \"string\",\n  \"policy_start_date\": \"string\",\n  \"premium_amount\": 4190,\n  \"premium_total\": 6150,\n  \"prevent_delete\": true,\n  \"price\": 1138,\n  \"quantity\": 9501,\n  \"required\": true,\n  \"revision\": 1727,\n  \"roamly_weather_quote\": {\n    \"key_0\": {}\n  },\n  \"service_data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"service_id\": 8310,\n  \"tax_amount\": 8265,\n  \"tax_rates\": [\n    {\n      \"booking_id\": 9957,\n      \"created\": \"string\",\n      \"deleted\": true,\n      \"id\": 338,\n      \"object_id\": 7902,\n      \"object_type\": \"string\",\n      \"payable_to\": \"string\",\n      \"source\": \"string\",\n      \"state\": \"string\",\n      \"tax_amount\": 11,\n      \"tax_description\": \"string\",\n      \"tax_name\": \"string\",\n      \"tax_rate\": 1519.3528730492267,\n      \"tax_rate_id\": 3001,\n      \"updated\": \"string\",\n      \"zip_code\": \"string\"\n    },\n    {\n      \"booking_id\": 5079,\n      \"created\": \"string\",\n      \"deleted\": false,\n      \"id\": 1548,\n      \"object_id\": 3378,\n      \"object_type\": \"string\",\n      \"payable_to\": \"string\",\n      \"source\": \"string\",\n      \"state\": \"string\",\n      \"tax_amount\": 6761,\n      \"tax_description\": \"string\",\n      \"tax_name\": \"string\",\n      \"tax_rate\": 1688.0711788707524,\n      \"tax_rate_id\": 9770,\n      \"updated\": \"string\",\n      \"zip_code\": \"string\"\n    }\n  ],\n  \"total\": 6595,\n  \"updated\": \"string\",\n  \"variant_price\": 1973\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40fd732d-3d1e-498e-b072-88c0a47ff164",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8700d0c9-ffbf-4324-a48d-ef13ca56f94c",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c88bd3d-fcb4-43cf-85dc-994a1eac4460",
+          "name": "Adds an available premium service to the booking based on the service id.",
+          "request": {
+            "name": "Adds an available premium service to the booking based on the service id.",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "services",
+                ":service_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "service_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "47755ed8-7cef-4276-bcc4-4fe7b0eea64a",
+              "name": "HTTP status code 200 and booking service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"booking_id\": 465,\n  \"bundle_id\": \"string\",\n  \"category\": \"string\",\n  \"charge_to\": \"string\",\n  \"created\": \"string\",\n  \"daily\": true,\n  \"dealer_flat_split\": 6991,\n  \"dealer_percent_split\": 7730.237664792326,\n  \"dealer_split_type\": \"string\",\n  \"deleted_at\": {\n    \"Time\": \"2019-12-13T05:41:45.557Z\",\n    \"Valid\": false\n  },\n  \"description\": \"string\",\n  \"discount_amount\": 5373,\n  \"external_reference_id\": \"string\",\n  \"fee_locked\": true,\n  \"id\": 8000,\n  \"is_taxable\": false,\n  \"last_service_log\": {},\n  \"lock_on_booking_status\": \"string\",\n  \"minimum_price\": 1889,\n  \"missing_fields\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"name\": \"string\",\n  \"payable_to\": \"string\",\n  \"percent\": 7766.208904231667,\n  \"percent_type\": \"string\",\n  \"policy_start_date\": \"string\",\n  \"premium_amount\": 2072,\n  \"premium_total\": 8997,\n  \"prevent_delete\": true,\n  \"price\": 9986,\n  \"quantity\": 9532,\n  \"required\": false,\n  \"revision\": 2108,\n  \"roamly_weather_quote\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"service_data\": {\n    \"key_0\": {}\n  },\n  \"service_id\": 7812,\n  \"tax_amount\": 3924,\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ],\n  \"total\": 9958,\n  \"updated\": \"string\",\n  \"variant_price\": 6699\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a074a0a7-2c98-44ac-a097-1d92fb85cd20",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2cfe2f7c-0e1c-47ee-bd1d-7d14fc3dd735",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd39a614-6556-461e-9f01-77a85a278232",
+          "name": "Updates an existing premium service on this booking using the service id.",
+          "request": {
+            "name": "Updates an existing premium service on this booking using the service id.",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "services",
+                ":service_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "booking_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "service_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b89b90f5-95a1-4161-b370-f057983e70f0",
+              "name": "HTTP status code 200 and booking service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"booking_id\": 465,\n  \"bundle_id\": \"string\",\n  \"category\": \"string\",\n  \"charge_to\": \"string\",\n  \"created\": \"string\",\n  \"daily\": true,\n  \"dealer_flat_split\": 6991,\n  \"dealer_percent_split\": 7730.237664792326,\n  \"dealer_split_type\": \"string\",\n  \"deleted_at\": {\n    \"Time\": \"2019-12-13T05:41:45.557Z\",\n    \"Valid\": false\n  },\n  \"description\": \"string\",\n  \"discount_amount\": 5373,\n  \"external_reference_id\": \"string\",\n  \"fee_locked\": true,\n  \"id\": 8000,\n  \"is_taxable\": false,\n  \"last_service_log\": {},\n  \"lock_on_booking_status\": \"string\",\n  \"minimum_price\": 1889,\n  \"missing_fields\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"name\": \"string\",\n  \"payable_to\": \"string\",\n  \"percent\": 7766.208904231667,\n  \"percent_type\": \"string\",\n  \"policy_start_date\": \"string\",\n  \"premium_amount\": 2072,\n  \"premium_total\": 8997,\n  \"prevent_delete\": true,\n  \"price\": 9986,\n  \"quantity\": 9532,\n  \"required\": false,\n  \"revision\": 2108,\n  \"roamly_weather_quote\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"service_data\": {\n    \"key_0\": {}\n  },\n  \"service_id\": 7812,\n  \"tax_amount\": 3924,\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ],\n  \"total\": 9958,\n  \"updated\": \"string\",\n  \"variant_price\": 6699\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09901889-97c8-4db0-b08c-6c531bc4a9c8",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81fe0f31-a4b0-4155-a855-f6fd4aa3ec01",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "services",
+                    ":service_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "booking_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "service_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bundle_id\": \"<string>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"id\": \"<string>\",\n  \"revision\": \"<long>\",\n  \"tax_rates\": [\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    },\n    {\n      \"booking_id\": \"<long>\",\n      \"created\": \"<string>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"object_id\": \"<long>\",\n      \"object_type\": \"<string>\",\n      \"payable_to\": \"<string>\",\n      \"source\": \"<string>\",\n      \"state\": \"<string>\",\n      \"tax_amount\": \"<long>\",\n      \"tax_description\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_rate\": \"<double>\",\n      \"tax_rate_id\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"zip_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd830186-4f0b-44e0-b3f7-8081d615e2a5",
+          "name": "Returns the booking weather from Roamly.",
+          "request": {
+            "name": "Returns the booking weather from Roamly.",
+            "description": {},
+            "url": {
+              "path": [
+                "bookings",
+                ":booking_id",
+                "weather"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"location\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d892826e-7b4e-46c1-914c-0e47be61c816",
+              "name": "HTTP status code 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "weather"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"location\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plain_language\": {\n    \"key_0\": {}\n  },\n  \"policy_number\": \"string\",\n  \"price\": 7825,\n  \"product_quote_id\": \"string\",\n  \"status\": \"string\",\n  \"weather_policy_id\": \"string\",\n  \"weather_quote_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84cf892a-f4e5-402a-85fe-4186b67057c0",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "weather"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"location\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "898a833b-3a31-4bbf-a3e2-f5def4ab9fd7",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookings",
+                    ":booking_id",
+                    "weather"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lat\": \"<double>\",\n  \"lng\": \"<double>\",\n  \"location\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6f4e539e-f8b0-4d02-bd32-85c37a776a19",
+    "name": "Outdoorsy API Documentation Booking Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Reports API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "checkoutQuestionsReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/reports/checkout-questions"
+          },
+          "docs": "Generate checkout questions report request"
+        },
+        {
+          "info": {
+            "name": "creditReportRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/reports/credit",
+            "params": [
+              {
+                "name": "outstanding",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consumed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate credit report request"
+        },
+        {
+          "info": {
+            "name": "endOfDayReportRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/reports/end-of-day",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate end of day report request"
+        },
+        {
+          "info": {
+            "name": "morningReportRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/reports/rental-prep",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip_next_departure",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "show_departing",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "show_returning",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate morning report request"
+        },
+        {
+          "info": {
+            "name": "securityDepositsReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/reports/security-deposits"
+          },
+          "docs": "Generate security deposits report request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

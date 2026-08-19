@@ -1,0 +1,263 @@
+openapi: 3.2.0
+info:
+  description: 'The Outdoorsy API (or simply "API") is organized around REST. It uses
+
+    predictable, resource-oriented URLs and implements standard HTTP response
+
+    codes, verbs, authentication mechanisms, and a variety of request encodings.
+
+
+    ## Versioning
+
+
+    The API implements semantic versioning.'
+  title: Outdoorsy API Documentation User Cards API
+  version: 0.0.1
+servers:
+- url: /v0
+security:
+- Bearer:
+  - '[]'
+- API-Key:
+  - '[]'
+tags:
+- name: userCards
+paths:
+  /users/{user_id}/cards:
+    get:
+      description: Retrieve user cards
+      tags:
+      - userCards
+      operationId: getUserCards
+      parameters:
+      - x-go-name: UserID
+        name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/cardsResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    post:
+      description: Create a credit card and assigns to user
+      tags:
+      - userCards
+      operationId: createCard
+      parameters:
+      - x-go-name: UserID
+        name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '201':
+          $ref: '#/components/responses/cardResponse'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCard'
+  /users/{user_id}/cards/{card_id}:
+    delete:
+      description: Retrieve user cards
+      tags:
+      - userCards
+      operationId: deleteUserCard
+      parameters:
+      - x-go-name: UserID
+        name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CardID
+        name: card_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: ReplacementCardId
+        name: replacement_id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          $ref: '#/components/responses/noContentResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+        default:
+          $ref: '#/components/responses/genericError'
+    patch:
+      description: Set default card for the user
+      tags:
+      - userCards
+      operationId: updateUserCard
+      parameters:
+      - x-go-name: UserID
+        name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - x-go-name: CardID
+        name: card_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/cardResponse'
+        '400':
+          $ref: '#/components/responses/badRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          $ref: '#/components/responses/notFoundError'
+components:
+  schemas:
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    CreateCard:
+      type: object
+      properties:
+        default:
+          type: boolean
+          x-go-name: Default
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        stripe_token:
+          type: string
+          x-go-name: StripeToken
+      x-go-package: github.com/outdoorsy/api/types
+    PaymentProcessor:
+      description: 'Typically this object is composed into a struct, but embedded into the
+
+        same table using the `db:",embed"` struct tag.'
+      type: object
+      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
+
+        payment processor should be used when communicating with a payment processor.'
+      properties:
+        country:
+          type: string
+          x-go-name: Country
+        external_processor:
+          type: string
+          x-go-name: ExternalProcessor
+        external_processor_id:
+          type: string
+          x-go-name: ExternalProcessorID
+        name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+      x-go-package: github.com/outdoorsy/api/model
+    UserCard:
+      type: object
+      properties:
+        brand:
+          type: string
+          x-go-name: Brand
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        default:
+          type: boolean
+          x-go-name: Default
+        exp_month:
+          type: integer
+          format: int64
+          x-go-name: ExpMonth
+        exp_year:
+          type: integer
+          format: int64
+          x-go-name: ExpYear
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_four:
+          type: string
+          x-go-name: LastFour
+        latest_setup_intent_id:
+          type: string
+          x-go-name: LatestSetupIntentID
+        owner_id:
+          type: integer
+          format: int64
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        stripe_token:
+          description: internal
+          type: string
+          x-go-name: StripeID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+  responses:
+    notFoundError:
+      description: Not found error
+    cardsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserCard'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    cardResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserCard'
+    genericError:
+      description: An unknown, unexpected error.
+  securitySchemes:
+    API-Key:
+      type: apiKey
+      name: API-Key
+      in: header
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header

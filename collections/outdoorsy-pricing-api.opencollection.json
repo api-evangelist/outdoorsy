@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Pricing API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "pricing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return estimated price when listing your vehicle by make, model and location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/pricing",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only used during the LYRV flow to show an owner a range of possible income."
+        },
+        {
+          "info": {
+            "name": "Return price aggregation for nearby rentals around given lat and lng in 50 miles radius.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/pricing/aggregate",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return price aggregation for nearby rentals around given lat and lng in 50 miles radius."
+        },
+        {
+          "info": {
+            "name": "Return estimated price when listing your vehicle by make, model and location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/pricing/v2",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "length",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sleeps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rental_category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only used during the LYRV flow to show an owner a range of possible income.\nBetter calculation than the original endpoint. i think this is the actual one we use"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

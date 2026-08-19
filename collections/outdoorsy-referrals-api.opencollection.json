@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Outdoorsy API Documentation Referrals API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Referrals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send referral communications to a list of friends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v0/referrals/refer",
+            "params": [
+              {
+                "name": "referee_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "referral_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Send referral communications to a list of friends."
+        },
+        {
+          "info": {
+            "name": "Send referral communications to a list of friends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/referrals/stats"
+          },
+          "docs": "Send referral communications to a list of friends."
+        },
+        {
+          "info": {
+            "name": "Send referral communications to a list of friends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/referrals/:referral_code/display-data",
+            "params": [
+              {
+                "name": "referral_code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Send referral communications to a list of friends."
+        },
+        {
+          "info": {
+            "name": "Check eligibility of the referee.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v0/referrals/:referral_code/eligibility",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check eligibility of the referee."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

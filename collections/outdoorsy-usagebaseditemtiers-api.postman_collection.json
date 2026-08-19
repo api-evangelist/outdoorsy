@@ -1,0 +1,1460 @@
+{
+  "item": [
+    {
+      "id": "742e7f7c-26b2-4d9b-a51f-a0e8f69865dc",
+      "name": "usageBasedItemTiers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "600bd50e-3e94-447b-b85a-00d2668504bb",
+          "name": "get Usage Based Item Tiers",
+          "request": {
+            "name": "get Usage Based Item Tiers",
+            "description": {
+              "content": "Return array of tiers for the specified usage based item",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":usage_based_item_id",
+                "tiers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "266306a3-5fa1-4b54-8979-5e3a4fc79a68",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created\": \"string\",\n    \"id\": 8090,\n    \"maximum\": 9040.48551510909,\n    \"minimum_fee\": 6083,\n    \"owner_id\": 4686,\n    \"price\": 4520.386602096055,\n    \"tax_amount\": 961,\n    \"total\": 6292,\n    \"updated\": \"string\",\n    \"usage_based_item_id\": 3060\n  },\n  {\n    \"created\": \"string\",\n    \"id\": 42,\n    \"maximum\": 4833.775729197006,\n    \"minimum_fee\": 249,\n    \"owner_id\": 4691,\n    \"price\": 226.40685576911568,\n    \"tax_amount\": 1275,\n    \"total\": 2758,\n    \"updated\": \"string\",\n    \"usage_based_item_id\": 7041\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da25ae04-7558-4631-a53e-92c03d129ab5",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "113e72c5-d921-4c12-b9e2-ddc69fb3793a",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c8b6fee-44d1-42e1-8183-fe516c19b76a",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "020e8e6b-8ea0-40bc-8504-2ec4ac79cee3",
+          "name": "create Usage Based Item Tier",
+          "request": {
+            "name": "create Usage Based Item Tier",
+            "description": {
+              "content": "Create new usage based item (Ex. mileage, generator, delivery)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":usage_based_item_id",
+                "tiers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "usage_based_item_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92731392-4659-4ad3-ada0-ea52fc99401c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"archived\": true,\n  \"created\": \"string\",\n  \"fee_type\": \"string\",\n  \"formatted\": {\n    \"included_text\": \"string\",\n    \"overage_fee_calculation\": {\n      \"calculation_tiers\": [\n        {\n          \"cost\": \"string\",\n          \"label\": \"string\",\n          \"per_unit\": \"string\",\n          \"usage_price_per_unit\": \"string\"\n        },\n        {\n          \"cost\": \"string\",\n          \"label\": \"string\",\n          \"per_unit\": \"string\",\n          \"usage_price_per_unit\": \"string\"\n        }\n      ],\n      \"formatted_included_usage\": \"string\",\n      \"formatted_total_amount\": \"string\",\n      \"total_amount\": 9447,\n      \"total_days\": 1087,\n      \"total_free_used\": 4899.616945694321,\n      \"total_included\": 9434.851264973597,\n      \"total_over_free\": 917.7202414554154,\n      \"total_used\": 6940.584440506536\n    },\n    \"short_unit\": \"string\",\n    \"tiers\": [\n      {\n        \"cost\": \"string\",\n        \"label\": \"string\",\n        \"per_unit\": \"string\",\n        \"usage_price_per_unit\": \"string\"\n      },\n      {\n        \"cost\": \"string\",\n        \"label\": \"string\",\n        \"per_unit\": \"string\",\n        \"usage_price_per_unit\": \"string\"\n      }\n    ]\n  },\n  \"id\": 5420,\n  \"included\": 1943.6270994202498,\n  \"included_period\": \"string\",\n  \"name\": \"string\",\n  \"owner_id\": 4319,\n  \"single_tier\": false,\n  \"tax_amount\": 917,\n  \"tax_rate_id\": 1739,\n  \"tax_rate_ids\": [\n    937,\n    4077\n  ],\n  \"tiers\": [\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    },\n    {\n      \"created\": \"<string>\",\n      \"id\": \"<long>\",\n      \"maximum\": \"<double>\",\n      \"minimum_fee\": \"<uint64>\",\n      \"owner_id\": \"<long>\",\n      \"price\": \"<double>\",\n      \"tax_amount\": \"<long>\",\n      \"total\": \"<long>\",\n      \"updated\": \"<string>\",\n      \"usage_based_item_id\": \"<long>\"\n    }\n  ],\n  \"total_included\": 424.058535499785,\n  \"unit\": \"string\",\n  \"unlimited\": false,\n  \"updated\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "019e2e65-bccc-482a-bd81-c457bee478f7",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa7b9eb1-992a-4c1b-95e7-9a70219b1f6f",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fff9e6da-07d4-48b6-95eb-27c87a3de0d1",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a841cbd4-bdc5-484e-97c1-9c087103a5a0",
+          "name": "get Usage Based Item Tier By Id",
+          "request": {
+            "name": "get Usage Based Item Tier By Id",
+            "description": {
+              "content": "Return array of tiers for the specified usage based item",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":usage_based_item_id",
+                "tiers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "usage_based_item_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "deb658dc-408e-4f30-b45b-a575e3243740",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d33da0f3-5a0a-4198-931a-f753bd88cee2",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f92ac03-d427-428c-9c92-e10546607965",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a56cf00d-89ab-4937-8a48-b7d0f1efe0c6",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1d90b01-fdee-4d07-9c5d-ae050f8e61f4",
+          "name": "delete Usage Based Item Tier",
+          "request": {
+            "name": "delete Usage Based Item Tier",
+            "description": {
+              "content": "Update usage based item tier record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":usage_based_item_id",
+                "tiers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "usage_based_item_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62f2bc4a-2aef-4cdd-8fc6-6f1f4d33f3c6",
+              "name": "Everything went as planned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48863c82-15e7-47dc-8812-0ff2b57e3424",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf75409a-0726-4d62-a999-a22940ea55bf",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1407b56b-f555-4eda-bcdd-e16c962d7302",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "351d9b14-9330-400f-902e-36c60c858b05",
+          "name": "update Usage Based Item Tier",
+          "request": {
+            "name": "update Usage Based Item Tier",
+            "description": {
+              "content": "Update usage based item tier record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage-based-items",
+                ":usage_based_item_id",
+                "tiers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "usage_based_item_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7a94bca-9471-4851-ad13-2d74c51ef567",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9607ed41-8f3f-4c46-859e-e2e47a05d488",
+              "name": "Invalid input or state means you're bad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Error",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "344fac53-deb9-4431-912a-eb9a8e24207d",
+              "name": "Unauthorized error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25bf39ba-532b-4f3a-9901-f43854fe8b69",
+              "name": "An unknown, unexpected error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage-based-items",
+                    ":usage_based_item_id",
+                    "tiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "usage_based_item_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"created\": \"<string>\",\n  \"id\": \"<long>\",\n  \"maximum\": \"<double>\",\n  \"minimum_fee\": \"<uint64>\",\n  \"owner_id\": \"<long>\",\n  \"price\": \"<double>\",\n  \"tax_amount\": \"<long>\",\n  \"total\": \"<long>\",\n  \"updated\": \"<string>\",\n  \"usage_based_item_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aaad5821-0fad-4bdc-96f7-bdea43d2a0e7",
+    "name": "Outdoorsy API Documentation Usage Based Item Tiers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Outdoorsy API (or simply \"API\") is organized around REST. It uses\npredictable, resource-oriented URLs and implements standard HTTP response\ncodes, verbs, authentication mechanisms, and a variety of request encodings.\n\n## Versioning\n\nThe API implements semantic versioning.",
+      "type": "text/plain"
+    }
+  }
+}
