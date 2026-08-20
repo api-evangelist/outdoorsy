@@ -37,6 +37,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Admin
+  tags_raw:
   - admin
   properties:
   - type: OpenAPI
@@ -53,6 +55,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Amenities
+  tags_raw:
   - amenities
   properties:
   - type: OpenAPI
@@ -67,6 +71,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Announcements
+  tags_raw:
   - announcements
   properties:
   - type: OpenAPI
@@ -81,6 +87,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -95,6 +103,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Banks
+  tags_raw:
   - banks
   properties:
   - type: OpenAPI
@@ -108,7 +118,8 @@ apis:
   description: The bookingBundles API from Outdoorsy — 2 operation(s) for bookingbundles.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bookingBundles
   properties:
   - type: OpenAPI
@@ -122,7 +133,8 @@ apis:
   description: The bookingItems API from Outdoorsy — 6 operation(s) for bookingitems.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bookingItems
   properties:
   - type: OpenAPI
@@ -136,7 +148,8 @@ apis:
   description: The bookingProposals API from Outdoorsy — 5 operation(s) for bookingproposals.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bookingProposals
   properties:
   - type: OpenAPI
@@ -164,7 +177,8 @@ apis:
   description: The bookingServices API from Outdoorsy — 4 operation(s) for bookingservices.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bookingServices
   properties:
   - type: OpenAPI
@@ -178,7 +192,8 @@ apis:
   description: The bookingTransactions API from Outdoorsy — 3 operation(s) for bookingtransactions.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bookingTransactions
   properties:
   - type: OpenAPI
@@ -193,6 +208,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Breadcrumbs
+  tags_raw:
   - breadcrumbs
   properties:
   - type: OpenAPI
@@ -206,7 +223,8 @@ apis:
   description: The bundleFeatures API from Outdoorsy — 2 operation(s) for bundlefeatures.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bundleFeatures
   properties:
   - type: OpenAPI
@@ -220,7 +238,8 @@ apis:
   description: The bundleRules API from Outdoorsy — 2 operation(s) for bundlerules.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - bundleRules
   properties:
   - type: OpenAPI
@@ -235,6 +254,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Bundles
+  tags_raw:
   - bundles
   properties:
   - type: OpenAPI
@@ -249,6 +270,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Campgrounds
+  tags_raw:
   - campgrounds
   properties:
   - type: OpenAPI
@@ -262,7 +285,8 @@ apis:
   description: The checkoutSteps API from Outdoorsy — 1 operation(s) for checkoutsteps.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - checkoutSteps
   properties:
   - type: OpenAPI
@@ -277,6 +301,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Conversations
+  tags_raw:
   - conversations
   properties:
   - type: OpenAPI
@@ -304,7 +330,8 @@ apis:
   description: The externalCampgrounds API from Outdoorsy — 3 operation(s) for externalcampgrounds.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - externalCampgrounds
   properties:
   - type: OpenAPI
@@ -319,6 +346,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Favorites
+  tags_raw:
   - favorites
   properties:
   - type: OpenAPI
@@ -333,6 +362,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - File
+  tags_raw:
   - files
   properties:
   - type: OpenAPI
@@ -347,6 +378,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Funds
+  tags_raw:
   - funds
   properties:
   - type: OpenAPI
@@ -361,6 +394,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Gateways
+  tags_raw:
   - gateways
   properties:
   - type: OpenAPI
@@ -375,6 +410,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Geodata
+  tags_raw:
   - geodata
   properties:
   - type: OpenAPI
@@ -388,7 +425,8 @@ apis:
   description: The getHomepageParks API from Outdoorsy — 1 operation(s) for gethomepageparks.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - getHomepageParks
   properties:
   - type: OpenAPI
@@ -403,6 +441,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Gift Cards
+  tags_raw:
   - GiftCards
   properties:
   - type: OpenAPI
@@ -445,6 +485,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Localities
+  tags_raw:
   - localities
   properties:
   - type: OpenAPI
@@ -459,6 +501,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Locations
+  tags_raw:
   - locations
   properties:
   - type: OpenAPI
@@ -473,6 +517,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Message
+  tags_raw:
   - messages
   properties:
   - type: OpenAPI
@@ -487,6 +533,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Message Templates
+  tags_raw:
   - messageTemplates
   properties:
   - type: OpenAPI
@@ -515,6 +563,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Notices
+  tags_raw:
   - notices
   properties:
   - type: OpenAPI
@@ -529,6 +579,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Parks
+  tags_raw:
   - parks
   properties:
   - type: OpenAPI
@@ -543,6 +595,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Payouts
+  tags_raw:
   - payouts
   properties:
   - type: OpenAPI
@@ -557,6 +611,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Pricing
+  tags_raw:
   - pricing
   properties:
   - type: OpenAPI
@@ -571,6 +627,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Quotes
+  tags_raw:
   - quote
   properties:
   - type: OpenAPI
@@ -585,6 +643,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Quotes
+  tags_raw:
   - quotes
   properties:
   - type: OpenAPI
@@ -612,7 +672,8 @@ apis:
   description: The rentalImages API from Outdoorsy — 4 operation(s) for rentalimages.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - rentalImages
   properties:
   - type: OpenAPI
@@ -626,7 +687,8 @@ apis:
   description: The rentalItems API from Outdoorsy — 2 operation(s) for rentalitems.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - rentalItems
   properties:
   - type: OpenAPI
@@ -669,6 +731,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Reports
+  tags_raw:
   - reports
   properties:
   - type: OpenAPI
@@ -683,6 +747,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Reviews
+  tags_raw:
   - reviews
   properties:
   - type: OpenAPI
@@ -697,6 +763,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
@@ -710,7 +778,8 @@ apis:
   description: The specialHours API from Outdoorsy — 2 operation(s) for specialhours.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - specialHours
   properties:
   - type: OpenAPI
@@ -724,7 +793,8 @@ apis:
   description: The systemEmails API from Outdoorsy — 3 operation(s) for systememails.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - systemEmails
   properties:
   - type: OpenAPI
@@ -752,7 +822,8 @@ apis:
   description: The towingInfo API from Outdoorsy — 1 operation(s) for towinginfo.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - towingInfo
   properties:
   - type: OpenAPI
@@ -767,6 +838,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Transaction
+  tags_raw:
   - transactions
   properties:
   - type: OpenAPI
@@ -781,6 +854,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - TwoFactorAuth
+  tags_raw:
   - twoFactorAuth
   properties:
   - type: OpenAPI
@@ -794,7 +869,8 @@ apis:
   description: The usageBasedItems API from Outdoorsy — 2 operation(s) for usagebaseditems.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - usageBasedItems
   properties:
   - type: OpenAPI
@@ -808,7 +884,8 @@ apis:
   description: The usageBasedItemTiers API from Outdoorsy — 2 operation(s) for usagebaseditemtiers.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - usageBasedItemTiers
   properties:
   - type: OpenAPI
@@ -822,7 +899,8 @@ apis:
   description: The userCards API from Outdoorsy — 2 operation(s) for usercards.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - userCards
   properties:
   - type: OpenAPI
@@ -836,7 +914,8 @@ apis:
   description: The userNoticeEvents API from Outdoorsy — 2 operation(s) for usernoticeevents.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - userNoticeEvents
   properties:
   - type: OpenAPI
@@ -851,6 +930,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
@@ -864,7 +945,8 @@ apis:
   description: The vacationPackages API from Outdoorsy — 3 operation(s) for vacationpackages.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
+  tags: []
+  tags_raw:
   - vacationPackages
   properties:
   - type: OpenAPI
@@ -879,6 +961,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Validations
+  tags_raw:
   - validations
   properties:
   - type: OpenAPI
@@ -893,6 +977,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Wishlists
+  tags_raw:
   - wishlists
   properties:
   - type: OpenAPI
