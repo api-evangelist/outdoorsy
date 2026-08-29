@@ -11,6 +11,18 @@ description: >-
   Swagger 2.0 contracts are published on the API hosts themselves — the core Outdoorsy API
   (api.outdoorsy.com/v0, 283 operations) and the Outdoorsy Search API (search.outdoorsy.com,
   JSON:API-formatted rental, campground, park and locality search).
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/9725809?v=4
 url: https://raw.githubusercontent.com/api-evangelist/outdoorsy/refs/heads/main/apis.yml
 x-type: company
@@ -993,6 +1005,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/outdoorsy-capability-edges.yml
+  name: Outdoorsy Business Capability Map
 - type: Overlay
   url: overlays/outdoorsy-api-overlay.yaml
 - type: Website
