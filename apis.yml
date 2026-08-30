@@ -83,7 +83,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Announcements
+  - announcements
   tags_raw:
   - announcements
   properties:
@@ -115,7 +115,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Banks
+  - banks
   tags_raw:
   - banks
   properties:
@@ -220,7 +220,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Breadcrumbs
+  - breadcrumbs
   tags_raw:
   - breadcrumbs
   properties:
@@ -282,7 +282,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Campgrounds
+  - campgrounds
   tags_raw:
   - campgrounds
   properties:
@@ -390,7 +390,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Funds
+  - funds
   tags_raw:
   - funds
   properties:
@@ -422,7 +422,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Geodata
+  - geodata
   tags_raw:
   - geodata
   properties:
@@ -497,7 +497,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Localities
+  - localities
   tags_raw:
   - localities
   properties:
@@ -544,8 +544,7 @@ apis:
   description: The messageTemplates API from Outdoorsy — 2 operation(s) for messagetemplates.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
-  - Message Templates
+  tags: []
   tags_raw:
   - messageTemplates
   properties:
@@ -575,7 +574,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Notices
+  - notices
   tags_raw:
   - notices
   properties:
@@ -591,7 +590,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Parks
+  - parks
   tags_raw:
   - parks
   properties:
@@ -865,8 +864,7 @@ apis:
   description: The twoFactorAuth API from Outdoorsy — 3 operation(s) for twofactorauth.
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
-  tags:
-  - TwoFactorAuth
+  tags: []
   tags_raw:
   - twoFactorAuth
   properties:
@@ -973,7 +971,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Validations
+  - validations
   tags_raw:
   - validations
   properties:
@@ -989,7 +987,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Wishlists
+  - wishlists
   tags_raw:
   - wishlists
   properties:
