@@ -74,7 +74,11 @@ apis:
     url: https://developers.outdoorsy.com/api
   - type: X-MCPServerCandidate
     url: mcp/outdoorsy-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+    note: >-
+      Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+      — a tool list derived from the published API contracts, not an existing server. The scorer already
+      read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+      surfaces with a server that does not exist.
   - type: ToolCrosswalk
     url: mcp/outdoorsy-tool-crosswalk.yml
 - aid: outdoorsy:outdoorsy-amenities-api
@@ -196,22 +200,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/outdoorsy-bookings-api-openapi.yml
-  - type: Documentation
-    url: https://developers.outdoorsy.com/api
-  - type: ToolCrosswalk
-    url: mcp/outdoorsy-tool-crosswalk.yml
-- aid: outdoorsy:outdoorsy-bookingservices-api
-  name: Outdoorsy Booking Services API
-  description: The bookingServices API from Outdoorsy — 4 operation(s) for bookingservices.
-  humanURL: https://developers.outdoorsy.com/api
-  baseURL: https://api.outdoorsy.com/v0
-  tags:
-  - Booking services
-  tags_raw:
-  - bookingServices
-  properties:
-  - type: OpenAPI
-    url: openapi/outdoorsy-bookingservices-api-openapi.yml
   - type: Documentation
     url: https://developers.outdoorsy.com/api
   - type: ToolCrosswalk
@@ -464,22 +452,6 @@ apis:
     url: https://developers.outdoorsy.com/api
   - type: ToolCrosswalk
     url: mcp/outdoorsy-tool-crosswalk.yml
-- aid: outdoorsy:outdoorsy-giftcards-api
-  name: Outdoorsy Gift Cards API
-  description: The GiftCards API from Outdoorsy — 3 operation(s) for giftcards.
-  humanURL: https://developers.outdoorsy.com/api
-  baseURL: https://api.outdoorsy.com/v0
-  tags:
-  - Gift Cards
-  tags_raw:
-  - GiftCards
-  properties:
-  - type: OpenAPI
-    url: openapi/outdoorsy-giftcards-api-openapi.yml
-  - type: Documentation
-    url: https://developers.outdoorsy.com/api
-  - type: ToolCrosswalk
-    url: mcp/outdoorsy-tool-crosswalk.yml
 - aid: outdoorsy:outdoorsy-ics-calendars-api
   name: Outdoorsy Ics Calendars API
   description: The ics-calendars API from Outdoorsy — 5 operation(s) for ics-calendars.
@@ -552,22 +524,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/outdoorsy-messages-api-openapi.yml
-  - type: Documentation
-    url: https://developers.outdoorsy.com/api
-  - type: ToolCrosswalk
-    url: mcp/outdoorsy-tool-crosswalk.yml
-- aid: outdoorsy:outdoorsy-messagetemplates-api
-  name: Outdoorsy Message Templates API
-  description: The messageTemplates API from Outdoorsy — 2 operation(s) for messagetemplates.
-  humanURL: https://developers.outdoorsy.com/api
-  baseURL: https://api.outdoorsy.com/v0
-  tags:
-  - Message Templates
-  tags_raw:
-  - messageTemplates
-  properties:
-  - type: OpenAPI
-    url: openapi/outdoorsy-messagetemplates-api-openapi.yml
   - type: Documentation
     url: https://developers.outdoorsy.com/api
   - type: ToolCrosswalk
@@ -877,22 +833,6 @@ apis:
     url: https://developers.outdoorsy.com/api
   - type: ToolCrosswalk
     url: mcp/outdoorsy-tool-crosswalk.yml
-- aid: outdoorsy:outdoorsy-twofactorauth-api
-  name: Outdoorsy Two Factor Auth API
-  description: The twoFactorAuth API from Outdoorsy — 3 operation(s) for twofactorauth.
-  humanURL: https://developers.outdoorsy.com/api
-  baseURL: https://api.outdoorsy.com/v0
-  tags:
-  - TwoFactorAuth
-  tags_raw:
-  - twoFactorAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/outdoorsy-twofactorauth-api-openapi.yml
-  - type: Documentation
-    url: https://developers.outdoorsy.com/api
-  - type: ToolCrosswalk
-    url: mcp/outdoorsy-tool-crosswalk.yml
 - aid: outdoorsy:outdoorsy-usagebaseditems-api
   name: Outdoorsy Usage Based Items API
   description: The usageBasedItems API from Outdoorsy — 2 operation(s) for usagebaseditems.
@@ -1012,6 +952,62 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/outdoorsy-wishlists-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-booking-services-api
+  name: Outdoorsy Booking services API
+  description: The Booking services API from Outdoorsy — 4 operation(s) for booking services.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Booking services
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-booking-services-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-gift-cards-api
+  name: Outdoorsy Gift Cards API
+  description: The Gift Cards API from Outdoorsy — 3 operation(s) for gift cards.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Gift Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-gift-cards-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-message-templates-api
+  name: Outdoorsy Message Templates API
+  description: The Message Templates API from Outdoorsy — 2 operation(s) for message templates.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Message Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-message-templates-api-openapi.yml
+  - type: Documentation
+    url: https://developers.outdoorsy.com/api
+  - type: ToolCrosswalk
+    url: mcp/outdoorsy-tool-crosswalk.yml
+- aid: outdoorsy:outdoorsy-two-factor-auth-api
+  name: Outdoorsy Two Factor Auth API
+  description: The Two Factor Auth API from Outdoorsy — 3 operation(s) for two factor auth.
+  humanURL: https://developers.outdoorsy.com/api
+  baseURL: https://api.outdoorsy.com/v0
+  tags:
+  - Two Factor Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/outdoorsy-two-factor-auth-api-openapi.yml
   - type: Documentation
     url: https://developers.outdoorsy.com/api
   - type: ToolCrosswalk
