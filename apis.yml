@@ -51,6 +51,18 @@ tags:
 - Marketplace
 - Rentals
 - Recreational Vehicles
+- Booking
+- Search
+- Payments
+- Insurance
+- Camping
+- Tourism
+tags_raw:
+- Company
+- Travel
+- Marketplace
+- Rentals
+- Recreational Vehicles
 - Bookings
 - Search
 - Payments
@@ -196,6 +208,8 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
+  - Booking
+  tags_raw:
   - Bookings
   properties:
   - type: OpenAPI
@@ -395,7 +409,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Funds
+  - Fund
   tags_raw:
   - funds
   properties:
@@ -502,7 +516,7 @@ apis:
   humanURL: https://developers.outdoorsy.com/api
   baseURL: https://api.outdoorsy.com/v0
   tags:
-  - Locations
+  - Location
   tags_raw:
   - locations
   properties:
