@@ -1,0 +1,26 @@
+slug: outdoorsy
+provider: Outdoorsy
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Insurance
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: reviews
+  spec_file: outdoorsy-reviews-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.7
+  evidence: POST /reviews createReview; GET /aggregate-reviews-for-locality aggregateLocalityReviews;
+    schemas Review, Reviewer, OwnerResponseReview
+  reason: Capture, aggregation and owner-response handling of customer reviews of rentals — voice-of-customer
+    feedback. Cross-industry Customer Feedback Management fits; some ambiguity as reviews also function
+    as marketplace content.
