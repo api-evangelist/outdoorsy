@@ -11,8 +11,29 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 3
 edges:
+- tag: twoFactorAuth
+  spec_file: outdoorsy-two-factor-auth-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: POST /2fa/send sendCode, POST /2fa/setup-method setupPreferredMethod, PATCH /2fa/verify verifyCode
+  reason: Two-factor authentication setup and verification is authentication plumbing; the closest honest
+    capability is Identity & Access Management, though this is arguably pure technical auth.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: outdoorsy-twofactorauth-api-openapi.yml
+- tag: quotes
+  spec_file: outdoorsy-quotes-api-openapi.yml
+  capability_id: BC-410.40
+  capability_id_l1: BC-410
+  capability_name: Quote & Configuration Management
+  confidence: 0.7
+  evidence: POST /quotes  createQuote  Generates a quote for a given rental based on start and stop dates.
+  reason: Explicitly generates a priced quote for a rental given dates, returning booking items, fees
+    variants, delivery and tax rates — configure-price-quote behaviour for the rental order.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: reviews
   spec_file: outdoorsy-reviews-api-openapi.yml
   capability_id: BC-430.50
