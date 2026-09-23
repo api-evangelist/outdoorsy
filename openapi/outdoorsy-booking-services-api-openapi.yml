@@ -21,7 +21,7 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: bookingServices
+- name: Booking services
 paths:
   /bookings/{booking_id}/services:
     get:
@@ -29,8 +29,8 @@ paths:
 
         vehicle, or location of the vehicle (country).'
       tags:
-      - bookingServices
-      summary: Returns the list of available premium services for the requested booking.
+      - Booking services
+      summary: Returns the list of available premium services for the requested booking
       operationId: listBookingServices
       parameters:
       - x-go-name: BookingID
@@ -51,7 +51,7 @@ paths:
     delete:
       description: Removes a premium service from the booking
       tags:
-      - bookingServices
+      - Booking services
       operationId: deleteBookingService
       parameters:
       - x-go-name: BookingID
@@ -77,11 +77,13 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete booking service
+      x-summary-source: derived
   /bookings/{booking_id}/services/{service_id}:
     get:
       tags:
-      - bookingServices
-      summary: Returns the booking service associated with the booking.
+      - Booking services
+      summary: Returns the booking service associated with the booking
       operationId: getBookingServiceById
       parameters:
       - x-go-name: BookingID
@@ -107,8 +109,8 @@ paths:
           $ref: '#/components/responses/genericError'
     post:
       tags:
-      - bookingServices
-      summary: Adds an available premium service to the booking based on the service id.
+      - Booking services
+      summary: Adds an available premium service to the booking based on the service id
       operationId: createBookingService
       parameters:
       - x-go-name: BookingID
@@ -139,8 +141,8 @@ paths:
               $ref: '#/components/schemas/BookingServiceData'
     patch:
       tags:
-      - bookingServices
-      summary: Updates an existing premium service on this booking using the service id.
+      - Booking services
+      summary: Updates an existing premium service on this booking using the service id
       operationId: updateBookingService
       parameters:
       - x-go-name: BookingID
@@ -172,8 +174,8 @@ paths:
   /bookings/{booking_id}/weather:
     post:
       tags:
-      - bookingServices
-      summary: Returns the booking weather from Roamly.
+      - Booking services
+      summary: Returns the booking weather from Roamly
       operationId: getBookingWeather
       responses:
         '200':
@@ -188,349 +190,7 @@ paths:
             schema:
               $ref: '#/components/schemas/WeatherRequest'
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    bookingServiceResponse:
-      description: HTTP status code 200 and booking service
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BookingService'
-    noContentResponse:
-      description: Everything went as planned
-    bookingWeatherResponse:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/WeatherResponse'
-    unauthorizedError:
-      description: Unauthorized error
-    bookingServicesResponse:
-      description: HTTP status code 200 and array of premium service integrations
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/ServiceIntegration'
-    genericError:
-      description: An unknown, unexpected error.
   schemas:
-    IMap:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    ServiceIntegrationFeature:
-      type: object
-      properties:
-        description:
-          type: string
-          x-go-name: Description
-      x-go-package: github.com/outdoorsy/api/integrations
-    ServiceIntegrationDetails:
-      type: object
-      properties:
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceIntegrationFeature'
-          x-go-name: Features
-      x-go-package: github.com/outdoorsy/api/integrations
-    BookingTaxRate:
-      type: object
-      properties:
-        booking_id:
-          type: integer
-          format: int64
-          x-go-name: BookingID
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        deleted:
-          type: boolean
-          x-go-name: Deleted
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        object_id:
-          type: integer
-          format: int64
-          x-go-name: ObjectID
-        object_type:
-          type: string
-          x-go-name: ObjectType
-        payable_to:
-          type: string
-          x-go-name: PayableTo
-        source:
-          type: string
-          x-go-name: Source
-        state:
-          type: string
-          x-go-name: State
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: Amount
-        tax_description:
-          type: string
-          x-go-name: Description
-        tax_name:
-          type: string
-          x-go-name: Name
-        tax_rate:
-          type: number
-          format: double
-          x-go-name: Rate
-        tax_rate_id:
-          type: integer
-          format: int64
-          x-go-name: TaxRateID
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        zip_code:
-          type: string
-          x-go-name: ZipCode
-      x-go-package: github.com/outdoorsy/api/internal/tax_rates
-    WeatherRequest:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-          x-go-name: Lat
-        lng:
-          type: number
-          format: double
-          x-go-name: Lng
-        location:
-          type: string
-          x-go-name: Location
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
-    BookingService:
-      type: object
-      properties:
-        booking_id:
-          type: integer
-          format: int64
-          x-go-name: BookingID
-        bundle_id:
-          type:
-          - string
-          - 'null'
-        category:
-          type: string
-          x-go-name: Category
-        charge_to:
-          type: string
-          x-go-name: ChargeTo
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        daily:
-          type: boolean
-          x-go-name: Daily
-        dealer_flat_split:
-          type: integer
-          format: int64
-          x-go-name: DealerFlatSplit
-        dealer_percent_split:
-          type: number
-          format: double
-          x-go-name: DealerPercentSplit
-        dealer_split_type:
-          type: string
-          x-go-name: DealerSplitType
-        deleted_at:
-          $ref: '#/components/schemas/NullTime'
-        description:
-          type: string
-          x-go-name: Description
-        discount_amount:
-          type: integer
-          format: int64
-          x-go-name: DiscountAmount
-        external_reference_id:
-          type: string
-          x-go-name: ExternalReferenceID
-        fee_locked:
-          type: boolean
-          x-go-name: FeeLocked
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        is_taxable:
-          description: 'IsTaxable determines whether this service is taxable. This is defaulted
-
-            to the service''s IsTaxable field on BookingService create'
-          type: boolean
-          x-go-name: IsTaxable
-        last_service_log:
-          x-go-name: LastServiceLog
-        lock_on_booking_status:
-          type: string
-          x-go-name: LockOnBookingStatus
-        minimum_price:
-          type: integer
-          format: int64
-          x-go-name: MinimumPrice
-        missing_fields:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-          x-go-name: MissingFields
-        name:
-          type: string
-          x-go-name: Name
-        payable_to:
-          type: string
-          x-go-name: PayableTo
-        percent:
-          type: number
-          format: double
-          x-go-name: Percent
-        percent_type:
-          type: string
-          x-go-name: PercentType
-        policy_start_date:
-          type: string
-          x-go-name: PolicyStartDate
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        premium_amount:
-          description: PremiumAmount is the daily rate
-          type: integer
-          format: int64
-          x-go-name: PremiumAmount
-        premium_total:
-          description: PremiumTotal is what we pay to the dealer
-          type: integer
-          format: int64
-          x-go-name: PremiumTotal
-        prevent_delete:
-          type: boolean
-          x-go-name: PreventDelete
-        price:
-          type: integer
-          format: int64
-          x-go-name: Price
-        quantity:
-          type: integer
-          format: int64
-          x-go-name: Quantity
-        required:
-          type: boolean
-          x-go-name: Required
-        revision:
-          type: integer
-          format: int64
-          x-go-name: Revision
-        roamly_weather_quote:
-          $ref: '#/components/schemas/DBInterfaceMap'
-        service_data:
-          $ref: '#/components/schemas/DBInterfaceMap'
-        service_id:
-          type: integer
-          format: int64
-          x-go-name: ServiceID
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: TaxAmount
-        tax_rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingTaxRate'
-          x-go-name: TaxRates
-        total:
-          description: Total is the full amount of what the renter pays (total + premium total) - does not include taxes
-          type: integer
-          format: int64
-          x-go-name: Total
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        variant_price:
-          description: Calculated price considering pricing variant
-          type: integer
-          format: int64
-          x-go-name: VariantPrice
-      x-go-package: github.com/outdoorsy/api/internal/booking_services
-    WeatherResponse:
-      type: object
-      properties:
-        plain_language:
-          $ref: '#/components/schemas/IMap'
-        policy_number:
-          type: string
-          x-go-name: PolicyNumber
-        price:
-          type: integer
-          format: int64
-          x-go-name: Price
-        product_quote_id:
-          type: string
-          x-go-name: ProductQuoteID
-        status:
-          type: string
-          x-go-name: Status
-        weather_policy_id:
-          type: string
-          x-go-name: WeatherPolicyID
-        weather_quote_id:
-          type: string
-          x-go-name: WeatherQuoteID
-      x-go-package: github.com/outdoorsy/api/internal/sdks/roamly
-    BookingServiceData:
-      type: object
-      properties:
-        bundle_id:
-          type: string
-          x-go-name: BundleID
-        data:
-          $ref: '#/components/schemas/DBInterfaceMap'
-        id:
-          type: string
-          x-go-name: ID
-        revision:
-          type: integer
-          format: int64
-          x-go-name: Revision
-        tax_rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingTaxRate'
-          x-go-name: TaxRates
-      x-go-package: github.com/outdoorsy/api/integrations
-    NullTime:
-      description: 'NullTime represents a time.Time that may be null. NullTime implements the
-
-        sql.Scanner interface so it can be used as a scan destination, similar to
-
-        sql.NullString.'
-      type: object
-      properties:
-        Time:
-          type: string
-          format: date-time
-        Valid:
-          type: boolean
-      x-go-package: github.com/lib/pq
     ServiceIntegration:
       type: object
       properties:
@@ -710,12 +370,354 @@ components:
         vehicle_types:
           $ref: '#/components/schemas/DBStringSlice'
       x-go-package: github.com/outdoorsy/api/integrations
+    BookingService:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        bundle_id:
+          type:
+          - string
+          - 'null'
+        category:
+          type: string
+          x-go-name: Category
+        charge_to:
+          type: string
+          x-go-name: ChargeTo
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        daily:
+          type: boolean
+          x-go-name: Daily
+        dealer_flat_split:
+          type: integer
+          format: int64
+          x-go-name: DealerFlatSplit
+        dealer_percent_split:
+          type: number
+          format: double
+          x-go-name: DealerPercentSplit
+        dealer_split_type:
+          type: string
+          x-go-name: DealerSplitType
+        deleted_at:
+          $ref: '#/components/schemas/NullTime'
+        description:
+          type: string
+          x-go-name: Description
+        discount_amount:
+          type: integer
+          format: int64
+          x-go-name: DiscountAmount
+        external_reference_id:
+          type: string
+          x-go-name: ExternalReferenceID
+        fee_locked:
+          type: boolean
+          x-go-name: FeeLocked
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_taxable:
+          description: 'IsTaxable determines whether this service is taxable. This is defaulted
+
+            to the service''s IsTaxable field on BookingService create'
+          type: boolean
+          x-go-name: IsTaxable
+        last_service_log:
+          x-go-name: LastServiceLog
+        lock_on_booking_status:
+          type: string
+          x-go-name: LockOnBookingStatus
+        minimum_price:
+          type: integer
+          format: int64
+          x-go-name: MinimumPrice
+        missing_fields:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          x-go-name: MissingFields
+        name:
+          type: string
+          x-go-name: Name
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        policy_start_date:
+          type: string
+          x-go-name: PolicyStartDate
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        premium_amount:
+          description: PremiumAmount is the daily rate
+          type: integer
+          format: int64
+          x-go-name: PremiumAmount
+        premium_total:
+          description: PremiumTotal is what we pay to the dealer
+          type: integer
+          format: int64
+          x-go-name: PremiumTotal
+        prevent_delete:
+          type: boolean
+          x-go-name: PreventDelete
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        quantity:
+          type: integer
+          format: int64
+          x-go-name: Quantity
+        required:
+          type: boolean
+          x-go-name: Required
+        revision:
+          type: integer
+          format: int64
+          x-go-name: Revision
+        roamly_weather_quote:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        service_data:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        service_id:
+          type: integer
+          format: int64
+          x-go-name: ServiceID
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+        total:
+          description: Total is the full amount of what the renter pays (total + premium total) - does not include taxes
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        variant_price:
+          description: Calculated price considering pricing variant
+          type: integer
+          format: int64
+          x-go-name: VariantPrice
+      x-go-package: github.com/outdoorsy/api/internal/booking_services
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    ServiceIntegrationFeature:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+      x-go-package: github.com/outdoorsy/api/integrations
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    ServiceIntegrationDetails:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceIntegrationFeature'
+          x-go-name: Features
+      x-go-package: github.com/outdoorsy/api/integrations
     DBStringSlice:
       description: DBStringSlice is a []string with database conversion methods
       type: array
       items:
         type: string
       x-go-package: github.com/outdoorsy/api/utils
+    WeatherRequest:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        location:
+          type: string
+          x-go-name: Location
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    WeatherResponse:
+      type: object
+      properties:
+        plain_language:
+          $ref: '#/components/schemas/IMap'
+        policy_number:
+          type: string
+          x-go-name: PolicyNumber
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        product_quote_id:
+          type: string
+          x-go-name: ProductQuoteID
+        status:
+          type: string
+          x-go-name: Status
+        weather_policy_id:
+          type: string
+          x-go-name: WeatherPolicyID
+        weather_quote_id:
+          type: string
+          x-go-name: WeatherQuoteID
+      x-go-package: github.com/outdoorsy/api/internal/sdks/roamly
+    BookingServiceData:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+        data:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        id:
+          type: string
+          x-go-name: ID
+        revision:
+          type: integer
+          format: int64
+          x-go-name: Revision
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+      x-go-package: github.com/outdoorsy/api/integrations
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+  responses:
+    bookingServicesResponse:
+      description: HTTP status code 200 and array of premium service integrations
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ServiceIntegration'
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    bookingServiceResponse:
+      description: HTTP status code 200 and booking service
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BookingService'
+    bookingWeatherResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WeatherResponse'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

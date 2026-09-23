@@ -28,22 +28,24 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/jsonApiHomepageParks'
+      summary: Parks
+      x-summary-source: derived
 components:
+  responses:
+    jsonApiHomepageParks:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
   schemas:
-    Relationships:
-      description: http://jsonapi.org/format/#document-resource-object-relationships
-      type: object
-      title: Relationships represents a JSON API relationships object
-      additionalProperties:
-        $ref: '#/components/schemas/Relationship'
-      x-go-package: github.com/smotes/jsonapi
-    Links:
-      description: http://jsonapi.org/format/#document-links
-      type: object
-      title: Links represents a JSON API links object, which can include JSON API link objects or strings
-        representing links.
-      additionalProperties: {}
-      x-go-package: github.com/smotes/jsonapi
     Resource:
       description: 'Note that any of the optional keys will be omitted if a value is not provided.
 
@@ -81,6 +83,19 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
+      x-go-package: github.com/smotes/jsonapi
     Relationship:
       type: object
       title: Relationship represents a member of the JSON API relationships object.
@@ -95,20 +110,6 @@ components:
           additionalProperties: {}
           x-go-name: Meta
       x-go-package: github.com/smotes/jsonapi
-  responses:
-    jsonApiHomepageParks:
-      description: ''
-      content:
-        application/vnd.api+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Resource'
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Resource'
   securitySchemes:
     Bearer:
       type: apiKey

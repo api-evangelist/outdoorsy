@@ -27,7 +27,7 @@ paths:
     post:
       tags:
       - Referrals
-      summary: Send referral communications to a list of friends.
+      summary: Send referral communications to a list of friends
       operationId: referFriendsRequest
       parameters:
       - x-go-name: RefereeType
@@ -55,7 +55,7 @@ paths:
           $ref: '#/components/responses/genericError'
   /referrals/stats:
     get:
-      summary: Send referral communications to a list of friends.
+      summary: Send referral communications to a list of friends
       operationId: Referrals
       responses:
         '200':
@@ -72,7 +72,7 @@ paths:
     get:
       tags:
       - Referrals
-      summary: Send referral communications to a list of friends.
+      summary: Send referral communications to a list of friends
       operationId: GetReferrerInfoRequest
       parameters:
       - x-go-name: ReferralCode
@@ -92,7 +92,7 @@ paths:
           $ref: '#/components/responses/genericError'
   /referrals/{referral_code}/eligibility:
     get:
-      summary: Check eligibility of the referee.
+      summary: Check eligibility of the referee
       operationId: CheckEligibilityResponse
       responses:
         '200':
@@ -103,13 +103,13 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
-      tags:
-      - Referrals
       requestBody:
         content:
           application/json:
             schema:
               type: boolean
+      tags:
+      - Referrals
 components:
   responses:
     badRequestError:
@@ -118,11 +118,16 @@ components:
         Error:
           schema:
             type: string
-    unauthorizedError:
-      description: Unauthorized error
     genericError:
       description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
+    Referees:
+      type: array
+      items:
+        $ref: '#/components/schemas/Referee'
+      x-go-package: github.com/outdoorsy/api/internal/referrals
     Referee:
       type: object
       properties:
@@ -142,11 +147,6 @@ components:
           type:
           - string
           - 'null'
-      x-go-package: github.com/outdoorsy/api/internal/referrals
-    Referees:
-      type: array
-      items:
-        $ref: '#/components/schemas/Referee'
       x-go-package: github.com/outdoorsy/api/internal/referrals
   securitySchemes:
     API-Key:

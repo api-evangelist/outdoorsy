@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: GiftCards
+- name: Gift Cards
 paths:
   /gift_cards/claim:
     get:
       tags:
-      - GiftCards
-      summary: Send referral communications to a list of friends.
+      - Gift Cards
+      summary: Send referral communications to a list of friends
       operationId: claimGiftCardRequest
       responses:
         '200':
@@ -47,8 +47,8 @@ paths:
   /gift_cards/{gift_card_id}:
     get:
       tags:
-      - GiftCards
-      summary: Read a gift card.
+      - Gift Cards
+      summary: Read a gift card
       operationId: readGiftCardRequest
       parameters:
       - x-go-name: GiftCardID
@@ -69,8 +69,8 @@ paths:
   /gift_cards/{gift_card_id}/fund:
     post:
       tags:
-      - GiftCards
-      summary: Send referral communications to a list of friends.
+      - Gift Cards
+      summary: Send referral communications to a list of friends
       operationId: createGiftCardRequest
       parameters:
       - x-go-name: CreditCardID
@@ -97,6 +97,8 @@ paths:
         required: true
 components:
   responses:
+    genericError:
+      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
     badRequestError:
@@ -105,8 +107,6 @@ components:
         Error:
           schema:
             type: string
-    genericError:
-      description: An unknown, unexpected error.
   schemas:
     Code:
       type: string

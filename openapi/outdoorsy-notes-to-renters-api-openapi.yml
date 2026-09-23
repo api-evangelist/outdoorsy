@@ -81,6 +81,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: List notes to renters
+      x-summary-source: derived
     post:
       description: Create a note to renters
       tags:
@@ -95,6 +97,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Create note to renters
+      x-summary-source: derived
   /notes-to-renters/{id}:
     delete:
       description: Delete a note to renters
@@ -118,6 +122,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete note to renters
+      x-summary-source: derived
     patch:
       description: Update a note to renters
       tags:
@@ -145,24 +151,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/NoteToRenters'
+      summary: Update note to renters
+      x-summary-source: derived
 components:
   schemas:
-    NoteMetadata:
-      type: object
-      properties:
-        limit:
-          type: integer
-          format: int64
-          x-go-name: Limit
-        offset:
-          type: integer
-          format: int64
-          x-go-name: Offset
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
+    StringSlice:
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
     NoteListResponse:
       type: object
       properties:
@@ -174,11 +171,6 @@ components:
             $ref: '#/components/schemas/NoteToRenters'
           x-go-name: Notes
       x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
-    StringSlice:
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
     NoteToRenters:
       type: object
       properties:
@@ -223,33 +215,49 @@ components:
         type: integer
         format: int64
       x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    NoteMetadata:
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int64
+          x-go-name: Limit
+        offset:
+          type: integer
+          format: int64
+          x-go-name: Offset
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
   responses:
-    notFoundError:
-      description: Not found error
-    noteToRentersResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NoteToRenters'
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
+    noteToRentersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoteToRenters'
+    genericError:
+      description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
     notesToRentersResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/NoteListResponse'
-    unauthorizedError:
-      description: Unauthorized error
-    genericError:
-      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

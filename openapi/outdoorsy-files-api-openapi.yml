@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: files
+- name: Files
 paths:
   /files:
     get:
       description: Return files
       tags:
-      - files
+      - Files
       operationId: listFiles
       parameters:
       - x-go-name: Offset
@@ -104,10 +104,11 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: List files
+      x-summary-source: derived
     post:
-      description: Create file
       tags:
-      - files
+      - Files
       operationId: createFile
       responses:
         '200':
@@ -121,11 +122,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
+      summary: Create file
+      x-summary-source: derived
   /files/{id}:
     get:
       description: Response will redirect to authenticated file
       tags:
-      - files
+      - Files
       operationId: getFile
       parameters:
       - x-go-name: FileID
@@ -154,10 +157,11 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get file
+      x-summary-source: derived
     delete:
-      description: Delete file
       tags:
-      - files
+      - Files
       operationId: deleteFile
       parameters:
       - x-go-name: FileID
@@ -176,10 +180,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete file
+      x-summary-source: derived
     patch:
       description: Update file details
       tags:
-      - files
+      - Files
       operationId: updateFile
       parameters:
       - x-go-name: FileID
@@ -203,26 +209,26 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
+      summary: Update file
+      x-summary-source: derived
 components:
   responses:
-    notFoundError:
-      description: Not found error
     fileResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/File'
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
+    notFoundError:
+      description: Not found error
     filesResponse:
       description: ''
       content:
@@ -231,6 +237,8 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/File'
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
     File:
       type: object

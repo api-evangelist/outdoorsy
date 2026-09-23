@@ -21,17 +21,19 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: notices
+- name: Notices
 paths:
   /notices:
     get:
       description: Return list of available notices
       tags:
-      - notices
+      - Notices
       operationId: listNotices
       responses:
         '200':
           $ref: '#/components/responses/listNoticeResponse'
+      summary: List notices
+      x-summary-source: derived
 components:
   securitySchemes:
     API-Key:

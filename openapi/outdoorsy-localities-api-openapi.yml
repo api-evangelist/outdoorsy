@@ -17,13 +17,13 @@ security:
 - Bearer:
   - '[]'
 tags:
-- name: localities
+- name: Localities
 paths:
   /localities:
     get:
       description: Search localities
       tags:
-      - localities
+      - Localities
       operationId: getLocalities
       parameters:
       - name: Locale
@@ -88,49 +88,51 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/listResponse'
+      summary: Get localities
+      x-summary-source: derived
   /localities/{id}:
     get:
       description: Returns a specific locality by id
       tags:
-      - localities
+      - Localities
       operationId: getLocality
       responses:
         '200':
           $ref: '#/components/responses/retrieveResponse'
+      summary: Get locality
+      x-summary-source: derived
 components:
+  schemas:
+    ESFilter:
+      type: object
+      properties:
+        Key:
+          type: string
+        Operator:
+          type: string
+        Value: {}
+      x-go-package: github.com/outdoorsy/odc-search/pkg/query
+    geoBounds:
+      type: object
+      properties:
+        ne:
+          $ref: '#/components/schemas/geoPoint'
+        sw:
+          $ref: '#/components/schemas/geoPoint'
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    geoPoint:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lon:
+          type: number
+          format: double
+          x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
   responses:
-    listResponse:
-      description: ''
-      headers:
-        bounds: {}
-        id:
-          schema:
-            type: string
-        locale:
-          schema:
-            type: string
-        location: {}
-        metadata: {}
-        parent:
-          schema:
-            type: string
-        slug:
-          schema:
-            type: string
-        url:
-          schema:
-            type: string
-      content:
-        application/vnd.api+json:
-          schema:
-            type: object
-            additionalProperties: {}
-            $ref: '#/components/schemas/geoBounds'
-        application/json:
-          schema:
-            type: object
-            additionalProperties: {}
-            $ref: '#/components/schemas/geoBounds'
     retrieveResponse:
       description: ''
       headers:
@@ -163,36 +165,38 @@ components:
             type: object
             additionalProperties: {}
             $ref: '#/components/schemas/geoBounds'
-  schemas:
-    geoBounds:
-      type: object
-      properties:
-        ne:
-          $ref: '#/components/schemas/geoPoint'
-        sw:
-          $ref: '#/components/schemas/geoPoint'
-      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
-    geoPoint:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-          x-go-name: Lat
-        lon:
-          type: number
-          format: double
-          x-go-name: Lon
-      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
-    ESFilter:
-      type: object
-      properties:
-        Key:
-          type: string
-        Operator:
-          type: string
-        Value: {}
-      x-go-package: github.com/outdoorsy/odc-search/pkg/query
+    listResponse:
+      description: ''
+      headers:
+        bounds: {}
+        id:
+          schema:
+            type: string
+        locale:
+          schema:
+            type: string
+        location: {}
+        metadata: {}
+        parent:
+          schema:
+            type: string
+        slug:
+          schema:
+            type: string
+        url:
+          schema:
+            type: string
+      content:
+        application/vnd.api+json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
+        application/json:
+          schema:
+            type: object
+            additionalProperties: {}
+            $ref: '#/components/schemas/geoBounds'
   securitySchemes:
     Bearer:
       type: apiKey

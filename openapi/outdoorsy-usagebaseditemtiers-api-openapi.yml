@@ -38,6 +38,8 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get usage based item tiers
+      x-summary-source: derived
     post:
       description: Create new usage based item (Ex. mileage, generator, delivery)
       tags:
@@ -65,6 +67,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UsageBasedItemTier'
+      summary: Create usage based item tier
+      x-summary-source: derived
   /usage-based-items/{usage_based_item_id}/tiers/{id}:
     get:
       description: Return array of tiers for the specified usage based item
@@ -95,6 +99,8 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get usage based item tier by id
+      x-summary-source: derived
     delete:
       description: Update usage based item tier record
       tags:
@@ -124,6 +130,8 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete usage based item tier
+      x-summary-source: derived
     patch:
       description: Update usage based item tier record
       tags:
@@ -158,40 +166,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UsageBasedItemTier'
+      summary: Update usage based item tier
+      x-summary-source: derived
 components:
-  responses:
-    usageBasedItemResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UsageBasedItem'
-    usageBasedItemTiersResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/UsageBasedItemTier'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
-    usageBasedItemTierResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UsageBasedItemTier'
-    genericError:
-      description: An unknown, unexpected error.
   schemas:
     UsageTierFormatted:
       type: object
@@ -208,45 +185,6 @@ components:
         usage_price_per_unit:
           type: string
           x-go-name: UsagePricePerUnit
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
-    OverageFeeCalculation:
-      type: object
-      properties:
-        calculation_tiers:
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageTierFormatted'
-          x-go-name: CalculationTiers
-        formatted_included_usage:
-          type: string
-          x-go-name: FormattedIncludedUsage
-        formatted_total_amount:
-          type: string
-          x-go-name: FormattedTotalAmount
-        total_amount:
-          type: integer
-          format: int64
-          x-go-name: TotalAmount
-        total_days:
-          type: integer
-          format: int64
-          x-go-name: Days
-        total_free_used:
-          type: number
-          format: double
-          x-go-name: TotalFreeUsed
-        total_included:
-          type: number
-          format: double
-          x-go-name: TotalIncluded
-        total_over_free:
-          type: number
-          format: double
-          x-go-name: TotalOverFree
-        total_used:
-          type: number
-          format: double
-          x-go-name: TotalUsed
       x-go-package: github.com/outdoorsy/api/internal/usage_item
     UsageBasedItem:
       type: object
@@ -380,6 +318,78 @@ components:
           type: integer
           format: int64
       x-go-package: github.com/outdoorsy/api/internal/usage_item
+    OverageFeeCalculation:
+      type: object
+      properties:
+        calculation_tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageTierFormatted'
+          x-go-name: CalculationTiers
+        formatted_included_usage:
+          type: string
+          x-go-name: FormattedIncludedUsage
+        formatted_total_amount:
+          type: string
+          x-go-name: FormattedTotalAmount
+        total_amount:
+          type: integer
+          format: int64
+          x-go-name: TotalAmount
+        total_days:
+          type: integer
+          format: int64
+          x-go-name: Days
+        total_free_used:
+          type: number
+          format: double
+          x-go-name: TotalFreeUsed
+        total_included:
+          type: number
+          format: double
+          x-go-name: TotalIncluded
+        total_over_free:
+          type: number
+          format: double
+          x-go-name: TotalOverFree
+        total_used:
+          type: number
+          format: double
+          x-go-name: TotalUsed
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+  responses:
+    usageBasedItemResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsageBasedItem'
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    usageBasedItemTierResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsageBasedItemTier'
+    genericError:
+      description: An unknown, unexpected error.
+    usageBasedItemTiersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UsageBasedItemTier'
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

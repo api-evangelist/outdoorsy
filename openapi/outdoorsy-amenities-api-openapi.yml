@@ -34,8 +34,26 @@ paths:
           $ref: '#/components/responses/amenitiesResponse'
         default:
           $ref: '#/components/responses/genericError'
+      summary: List amenities groups
+      x-summary-source: derived
 components:
   schemas:
+    Amenity:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          $ref: '#/components/schemas/DBStringMap'
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        slug:
+          type: string
+          x-go-name: Slug
+      x-go-package: github.com/outdoorsy/api/internal/amenities
     DBStringMap:
       description: DBStringMap is a map[string]string with database conversion methods
       type: object
@@ -56,22 +74,6 @@ components:
         name:
           type: string
           x-go-name: Name
-      x-go-package: github.com/outdoorsy/api/internal/amenities
-    Amenity:
-      type: object
-      properties:
-        name:
-          type: string
-          x-go-name: Name
-        options:
-          $ref: '#/components/schemas/DBStringMap'
-        position:
-          type: integer
-          format: int64
-          x-go-name: Position
-        slug:
-          type: string
-          x-go-name: Slug
       x-go-package: github.com/outdoorsy/api/internal/amenities
   responses:
     amenitiesResponse:

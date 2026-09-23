@@ -38,6 +38,8 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Create rule
+      x-summary-source: derived
   /bundles/{bundle_id}/rules/{id}:
     get:
       description: Retrieve bundle rule by id
@@ -68,8 +70,9 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get bundle rule by id
+      x-summary-source: derived
     delete:
-      description: Delete bundle rule
       tags:
       - bundleRules
       operationId: deleteBundleRule
@@ -95,8 +98,9 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete bundle rule
+      x-summary-source: derived
     patch:
-      description: Update bundle rule
       tags:
       - bundleRules
       operationId: updateBundleRule
@@ -129,8 +133,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BundleRule'
+      summary: Update bundle rule
+      x-summary-source: derived
 components:
   schemas:
+    MSI:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/internal/platform/db
     BundleRule:
       type: object
       properties:
@@ -162,27 +172,23 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/bundle
-    MSI:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/internal/platform/db
   responses:
-    notFoundError:
-      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
     bundleRuleResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/BundleRule'
+    notFoundError:
+      description: Not found error
     unauthorizedError:
       description: Unauthorized error
   securitySchemes:

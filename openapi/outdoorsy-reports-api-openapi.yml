@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: reports
+- name: Reports
 paths:
   /reports/checkout-questions:
     get:
       description: Generate checkout questions report request
       tags:
-      - reports
+      - Reports
       operationId: checkoutQuestionsReport
       responses:
         '200':
@@ -36,11 +36,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Checkout questions report
+      x-summary-source: derived
   /reports/credit:
     get:
       description: Generate credit report request
       tags:
-      - reports
+      - Reports
       operationId: creditReportRequest
       parameters:
       - x-go-name: IsOutstanding
@@ -87,11 +89,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Credit report request
+      x-summary-source: derived
   /reports/end-of-day:
     get:
       description: Generate end of day report request
       tags:
-      - reports
+      - Reports
       operationId: endOfDayReportRequest
       parameters:
       - x-go-name: From
@@ -116,11 +120,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: End of day report request
+      x-summary-source: derived
   /reports/rental-prep:
     get:
       description: Generate morning report request
       tags:
-      - reports
+      - Reports
       operationId: morningReportRequest
       parameters:
       - x-go-name: Status
@@ -177,11 +183,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Morning report request
+      x-summary-source: derived
   /reports/security-deposits:
     get:
       description: Generate security deposits report request
       tags:
-      - reports
+      - Reports
       operationId: securityDepositsReport
       responses:
         '200':
@@ -190,153 +198,92 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Security deposits report
+      x-summary-source: derived
 components:
   schemas:
-    CreditReportResponse:
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    EndOfDayReportResponse:
       type: object
       properties:
         Meta:
           type: object
           properties:
-            Limit:
-              type: integer
-              format: uint64
-            Offset:
-              type: integer
-              format: uint64
-            Total:
-              type: integer
-              format: int64
-            total_amount:
+            total_card_payments:
               type: number
               format: double
-              x-go-name: TotalAmount
+              x-go-name: TotalCardPayments
+            total_cash_payments:
+              type: number
+              format: double
+              x-go-name: TotalCashPayments
+            total_payments:
+              type: number
+              format: double
+              x-go-name: TotalPayments
+            total_refund_amount:
+              type: number
+              format: double
+              x-go-name: TotalRefundAmount
+            total_reservation_amount:
+              type: number
+              format: double
+              x-go-name: TotalReservationAmount
+            total_reservation_count:
+              type: integer
+              format: int64
+              x-go-name: TotalReservationCount
         data:
           type: object
           properties:
-            credits:
+            ended_bookings:
               type: array
               items:
-                $ref: '#/components/schemas/CreditReportUser'
-              x-go-name: Credits
+                $ref: '#/components/schemas/EndOfDayReportBooking'
+              x-go-name: EndedBookings
+            new_bookings:
+              type: array
+              items:
+                $ref: '#/components/schemas/EndOfDayReportBooking'
+              x-go-name: NewBookings
+            started_bookings:
+              type: array
+              items:
+                $ref: '#/components/schemas/EndOfDayReportBooking'
+              x-go-name: StartedBookings
           x-go-name: Data
-      x-go-package: github.com/outdoorsy/api/internal/report/credit_report
-    Report:
+      x-go-package: github.com/outdoorsy/api/internal/report/end_of_day_report
+    ReportDateItem:
       type: object
       properties:
-        booking_display_insurance:
+        date:
           type: string
-          x-go-name: BookingDisplayInsurance
-        booking_display_status:
-          type: string
-          x-go-name: BookingDisplayStatus
-        booking_from:
-          type: string
-        booking_from_city:
-          type: string
-          x-go-name: BookingFromCity
-        booking_from_delivery:
-          type: boolean
-          x-go-name: BookingFromDelivery
-        booking_from_state:
-          type: string
-          x-go-name: BookingFromState
-        booking_from_street:
-          type: string
-          x-go-name: BookingFromStreet
-        booking_from_zip:
-          type: string
-          x-go-name: BookingFromZip
-        booking_id:
-          type: integer
-          format: int64
-          x-go-name: BookingID
-        booking_insurance:
-          type: string
-          x-go-name: BookingInsurance
-        booking_items:
+          x-go-name: Date
+        departing:
           type: array
           items:
-            $ref: '#/components/schemas/BookingItem'
-          x-go-name: BookingItems
-        booking_notes:
+            type: integer
+            format: int64
+          x-go-name: Departing
+        returning:
           type: array
           items:
-            $ref: '#/components/schemas/Note'
-          x-go-name: BookingNotes
-        booking_remainder:
-          type: integer
-          format: uint64
-          x-go-name: BookingRemainder
-        booking_status:
-          type: string
-          x-go-name: BookingStatus
-        booking_to:
-          type: string
-        booking_to_city:
-          type: string
-          x-go-name: BookingToCity
-        booking_to_delivery:
-          type: boolean
-          x-go-name: BookingToDelivery
-        booking_to_state:
-          type: string
-          x-go-name: BookingToState
-        booking_to_street:
-          type: string
-          x-go-name: BookingToStreet
-        booking_to_zip:
-          type: string
-          x-go-name: BookingToZip
-        coachnet_id:
-          type: integer
-          format: int64
-          x-go-name: CoachnetID
-        coachnet_status:
-          type: boolean
-          x-go-name: CoachnetStatus
-        dropoff_time:
-          type: integer
-          format: int64
-          x-go-name: DropoffTime
-        insurance_bundle:
-          x-go-name: BookingBundle
-        insurance_coverage:
-          type: string
-          x-go-name: InsuranceCoverage
-        insurance_status:
-          type: boolean
-          x-go-name: InsuranceStatus
-        next_departure_booking_id:
-          type: integer
-          format: int64
-          x-go-name: NextDepartureBookingID
-        next_departure_date:
-          type: string
-        pickup_time:
-          type: integer
-          format: int64
-          x-go-name: PickupTime
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-        rental_internal_id:
-          type: string
-          x-go-name: RentalInternalID
-        rental_name:
-          type: string
-          x-go-name: RentalName
-        renter_id:
-          type: integer
-          format: int64
-          x-go-name: RenterID
-        renter_name:
-          type: string
-          x-go-name: RenterName
-        renter_phone:
-          type: string
-          x-go-name: RenterPhone
+            type: integer
+            format: int64
+          x-go-name: Returning
       x-go-package: github.com/outdoorsy/api/internal/report/morning_report
     CreditReportUser:
       type: object
@@ -363,6 +310,150 @@ components:
           type: string
           x-go-name: LastName
       x-go-package: github.com/outdoorsy/api/internal/report/credit_report
+    EndOfDayReportBooking:
+      type: object
+      properties:
+        booked:
+          type: string
+          x-go-name: Booked
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_source:
+          type: string
+          x-go-name: DisplaySource
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        first_name:
+          type: string
+          x-go-name: FirstName
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rental_name:
+          type: string
+          x-go-name: RentalName
+        renter_id:
+          type: integer
+          format: int64
+          x-go-name: RenterID
+        source:
+          type: string
+          x-go-name: Source
+        status:
+          type: string
+          x-go-name: Status
+        subtotal:
+          type: number
+          format: double
+          x-go-name: Subtotal
+        to:
+          type: string
+      x-go-package: github.com/outdoorsy/api/internal/report/end_of_day_report
+    MorningReportResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            dates:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportDateItem'
+              x-go-name: Dates
+            reports:
+              type: array
+              items:
+                $ref: '#/components/schemas/Report'
+              x-go-name: Reports
+          x-go-name: Data
+        meta:
+          type: object
+          properties:
+            Limit:
+              type: integer
+              format: uint64
+            Offset:
+              type: integer
+              format: uint64
+            Total:
+              type: integer
+              format: int64
+          x-go-name: Meta
+      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
     BookingItem:
       type: object
       properties:
@@ -513,152 +604,6 @@ components:
         updated:
           $ref: '#/components/schemas/NullTime'
       x-go-package: github.com/outdoorsy/api/model
-    NullTime:
-      description: 'NullTime represents a time.Time that may be null. NullTime implements the
-
-        sql.Scanner interface so it can be used as a scan destination, similar to
-
-        sql.NullString.'
-      type: object
-      properties:
-        Time:
-          type: string
-          format: date-time
-        Valid:
-          type: boolean
-      x-go-package: github.com/lib/pq
-    BookingTaxRate:
-      type: object
-      properties:
-        booking_id:
-          type: integer
-          format: int64
-          x-go-name: BookingID
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        deleted:
-          type: boolean
-          x-go-name: Deleted
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        object_id:
-          type: integer
-          format: int64
-          x-go-name: ObjectID
-        object_type:
-          type: string
-          x-go-name: ObjectType
-        payable_to:
-          type: string
-          x-go-name: PayableTo
-        source:
-          type: string
-          x-go-name: Source
-        state:
-          type: string
-          x-go-name: State
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: Amount
-        tax_description:
-          type: string
-          x-go-name: Description
-        tax_name:
-          type: string
-          x-go-name: Name
-        tax_rate:
-          type: number
-          format: double
-          x-go-name: Rate
-        tax_rate_id:
-          type: integer
-          format: int64
-          x-go-name: TaxRateID
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        zip_code:
-          type: string
-          x-go-name: ZipCode
-      x-go-package: github.com/outdoorsy/api/internal/tax_rates
-    ReportDateItem:
-      type: object
-      properties:
-        date:
-          type: string
-          x-go-name: Date
-        departing:
-          type: array
-          items:
-            type: integer
-            format: int64
-          x-go-name: Departing
-        returning:
-          type: array
-          items:
-            type: integer
-            format: int64
-          x-go-name: Returning
-      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
-    EndOfDayReportBooking:
-      type: object
-      properties:
-        booked:
-          type: string
-          x-go-name: Booked
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        display_source:
-          type: string
-          x-go-name: DisplaySource
-        display_status:
-          type: string
-          x-go-name: DisplayStatus
-        first_name:
-          type: string
-          x-go-name: FirstName
-        from:
-          type: string
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        last_name:
-          type: string
-          x-go-name: LastName
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-        rental_name:
-          type: string
-          x-go-name: RentalName
-        renter_id:
-          type: integer
-          format: int64
-          x-go-name: RenterID
-        source:
-          type: string
-          x-go-name: Source
-        status:
-          type: string
-          x-go-name: Status
-        subtotal:
-          type: number
-          format: double
-          x-go-name: Subtotal
-        to:
-          type: string
-      x-go-package: github.com/outdoorsy/api/internal/report/end_of_day_report
     Note:
       type: object
       properties:
@@ -704,74 +649,127 @@ components:
           type: integer
           format: int64
       x-go-package: github.com/outdoorsy/api/internal/notes
-    EndOfDayReportResponse:
+    Report:
+      type: object
+      properties:
+        booking_display_insurance:
+          type: string
+          x-go-name: BookingDisplayInsurance
+        booking_display_status:
+          type: string
+          x-go-name: BookingDisplayStatus
+        booking_from:
+          type: string
+        booking_from_city:
+          type: string
+          x-go-name: BookingFromCity
+        booking_from_delivery:
+          type: boolean
+          x-go-name: BookingFromDelivery
+        booking_from_state:
+          type: string
+          x-go-name: BookingFromState
+        booking_from_street:
+          type: string
+          x-go-name: BookingFromStreet
+        booking_from_zip:
+          type: string
+          x-go-name: BookingFromZip
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        booking_insurance:
+          type: string
+          x-go-name: BookingInsurance
+        booking_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItem'
+          x-go-name: BookingItems
+        booking_notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+          x-go-name: BookingNotes
+        booking_remainder:
+          type: integer
+          format: uint64
+          x-go-name: BookingRemainder
+        booking_status:
+          type: string
+          x-go-name: BookingStatus
+        booking_to:
+          type: string
+        booking_to_city:
+          type: string
+          x-go-name: BookingToCity
+        booking_to_delivery:
+          type: boolean
+          x-go-name: BookingToDelivery
+        booking_to_state:
+          type: string
+          x-go-name: BookingToState
+        booking_to_street:
+          type: string
+          x-go-name: BookingToStreet
+        booking_to_zip:
+          type: string
+          x-go-name: BookingToZip
+        coachnet_id:
+          type: integer
+          format: int64
+          x-go-name: CoachnetID
+        coachnet_status:
+          type: boolean
+          x-go-name: CoachnetStatus
+        dropoff_time:
+          type: integer
+          format: int64
+          x-go-name: DropoffTime
+        insurance_bundle:
+          x-go-name: BookingBundle
+        insurance_coverage:
+          type: string
+          x-go-name: InsuranceCoverage
+        insurance_status:
+          type: boolean
+          x-go-name: InsuranceStatus
+        next_departure_booking_id:
+          type: integer
+          format: int64
+          x-go-name: NextDepartureBookingID
+        next_departure_date:
+          type: string
+        pickup_time:
+          type: integer
+          format: int64
+          x-go-name: PickupTime
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rental_internal_id:
+          type: string
+          x-go-name: RentalInternalID
+        rental_name:
+          type: string
+          x-go-name: RentalName
+        renter_id:
+          type: integer
+          format: int64
+          x-go-name: RenterID
+        renter_name:
+          type: string
+          x-go-name: RenterName
+        renter_phone:
+          type: string
+          x-go-name: RenterPhone
+      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
+    CreditReportResponse:
       type: object
       properties:
         Meta:
-          type: object
-          properties:
-            total_card_payments:
-              type: number
-              format: double
-              x-go-name: TotalCardPayments
-            total_cash_payments:
-              type: number
-              format: double
-              x-go-name: TotalCashPayments
-            total_payments:
-              type: number
-              format: double
-              x-go-name: TotalPayments
-            total_refund_amount:
-              type: number
-              format: double
-              x-go-name: TotalRefundAmount
-            total_reservation_amount:
-              type: number
-              format: double
-              x-go-name: TotalReservationAmount
-            total_reservation_count:
-              type: integer
-              format: int64
-              x-go-name: TotalReservationCount
-        data:
-          type: object
-          properties:
-            ended_bookings:
-              type: array
-              items:
-                $ref: '#/components/schemas/EndOfDayReportBooking'
-              x-go-name: EndedBookings
-            new_bookings:
-              type: array
-              items:
-                $ref: '#/components/schemas/EndOfDayReportBooking'
-              x-go-name: NewBookings
-            started_bookings:
-              type: array
-              items:
-                $ref: '#/components/schemas/EndOfDayReportBooking'
-              x-go-name: StartedBookings
-          x-go-name: Data
-      x-go-package: github.com/outdoorsy/api/internal/report/end_of_day_report
-    MorningReportResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            dates:
-              type: array
-              items:
-                $ref: '#/components/schemas/ReportDateItem'
-              x-go-name: Dates
-            reports:
-              type: array
-              items:
-                $ref: '#/components/schemas/Report'
-              x-go-name: Reports
-          x-go-name: Data
-        meta:
           type: object
           properties:
             Limit:
@@ -783,35 +781,47 @@ components:
             Total:
               type: integer
               format: int64
-          x-go-name: Meta
-      x-go-package: github.com/outdoorsy/api/internal/report/morning_report
+            total_amount:
+              type: number
+              format: double
+              x-go-name: TotalAmount
+        data:
+          type: object
+          properties:
+            credits:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreditReportUser'
+              x-go-name: Credits
+          x-go-name: Data
+      x-go-package: github.com/outdoorsy/api/internal/report/credit_report
   responses:
-    morningReportResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MorningReportResponse'
-    endOfDayReportResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EndOfDayReportResponse'
-    creditReportResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CreditReportResponse'
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
+    creditReportResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreditReportResponse'
+    morningReportResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MorningReportResponse'
     unauthorizedError:
       description: Unauthorized error
+    endOfDayReportResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EndOfDayReportResponse'
   securitySchemes:
     API-Key:
       type: apiKey

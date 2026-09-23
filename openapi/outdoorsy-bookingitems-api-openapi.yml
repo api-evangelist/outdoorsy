@@ -45,11 +45,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BookingItem'
+      summary: Create booking item
+      x-summary-source: derived
   /bookings/{booking_id}/items/batch:
     post:
       tags:
       - bookingItems
-      summary: Updates a batch of items on the booking.
+      summary: Updates a batch of items on the booking
       operationId: bookingItemsBatchUpdateLegacy
       deprecated: true
       parameters:
@@ -82,7 +84,7 @@ paths:
     post:
       tags:
       - bookingItems
-      summary: Updates a batch of items on the booking.
+      summary: Updates a batch of items on the booking
       operationId: bookingItemsBatchUpdate
       parameters:
       - x-go-name: BookingID
@@ -138,6 +140,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RentalItemCopy'
+      summary: Copy rental item to booking
+      x-summary-source: derived
   /bookings/{booking_id}/items/{id}:
     get:
       description: Copies an item to the requested booking
@@ -170,6 +174,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get booking item by id
+      x-summary-source: derived
     delete:
       description: Copies an item to the requested booking
       tags:
@@ -186,6 +192,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete booking item
+      x-summary-source: derived
     patch:
       description: Updates an existing item on the booking
       tags:
@@ -222,11 +230,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BookingItem'
+      summary: Update booking item
+      x-summary-source: derived
   /bookings/{booking_id}/items/{id}/update-consigned:
     patch:
       tags:
       - bookingItems
-      summary: Updates the consigned pay amount for an item.
+      summary: Updates the consigned pay amount for an item
       operationId: updateConsignedBookingItem
       responses:
         '200':
@@ -241,6 +251,20 @@ paths:
           $ref: '#/components/responses/genericError'
 components:
   schemas:
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
     RentalItemCopy:
       type: object
       properties:
@@ -262,6 +286,66 @@ components:
             $ref: '#/components/schemas/BookingItem'
           x-go-name: Items
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
     BookingItem:
       type: object
       properties:
@@ -412,97 +496,7 @@ components:
         updated:
           $ref: '#/components/schemas/NullTime'
       x-go-package: github.com/outdoorsy/api/model
-    NullTime:
-      description: 'NullTime represents a time.Time that may be null. NullTime implements the
-
-        sql.Scanner interface so it can be used as a scan destination, similar to
-
-        sql.NullString.'
-      type: object
-      properties:
-        Time:
-          type: string
-          format: date-time
-        Valid:
-          type: boolean
-      x-go-package: github.com/lib/pq
-    BookingTaxRate:
-      type: object
-      properties:
-        booking_id:
-          type: integer
-          format: int64
-          x-go-name: BookingID
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        deleted:
-          type: boolean
-          x-go-name: Deleted
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        object_id:
-          type: integer
-          format: int64
-          x-go-name: ObjectID
-        object_type:
-          type: string
-          x-go-name: ObjectType
-        payable_to:
-          type: string
-          x-go-name: PayableTo
-        source:
-          type: string
-          x-go-name: Source
-        state:
-          type: string
-          x-go-name: State
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: Amount
-        tax_description:
-          type: string
-          x-go-name: Description
-        tax_name:
-          type: string
-          x-go-name: Name
-        tax_rate:
-          type: number
-          format: double
-          x-go-name: Rate
-        tax_rate_id:
-          type: integer
-          format: int64
-          x-go-name: TaxRateID
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        zip_code:
-          type: string
-          x-go-name: ZipCode
-      x-go-package: github.com/outdoorsy/api/internal/tax_rates
   responses:
-    bookingItemResponse:
-      description: HTTP status code 200 and booking item model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BookingItem'
-    notFoundError:
-      description: Not found error
-    bookingItemsResponse:
-      description: HTTP status code 200 and array of booking items
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/BookingItem'
     noContentResponse:
       description: Everything went as planned
     badRequestError:
@@ -511,10 +505,26 @@ components:
         Error:
           schema:
             type: string
-    unauthorizedError:
-      description: Unauthorized error
+    bookingItemsResponse:
+      description: HTTP status code 200 and array of booking items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/BookingItem'
+    notFoundError:
+      description: Not found error
     genericError:
       description: An unknown, unexpected error.
+    bookingItemResponse:
+      description: HTTP status code 200 and booking item model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BookingItem'
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

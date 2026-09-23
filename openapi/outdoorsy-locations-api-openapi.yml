@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: locations
+- name: Locations
 paths:
   /locations:
     get:
       description: List dealer locations
       tags:
-      - locations
+      - Locations
       operationId: listLocations
       parameters:
       - x-go-name: LocationID
@@ -98,10 +98,12 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: List locations
+      x-summary-source: derived
     post:
       description: Create dealer location
       tags:
-      - locations
+      - Locations
       operationId: createLocation
       responses:
         '200':
@@ -117,11 +119,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Location'
+      summary: Create location
+      x-summary-source: derived
   /locations/{id}:
     get:
       description: Retrieve location by id
       tags:
-      - locations
+      - Locations
       operationId: getLocationByOwner
       responses:
         '200':
@@ -132,10 +136,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get location by owner
+      x-summary-source: derived
     delete:
       description: Delete dealer location
       tags:
-      - locations
+      - Locations
       operationId: deleteLocation
       parameters:
       - x-go-name: ID
@@ -152,10 +158,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete location
+      x-summary-source: derived
     patch:
       description: Update dealer location details
       tags:
-      - locations
+      - Locations
       operationId: updateLocation
       parameters:
       - x-go-name: ID
@@ -179,11 +187,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Location'
+      summary: Update location
+      x-summary-source: derived
   /locations/{owner_id}/for-pro-page:
     get:
       description: List dealer locations for his pro page (locations with connected bank account, ordered by having the most rentals desc). Provide falback in the form of city and state with most bookable rentals
       tags:
-      - locations
+      - Locations
       operationId: getLocationsByOwnerID
       parameters:
       - x-go-name: OwnerID
@@ -198,16 +208,10 @@ paths:
           $ref: '#/components/responses/locationsProPageResponse'
         '400':
           $ref: '#/components/responses/badRequestError'
+      summary: Get locations by owner ID
+      x-summary-source: derived
 components:
   schemas:
-    LocAvailabilityDay:
-      type: object
-      properties:
-        dropoff:
-          $ref: '#/components/schemas/LocAvailabilityInfo'
-        pickup:
-          $ref: '#/components/schemas/LocAvailabilityInfo'
-      x-go-package: github.com/outdoorsy/api/internal/location
     ProPageResponse:
       type: object
       properties:
@@ -219,6 +223,61 @@ components:
             $ref: '#/components/schemas/Location'
           x-go-name: Locations
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    ProPageFallback:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        state:
+          type: string
+          x-go-name: State
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    LocAvailabilityInfo:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/location
+    SpecialHourPickup:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    SpecialHourDropoff:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
     TaxRate:
       type: object
       properties:
@@ -262,78 +321,12 @@ components:
           type: string
           x-go-name: ZipCode
       x-go-package: github.com/outdoorsy/api/internal/tax_rates
-    LocationLocale:
-      type: object
-      properties:
-        base_currency:
-          type: string
-          x-go-name: BaseCurrency
-      x-go-package: github.com/outdoorsy/api/internal/location
-    SpecialHour:
-      description: '───────────────────────────────────────────────────────────────────────────
-
-        Special Hours
-
-        ───────────────────────────────────────────────────────────────────────────'
-      type: object
-      properties:
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        created_from_id:
-          type: integer
-          format: int64
-          x-go-name: CreatedFromId
-        dropoff:
-          $ref: '#/components/schemas/SpecialHourDropoff'
-        end_date:
-          type: string
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        location_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        name:
-          type: string
-          x-go-name: Name
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        pickup:
-          $ref: '#/components/schemas/SpecialHourPickup'
-        repeats:
-          type: boolean
-          x-go-name: Repeats
-        start_date:
-          type: string
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        weekdays:
-          $ref: '#/components/schemas/DBStringSlice'
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
-    SpecialHourPickup:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
     Location:
       type: object
       properties:
@@ -460,16 +453,71 @@ components:
           type: string
           x-go-name: Zip
       x-go-package: github.com/outdoorsy/api/internal/location
-    ProPageFallback:
+    LocationLocale:
       type: object
       properties:
-        city:
+        base_currency:
           type: string
-          x-go-name: City
-        state:
+          x-go-name: BaseCurrency
+      x-go-package: github.com/outdoorsy/api/internal/location
+    LocAvailabilityDay:
+      type: object
+      properties:
+        dropoff:
+          $ref: '#/components/schemas/LocAvailabilityInfo'
+        pickup:
+          $ref: '#/components/schemas/LocAvailabilityInfo'
+      x-go-package: github.com/outdoorsy/api/internal/location
+    SpecialHour:
+      description: '───────────────────────────────────────────────────────────────────────────
+
+        Special Hours
+
+        ───────────────────────────────────────────────────────────────────────────'
+      type: object
+      properties:
+        created:
           type: string
-          x-go-name: State
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_from_id:
+          type: integer
+          format: int64
+          x-go-name: CreatedFromId
+        dropoff:
+          $ref: '#/components/schemas/SpecialHourDropoff'
+        end_date:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        pickup:
+          $ref: '#/components/schemas/SpecialHourPickup'
+        repeats:
+          type: boolean
+          x-go-name: Repeats
+        start_date:
+          type: string
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        weekdays:
+          $ref: '#/components/schemas/DBStringSlice'
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
     LocAvailability:
       type: object
       properties:
@@ -479,59 +527,7 @@ components:
             $ref: '#/components/schemas/LocAvailabilityDay'
           x-go-name: Days
       x-go-package: github.com/outdoorsy/api/internal/location
-    SpecialHourDropoff:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
-    LocAvailabilityInfo:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/location
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
   responses:
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    locationsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Location'
     locationsProPageResponse:
       description: ''
       content:
@@ -540,14 +536,30 @@ components:
             $ref: '#/components/schemas/ProPageResponse'
     noContentResponse:
       description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
+    locationsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Location'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
     locationResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Location'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

@@ -231,6 +231,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: List bids
+      x-summary-source: derived
     post:
       description: Create instamatch request
       tags:
@@ -248,6 +250,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Bid'
+      summary: Create bid
+      x-summary-source: derived
   /bids/available:
     get:
       description: Returns list of available bids for an owner
@@ -456,6 +460,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Bids available
+      x-summary-source: derived
   /bids/{bid_id}/bid-matches/{bid_match_id}/renter-decline:
     post:
       description: Decline a specific bid match as a renter (guest)
@@ -473,6 +479,8 @@ paths:
           $ref: '#/components/responses/forbiddenError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Renter decline bid match
+      x-summary-source: derived
   /bids/{id}:
     get:
       description: Return bid by id
@@ -496,6 +504,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get bid by id
+      x-summary-source: derived
     delete:
       description: Delete instamatch request
       tags:
@@ -518,6 +528,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete bid
+      x-summary-source: derived
     patch:
       description: Update instamatch bid
       tags:
@@ -545,6 +557,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Bid'
+      summary: Update bid by id
+      x-summary-source: derived
   /bids/{id}/decline:
     post:
       description: Decline instamatch request
@@ -570,8 +584,79 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Decline bid
+      x-summary-source: derived
 components:
   schemas:
+    BidMatches:
+      type: array
+      items:
+        $ref: '#/components/schemas/BidMatch'
+      x-go-package: github.com/outdoorsy/api/internal/instamatch
+    NullFloat64:
+      description: 'NullFloat64 implements the [Scanner] interface so
+
+        it can be used as a scan destination, similar to [NullString].'
+      type: object
+      title: NullFloat64 represents a float64 that may be null.
+      properties:
+        Float64:
+          type: number
+          format: double
+        Valid:
+          type: boolean
+      x-go-package: database/sql
+    BidMatch:
+      type: object
+      properties:
+        bid_id:
+          $ref: '#/components/schemas/Bid'
+        booking_id:
+          type: integer
+          format: int64
+        conversation_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        match_location_type:
+          type:
+          - string
+          - 'null'
+        message_sent:
+          type: boolean
+          x-go-name: MessageSent
+        owner_id:
+          type: integer
+          format: int64
+        owner_read:
+          type: boolean
+          x-go-name: OwnerRead
+        rental_id:
+          type: integer
+          format: int64
+        renter_id:
+          type: integer
+          format: int64
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/instamatch
     Bid:
       type: object
       properties:
@@ -734,92 +819,27 @@ components:
           format: int64
           x-go-name: Year
       x-go-package: github.com/outdoorsy/api/internal/instamatch
-    NullFloat64:
-      description: 'NullFloat64 implements the [Scanner] interface so
-
-        it can be used as a scan destination, similar to [NullString].'
-      type: object
-      title: NullFloat64 represents a float64 that may be null.
-      properties:
-        Float64:
-          type: number
-          format: double
-        Valid:
-          type: boolean
-      x-go-package: database/sql
-    BidMatch:
-      type: object
-      properties:
-        bid_id:
-          $ref: '#/components/schemas/Bid'
-        booking_id:
-          type: integer
-          format: int64
-        conversation_id:
-          type: integer
-          format: int64
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        match_location_type:
-          type:
-          - string
-          - 'null'
-        message_sent:
-          type: boolean
-          x-go-name: MessageSent
-        owner_id:
-          type: integer
-          format: int64
-        owner_read:
-          type: boolean
-          x-go-name: OwnerRead
-        rental_id:
-          type: integer
-          format: int64
-        renter_id:
-          type: integer
-          format: int64
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        status:
-          type: string
-          x-go-name: Status
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-      x-go-package: github.com/outdoorsy/api/internal/instamatch
-    BidMatches:
-      type: array
-      items:
-        $ref: '#/components/schemas/BidMatch'
-      x-go-package: github.com/outdoorsy/api/internal/instamatch
   responses:
-    notFoundError:
-      description: Not found error
-    bidResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Bid'
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
+    bidResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bid'
+    notFoundError:
+      description: Not found error
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
     listBidsResponse:
       description: HTTP status code 200 and array of bid models
       content:
@@ -830,10 +850,6 @@ components:
               $ref: '#/components/schemas/Bid'
     forbiddenError:
       description: Forbidden error
-    unauthorizedError:
-      description: Unauthorized error
-    genericError:
-      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

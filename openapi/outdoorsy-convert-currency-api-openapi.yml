@@ -25,7 +25,7 @@ tags:
 paths:
   /convert-currency:
     get:
-      summary: Converts currency.
+      summary: Converts currency
       operationId: convertCurrency
       parameters:
       - x-go-name: From
@@ -55,15 +55,6 @@ paths:
       tags:
       - Convert Currency
 components:
-  schemas:
-    convertCurrencyResponseBody:
-      type: object
-      properties:
-        amount:
-          type: integer
-          format: int64
-          x-go-name: Amount
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
   responses:
     unauthorizedError:
       description: Unauthorized error
@@ -73,6 +64,15 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/convertCurrencyResponseBody'
+  schemas:
+    convertCurrencyResponseBody:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
   securitySchemes:
     API-Key:
       type: apiKey

@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: search
+- name: Search
 paths:
   /search/bookings:
     get:
       description: Search Bookings
       tags:
-      - search
+      - Search
       operationId: searchBookingsRequest
       parameters:
       - x-go-name: Archived
@@ -104,11 +104,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Search bookings request
+      x-summary-source: derived
   /search/global:
     get:
       description: Global Search
       tags:
-      - search
+      - Search
       operationId: globalSearchRequest
       parameters:
       - x-go-name: Limit
@@ -150,11 +152,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Global search request
+      x-summary-source: derived
   /search/meta-count:
     get:
       description: Search Meta Count
       tags:
-      - search
+      - Search
       operationId: searchMetaCountRequest
       parameters:
       - x-go-name: LocationsRaw
@@ -169,11 +173,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Search meta count request
+      x-summary-source: derived
   /search/parent-bookings:
     get:
       description: Search Parent Bookings
       tags:
-      - search
+      - Search
       operationId: searchParentBookingsRequest
       parameters:
       - x-go-name: Offset
@@ -230,11 +236,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Search parent bookings request
+      x-summary-source: derived
   /search/rentals:
     get:
       description: Search Rentals
       tags:
-      - search
+      - Search
       operationId: searchRentalsRequest
       parameters:
       - x-go-name: Limit
@@ -301,11 +309,13 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Search rentals request
+      x-summary-source: derived
   /search/{user_id}/customers:
     get:
       description: Search Customers for a dealer
       tags:
-      - search
+      - Search
       operationId: searchCustomersRequest
       parameters:
       - x-go-name: UserID
@@ -364,87 +374,11 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Search customers request
+      x-summary-source: derived
 components:
-  responses:
-    globalSearchResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/GlobalSearchResponse'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    searchParentBookingsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SearchParentBookingsResponse'
-    searchMetaCountResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SearchMetaCountResponse'
-    searchCustomersResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Customer'
-    unauthorizedError:
-      description: Unauthorized error
-    searchBookingsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SearchBookingsResponse'
-    searchRentalsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SearchRentalsResponse'
   schemas:
-    SearchParentBookingsMeta:
-      type: object
-      properties:
-        limit:
-          type: integer
-          format: int64
-          x-go-name: Limit
-        offset:
-          type: integer
-          format: int64
-          x-go-name: Offset
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-      x-go-package: github.com/outdoorsy/api/internal/search
-    SearchBookingsMetaCount:
-      type: object
-      properties:
-        status_count:
-          $ref: '#/components/schemas/BookingsStatusCount'
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-      x-go-package: github.com/outdoorsy/api/internal/search
-    CheckoutAnswers:
-      type: array
-      items:
-        $ref: '#/components/schemas/CheckoutAnswer'
-      x-go-package: github.com/outdoorsy/api/internal/search
-    ResultCount:
+    SearchRentalGroup:
       type: object
       properties:
         count:
@@ -455,47 +389,10 @@ components:
           type: string
           x-go-name: Name
       x-go-package: github.com/outdoorsy/api/internal/search
-    SearchBookingsMeta:
-      type: object
-      properties:
-        abandoned:
-          $ref: '#/components/schemas/SearchBookingsMetaCount'
-        cancelled:
-          $ref: '#/components/schemas/SearchBookingsMetaCount'
-        expired:
-          $ref: '#/components/schemas/SearchBookingsMetaCount'
-        pending:
-          $ref: '#/components/schemas/SearchBookingsMetaCount'
-        returned:
-          $ref: '#/components/schemas/SearchBookingsMetaCount'
-        upcoming:
-          $ref: '#/components/schemas/SearchBookingsMetaCount'
-      x-go-package: github.com/outdoorsy/api/internal/search
-    GlobalSearchResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/GlobalSearchItem'
-          x-go-name: Items
-        meta:
-          $ref: '#/components/schemas/GlobalSearchMeta'
-      x-go-package: github.com/outdoorsy/api/internal/search
-    GlobalSearchMeta:
-      type: object
-      properties:
-        booking_status_count:
-          $ref: '#/components/schemas/BookingStatusCount'
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-        type_count:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResultCount'
-          x-go-name: TypeCount
+    CheckoutAnswers:
+      type: array
+      items:
+        $ref: '#/components/schemas/CheckoutAnswer'
       x-go-package: github.com/outdoorsy/api/internal/search
     SearchMetaCountResponse:
       type: object
@@ -508,119 +405,6 @@ components:
           type: integer
           format: int64
           x-go-name: RentalsWithRejectedImage
-      x-go-package: github.com/outdoorsy/api/internal/search
-    SearchParentBookingItem:
-      type: object
-      properties:
-        bookings_count:
-          type: integer
-          format: int64
-          x-go-name: BookingsCount
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        display_status:
-          type: string
-          x-go-name: DisplayStatus
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        name:
-          type: string
-          x-go-name: Name
-        notes:
-          type: string
-          x-go-name: Notes
-        purpose:
-          type: string
-          x-go-name: Purpose
-        status:
-          type: string
-          x-go-name: Status
-      x-go-package: github.com/outdoorsy/api/internal/search
-    Customer:
-      type: object
-      properties:
-        archived:
-          type: boolean
-          x-go-name: Archived
-        avatar_url:
-          type: string
-          x-go-name: AvatarURL
-        city:
-          type: string
-          x-go-name: City
-        email:
-          type: string
-          x-go-name: Email
-        employee:
-          type: boolean
-          x-go-name: Employee
-        first_name:
-          type: string
-          x-go-name: FirstName
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        last_departure:
-          type: string
-        last_name:
-          type: string
-          x-go-name: LastName
-        lifetime_value:
-          type: number
-          format: double
-          x-go-name: LifetimeValue
-        num_reservations:
-          type: integer
-          format: int64
-          x-go-name: NumReservations
-        owned_by_user_id:
-          type: integer
-          format: int64
-          x-go-name: OwnedByUserID
-        phone:
-          type: string
-          x-go-name: Phone
-        state:
-          type: string
-          x-go-name: State
-        street:
-          type: string
-          x-go-name: Street
-        total_reservations:
-          type: integer
-          format: int64
-          x-go-name: TotalReservations
-        zip:
-          type: string
-          x-go-name: Zip
-      x-go-package: github.com/outdoorsy/api/internal/search
-    SearchRentalsMeta:
-      type: object
-      properties:
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchRentalGroup'
-          x-go-name: Categories
-        makes:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchRentalGroup'
-          x-go-name: Makes
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-        types:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchRentalGroup'
-          x-go-name: Types
       x-go-package: github.com/outdoorsy/api/internal/search
     SearchBooking:
       type: object
@@ -692,55 +476,21 @@ components:
         updated:
           type: string
       x-go-package: github.com/outdoorsy/api/internal/search
-    SearchRentalGroup:
+    SearchBookingsMeta:
       type: object
       properties:
-        count:
-          type: integer
-          format: int64
-          x-go-name: Count
-        name:
-          type: string
-          x-go-name: Name
-      x-go-package: github.com/outdoorsy/api/internal/search
-    BookingsStatusCount:
-      type: object
-      properties:
-        approved:
-          type: integer
-          format: int64
-          x-go-name: Approved
-        change_requested:
-          type: integer
-          format: int64
-          x-go-name: ChangeRequested
-        handed_off:
-          type: integer
-          format: int64
-          x-go-name: HandedOff
-        imminent:
-          type: integer
-          format: int64
-          x-go-name: Imminent
-        owner_cancelled:
-          type: integer
-          format: int64
-          x-go-name: OwnerCancelled
-        renter_cancelled:
-          type: integer
-          format: int64
-          x-go-name: RenterCancelled
-      x-go-package: github.com/outdoorsy/api/internal/search
-    SearchRentalsResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/SearchRentalsMeta'
-        rentals:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchRental'
-          x-go-name: Rentals
+        abandoned:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        cancelled:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        expired:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        pending:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        returned:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
+        upcoming:
+          $ref: '#/components/schemas/SearchBookingsMetaCount'
       x-go-package: github.com/outdoorsy/api/internal/search
     GlobalSearchItem:
       type: object
@@ -822,16 +572,43 @@ components:
           format: int64
           x-go-name: RentalYear
       x-go-package: github.com/outdoorsy/api/internal/search
-    SearchBookingsResponse:
+    GlobalSearchMeta:
       type: object
       properties:
-        bookings:
+        booking_status_count:
+          $ref: '#/components/schemas/BookingStatusCount'
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        type_count:
           type: array
           items:
-            $ref: '#/components/schemas/SearchBooking'
-          x-go-name: Bookings
-        meta:
-          $ref: '#/components/schemas/SearchBookingsMeta'
+            $ref: '#/components/schemas/ResultCount'
+          x-go-name: TypeCount
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchRentalsMeta:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRentalGroup'
+          x-go-name: Categories
+        makes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRentalGroup'
+          x-go-name: Makes
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchRentalGroup'
+          x-go-name: Types
       x-go-package: github.com/outdoorsy/api/internal/search
     SearchRental:
       type: object
@@ -899,6 +676,80 @@ components:
           format: int64
           x-go-name: Year
       x-go-package: github.com/outdoorsy/api/internal/search
+    SearchBookingsResponse:
+      type: object
+      properties:
+        bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchBooking'
+          x-go-name: Bookings
+        meta:
+          $ref: '#/components/schemas/SearchBookingsMeta'
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchParentBookingItem:
+      type: object
+      properties:
+        bookings_count:
+          type: integer
+          format: int64
+          x-go-name: BookingsCount
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        notes:
+          type: string
+          x-go-name: Notes
+        purpose:
+          type: string
+          x-go-name: Purpose
+        status:
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchBookingsMetaCount:
+      type: object
+      properties:
+        status_count:
+          $ref: '#/components/schemas/BookingsStatusCount'
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/search
+    GlobalSearchResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlobalSearchItem'
+          x-go-name: Items
+        meta:
+          $ref: '#/components/schemas/GlobalSearchMeta'
+      x-go-package: github.com/outdoorsy/api/internal/search
+    ResultCount:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          x-go-name: Count
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/search
     CheckoutAnswer:
       type: object
       properties:
@@ -908,6 +759,120 @@ components:
         value:
           type: string
           x-go-name: Value
+      x-go-package: github.com/outdoorsy/api/internal/search
+    BookingsStatusCount:
+      type: object
+      properties:
+        approved:
+          type: integer
+          format: int64
+          x-go-name: Approved
+        change_requested:
+          type: integer
+          format: int64
+          x-go-name: ChangeRequested
+        handed_off:
+          type: integer
+          format: int64
+          x-go-name: HandedOff
+        imminent:
+          type: integer
+          format: int64
+          x-go-name: Imminent
+        owner_cancelled:
+          type: integer
+          format: int64
+          x-go-name: OwnerCancelled
+        renter_cancelled:
+          type: integer
+          format: int64
+          x-go-name: RenterCancelled
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchParentBookingsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/SearchParentBookingsMeta'
+        parent_bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchParentBookingItem'
+          x-go-name: ParentBookings
+      x-go-package: github.com/outdoorsy/api/internal/search
+    Customer:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        city:
+          type: string
+          x-go-name: City
+        email:
+          type: string
+          x-go-name: Email
+        employee:
+          type: boolean
+          x-go-name: Employee
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_departure:
+          type: string
+        last_name:
+          type: string
+          x-go-name: LastName
+        lifetime_value:
+          type: number
+          format: double
+          x-go-name: LifetimeValue
+        num_reservations:
+          type: integer
+          format: int64
+          x-go-name: NumReservations
+        owned_by_user_id:
+          type: integer
+          format: int64
+          x-go-name: OwnedByUserID
+        phone:
+          type: string
+          x-go-name: Phone
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        total_reservations:
+          type: integer
+          format: int64
+          x-go-name: TotalReservations
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/internal/search
+    SearchParentBookingsMeta:
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int64
+          x-go-name: Limit
+        offset:
+          type: integer
+          format: int64
+          x-go-name: Offset
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
       x-go-package: github.com/outdoorsy/api/internal/search
     BookingStatusCount:
       type: object
@@ -957,17 +922,64 @@ components:
           format: int64
           x-go-name: Returned
       x-go-package: github.com/outdoorsy/api/internal/search
-    SearchParentBookingsResponse:
+    SearchRentalsResponse:
       type: object
       properties:
         meta:
-          $ref: '#/components/schemas/SearchParentBookingsMeta'
-        parent_bookings:
+          $ref: '#/components/schemas/SearchRentalsMeta'
+        rentals:
           type: array
           items:
-            $ref: '#/components/schemas/SearchParentBookingItem'
-          x-go-name: ParentBookings
+            $ref: '#/components/schemas/SearchRental'
+          x-go-name: Rentals
       x-go-package: github.com/outdoorsy/api/internal/search
+  responses:
+    searchMetaCountResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchMetaCountResponse'
+    searchParentBookingsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchParentBookingsResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    globalSearchResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GlobalSearchResponse'
+    searchBookingsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchBookingsResponse'
+    searchCustomersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Customer'
+    unauthorizedError:
+      description: Unauthorized error
+    searchRentalsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SearchRentalsResponse'
   securitySchemes:
     API-Key:
       type: apiKey

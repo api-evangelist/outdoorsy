@@ -48,6 +48,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get checkout steps
+      x-summary-source: derived
     patch:
       description: 'Updates the status of steps for the specified booking. Send incomplete/complete for each
 
@@ -77,6 +79,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateRequest'
+      summary: Update checkout steps
+      x-summary-source: derived
 components:
   schemas:
     ReadResponse:
@@ -135,18 +139,18 @@ components:
           x-go-name: Steps
       x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
   responses:
-    notFoundError:
-      description: Not found error
     checkoutStepsResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ReadResponse'
-    unauthorizedError:
-      description: Unauthorized error
     genericError:
       description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

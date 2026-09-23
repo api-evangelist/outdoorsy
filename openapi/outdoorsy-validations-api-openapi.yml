@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: validations
+- name: Validations
 paths:
   /admin/validations:
     get:
       tags:
-      - validations
-      summary: Returns a list of validations in the system.
+      - Validations
+      summary: Returns a list of validations in the system
       operationId: adminListValidations
       parameters:
       - description: A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{"booking_id":"1234","driver_id":"5678","validator":"tint"}`
@@ -69,8 +69,8 @@ paths:
   /admin/validations/{id}:
     get:
       tags:
-      - validations
-      summary: Returns a validation in the system by its ID.
+      - Validations
+      summary: Returns a validation in the system by its ID
       operationId: adminGetValidation
       parameters:
       - description: A 24 character hex-encoded ObjectID value.
@@ -83,8 +83,8 @@ paths:
       responses: {}
     delete:
       tags:
-      - validations
-      summary: Flags a validation as deleted.
+      - Validations
+      summary: Flags a validation as deleted
       operationId: adminDeleteValidation
       parameters:
       - description: A 24 character hex-encoded ObjectID value.
@@ -98,8 +98,8 @@ paths:
   /admin/validations/{id}/duplicate:
     post:
       tags:
-      - validations
-      summary: Duplicates a validation, overwriting its arguments to copy its data to another object in the system. This is intended to be used when creating a more specific version of a validation. For example, a user-level validation that needs to be \"locked\" to a booking by using a user_id,booking_id tuple. Send the tuple you wish this duplicate to use as its identifier as the new_args key in the body.
+      - Validations
+      summary: Duplicates a validation, overwriting its arguments to copy its data to another…
       operationId: adminDuplicateValidation
       parameters:
       - description: A 24 character hex-encoded ObjectID value.
@@ -117,8 +117,8 @@ paths:
   /admin/validations/{id}/force:
     post:
       tags:
-      - validations
-      summary: Forces an validation into a `passed` state.
+      - Validations
+      summary: Forces an validation into a `passed` state
       operationId: adminForceValidationApproval
       parameters:
       - description: A 24 character hex-encoded ObjectID value.
@@ -132,8 +132,8 @@ paths:
   /admin/validations/{id}/history:
     get:
       tags:
-      - validations
-      summary: Returns the historical list of validation entries.
+      - Validations
+      summary: Returns the historical list of validation entries
       operationId: adminGetValidationHistoryByID
       parameters:
       - description: A 24 character hex-encoded ObjectID value.
@@ -147,7 +147,7 @@ paths:
   /admin/validations/{id}/retry:
     post:
       tags:
-      - validations
+      - Validations
       summary: Retry a validation request if failed or error
       operationId: adminRetryValidation
       parameters:
@@ -162,8 +162,8 @@ paths:
   /validations:
     get:
       tags:
-      - validations
-      summary: Returns a list of validations in the system. The data returned is a public-facing subset of the internal data.
+      - Validations
+      summary: Returns a list of validations in the system.
       operationId: listValidations
       parameters:
       - description: A hash[string]string object containing the fields you wish to query on. If the field names and values match an entry exactly, that entry will be returned. For example, this could be used to fetch a specific tint validation row by sending `{"booking_id":"1234","driver_id":"5678","validator":"tint"}`

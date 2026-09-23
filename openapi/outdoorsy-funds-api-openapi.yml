@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: funds
+- name: Funds
 paths:
   /users/authorization:
     get:
       description: Starts the fund authorization process for the given country
       tags:
-      - funds
+      - Funds
       operationId: continueAuthorization
       responses:
         '200':
@@ -36,10 +36,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Continue authorization
+      x-summary-source: derived
     post:
       description: Return fund authorization details for country
       tags:
-      - funds
+      - Funds
       operationId: completeAuthorization
       parameters:
       - description: API Key used to perform authorization.
@@ -106,10 +108,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Complete authorization
+      x-summary-source: derived
     delete:
       description: Archives the authorization
       tags:
-      - funds
+      - Funds
       operationId: archiveAuthorization
       responses:
         '200':
@@ -118,11 +122,13 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Archive authorization
+      x-summary-source: derived
   /users/authorization-form:
     post:
       description: Return fund authorization BUI form
       tags:
-      - funds
+      - Funds
       operationId: completeAuthorizationFundCreationFormDeprecated
       responses:
         '200':
@@ -138,11 +144,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CompleteAuthorizationAndGetFundCreationFormRequest'
+      summary: Complete authorization fund creation form deprecated
+      x-summary-source: derived
   /users/authorization-form/{bank_id}:
     post:
       description: Return fund authorization BUI form for existing bank
       tags:
-      - funds
+      - Funds
       operationId: completeAuthorizationFundCreationFormByIdDeprecated
       parameters:
       - x-go-name: BankID
@@ -166,11 +174,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CompleteAuthorizationAndGetFundCreationFormRequest'
+      summary: Complete authorization fund creation form by id deprecated
+      x-summary-source: derived
   /users/authorizations:
     get:
       description: Lists any pending authorizations for the user
       tags:
-      - funds
+      - Funds
       operationId: listPendingAuthorizationsAsAdmin
       responses:
         '200':
@@ -179,11 +189,13 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: List pending authorizations as admin
+      x-summary-source: derived
   /users/fund-steps:
     post:
       description: Return fund authorization BUI form
       tags:
-      - funds
+      - Funds
       operationId: getFundSteps
       parameters:
       - description: API Key used to perform authorization.
@@ -210,40 +222,39 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get fund steps
+      x-summary-source: derived
 components:
-  responses:
-    successResponse:
-      description: ''
-    fundCreationFormResponse:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              AuthorizationID:
-                type: string
-              bui:
-                type: object
-                additionalProperties: {}
-                x-go-name: BUI
-    completeAuthorizationResponse:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CompleteAuthorizationResponse'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    unauthorizedError:
-      description: Unauthorized error
-    genericError:
-      description: An unknown, unexpected error.
   schemas:
+    CompleteAuthorizationResponse:
+      description: 'CompleteAuthorizationResponse is the result type of the payouts service
+
+        CompleteAuthorization method.'
+      type: object
+      properties:
+        account_mask:
+          description: The mask for the chose account.
+          type: string
+          x-go-name: AccountMask
+        account_name:
+          description: The name of the chosen account.
+          type: string
+          x-go-name: AccountName
+        authorization_id:
+          description: The ID of the newly created Authorization object.
+          type: string
+          x-go-name: AuthorizationID
+        bui:
+          description: The BUI to display
+          type: object
+          x-go-name: BUI
+        status:
+          description: 'The status of the authorization. Possible values include `pending`,
+
+            `active`, `expired` and `error`.'
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
     CompleteAuthorizationAndGetFundCreationFormRequest:
       description: 'CompleteAuthorizationAndGetFundCreationFormRequest is the payload type of
 
@@ -278,35 +289,38 @@ components:
           type: string
           x-go-name: Token
       x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
-    CompleteAuthorizationResponse:
-      description: 'CompleteAuthorizationResponse is the result type of the payouts service
-
-        CompleteAuthorization method.'
-      type: object
-      properties:
-        account_mask:
-          description: The mask for the chose account.
-          type: string
-          x-go-name: AccountMask
-        account_name:
-          description: The name of the chosen account.
-          type: string
-          x-go-name: AccountName
-        authorization_id:
-          description: The ID of the newly created Authorization object.
-          type: string
-          x-go-name: AuthorizationID
-        bui:
-          description: The BUI to display
-          type: object
-          x-go-name: BUI
-        status:
-          description: 'The status of the authorization. Possible values include `pending`,
-
-            `active`, `expired` and `error`.'
-          type: string
-          x-go-name: Status
-      x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
+  responses:
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    fundCreationFormResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              AuthorizationID:
+                type: string
+              bui:
+                type: object
+                additionalProperties: {}
+                x-go-name: BUI
+    genericError:
+      description: An unknown, unexpected error.
+    successResponse:
+      description: ''
+    completeAuthorizationResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CompleteAuthorizationResponse'
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

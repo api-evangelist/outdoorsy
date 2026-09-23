@@ -17,13 +17,12 @@ security:
 - Bearer:
   - '[]'
 tags:
-- name: breadcrumbs
+- name: Breadcrumbs
 paths:
   /breadcrumbs:
     get:
-      description: Breadcrumb search
       tags:
-      - breadcrumbs
+      - Breadcrumbs
       operationId: breadcrumbSearch
       parameters:
       - name: Locale
@@ -58,11 +57,13 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/breadcrumbResponse'
+      summary: Breadcrumb search
+      x-summary-source: derived
   /breadcrumbs/closest:
     get:
       description: Get closest breadcrumb to lag/lng
       tags:
-      - breadcrumbs
+      - Breadcrumbs
       operationId: closestBreadcrumb
       parameters:
       - name: Lat
@@ -82,15 +83,19 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/closestResponse'
+      summary: Closest breadcrumb
+      x-summary-source: derived
   /breadcrumbs/{id}:
     get:
       description: Get breadcrumb by id
       tags:
-      - breadcrumbs
+      - Breadcrumbs
       operationId: getBreadcrumb
       responses:
         '200':
           $ref: '#/components/responses/retrieveResponse'
+      summary: Get breadcrumb
+      x-summary-source: derived
 components:
   responses:
     retrieveResponse:
@@ -145,6 +150,16 @@ components:
           schema:
             $ref: '#/components/schemas/geoPoint'
   schemas:
+    crumb:
+      type: object
+      properties:
+        title:
+          type: string
+          x-go-name: Title
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb/transport/http
     geoBounds:
       type: object
       properties:
@@ -165,16 +180,6 @@ components:
           format: double
           x-go-name: Lon
       x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
-    crumb:
-      type: object
-      properties:
-        title:
-          type: string
-          x-go-name: Title
-        url:
-          type: string
-          x-go-name: URL
-      x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb/transport/http
   securitySchemes:
     Bearer:
       type: apiKey

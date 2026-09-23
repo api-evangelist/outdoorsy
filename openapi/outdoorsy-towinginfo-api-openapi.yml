@@ -57,18 +57,9 @@ paths:
           $ref: '#/components/responses/towingInfoResponse'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Towing info request
+      x-summary-source: derived
 components:
-  responses:
-    genericError:
-      description: An unknown, unexpected error.
-    towingInfoResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/TowingInfo'
   schemas:
     TowingInfo:
       type: object
@@ -114,6 +105,17 @@ components:
           format: int64
           x-go-name: Year
       x-go-package: github.com/outdoorsy/api/internal/towing_info
+  responses:
+    towingInfoResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TowingInfo'
+    genericError:
+      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

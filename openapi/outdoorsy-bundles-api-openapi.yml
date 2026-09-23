@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: bundles
+- name: Bundles
 paths:
   /bundles:
     get:
       description: List insurance bundles
       tags:
-      - bundles
+      - Bundles
       operationId: listBundles
       responses:
         '200':
@@ -36,10 +36,12 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: List bundles
+      x-summary-source: derived
     post:
       description: Create a bundle
       tags:
-      - bundles
+      - Bundles
       operationId: createBundle
       responses:
         '201':
@@ -55,11 +57,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Bundle'
+      summary: Create bundle
+      x-summary-source: derived
   /bundles/{id}:
     get:
       description: Retrieve bundle by id
       tags:
-      - bundles
+      - Bundles
       operationId: getBundleById
       parameters:
       - x-go-name: ID
@@ -78,10 +82,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get bundle by id
+      x-summary-source: derived
     delete:
       description: Delete insurance bundle
       tags:
-      - bundles
+      - Bundles
       operationId: deleteBundle
       parameters:
       - x-go-name: ID
@@ -98,10 +104,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete bundle
+      x-summary-source: derived
     patch:
       description: Update insurance bundle
       tags:
-      - bundles
+      - Bundles
       operationId: updateBundle
       parameters:
       - x-go-name: ID
@@ -125,11 +133,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Bundle'
+      summary: Update bundle
+      x-summary-source: derived
   /users/{user_id}/bundles:
     get:
       description: List insurance bundles available to renter of the user (owner) who calls this endpoint
       tags:
-      - bundles
+      - Bundles
       operationId: listBundlesAvailableForUser
       parameters:
       - x-go-name: UserID
@@ -153,10 +163,12 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: List bundles available for user
+      x-summary-source: derived
     post:
       description: Creates a bundle rule with the specified bundle and the specified uptake percents for the user (owner) who calls this endpoint
       tags:
-      - bundles
+      - Bundles
       operationId: setBundleUptake
       responses:
         '204':
@@ -172,10 +184,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SetPercentUptake'
+      summary: Set bundle uptake
+      x-summary-source: derived
     delete:
       description: Deletes a bundle rule with the specified bundle for the user (owner) who calls this endpoint
       tags:
-      - bundles
+      - Bundles
       operationId: deleteBundleUptake
       responses:
         '204':
@@ -186,8 +200,20 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete bundle uptake
+      x-summary-source: derived
 components:
   schemas:
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    MSI:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/internal/platform/db
     BundleRule:
       type: object
       properties:
@@ -219,15 +245,30 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/bundle
+    SetPercentUptake:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+        percent_uptake_drivable:
+          type: number
+          format: double
+          x-go-name: PercentDrivable
+        percent_uptake_towable:
+          type: number
+          format: double
+          x-go-name: PercentTowable
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/api/internal/bundle
     BundleFeatures:
       type: array
       items:
         $ref: '#/components/schemas/BundleFeature'
       x-go-package: github.com/outdoorsy/api/internal/bundle
-    MSI:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/internal/platform/db
     BundleFeature:
       type: object
       properties:
@@ -269,31 +310,6 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/bundle
-    SetPercentUptake:
-      type: object
-      properties:
-        bundle_id:
-          type: string
-          x-go-name: BundleID
-        percent_uptake_drivable:
-          type: number
-          format: double
-          x-go-name: PercentDrivable
-        percent_uptake_towable:
-          type: number
-          format: double
-          x-go-name: PercentTowable
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-      x-go-package: github.com/outdoorsy/api/internal/bundle
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
     Bundle:
       type: object
       properties:
@@ -391,8 +407,6 @@ components:
           x-go-name: UsePerMilePricing
       x-go-package: github.com/outdoorsy/api/internal/bundle
   responses:
-    notFoundError:
-      description: Not found error
     bundleResponse:
       description: ''
       content:
@@ -407,14 +421,16 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Bundle'
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
+    notFoundError:
+      description: Not found error
     unauthorizedError:
       description: Unauthorized error
   securitySchemes:

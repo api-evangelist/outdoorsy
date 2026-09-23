@@ -21,14 +21,14 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: auth
+- name: Auth
 paths:
   /auth/creds/create:
     post:
       description: If no password is provided then user is considered a guest.
       tags:
-      - auth
-      summary: Register a new user given a name and email address.
+      - Auth
+      summary: Register a new user given a name and email address
       operationId: authCredsCreate
       responses:
         '200':
@@ -46,7 +46,7 @@ paths:
     post:
       description: Sends email to registered email with password reset instructions
       tags:
-      - auth
+      - Auth
       operationId: authCredsForget
       responses:
         '204':
@@ -64,10 +64,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PasswordForgotRequest'
+      summary: Auth creds forget
+      x-summary-source: derived
   /auth/creds/login:
     post:
       tags:
-      - auth
+      - Auth
       operationId: authCredsLogin
       responses:
         '200':
@@ -83,11 +85,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserLoginRequest'
+      summary: Auth creds login
+      x-summary-source: derived
   /auth/creds/resend:
     post:
       description: Resends password reset email
       tags:
-      - auth
+      - Auth
       operationId: authCredsResend
       responses:
         '200':
@@ -98,6 +102,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Auth creds resend
+      x-summary-source: derived
   /auth/dealers/create:
     post:
       description: 'Creates a dealer account for unauthenticated users through the self-serve signup flow.
@@ -106,8 +112,8 @@ paths:
 
         gaining full access to Wheelbase.'
       tags:
-      - auth
-      summary: Register a new self-serve dealer account.
+      - Auth
+      summary: Register a new self-serve dealer account
       operationId: authDealersSelfServeCreate
       responses:
         '201':
@@ -119,8 +125,8 @@ paths:
   /auth/{provider}/callback:
     get:
       tags:
-      - auth
-      summary: Redirect endpoint after performing oauth flow with facebook, google, apple.
+      - Auth
+      summary: Redirect endpoint after performing oauth flow with facebook, google, apple
       operationId: oauthCallback
       parameters:
       - name: provider
@@ -137,8 +143,8 @@ paths:
     get:
       description: Redirects to respective identity provider.
       tags:
-      - auth
-      summary: Entry point for starting oauth flow with specified provider.
+      - Auth
+      summary: Entry point for starting oauth flow with specified provider
       operationId: oauthLogin
       parameters:
       - name: provider
@@ -154,23 +160,6 @@ paths:
           description: OK
 components:
   schemas:
-    VerificationStatus:
-      type: object
-      properties:
-        email:
-          type: boolean
-          x-go-name: Email
-        phone:
-          type: boolean
-          x-go-name: Phone
-      x-go-package: github.com/outdoorsy/api/types
-    PasswordForgotRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          x-go-name: Email
-      x-go-package: github.com/outdoorsy/api/types
     UserCreateRequest:
       description: authentication
       type: object
@@ -236,6 +225,13 @@ components:
     String:
       type: string
       x-go-package: github.com/outdoorsy/api/utils/password
+    PasswordForgotRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          x-go-name: Email
+      x-go-package: github.com/outdoorsy/api/types
     UserAuthResponse:
       type: object
       properties:
@@ -313,8 +309,26 @@ components:
           type: boolean
           x-go-name: WithRefreshToken
       x-go-package: github.com/outdoorsy/api/types
+    VerificationStatus:
+      type: object
+      properties:
+        email:
+          type: boolean
+          x-go-name: Email
+        phone:
+          type: boolean
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/types
   responses:
-    authCreateResponse:
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    userAuthResponse:
       description: HTTP status code 200 and user model
       content:
         application/json:
@@ -322,24 +336,16 @@ components:
             $ref: '#/components/schemas/UserAuthResponse'
     notFoundError:
       description: Not found error
-    userAuthResponse:
+    genericError:
+      description: An unknown, unexpected error.
+    authCreateResponse:
       description: HTTP status code 200 and user model
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/UserAuthResponse'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    noContentResponse:
-      description: Everything went as planned
     unauthorizedError:
       description: Unauthorized error
-    genericError:
-      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

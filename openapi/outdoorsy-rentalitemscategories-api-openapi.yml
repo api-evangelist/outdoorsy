@@ -48,7 +48,7 @@ paths:
         Supports pagination via limit and offset parameters (omit limit to return all matching records).'
       tags:
       - RentalItemsCategories
-      summary: Admin endpoint to list all rental items categories with comprehensive filtering and sorting
+      summary: Admin endpoint to list all rental items categories with comprehensive filtering…
       operationId: adminListCategoriesRequest
       responses:
         '200':
@@ -112,6 +112,8 @@ paths:
           $ref: '#/components/responses/genericError'
 components:
   responses:
+    genericError:
+      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
     notFoundError:
@@ -122,8 +124,6 @@ components:
         Error:
           schema:
             type: string
-    genericError:
-      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

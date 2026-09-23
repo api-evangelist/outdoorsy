@@ -17,13 +17,13 @@ security:
 - Bearer:
   - '[]'
 tags:
-- name: geodata
+- name: Geodata
 paths:
   /geodata/my-ip:
     get:
       description: Returns geographic data based on request IP
       tags:
-      - geodata
+      - Geodata
       operationId: getAddressForIP
       parameters:
       - x-go-name: Locale
@@ -36,6 +36,8 @@ paths:
           $ref: '#/components/responses/jsonApiGetAddressForIPResponse'
         '400':
           $ref: '#/components/responses/badRequestError'
+      summary: Get address for IP
+      x-summary-source: derived
 components:
   schemas:
     GeodataResponse:

@@ -79,6 +79,8 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Get special hours
+      x-summary-source: derived
     post:
       description: Create special hours for the specified date
       tags:
@@ -96,6 +98,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SpecialHour'
+      summary: Create special hour
+      x-summary-source: derived
   /special-hours/{id}:
     get:
       description: Retrieve special hour by id
@@ -117,8 +121,9 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get special hour
+      x-summary-source: derived
     delete:
-      description: Delete special hour
       tags:
       - specialHours
       operationId: deleteSpecialHour
@@ -137,8 +142,9 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete special hour
+      x-summary-source: derived
     patch:
-      description: Update special hour
       tags:
       - specialHours
       operationId: updateSpecialHour
@@ -162,50 +168,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SpecialHour'
+      summary: Update special hour
+      x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    specialHourResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SpecialHour'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    noContentResponse:
-      description: Everything went as planned
-    specialHoursResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/SpecialHour'
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
-    SpecialHourDropoff:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
     DBStringSlice:
       description: DBStringSlice is a []string with database conversion methods
       type: array
@@ -277,6 +243,48 @@ components:
           type: boolean
           x-go-name: Unavailable
       x-go-package: github.com/outdoorsy/api/internal/special_hours
+    SpecialHourDropoff:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    specialHourResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SpecialHour'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
+    specialHoursResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/SpecialHour'
   securitySchemes:
     API-Key:
       type: apiKey

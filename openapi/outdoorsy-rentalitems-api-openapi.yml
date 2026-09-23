@@ -97,6 +97,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: List rental items
+      x-summary-source: derived
     post:
       description: Creates a new item for a given rental
       tags:
@@ -118,6 +120,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RentalItem'
+      summary: Create rental item
+      x-summary-source: derived
   /items/{id}:
     get:
       description: Creates a new item for a given rental
@@ -143,6 +147,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get rental item by id
+      x-summary-source: derived
     delete:
       description: Creates a new item for a given rental
       tags:
@@ -165,6 +171,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete rental item by id
+      x-summary-source: derived
     patch:
       description: Creates a new item for a given rental
       tags:
@@ -194,6 +202,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RentalItem'
+      summary: Update rental item
+      x-summary-source: derived
 components:
   schemas:
     RentalItem:
@@ -331,10 +341,6 @@ components:
         updated:
           $ref: '#/components/schemas/NullTime'
       x-go-package: github.com/outdoorsy/api/model
-    IMap:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
     NullTime:
       description: 'NullTime represents a time.Time that may be null. NullTime implements the
 
@@ -349,6 +355,16 @@ components:
         Valid:
           type: boolean
       x-go-package: github.com/lib/pq
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
     TaxRate:
       type: object
       properties:
@@ -392,31 +408,17 @@ components:
           type: string
           x-go-name: ZipCode
       x-go-package: github.com/outdoorsy/api/internal/tax_rates
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
   responses:
-    notFoundError:
-      description: Not found error
-    rentalItemResponse:
-      description: HTTP status code 200 and rental item model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RentalItem'
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
     rentalItemsResponse:
       description: HTTP status code 200 and array of rental items
       content:
@@ -425,8 +427,16 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/RentalItem'
-    genericError:
-      description: An unknown, unexpected error.
+    rentalItemResponse:
+      description: HTTP status code 200 and rental item model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RentalItem'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

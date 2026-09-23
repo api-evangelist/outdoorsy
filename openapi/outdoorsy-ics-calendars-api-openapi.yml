@@ -27,7 +27,7 @@ paths:
     get:
       tags:
       - ics-calendars
-      summary: Returns list of ICSCalendar for a given user. Optionally could filter by user owned rental.
+      summary: Returns list of ICSCalendar for a given user.
       operationId: fetchCalendars
       parameters:
       - x-go-name: OwnerId
@@ -56,7 +56,7 @@ paths:
     post:
       tags:
       - ics-calendars
-      summary: Create calendar record with pending calendar log and trigger SyncICSCalendar job to sync it.
+      summary: Create calendar record with pending calendar log and trigger SyncICSCalendar…
       operationId: linkCalendar
       parameters:
       - x-go-name: OwnerId
@@ -85,7 +85,7 @@ paths:
     post:
       tags:
       - ics-calendars
-      summary: Trigger a job to sync all user eligible (last sync started at least 3 minutes ago) callendars. Optionally could be triggered for a specific user's calendar or user owned rental.
+      summary: Trigger a job to sync all user eligible (last sync started at least 3 minutes…
       operationId: syncCalendars
       parameters:
       - x-go-name: OwnerId
@@ -114,7 +114,7 @@ paths:
     delete:
       tags:
       - ics-calendars
-      summary: Delete calendar record with and calendar's logs.
+      summary: Delete calendar record with and calendar's logs
       operationId: unlinkCalendar
       parameters:
       - x-go-name: OwnerId
@@ -145,7 +145,7 @@ paths:
     get:
       tags:
       - ics-calendars
-      summary: Returns an .ics file with Outdoorsy availability per rental.
+      summary: Returns an .ics file with Outdoorsy availability per rental
       operationId: downloadICSFile
       parameters:
       - x-go-name: RentalId
@@ -166,7 +166,7 @@ paths:
     get:
       tags:
       - ics-calendars
-      summary: Returns URL to the .ics file download link.
+      summary: Returns URL to the .ics file download link
       operationId: exportURL
       parameters:
       - x-go-name: RentalId
@@ -187,6 +187,10 @@ paths:
           $ref: '#/components/responses/genericError'
 components:
   responses:
+    noContentResponse:
+      description: Everything went as planned
+    urlResponse:
+      description: ''
     calendarResponse:
       description: ''
       content:
@@ -196,24 +200,20 @@ components:
             items:
               $ref: '#/components/schemas/ICSCalendar'
             $ref: '#/components/schemas/ICSCalendar'
-    notFoundError:
-      description: Not found error
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
     icsFileResponse:
-      description: ''
-    urlResponse:
       description: ''
     genericError:
       description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
     LinkICSCalendarRequest:
       type: object
@@ -228,18 +228,6 @@ components:
         url:
           type: string
           x-go-name: URL
-      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
-    GetManyRequest:
-      type: object
-      properties:
-        calendar_id:
-          type: integer
-          format: int64
-          x-go-name: CalendarID
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
       x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
     ICSCalendar:
       type: object
@@ -269,6 +257,18 @@ components:
           type: string
           x-go-name: URL
       x-go-package: github.com/outdoorsy/api/internal/ics/calendars
+    GetManyRequest:
+      type: object
+      properties:
+        calendar_id:
+          type: integer
+          format: int64
+          x-go-name: CalendarID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
   securitySchemes:
     API-Key:
       type: apiKey

@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: twoFactorAuth
+- name: Two Factor Auth
 paths:
   /2fa/send:
     post:
       description: Create and send verification code
       tags:
-      - twoFactorAuth
+      - Two Factor Auth
       operationId: sendCode
       responses:
         '201':
@@ -41,11 +41,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/TwoFARequest'
+      summary: Send code
+      x-summary-source: derived
   /2fa/setup-method:
     post:
-      description: Setup preferred method
       tags:
-      - twoFactorAuth
+      - Two Factor Auth
       operationId: setupPreferredMethod
       responses:
         '201':
@@ -59,11 +60,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/TwoFASetupMethod'
+      summary: Setup preferred method
+      x-summary-source: derived
   /2fa/verify:
     patch:
-      description: Verify code
       tags:
-      - twoFactorAuth
+      - Two Factor Auth
       operationId: verifyCode
       responses:
         '200':
@@ -77,19 +79,20 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/VerifyCodeRequest'
+      summary: Verify code
+      x-summary-source: derived
 components:
-  responses:
-    successResponse:
-      description: ''
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
+    TwoFARequest:
+      type: object
+      properties:
+        session_id_2fa:
+          type: string
+          x-go-name: SessionID
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
     VerifyCodeRequest:
       type: object
       properties:
@@ -113,16 +116,17 @@ components:
           type: string
           x-go-name: SessionID
       x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
-    TwoFARequest:
-      type: object
-      properties:
-        session_id_2fa:
-          type: string
-          x-go-name: SessionID
-        type:
-          type: string
-          x-go-name: Type
-      x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
+  responses:
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    successResponse:
+      description: ''
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

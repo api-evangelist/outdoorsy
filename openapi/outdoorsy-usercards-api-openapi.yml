@@ -46,6 +46,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get user cards
+      x-summary-source: derived
     post:
       description: Create a credit card and assigns to user
       tags:
@@ -73,6 +75,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateCard'
+      summary: Create card
+      x-summary-source: derived
   /users/{user_id}/cards/{card_id}:
     delete:
       description: Retrieve user cards
@@ -111,6 +115,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete user card
+      x-summary-source: derived
     patch:
       description: Set default card for the user
       tags:
@@ -140,11 +146,10 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Update user card
+      x-summary-source: derived
 components:
   schemas:
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
     CreateCard:
       type: object
       properties:
@@ -178,6 +183,9 @@ components:
         name:
           $ref: '#/components/schemas/PaymentProcessorName'
       x-go-package: github.com/outdoorsy/api/model
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
     UserCard:
       type: object
       properties:
@@ -224,8 +232,14 @@ components:
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/model
   responses:
-    notFoundError:
-      description: Not found error
+    cardResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserCard'
+    noContentResponse:
+      description: Everything went as planned
     cardsResponse:
       description: ''
       content:
@@ -240,18 +254,12 @@ components:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
-    cardResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserCard'
     genericError:
       description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

@@ -53,11 +53,13 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete scheduled payout
+      x-summary-source: derived
   /bookings/{booking_id}/transactions:
     get:
       tags:
       - bookingTransactions
-      summary: Returns all transactions for a booking. Optionally filtered by type.
+      summary: Returns all transactions for a booking. Optionally filtered by type
       operationId: listBookingTransactions
       parameters:
       - x-go-name: BookingID
@@ -112,6 +114,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Transaction'
+      summary: Create transaction
+      x-summary-source: derived
   /bookings/{booking_id}/transactions/{transaction_id}:
     get:
       description: Retrieve booking transaction record by id
@@ -144,6 +148,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get booking transaction
+      x-summary-source: derived
     delete:
       description: Delete pending transaction on the specified booking
       tags:
@@ -173,6 +179,8 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete pending transaction
+      x-summary-source: derived
     patch:
       description: Update booking pending transaction
       tags:
@@ -209,11 +217,20 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ptxUpdate'
+      summary: Update booking transaction
+      x-summary-source: derived
 components:
   schemas:
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
+    ptxUpdate:
+      type: object
+      properties:
+        card_id:
+          type: integer
+          format: int64
+          x-go-name: CardID
+        due:
+          type: string
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
     PaymentProcessor:
       description: 'Typically this object is composed into a struct, but embedded into the
 
@@ -235,16 +252,9 @@ components:
         name:
           $ref: '#/components/schemas/PaymentProcessorName'
       x-go-package: github.com/outdoorsy/api/model
-    ptxUpdate:
-      type: object
-      properties:
-        card_id:
-          type: integer
-          format: int64
-          x-go-name: CardID
-        due:
-          type: string
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
     Transaction:
       type: object
       properties:
@@ -480,14 +490,8 @@ components:
       additionalProperties: {}
       x-go-package: github.com/outdoorsy/api/utils
   responses:
-    transactionResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Transaction'
-    notFoundError:
-      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
@@ -502,12 +506,18 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Transaction'
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
     genericError:
       description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    transactionResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Transaction'
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

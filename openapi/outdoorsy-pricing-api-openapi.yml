@@ -21,14 +21,14 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: pricing
+- name: Pricing
 paths:
   /pricing:
     get:
       description: Only used during the LYRV flow to show an owner a range of possible income.
       tags:
-      - pricing
-      summary: Return estimated price when listing your vehicle by make, model and location.
+      - Pricing
+      summary: Return estimated price when listing your vehicle by make, model and location
       operationId: getPricing
       parameters:
       - x-go-name: Lat
@@ -69,8 +69,8 @@ paths:
   /pricing/aggregate:
     get:
       tags:
-      - pricing
-      summary: Return price aggregation for nearby rentals around given lat and lng in 50 miles radius.
+      - Pricing
+      summary: Return price aggregation for nearby rentals around given lat and lng in 50…
       operationId: getPricingAggregation
       parameters:
       - x-go-name: Lat
@@ -96,8 +96,8 @@ paths:
 
         Better calculation than the original endpoint. i think this is the actual one we use'
       tags:
-      - pricing
-      summary: Return estimated price when listing your vehicle by make, model and location.
+      - Pricing
+      summary: Return estimated price when listing your vehicle by make, model and location
       operationId: getPricingV2
       parameters:
       - x-go-name: Lat
@@ -149,74 +149,6 @@ paths:
           $ref: '#/components/responses/notFoundError'
 components:
   responses:
-    aggregateResponseV2:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              max_price:
-                type: number
-                format: double
-                x-go-name: MaxPrice
-              min_price:
-                type: number
-                format: double
-                x-go-name: MinPrice
-              rental_count:
-                type: integer
-                format: int64
-                x-go-name: RentalCount
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    pricingResponseV2:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              high:
-                type: object
-                properties:
-                  day:
-                    type: integer
-                    format: int64
-                    x-go-name: Day
-                  month:
-                    type: integer
-                    format: int64
-                    x-go-name: Month
-                  week:
-                    type: integer
-                    format: int64
-                    x-go-name: Week
-                x-go-name: High
-              low:
-                type: object
-                properties:
-                  day:
-                    type: integer
-                    format: int64
-                    x-go-name: Day
-                  month:
-                    type: integer
-                    format: int64
-                    x-go-name: Month
-                  week:
-                    type: integer
-                    format: int64
-                    x-go-name: Week
-                x-go-name: Low
-    unauthorizedError:
-      description: Unauthorized error
     pricingResponse:
       description: HTTP status code 200
       content:
@@ -259,6 +191,74 @@ components:
               mmi:
                 type: boolean
                 x-go-name: MMI
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    aggregateResponseV2:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              max_price:
+                type: number
+                format: double
+                x-go-name: MaxPrice
+              min_price:
+                type: number
+                format: double
+                x-go-name: MinPrice
+              rental_count:
+                type: integer
+                format: int64
+                x-go-name: RentalCount
+    pricingResponseV2:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              high:
+                type: object
+                properties:
+                  day:
+                    type: integer
+                    format: int64
+                    x-go-name: Day
+                  month:
+                    type: integer
+                    format: int64
+                    x-go-name: Month
+                  week:
+                    type: integer
+                    format: int64
+                    x-go-name: Week
+                x-go-name: High
+              low:
+                type: object
+                properties:
+                  day:
+                    type: integer
+                    format: int64
+                    x-go-name: Day
+                  month:
+                    type: integer
+                    format: int64
+                    x-go-name: Month
+                  week:
+                    type: integer
+                    format: int64
+                    x-go-name: Week
+                x-go-name: Low
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

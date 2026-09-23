@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: admin
+- name: Admin
 paths:
   /admin/users/{user_id}/resend-confirmation:
     post:
       description: Resends email confirmation for a specific user (Admin only)
       tags:
-      - admin
+      - Admin
       operationId: adminAuthCredsResendForUser
       responses:
         '204':
@@ -38,16 +38,18 @@ paths:
           $ref: '#/components/responses/notFoundError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Admin auth creds resend for user
+      x-summary-source: derived
 components:
   responses:
     unauthorizedError:
       description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
     notFoundError:
       description: Not found error
     noContentResponse:
       description: Everything went as planned
-    genericError:
-      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

@@ -17,31 +17,35 @@ security:
 - Bearer:
   - '[]'
 tags:
-- name: campgrounds
+- name: Campgrounds
 paths:
   /campgrounds:
     get:
       description: Search performs search on campgrounds
       tags:
-      - campgrounds
+      - Campgrounds
       operationId: searchCampgrounds
       responses:
         '200':
           $ref: '#/components/responses/jsonApiRentalsResponse'
+      summary: Search campgrounds
+      x-summary-source: derived
   /campgrounds/nearby-for-rental/{rental_id}:
     get:
       description: Searches nearby campgrounds for given rental with rental_id
       tags:
-      - campgrounds
+      - Campgrounds
       operationId: searchCampgrounds
       responses:
         '200':
           $ref: '#/components/responses/jsonApiRentalsResponse'
+      summary: Search campgrounds
+      x-summary-source: derived
   /campgrounds/{id}:
     get:
       description: Get campgrounds by id
       tags:
-      - campgrounds
+      - Campgrounds
       operationId: getCampground
       parameters:
       - x-go-name: ID
@@ -54,22 +58,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/jsonApiRentalsResponse'
+      summary: Get campground
+      x-summary-source: derived
 components:
   schemas:
-    Relationships:
-      description: http://jsonapi.org/format/#document-resource-object-relationships
-      type: object
-      title: Relationships represents a JSON API relationships object
-      additionalProperties:
-        $ref: '#/components/schemas/Relationship'
-      x-go-package: github.com/smotes/jsonapi
-    Links:
-      description: http://jsonapi.org/format/#document-links
-      type: object
-      title: Links represents a JSON API links object, which can include JSON API link objects or strings
-        representing links.
-      additionalProperties: {}
-      x-go-package: github.com/smotes/jsonapi
     Resource:
       description: 'Note that any of the optional keys will be omitted if a value is not provided.
 
@@ -106,6 +98,19 @@ components:
         type:
           type: string
           x-go-name: Type
+      x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
       x-go-package: github.com/smotes/jsonapi
     Relationship:
       type: object

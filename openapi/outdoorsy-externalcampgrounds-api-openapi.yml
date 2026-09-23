@@ -83,8 +83,7 @@ paths:
         schema:
           type: string
       - x-go-name: TagsSwaggerPlaceholder
-        description: List of tags, e.g. "Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for
-          couples"
+        description: List of tags, e.g. "Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for couples"
         name: filter[tags]
         in: query
         schema:
@@ -126,16 +125,13 @@ paths:
         schema:
           type: string
       - x-go-name: SortBySwaggerPlaceholder
-        description: One or many of "price", "-price", "position", "-position", "seatbelts", "-seatbelts",
-          "sleeps", "-sleeps", "rating", "-rating", "distance", "-distance", "num_reviews", "-num_reviews",
-          "new_listings"
+        description: One or many of "price", "-price", "position", "-position", "seatbelts", "-seatbelts", "sleeps", "-sleeps", "rating", "-rating", "distance", "-distance", "num_reviews", "-num_reviews", "new_listings"
         name: sort
         in: query
         schema:
           type: string
       - x-go-name: AutoRadiusSwaggerPlaceholder
-        description: 'Increment search radius until enough results are provided (specified by ''page[limit]''
-          parameter.)
+        description: 'Increment search radius until enough results are provided (specified by ''page[limit]'' parameter.)
 
           Max radius is 1000 miles. (default false)'
         name: auto_radius
@@ -258,15 +254,13 @@ paths:
           type: integer
           format: int64
       - x-go-name: Near
-        description: Latitude,longitude to search near, e.g. "38.302,-121.972". Supersedes address. Superseded
-          by bounding box.
+        description: Latitude,longitude to search near, e.g. "38.302,-121.972". Supersedes address. Superseded by bounding box.
         name: near
         in: query
         schema:
           type: string
       - x-go-name: Address
-        description: 'Street address to search near. Superseded by latitude/longitude and by bounding
-          box.
+        description: 'Street address to search near. Superseded by latitude/longitude and by bounding box.
 
           If no `address` is passed, GeoIP is used to get geo coordinates.'
         name: address
@@ -276,8 +270,7 @@ paths:
           items:
             type: string
       - x-go-name: DeliveryAddress
-        description: Street address to be delivered to. Supersedes `address` field. Default radius 100
-          miles
+        description: Street address to be delivered to. Supersedes `address` field. Default radius 100 miles
         name: delivery_address
         in: query
         schema:
@@ -338,8 +331,7 @@ paths:
           type: number
           format: double
       - x-go-name: UnlimitedMiles
-        description: Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true,
-          False
+        description: Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true, False
         name: unlimited_miles
         in: query
         schema:
@@ -462,8 +454,7 @@ paths:
         schema:
           type: string
       - x-go-name: VehicleMake
-        description: 'Vehicle make. Examples: "Jeep", "Horse", "Catering", "Winnebago", "Champion", "Komfort",
-          "Thor Motor Coach"'
+        description: 'Vehicle make. Examples: "Jeep", "Horse", "Catering", "Winnebago", "Champion", "Komfort", "Thor Motor Coach"'
         name: filter[vehicle_make]
         in: query
         schema:
@@ -665,6 +656,8 @@ paths:
           $ref: '#/components/responses/jsonApiExternalCampgroundsResponse'
         '400':
           $ref: '#/components/responses/badRequestError'
+      summary: Search external campgrounds
+      x-summary-source: derived
   /external-campgrounds/nearby-for-rental/{rental_id}:
     get:
       description: Searches nearby claimed and unclaimed campgrounds for a given rental with rental_id
@@ -682,6 +675,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/jsonApiNearbyCampgroundsResponse'
+      summary: Search nearby campgrounds
+      x-summary-source: derived
   /external-campgrounds/{id}:
     get:
       description: Get external campgrounds by id
@@ -746,8 +741,7 @@ paths:
         schema:
           type: string
       - x-go-name: TagsSwaggerPlaceholder
-        description: List of tags, e.g. "Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for
-          couples"
+        description: List of tags, e.g. "Family Friendly,Luxury,Photo Friendly,Easy to Drive,Good for couples"
         name: filter[tags]
         in: query
         schema:
@@ -789,16 +783,13 @@ paths:
         schema:
           type: string
       - x-go-name: SortBySwaggerPlaceholder
-        description: One or many of "price", "-price", "position", "-position", "seatbelts", "-seatbelts",
-          "sleeps", "-sleeps", "rating", "-rating", "distance", "-distance", "num_reviews", "-num_reviews",
-          "new_listings"
+        description: One or many of "price", "-price", "position", "-position", "seatbelts", "-seatbelts", "sleeps", "-sleeps", "rating", "-rating", "distance", "-distance", "num_reviews", "-num_reviews", "new_listings"
         name: sort
         in: query
         schema:
           type: string
       - x-go-name: AutoRadiusSwaggerPlaceholder
-        description: 'Increment search radius until enough results are provided (specified by ''page[limit]''
-          parameter.)
+        description: 'Increment search radius until enough results are provided (specified by ''page[limit]'' parameter.)
 
           Max radius is 1000 miles. (default false)'
         name: auto_radius
@@ -921,15 +912,13 @@ paths:
           type: integer
           format: int64
       - x-go-name: Near
-        description: Latitude,longitude to search near, e.g. "38.302,-121.972". Supersedes address. Superseded
-          by bounding box.
+        description: Latitude,longitude to search near, e.g. "38.302,-121.972". Supersedes address. Superseded by bounding box.
         name: near
         in: query
         schema:
           type: string
       - x-go-name: Address
-        description: 'Street address to search near. Superseded by latitude/longitude and by bounding
-          box.
+        description: 'Street address to search near. Superseded by latitude/longitude and by bounding box.
 
           If no `address` is passed, GeoIP is used to get geo coordinates.'
         name: address
@@ -939,8 +928,7 @@ paths:
           items:
             type: string
       - x-go-name: DeliveryAddress
-        description: Street address to be delivered to. Supersedes `address` field. Default radius 100
-          miles
+        description: Street address to be delivered to. Supersedes `address` field. Default radius 100 miles
         name: delivery_address
         in: query
         schema:
@@ -1001,8 +989,7 @@ paths:
           type: number
           format: double
       - x-go-name: UnlimitedMiles
-        description: Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true,
-          False
+        description: Only return results with unlimited miles? Boolean string, e.g. 1, 0, T, f, true, False
         name: unlimited_miles
         in: query
         schema:
@@ -1125,8 +1112,7 @@ paths:
         schema:
           type: string
       - x-go-name: VehicleMake
-        description: 'Vehicle make. Examples: "Jeep", "Horse", "Catering", "Winnebago", "Champion", "Komfort",
-          "Thor Motor Coach"'
+        description: 'Vehicle make. Examples: "Jeep", "Horse", "Catering", "Winnebago", "Champion", "Komfort", "Thor Motor Coach"'
         name: filter[vehicle_make]
         in: query
         schema:
@@ -1305,90 +1291,10 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get external campground
+      x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    jsonApiNearbyCampgroundsResponse:
-      description: ''
-      content:
-        application/vnd.api+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/NearbyCampground'
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/NearbyCampground'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    jsonApiExternalCampgroundsResponse:
-      description: ''
-      content:
-        application/vnd.api+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Resource'
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Resource'
   schemas:
-    Relationships:
-      description: http://jsonapi.org/format/#document-resource-object-relationships
-      type: object
-      title: Relationships represents a JSON API relationships object
-      additionalProperties:
-        $ref: '#/components/schemas/Relationship'
-      x-go-package: github.com/smotes/jsonapi
-    Links:
-      description: http://jsonapi.org/format/#document-links
-      type: object
-      title: Links represents a JSON API links object, which can include JSON API link objects or strings
-        representing links.
-      additionalProperties: {}
-      x-go-package: github.com/smotes/jsonapi
-    NearbyCampground:
-      description: Combines external campgrounds and unclaimed campgrounds (locality content of type campground)
-      type: object
-      properties:
-        claimed_campground_id:
-          type: integer
-          format: int64
-          x-go-name: ClaimedCampgroundID
-        distance_in_miles:
-          type: number
-          format: double
-          x-go-name: DistanceInMiles
-        is_claimed:
-          type: boolean
-          x-go-name: Claimed
-        is_odn:
-          type: boolean
-          x-go-name: IsODN
-        location:
-          $ref: '#/components/schemas/Location'
-        name:
-          type: string
-          x-go-name: Name
-        odn_id:
-          type: string
-          x-go-name: OdnID
-        primary_image_url:
-          type: string
-          x-go-name: PrimaryImageURL
-        url:
-          type: string
-          x-go-name: URL
-      x-go-package: github.com/outdoorsy/odc-search/types
     Location:
       description: Location to hold address details
       type: object
@@ -1420,9 +1326,6 @@ components:
           type: string
           x-go-name: Zip
       x-go-package: github.com/outdoorsy/odc-search/types
-    ABTest:
-      type: object
-      x-go-package: github.com/outdoorsy/ds-abtest/abtest
     Resource:
       description: 'Note that any of the optional keys will be omitted if a value is not provided.
 
@@ -1460,6 +1363,55 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    NearbyCampground:
+      description: Combines external campgrounds and unclaimed campgrounds (locality content of type campground)
+      type: object
+      properties:
+        claimed_campground_id:
+          type: integer
+          format: int64
+          x-go-name: ClaimedCampgroundID
+        distance_in_miles:
+          type: number
+          format: double
+          x-go-name: DistanceInMiles
+        is_claimed:
+          type: boolean
+          x-go-name: Claimed
+        is_odn:
+          type: boolean
+          x-go-name: IsODN
+        location:
+          $ref: '#/components/schemas/Location'
+        name:
+          type: string
+          x-go-name: Name
+        odn_id:
+          type: string
+          x-go-name: OdnID
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ABTest:
+      type: object
+      x-go-package: github.com/outdoorsy/ds-abtest/abtest
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
+      x-go-package: github.com/smotes/jsonapi
     Relationship:
       type: object
       title: Relationship represents a member of the JSON API relationships object.
@@ -1474,6 +1426,41 @@ components:
           additionalProperties: {}
           x-go-name: Meta
       x-go-package: github.com/smotes/jsonapi
+  responses:
+    jsonApiExternalCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    jsonApiNearbyCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NearbyCampground'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NearbyCampground'
+    notFoundError:
+      description: Not found error
   securitySchemes:
     Bearer:
       type: apiKey

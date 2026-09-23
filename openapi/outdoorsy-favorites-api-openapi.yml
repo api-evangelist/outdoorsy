@@ -21,13 +21,13 @@ security:
 - API-Key:
   - '[]'
 tags:
-- name: favorites
+- name: Favorites
 paths:
   /favorites:
     get:
       description: Get list of rental favorites for authenticated user
       tags:
-      - favorites
+      - Favorites
       operationId: getFavorites
       responses:
         '200':
@@ -36,10 +36,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Get favorites
+      x-summary-source: derived
     post:
       description: Marks a rental as a favorite for the user
       tags:
-      - favorites
+      - Favorites
       operationId: createFavorite
       responses:
         '200':
@@ -48,10 +50,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Create favorite
+      x-summary-source: derived
     delete:
       description: Delete favorite using the rental id
       tags:
-      - favorites
+      - Favorites
       operationId: deleteFavoriteByRentalId
       parameters:
       - x-go-name: RentalID
@@ -68,11 +72,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete favorite by rental id
+      x-summary-source: derived
   /favorites/{id}:
     delete:
-      description: Delete favorite by id
       tags:
-      - favorites
+      - Favorites
       operationId: deleteFavoriteById
       parameters:
       - x-go-name: ID
@@ -89,8 +94,12 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         default:
           $ref: '#/components/responses/genericError'
+      summary: Delete favorite by id
+      x-summary-source: derived
 components:
   responses:
+    noContentResponse:
+      description: Everything went as planned
     favoritesResponse:
       description: ''
       content:
@@ -99,18 +108,16 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Favorite'
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
     favoriteResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Favorite'
-    genericError:
-      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
     Favorite:
       type: object

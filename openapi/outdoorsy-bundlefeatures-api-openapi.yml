@@ -43,6 +43,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BundleFeature'
+      summary: Create bundle feature
+      x-summary-source: derived
   /bundles/{bundle_id}/features/{id}:
     get:
       description: Retrieve bundle feature by id
@@ -73,8 +75,9 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Get bundle feature by id
+      x-summary-source: derived
     delete:
-      description: Delete bundle feature
       tags:
       - bundleFeatures
       operationId: deleteBundleFeature
@@ -100,8 +103,9 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Delete bundle feature
+      x-summary-source: derived
     patch:
-      description: Update bundle feature
       tags:
       - bundleFeatures
       operationId: updateBundleFeature
@@ -134,27 +138,16 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BundleFeature'
+      summary: Update bundle feature
+      x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    bundleFeatureResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/BundleFeature'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    noContentResponse:
-      description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
     BundleFeature:
       type: object
       properties:
@@ -196,12 +189,25 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/bundle
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    bundleFeatureResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BundleFeature'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

@@ -56,6 +56,8 @@ paths:
           $ref: '#/components/responses/badRequestError'
         '401':
           $ref: '#/components/responses/unauthorizedError'
+      summary: Read many scheduled emails
+      x-summary-source: derived
   /bookings/{booking_id}/system-emails:
     get:
       description: Returns list of System Emails for a given limit and offset
@@ -71,6 +73,8 @@ paths:
           $ref: '#/components/responses/unauthorizedError'
         '404':
           $ref: '#/components/responses/notFoundError'
+      summary: Read system emails request
+      x-summary-source: derived
   /bookings/{booking_id}/system-emails/resend:
     post:
       description: Resend or forward an email from the System Emails tab on the reservation page
@@ -97,24 +101,26 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/resendSystemEmailRequest'
+      summary: Resend system email
+      x-summary-source: derived
 components:
   responses:
-    notFoundError:
-      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    noContentResponse:
-      description: Everything went as planned
     readManyScheduledEmailsResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ScheduledEmailsResponse'
+    notFoundError:
+      description: Not found error
     unauthorizedError:
       description: Unauthorized error
   schemas:
@@ -125,6 +131,22 @@ components:
           $ref: '#/components/schemas/scheduledEmailsDataResponse'
         meta:
           $ref: '#/components/schemas/scheduledEmailsMetaResponse'
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    resendSystemEmailRequest:
+      type: object
+      properties:
+        first_name:
+          type: string
+          x-go-name: FirstName
+        forward_email:
+          type: string
+          x-go-name: ForwardEmail
+        last_name:
+          type: string
+          x-go-name: LastName
+        service_id:
+          type: string
+          x-go-name: ServiceID
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
     CustomEmailJob:
       type: object
@@ -173,22 +195,6 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/libs/mailer
-    resendSystemEmailRequest:
-      type: object
-      properties:
-        first_name:
-          type: string
-          x-go-name: FirstName
-        forward_email:
-          type: string
-          x-go-name: ForwardEmail
-        last_name:
-          type: string
-          x-go-name: LastName
-        service_id:
-          type: string
-          x-go-name: ServiceID
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
     scheduledEmailsDataResponse:
       type: object
       properties:
