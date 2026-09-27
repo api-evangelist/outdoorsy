@@ -226,35 +226,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CompleteAuthorizationResponse:
-      description: 'CompleteAuthorizationResponse is the result type of the payouts service
-
-        CompleteAuthorization method.'
-      type: object
-      properties:
-        account_mask:
-          description: The mask for the chose account.
-          type: string
-          x-go-name: AccountMask
-        account_name:
-          description: The name of the chosen account.
-          type: string
-          x-go-name: AccountName
-        authorization_id:
-          description: The ID of the newly created Authorization object.
-          type: string
-          x-go-name: AuthorizationID
-        bui:
-          description: The BUI to display
-          type: object
-          x-go-name: BUI
-        status:
-          description: 'The status of the authorization. Possible values include `pending`,
-
-            `active`, `expired` and `error`.'
-          type: string
-          x-go-name: Status
-      x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
     CompleteAuthorizationAndGetFundCreationFormRequest:
       description: 'CompleteAuthorizationAndGetFundCreationFormRequest is the payload type of
 
@@ -289,6 +260,35 @@ components:
           type: string
           x-go-name: Token
       x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
+    CompleteAuthorizationResponse:
+      description: 'CompleteAuthorizationResponse is the result type of the payouts service
+
+        CompleteAuthorization method.'
+      type: object
+      properties:
+        account_mask:
+          description: The mask for the chose account.
+          type: string
+          x-go-name: AccountMask
+        account_name:
+          description: The name of the chosen account.
+          type: string
+          x-go-name: AccountName
+        authorization_id:
+          description: The ID of the newly created Authorization object.
+          type: string
+          x-go-name: AuthorizationID
+        bui:
+          description: The BUI to display
+          type: object
+          x-go-name: BUI
+        status:
+          description: 'The status of the authorization. Possible values include `pending`,
+
+            `active`, `expired` and `error`.'
+          type: string
+          x-go-name: Status
+      x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
   responses:
     badRequestError:
       description: Invalid input or state means you're bad
@@ -309,10 +309,10 @@ components:
                 type: object
                 additionalProperties: {}
                 x-go-name: BUI
-    genericError:
-      description: An unknown, unexpected error.
     successResponse:
       description: ''
+    genericError:
+      description: An unknown, unexpected error.
     completeAuthorizationResponse:
       description: HTTP status code 200
       content:

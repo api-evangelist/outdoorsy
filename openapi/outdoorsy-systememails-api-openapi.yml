@@ -105,8 +105,8 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    noContentResponse:
-      description: Everything went as planned
+    notFoundError:
+      description: Not found error
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
@@ -119,19 +119,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ScheduledEmailsResponse'
-    notFoundError:
-      description: Not found error
     unauthorizedError:
       description: Unauthorized error
+    noContentResponse:
+      description: Everything went as planned
   schemas:
-    ScheduledEmailsResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/scheduledEmailsDataResponse'
-        meta:
-          $ref: '#/components/schemas/scheduledEmailsMetaResponse'
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
     resendSystemEmailRequest:
       type: object
       properties:
@@ -195,14 +187,13 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/libs/mailer
-    scheduledEmailsDataResponse:
+    ScheduledEmailsResponse:
       type: object
       properties:
-        scheduled_emails:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomEmailJob'
-          x-go-name: ScheduledEmails
+        data:
+          $ref: '#/components/schemas/scheduledEmailsDataResponse'
+        meta:
+          $ref: '#/components/schemas/scheduledEmailsMetaResponse'
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
     scheduledEmailsMetaResponse:
       type: object
@@ -219,6 +210,15 @@ components:
           type: integer
           format: int64
           x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    scheduledEmailsDataResponse:
+      type: object
+      properties:
+        scheduled_emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomEmailJob'
+          x-go-name: ScheduledEmails
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
   securitySchemes:
     API-Key:

@@ -38,6 +38,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    AmenityGroup:
+      type: object
+      properties:
+        amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          x-go-name: Amenities
+        group:
+          type: string
+          x-go-name: Slug
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/amenities
     Amenity:
       type: object
       properties:
@@ -60,22 +75,9 @@ components:
       additionalProperties:
         type: string
       x-go-package: github.com/outdoorsy/api/utils
-    AmenityGroup:
-      type: object
-      properties:
-        amenities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Amenity'
-          x-go-name: Amenities
-        group:
-          type: string
-          x-go-name: Slug
-        name:
-          type: string
-          x-go-name: Name
-      x-go-package: github.com/outdoorsy/api/internal/amenities
   responses:
+    genericError:
+      description: An unknown, unexpected error.
     amenitiesResponse:
       description: ''
       content:
@@ -84,8 +86,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/AmenityGroup'
-    genericError:
-      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

@@ -98,8 +98,6 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    noContentResponse:
-      description: Everything went as planned
     favoritesResponse:
       description: ''
       content:
@@ -110,14 +108,16 @@ components:
               $ref: '#/components/schemas/Favorite'
     genericError:
       description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
     favoriteResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Favorite'
-    unauthorizedError:
-      description: Unauthorized error
+    noContentResponse:
+      description: Everything went as planned
   schemas:
     Favorite:
       type: object

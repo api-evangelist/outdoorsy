@@ -159,7 +159,83 @@ paths:
         '200':
           description: OK
 components:
+  responses:
+    notFoundError:
+      description: Not found error
+    authCreateResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    userAuthResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
+    noContentResponse:
+      description: Everything went as planned
   schemas:
+    PasswordForgotRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          x-go-name: Email
+      x-go-package: github.com/outdoorsy/api/types
+    VerificationStatus:
+      type: object
+      properties:
+        email:
+          type: boolean
+          x-go-name: Email
+        phone:
+          type: boolean
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/types
+    String:
+      type: string
+      x-go-package: github.com/outdoorsy/api/utils/password
+    UserLoginRequest:
+      type: object
+      properties:
+        account_id:
+          type: string
+          x-go-name: AccountID
+        biometric_id:
+          type: string
+          x-go-name: BiometricID
+        dealer_user:
+          type: boolean
+          x-go-name: DealerUser
+        email:
+          type: string
+          x-go-name: Email
+        password:
+          $ref: '#/components/schemas/String'
+        recaptcha_response:
+          type: string
+          x-go-name: RecaptchaResponse
+        with_refresh_token:
+          description: 'Used mainly for mobile clients to provide some backward
+
+            compatibility for them to work with access tokens only.
+
+            Will be removed when mobile adoption rate hits certain percentage'
+          type: boolean
+          x-go-name: WithRefreshToken
+      x-go-package: github.com/outdoorsy/api/types
     UserCreateRequest:
       description: authentication
       type: object
@@ -222,16 +298,6 @@ components:
           type: boolean
           x-go-name: WithRefreshToken
       x-go-package: github.com/outdoorsy/api/types
-    String:
-      type: string
-      x-go-package: github.com/outdoorsy/api/utils/password
-    PasswordForgotRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          x-go-name: Email
-      x-go-package: github.com/outdoorsy/api/types
     UserAuthResponse:
       type: object
       properties:
@@ -280,72 +346,6 @@ components:
         verifications:
           $ref: '#/components/schemas/VerificationStatus'
       x-go-package: github.com/outdoorsy/api/types
-    UserLoginRequest:
-      type: object
-      properties:
-        account_id:
-          type: string
-          x-go-name: AccountID
-        biometric_id:
-          type: string
-          x-go-name: BiometricID
-        dealer_user:
-          type: boolean
-          x-go-name: DealerUser
-        email:
-          type: string
-          x-go-name: Email
-        password:
-          $ref: '#/components/schemas/String'
-        recaptcha_response:
-          type: string
-          x-go-name: RecaptchaResponse
-        with_refresh_token:
-          description: 'Used mainly for mobile clients to provide some backward
-
-            compatibility for them to work with access tokens only.
-
-            Will be removed when mobile adoption rate hits certain percentage'
-          type: boolean
-          x-go-name: WithRefreshToken
-      x-go-package: github.com/outdoorsy/api/types
-    VerificationStatus:
-      type: object
-      properties:
-        email:
-          type: boolean
-          x-go-name: Email
-        phone:
-          type: boolean
-          x-go-name: Phone
-      x-go-package: github.com/outdoorsy/api/types
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    userAuthResponse:
-      description: HTTP status code 200 and user model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserAuthResponse'
-    notFoundError:
-      description: Not found error
-    genericError:
-      description: An unknown, unexpected error.
-    authCreateResponse:
-      description: HTTP status code 200 and user model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserAuthResponse'
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

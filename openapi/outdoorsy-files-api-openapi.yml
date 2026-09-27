@@ -213,22 +213,22 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    fileResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/File'
-    noContentResponse:
-      description: Everything went as planned
+    notFoundError:
+      description: Not found error
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    notFoundError:
-      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
+    fileResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/File'
     filesResponse:
       description: ''
       content:
@@ -237,8 +237,8 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/File'
-    unauthorizedError:
-      description: Unauthorized error
+    noContentResponse:
+      description: Everything went as planned
   schemas:
     File:
       type: object

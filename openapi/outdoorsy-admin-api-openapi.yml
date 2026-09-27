@@ -42,12 +42,12 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    unauthorizedError:
-      description: Unauthorized error
-    genericError:
-      description: An unknown, unexpected error.
     notFoundError:
       description: Not found error
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
     noContentResponse:
       description: Everything went as planned
   securitySchemes:

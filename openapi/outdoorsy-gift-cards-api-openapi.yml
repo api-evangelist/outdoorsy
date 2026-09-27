@@ -97,8 +97,6 @@ paths:
         required: true
 components:
   responses:
-    genericError:
-      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
     badRequestError:
@@ -107,6 +105,8 @@ components:
         Error:
           schema:
             type: string
+    genericError:
+      description: An unknown, unexpected error.
   schemas:
     Code:
       type: string

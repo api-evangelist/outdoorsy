@@ -82,7 +82,28 @@ paths:
       summary: Verify code
       x-summary-source: derived
 components:
+  responses:
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    successResponse:
+      description: ''
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
+    TwoFASetupMethod:
+      type: object
+      properties:
+        preferred_2fa_method:
+          type: string
+          x-go-name: Preferred2FAMethod
+        session_id_2fa:
+          type: string
+          x-go-name: SessionID
+      x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
     TwoFARequest:
       type: object
       properties:
@@ -106,27 +127,6 @@ components:
           type: string
           x-go-name: SessionID
       x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
-    TwoFASetupMethod:
-      type: object
-      properties:
-        preferred_2fa_method:
-          type: string
-          x-go-name: Preferred2FAMethod
-        session_id_2fa:
-          type: string
-          x-go-name: SessionID
-      x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
-  responses:
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    successResponse:
-      description: ''
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

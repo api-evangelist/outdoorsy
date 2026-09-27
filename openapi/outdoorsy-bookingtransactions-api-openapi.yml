@@ -220,7 +220,41 @@ paths:
       summary: Update booking transaction
       x-summary-source: derived
 components:
+  responses:
+    notFoundError:
+      description: Not found error
+    transactionsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
+    transactionResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Transaction'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    noContentResponse:
+      description: Everything went as planned
   schemas:
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
     ptxUpdate:
       type: object
       properties:
@@ -231,6 +265,9 @@ components:
         due:
           type: string
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
     PaymentProcessor:
       description: 'Typically this object is composed into a struct, but embedded into the
 
@@ -252,9 +289,6 @@ components:
         name:
           $ref: '#/components/schemas/PaymentProcessorName'
       x-go-package: github.com/outdoorsy/api/model
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
     Transaction:
       type: object
       properties:
@@ -484,40 +518,6 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/outdoorsy/api/model
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    transactionsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Transaction'
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    transactionResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Transaction'
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

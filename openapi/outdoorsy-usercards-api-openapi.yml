@@ -149,6 +149,35 @@ paths:
       summary: Update user card
       x-summary-source: derived
 components:
+  responses:
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    cardsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserCard'
+    unauthorizedError:
+      description: Unauthorized error
+    cardResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserCard'
   schemas:
     CreateCard:
       type: object
@@ -162,6 +191,9 @@ components:
           type: string
           x-go-name: StripeToken
       x-go-package: github.com/outdoorsy/api/types
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
     PaymentProcessor:
       description: 'Typically this object is composed into a struct, but embedded into the
 
@@ -183,9 +215,6 @@ components:
         name:
           $ref: '#/components/schemas/PaymentProcessorName'
       x-go-package: github.com/outdoorsy/api/model
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
     UserCard:
       type: object
       properties:
@@ -231,35 +260,6 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/model
-  responses:
-    cardResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserCard'
-    noContentResponse:
-      description: Everything went as planned
-    cardsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/UserCard'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

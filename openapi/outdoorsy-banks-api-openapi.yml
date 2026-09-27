@@ -243,7 +243,7 @@ paths:
       description: Updates the specified connected bank
       tags:
       - Banks
-      operationId: updateBankAccount
+      operationId: patchUsersBanksById
       parameters:
       - x-go-name: ID
         name: id
@@ -266,8 +266,120 @@ paths:
               $ref: '#/components/schemas/VendorBody'
       summary: Update bank account
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: updateBankAccount
 components:
   schemas:
+    Business:
+      type: object
+      properties:
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_policy_combo_bookings:
+          type: string
+          x-go-name: CancelPolicyComboBookings
+        cancel_text:
+          type: string
+          x-go-name: CancelText
+        checkout_questions:
+          $ref: '#/components/schemas/DBMSISlice'
+        consigned_keep_pct_addon_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctAddonFee
+        consigned_keep_pct_cc_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctCCFee
+        consigned_keep_pct_insurance_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctInsuranceFee
+        consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: ConsignedPayPct
+        consigned_pay_pct_generator:
+          type: number
+          format: double
+          x-go-name: ConsignedPayPctGenerator
+        consigned_pay_pct_mileage:
+          type: number
+          format: double
+          x-go-name: ConsignedPayPctMileage
+        description:
+          type: string
+          x-go-name: Description
+        fax:
+          type: string
+          x-go-name: Fax
+        ga4_id:
+          type: string
+          x-go-name: GA4ID
+        google_analytics_id:
+          type:
+          - string
+          - 'null'
+        google_tag_manager_id:
+          type:
+          - string
+          - 'null'
+        hide_rentals:
+          type: boolean
+          x-go-name: HideRentals
+        house_rules:
+          type: string
+          x-go-name: HouseRules
+        localized_languages:
+          $ref: '#/components/schemas/DBStringSlice'
+        name:
+          type: string
+          x-go-name: Name
+        outdoorsy_display_name:
+          type: string
+          x-go-name: OutdoorsyDisplayName
+        phone:
+          type: string
+          x-go-name: Phone
+        segment_token:
+          type: string
+          x-go-name: SegmentToken
+        terms_of_service:
+          type: string
+          x-go-name: TermsOfService
+        website:
+          type: string
+          x-go-name: Website
+      x-go-package: github.com/outdoorsy/api/model
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    PaymentAddress:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
     DBStringSlice:
       description: DBStringSlice is a []string with database conversion methods
       type: array
@@ -290,34 +402,6 @@ components:
           type: string
           x-go-name: Name
       x-go-package: github.com/outdoorsy/api/controller/broker
-    DBMSISlice:
-      description: DBMSISlice is a []string with database conversion methods
-      type: array
-      items:
-        type: object
-        additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
-    PaymentProcessor:
-      description: 'Typically this object is composed into a struct, but embedded into the
-
-        same table using the `db:",embed"` struct tag.'
-      type: object
-      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
-
-        payment processor should be used when communicating with a payment processor.'
-      properties:
-        country:
-          type: string
-          x-go-name: Country
-        external_processor:
-          type: string
-          x-go-name: ExternalProcessor
-        external_processor_id:
-          type: string
-          x-go-name: ExternalProcessorID
-        name:
-          $ref: '#/components/schemas/PaymentProcessorName'
-      x-go-package: github.com/outdoorsy/api/model
     VendorBody:
       type: object
       properties:
@@ -327,104 +411,16 @@ components:
         vendor:
           $ref: '#/components/schemas/Vendor'
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
-    Vendor:
-      description: 'Vendor contains details about a vendor in the provider''s system. It is
-
-        used for creating, updating and retrieving.'
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/Address'
-        bank_address:
-          type: string
-          x-go-name: BankAddress
-        birth_date:
-          type: string
-          format: date-time
-          x-go-name: BirthDate
-        business:
-          $ref: '#/components/schemas/Business'
-        currency:
-          type: string
-          x-go-name: Currency
-        debit_agreement_ip:
-          type: string
-          x-go-name: DebitAgreementIP
-        debit_agreement_shown_and_accepted:
-          type: boolean
-          x-go-name: DebitAgreementShownAndAcceptedDate
-        debit_agreement_user_agent:
-          type: string
-          x-go-name: DebitAgreementUserAgent
-        deposit_account:
-          $ref: '#/components/schemas/DepositAccount'
-        email:
-          type: string
-          x-go-name: Email
-        external_accounts:
-          type: integer
-          format: int64
-          x-go-name: ExternalAccounts
-        first_name:
-          type: string
-          x-go-name: FirstName
-        fund_id:
-          type: string
-          x-go-name: FundID
-        id:
-          type: string
-          x-go-name: ID
-        last_name:
-          type: string
-          x-go-name: LastName
-        merchant_of_record:
-          type: boolean
-          x-go-name: MerchantOfRecord
-        missing_fields:
-          type: array
-          items:
-            type: string
-          x-go-name: MissingFields
-        nickname:
-          type: string
-          x-go-name: Nickname
-        no_additional_owners:
-          type: boolean
-          x-go-name: NoAdditionalOwners
-        payouts_enabled:
-          type: boolean
-          x-go-name: PayoutsEnabled
-        personal_id:
-          type: string
-          x-go-name: PersonalID
-        phone:
-          type: string
-          x-go-name: Phone
-        reference_number:
-          type: string
-          x-go-name: ReferenceNumber
-        sort_code:
-          type: string
-          x-go-name: SortCode
-        ssn_last_four:
-          type: string
-          x-go-name: SSNLastFour
-        status:
-          type: string
-          x-go-name: Status
-        support_phone:
-          type: string
-          x-go-name: SupportPhone
-        type:
-          type: string
-          x-go-name: Type
-        url:
-          type: string
-          x-go-name: URL
-        verified:
-          type: boolean
-          x-go-name: Verified
+    PaymentProcessorName:
+      type: string
       x-go-package: github.com/outdoorsy/api/controller/broker
+    DBMSISlice:
+      description: DBMSISlice is a []string with database conversion methods
+      type: array
+      items:
+        type: object
+        additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
     PaymentProcessingInfo:
       type: object
       properties:
@@ -531,11 +527,27 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/model
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+    PaymentProcessor:
+      description: 'Typically this object is composed into a struct, but embedded into the
+
+        same table using the `db:",embed"` struct tag.'
       type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
+      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
+
+        payment processor should be used when communicating with a payment processor.'
+      properties:
+        country:
+          type: string
+          x-go-name: Country
+        external_processor:
+          type: string
+          x-go-name: ExternalProcessor
+        external_processor_id:
+          type: string
+          x-go-name: ExternalProcessorID
+        name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+      x-go-package: github.com/outdoorsy/api/model
     Address:
       description: Address holds address information for a user
       type: object
@@ -562,127 +574,115 @@ components:
           type: string
           x-go-name: Zip
       x-go-package: github.com/outdoorsy/api/model
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
-    PaymentAddress:
+    Vendor:
+      description: 'Vendor contains details about a vendor in the provider''s system. It is
+
+        used for creating, updating and retrieving.'
       type: object
       properties:
-        city:
+        address:
+          $ref: '#/components/schemas/Address'
+        bank_address:
           type: string
-          x-go-name: City
-        country:
+          x-go-name: BankAddress
+        birth_date:
           type: string
-          x-go-name: Country
-        state:
+          format: date-time
+          x-go-name: BirthDate
+        business:
+          $ref: '#/components/schemas/Business'
+        currency:
           type: string
-          x-go-name: State
-        street:
+          x-go-name: Currency
+        debit_agreement_ip:
           type: string
-          x-go-name: Street
-        street_etc:
-          type: string
-          x-go-name: StreetEtc
-        zip:
-          type: string
-          x-go-name: Zip
-      x-go-package: github.com/outdoorsy/api/model
-    Business:
-      type: object
-      properties:
-        cancel_policy:
-          type: string
-          x-go-name: CancelPolicy
-        cancel_policy_combo_bookings:
-          type: string
-          x-go-name: CancelPolicyComboBookings
-        cancel_text:
-          type: string
-          x-go-name: CancelText
-        checkout_questions:
-          $ref: '#/components/schemas/DBMSISlice'
-        consigned_keep_pct_addon_fee:
-          type: number
-          format: double
-          x-go-name: ConsignedKeepPctAddonFee
-        consigned_keep_pct_cc_fee:
-          type: number
-          format: double
-          x-go-name: ConsignedKeepPctCCFee
-        consigned_keep_pct_insurance_fee:
-          type: number
-          format: double
-          x-go-name: ConsignedKeepPctInsuranceFee
-        consigned_pay_pct:
-          description: consigned owner support
-          type: number
-          format: double
-          x-go-name: ConsignedPayPct
-        consigned_pay_pct_generator:
-          type: number
-          format: double
-          x-go-name: ConsignedPayPctGenerator
-        consigned_pay_pct_mileage:
-          type: number
-          format: double
-          x-go-name: ConsignedPayPctMileage
-        description:
-          type: string
-          x-go-name: Description
-        fax:
-          type: string
-          x-go-name: Fax
-        ga4_id:
-          type: string
-          x-go-name: GA4ID
-        google_analytics_id:
-          type:
-          - string
-          - 'null'
-        google_tag_manager_id:
-          type:
-          - string
-          - 'null'
-        hide_rentals:
+          x-go-name: DebitAgreementIP
+        debit_agreement_shown_and_accepted:
           type: boolean
-          x-go-name: HideRentals
-        house_rules:
+          x-go-name: DebitAgreementShownAndAcceptedDate
+        debit_agreement_user_agent:
           type: string
-          x-go-name: HouseRules
-        localized_languages:
-          $ref: '#/components/schemas/DBStringSlice'
-        name:
+          x-go-name: DebitAgreementUserAgent
+        deposit_account:
+          $ref: '#/components/schemas/DepositAccount'
+        email:
           type: string
-          x-go-name: Name
-        outdoorsy_display_name:
+          x-go-name: Email
+        external_accounts:
+          type: integer
+          format: int64
+          x-go-name: ExternalAccounts
+        first_name:
           type: string
-          x-go-name: OutdoorsyDisplayName
+          x-go-name: FirstName
+        fund_id:
+          type: string
+          x-go-name: FundID
+        id:
+          type: string
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+        merchant_of_record:
+          type: boolean
+          x-go-name: MerchantOfRecord
+        missing_fields:
+          type: array
+          items:
+            type: string
+          x-go-name: MissingFields
+        nickname:
+          type: string
+          x-go-name: Nickname
+        no_additional_owners:
+          type: boolean
+          x-go-name: NoAdditionalOwners
+        payouts_enabled:
+          type: boolean
+          x-go-name: PayoutsEnabled
+        personal_id:
+          type: string
+          x-go-name: PersonalID
         phone:
           type: string
           x-go-name: Phone
-        segment_token:
+        reference_number:
           type: string
-          x-go-name: SegmentToken
-        terms_of_service:
+          x-go-name: ReferenceNumber
+        sort_code:
           type: string
-          x-go-name: TermsOfService
-        website:
+          x-go-name: SortCode
+        ssn_last_four:
           type: string
-          x-go-name: Website
-      x-go-package: github.com/outdoorsy/api/model
+          x-go-name: SSNLastFour
+        status:
+          type: string
+          x-go-name: Status
+        support_phone:
+          type: string
+          x-go-name: SupportPhone
+        type:
+          type: string
+          x-go-name: Type
+        url:
+          type: string
+          x-go-name: URL
+        verified:
+          type: boolean
+          x-go-name: Verified
+      x-go-package: github.com/outdoorsy/api/controller/broker
   responses:
-    noContentResponse:
-      description: Everything went as planned
+    forbiddenError:
+      description: Forbidden error
     bankResponse:
       description: HTTP status code 200
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/PaymentProcessingInfo'
-    genericError:
-      description: An unknown, unexpected error.
-    unauthorizedError:
-      description: Unauthorized error
+    noContentResponse:
+      description: Everything went as planned
     listBankResponse:
       description: HTTP status code 200
       content:
@@ -691,8 +691,10 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/PaymentProcessingInfo'
-    forbiddenError:
-      description: Forbidden error
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

@@ -82,7 +82,39 @@ paths:
       summary: Update checkout steps
       x-summary-source: derived
 components:
+  responses:
+    notFoundError:
+      description: Not found error
+    checkoutStepsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadResponse'
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
+    UpdateRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        status:
+          type: string
+          x-go-name: Status
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckoutStep'
+          x-go-name: Steps
+      x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
     ReadResponse:
       type: object
       properties:
@@ -119,38 +151,6 @@ components:
           type: string
           x-go-name: Status
       x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
-    UpdateRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        name:
-          type: string
-          x-go-name: Name
-        status:
-          type: string
-          x-go-name: Status
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/CheckoutStep'
-          x-go-name: Steps
-      x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
-  responses:
-    checkoutStepsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ReadResponse'
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

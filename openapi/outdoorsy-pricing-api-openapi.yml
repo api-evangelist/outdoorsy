@@ -149,6 +149,35 @@ paths:
           $ref: '#/components/responses/notFoundError'
 components:
   responses:
+    notFoundError:
+      description: Not found error
+    aggregateResponseV2:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              max_price:
+                type: number
+                format: double
+                x-go-name: MaxPrice
+              min_price:
+                type: number
+                format: double
+                x-go-name: MinPrice
+              rental_count:
+                type: integer
+                format: int64
+                x-go-name: RentalCount
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    unauthorizedError:
+      description: Unauthorized error
     pricingResponse:
       description: HTTP status code 200
       content:
@@ -191,31 +220,6 @@ components:
               mmi:
                 type: boolean
                 x-go-name: MMI
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    aggregateResponseV2:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              max_price:
-                type: number
-                format: double
-                x-go-name: MaxPrice
-              min_price:
-                type: number
-                format: double
-                x-go-name: MinPrice
-              rental_count:
-                type: integer
-                format: int64
-                x-go-name: RentalCount
     pricingResponseV2:
       description: HTTP status code 200
       content:
@@ -255,10 +259,6 @@ components:
                     format: int64
                     x-go-name: Week
                 x-go-name: Low
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

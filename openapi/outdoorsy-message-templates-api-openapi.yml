@@ -174,18 +174,8 @@ paths:
               $ref: '#/components/schemas/Template'
 components:
   responses:
-    noContentResponse:
-      description: Everything went as planned
-    messageTemplateResponse:
-      description: HTTP status code 200 and conversation model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Template'
     notFoundError:
       description: Not found error
-    genericError:
-      description: An unknown, unexpected error.
     listMessageTemplatesResponse:
       description: HTTP status code 200 and array of conversation models
       content:
@@ -194,10 +184,20 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Template'
-    unauthorizedError:
-      description: Unauthorized error
     forbiddenError:
       description: Forbidden error
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    messageTemplateResponse:
+      description: HTTP status code 200 and conversation model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Template'
+    noContentResponse:
+      description: Everything went as planned
   schemas:
     Int64Array:
       type: array

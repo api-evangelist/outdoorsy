@@ -587,76 +587,38 @@ paths:
       summary: Decline bid
       x-summary-source: derived
 components:
+  responses:
+    notFoundError:
+      description: Not found error
+    forbiddenError:
+      description: Forbidden error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    bidResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bid'
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    listBidsResponse:
+      description: HTTP status code 200 and array of bid models
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Bid'
   schemas:
-    BidMatches:
-      type: array
-      items:
-        $ref: '#/components/schemas/BidMatch'
-      x-go-package: github.com/outdoorsy/api/internal/instamatch
-    NullFloat64:
-      description: 'NullFloat64 implements the [Scanner] interface so
-
-        it can be used as a scan destination, similar to [NullString].'
-      type: object
-      title: NullFloat64 represents a float64 that may be null.
-      properties:
-        Float64:
-          type: number
-          format: double
-        Valid:
-          type: boolean
-      x-go-package: database/sql
-    BidMatch:
-      type: object
-      properties:
-        bid_id:
-          $ref: '#/components/schemas/Bid'
-        booking_id:
-          type: integer
-          format: int64
-        conversation_id:
-          type: integer
-          format: int64
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        match_location_type:
-          type:
-          - string
-          - 'null'
-        message_sent:
-          type: boolean
-          x-go-name: MessageSent
-        owner_id:
-          type: integer
-          format: int64
-        owner_read:
-          type: boolean
-          x-go-name: OwnerRead
-        rental_id:
-          type: integer
-          format: int64
-        renter_id:
-          type: integer
-          format: int64
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        status:
-          type: string
-          x-go-name: Status
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-      x-go-package: github.com/outdoorsy/api/internal/instamatch
     Bid:
       type: object
       properties:
@@ -819,37 +781,75 @@ components:
           format: int64
           x-go-name: Year
       x-go-package: github.com/outdoorsy/api/internal/instamatch
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    bidResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Bid'
-    notFoundError:
-      description: Not found error
-    genericError:
-      description: An unknown, unexpected error.
-    unauthorizedError:
-      description: Unauthorized error
-    listBidsResponse:
-      description: HTTP status code 200 and array of bid models
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Bid'
-    forbiddenError:
-      description: Forbidden error
+    BidMatches:
+      type: array
+      items:
+        $ref: '#/components/schemas/BidMatch'
+      x-go-package: github.com/outdoorsy/api/internal/instamatch
+    NullFloat64:
+      description: 'NullFloat64 implements the [Scanner] interface so
+
+        it can be used as a scan destination, similar to [NullString].'
+      type: object
+      title: NullFloat64 represents a float64 that may be null.
+      properties:
+        Float64:
+          type: number
+          format: double
+        Valid:
+          type: boolean
+      x-go-package: database/sql
+    BidMatch:
+      type: object
+      properties:
+        bid_id:
+          $ref: '#/components/schemas/Bid'
+        booking_id:
+          type: integer
+          format: int64
+        conversation_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        match_location_type:
+          type:
+          - string
+          - 'null'
+        message_sent:
+          type: boolean
+          x-go-name: MessageSent
+        owner_id:
+          type: integer
+          format: int64
+        owner_read:
+          type: boolean
+          x-go-name: OwnerRead
+        rental_id:
+          type: integer
+          format: int64
+        renter_id:
+          type: integer
+          format: int64
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/instamatch
   securitySchemes:
     API-Key:
       type: apiKey
