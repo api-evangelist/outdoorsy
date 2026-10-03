@@ -203,65 +203,13 @@ paths:
       summary: Delete bundle uptake
       x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    bundlesResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Bundle'
-    unauthorizedError:
-      description: Unauthorized error
-    bundleResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Bundle'
-    noContentResponse:
-      description: Everything went as planned
   schemas:
-    BundleRule:
-      type: object
-      properties:
-        bundle_id:
-          type: string
-          x-go-name: BundleID
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        id:
-          type: string
-          x-go-name: ID
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-        rule:
-          $ref: '#/components/schemas/MSI'
-        type:
-          type: string
-          x-go-name: Type
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-      x-go-package: github.com/outdoorsy/api/internal/bundle
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
     SetPercentUptake:
       type: object
       properties:
@@ -281,62 +229,6 @@ components:
           format: int64
           x-go-name: RentalID
       x-go-package: github.com/outdoorsy/api/internal/bundle
-    BundleFeatures:
-      type: array
-      items:
-        $ref: '#/components/schemas/BundleFeature'
-      x-go-package: github.com/outdoorsy/api/internal/bundle
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
-    BundleFeature:
-      type: object
-      properties:
-        bundle_id:
-          type: string
-          x-go-name: BundleID
-        category:
-          type: string
-          x-go-name: Category
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        details:
-          type: string
-          x-go-name: Details
-        id:
-          type: string
-          x-go-name: ID
-        name:
-          type: string
-          x-go-name: Name
-        position:
-          type: integer
-          format: int64
-          x-go-name: Position
-        regions:
-          $ref: '#/components/schemas/DBStringSlice'
-        service_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        type:
-          type: string
-          x-go-name: Type
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-      x-go-package: github.com/outdoorsy/api/internal/bundle
-    MSI:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/internal/platform/db
     Bundle:
       type: object
       properties:
@@ -433,6 +325,114 @@ components:
           type: boolean
           x-go-name: UsePerMilePricing
       x-go-package: github.com/outdoorsy/api/internal/bundle
+    BundleFeature:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+        category:
+          type: string
+          x-go-name: Category
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        details:
+          type: string
+          x-go-name: Details
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        regions:
+          $ref: '#/components/schemas/DBStringSlice'
+        service_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        type:
+          type: string
+          x-go-name: Type
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/bundle
+    MSI:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/internal/platform/db
+    BundleFeatures:
+      type: array
+      items:
+        $ref: '#/components/schemas/BundleFeature'
+      x-go-package: github.com/outdoorsy/api/internal/bundle
+    BundleRule:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: string
+          x-go-name: ID
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        rule:
+          $ref: '#/components/schemas/MSI'
+        type:
+          type: string
+          x-go-name: Type
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/internal/bundle
+  responses:
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    bundleResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bundle'
+    bundlesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Bundle'
   securitySchemes:
     API-Key:
       type: apiKey

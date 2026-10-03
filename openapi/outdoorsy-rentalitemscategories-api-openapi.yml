@@ -112,18 +112,18 @@ paths:
           $ref: '#/components/responses/genericError'
 components:
   responses:
+    genericError:
+      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
+    notFoundError:
+      description: Not found error
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
         Error:
           schema:
             type: string
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
   securitySchemes:
     API-Key:
       type: apiKey

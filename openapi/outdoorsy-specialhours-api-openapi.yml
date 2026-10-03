@@ -172,42 +172,12 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SpecialHourDropoff:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
     DBStringSlice:
       description: DBStringSlice is a []string with database conversion methods
       type: array
       items:
         type: string
       x-go-package: github.com/outdoorsy/api/utils
-    SpecialHourPickup:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
     SpecialHour:
       description: '───────────────────────────────────────────────────────────────────────────
 
@@ -258,15 +228,37 @@ components:
         weekdays:
           $ref: '#/components/schemas/DBStringSlice'
       x-go-package: github.com/outdoorsy/api/internal/special_hours
+    SpecialHourDropoff:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    SpecialHourPickup:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
   responses:
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
     unauthorizedError:
       description: Unauthorized error
     specialHoursResponse:
@@ -277,14 +269,22 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/SpecialHour'
+    notFoundError:
+      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
     specialHourResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/SpecialHour'
-    noContentResponse:
-      description: Everything went as planned
   securitySchemes:
     API-Key:
       type: apiKey

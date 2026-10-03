@@ -160,14 +160,24 @@ paths:
           description: OK
 components:
   responses:
-    notFoundError:
-      description: Not found error
+    userAuthResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
     authCreateResponse:
       description: HTTP status code 200 and user model
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/UserAuthResponse'
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
@@ -176,17 +186,10 @@ components:
             type: string
     genericError:
       description: An unknown, unexpected error.
-    unauthorizedError:
-      description: Unauthorized error
-    userAuthResponse:
-      description: HTTP status code 200 and user model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserAuthResponse'
-    noContentResponse:
-      description: Everything went as planned
   schemas:
+    String:
+      type: string
+      x-go-package: github.com/outdoorsy/api/utils/password
     PasswordForgotRequest:
       type: object
       properties:
@@ -194,19 +197,6 @@ components:
           type: string
           x-go-name: Email
       x-go-package: github.com/outdoorsy/api/types
-    VerificationStatus:
-      type: object
-      properties:
-        email:
-          type: boolean
-          x-go-name: Email
-        phone:
-          type: boolean
-          x-go-name: Phone
-      x-go-package: github.com/outdoorsy/api/types
-    String:
-      type: string
-      x-go-package: github.com/outdoorsy/api/utils/password
     UserLoginRequest:
       type: object
       properties:
@@ -235,6 +225,16 @@ components:
             Will be removed when mobile adoption rate hits certain percentage'
           type: boolean
           x-go-name: WithRefreshToken
+      x-go-package: github.com/outdoorsy/api/types
+    VerificationStatus:
+      type: object
+      properties:
+        email:
+          type: boolean
+          x-go-name: Email
+        phone:
+          type: boolean
+          x-go-name: Phone
       x-go-package: github.com/outdoorsy/api/types
     UserCreateRequest:
       description: authentication

@@ -205,36 +205,74 @@ paths:
       summary: Update rental item
       x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
-    unauthorizedError:
-      description: Unauthorized error
-    rentalItemsResponse:
-      description: HTTP status code 200 and array of rental items
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/RentalItem'
-    rentalItemResponse:
-      description: HTTP status code 200 and rental item model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RentalItem'
-    noContentResponse:
-      description: Everything went as planned
   schemas:
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    TaxRate:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        marketplace:
+          type: boolean
+          x-go-name: MarketPlace
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        state:
+          description: carry through to booking_tax_rates table from avalara
+          type: string
+          x-go-name: State
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
     RentalItem:
       type: object
       properties:
@@ -370,73 +408,35 @@ components:
         updated:
           $ref: '#/components/schemas/NullTime'
       x-go-package: github.com/outdoorsy/api/model
-    NullTime:
-      description: 'NullTime represents a time.Time that may be null. NullTime implements the
-
-        sql.Scanner interface so it can be used as a scan destination, similar to
-
-        sql.NullString.'
-      type: object
-      properties:
-        Time:
-          type: string
-          format: date-time
-        Valid:
-          type: boolean
-      x-go-package: github.com/lib/pq
-    IMap:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
-    TaxRate:
-      type: object
-      properties:
-        archived:
-          type: boolean
-          x-go-name: Archived
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        description:
-          type: string
-          x-go-name: Description
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        marketplace:
-          type: boolean
-          x-go-name: MarketPlace
-        name:
-          type: string
-          x-go-name: Name
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        rate:
-          type: number
-          format: double
-          x-go-name: Rate
-        state:
-          description: carry through to booking_tax_rates table from avalara
-          type: string
-          x-go-name: State
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        zip_code:
-          type: string
-          x-go-name: ZipCode
-      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+  responses:
+    rentalItemResponse:
+      description: HTTP status code 200 and rental item model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RentalItem'
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
+    rentalItemsResponse:
+      description: HTTP status code 200 and array of rental items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RentalItem'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
   securitySchemes:
     API-Key:
       type: apiKey

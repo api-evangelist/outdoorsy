@@ -290,12 +290,6 @@ components:
           x-go-name: Status
       x-go-package: github.com/outdoorsy/api/pkg/payouts/gen
   responses:
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
     fundCreationFormResponse:
       description: HTTP status code 200
       content:
@@ -309,18 +303,24 @@ components:
                 type: object
                 additionalProperties: {}
                 x-go-name: BUI
-    successResponse:
-      description: ''
-    genericError:
-      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
     completeAuthorizationResponse:
       description: HTTP status code 200
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/CompleteAuthorizationResponse'
-    unauthorizedError:
-      description: Unauthorized error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+    successResponse:
+      description: ''
   securitySchemes:
     API-Key:
       type: apiKey

@@ -196,40 +196,6 @@ paths:
       summary: Disable user notice event
       x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    internalServerError:
-      description: Internal server error
-    forbiddenError:
-      description: Forbidden error
-    userNoticeEventResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NoticeEvent'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    userNoticeEventsResponse:
-      description: ''
-      headers:
-        Total-Results:
-          description: Total results count
-          schema:
-            type: string
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/NoticeEvent'
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
     DBStringSlice:
       description: DBStringSlice is a []string with database conversion methods
@@ -304,6 +270,40 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/user_notice_events
+  responses:
+    internalServerError:
+      description: Internal server error
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    userNoticeEventsResponse:
+      description: ''
+      headers:
+        Total-Results:
+          description: Total results count
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NoticeEvent'
+    userNoticeEventResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoticeEvent'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    forbiddenError:
+      description: Forbidden error
   securitySchemes:
     API-Key:
       type: apiKey

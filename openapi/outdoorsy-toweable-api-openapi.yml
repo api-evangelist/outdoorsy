@@ -38,6 +38,8 @@ paths:
       x-summary-source: derived
 components:
   responses:
+    genericError:
+      description: An unknown, unexpected error.
     towableFeaturesResponse:
       description: ''
       content:
@@ -46,8 +48,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/TowableFeature'
-    genericError:
-      description: An unknown, unexpected error.
   schemas:
     DBStringMap:
       description: DBStringMap is a map[string]string with database conversion methods

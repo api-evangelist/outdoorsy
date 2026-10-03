@@ -155,22 +155,12 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    notFoundError:
-      description: Not found error
     notesToRentersResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/NoteListResponse'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
     noteToRentersResponse:
@@ -179,9 +169,57 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NoteToRenters'
+    notFoundError:
+      description: Not found error
     noContentResponse:
       description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
   schemas:
+    NoteMetadata:
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int64
+          x-go-name: Limit
+        offset:
+          type: integer
+          format: int64
+          x-go-name: Offset
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
+    StringSlice:
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    IntSlice:
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    NoteListResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/NoteMetadata'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoteToRenters'
+          x-go-name: Notes
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
     NoteToRenters:
       type: object
       properties:
@@ -220,44 +258,6 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
-    StringSlice:
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    NoteListResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/NoteMetadata'
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NoteToRenters'
-          x-go-name: Notes
-      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
-    NoteMetadata:
-      type: object
-      properties:
-        limit:
-          type: integer
-          format: int64
-          x-go-name: Limit
-        offset:
-          type: integer
-          format: int64
-          x-go-name: Offset
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
-    IntSlice:
-      type: array
-      items:
-        type: integer
-        format: int64
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
   securitySchemes:
     API-Key:
       type: apiKey

@@ -1294,42 +1294,37 @@ paths:
       summary: Get external campground
       x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    jsonApiNearbyCampgroundsResponse:
-      description: ''
-      content:
-        application/vnd.api+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/NearbyCampground'
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/NearbyCampground'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    jsonApiExternalCampgroundsResponse:
-      description: ''
-      content:
-        application/vnd.api+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Resource'
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Resource'
   schemas:
+    Relationship:
+      type: object
+      title: Relationship represents a member of the JSON API relationships object.
+      properties:
+        data:
+          type: object
+          x-go-name: Data
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
+      x-go-package: github.com/smotes/jsonapi
+    ABTest:
+      type: object
+      x-go-package: github.com/outdoorsy/ds-abtest/abtest
     NearbyCampground:
       description: Combines external campgrounds and unclaimed campgrounds (locality content of type campground)
       type: object
@@ -1363,36 +1358,6 @@ components:
           type: string
           x-go-name: URL
       x-go-package: github.com/outdoorsy/odc-search/types
-    Links:
-      description: http://jsonapi.org/format/#document-links
-      type: object
-      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
-      additionalProperties: {}
-      x-go-package: github.com/smotes/jsonapi
-    ABTest:
-      type: object
-      x-go-package: github.com/outdoorsy/ds-abtest/abtest
-    Relationship:
-      type: object
-      title: Relationship represents a member of the JSON API relationships object.
-      properties:
-        data:
-          type: object
-          x-go-name: Data
-        links:
-          $ref: '#/components/schemas/Links'
-        meta:
-          type: object
-          additionalProperties: {}
-          x-go-name: Meta
-      x-go-package: github.com/smotes/jsonapi
-    Relationships:
-      description: http://jsonapi.org/format/#document-resource-object-relationships
-      type: object
-      title: Relationships represents a JSON API relationships object
-      additionalProperties:
-        $ref: '#/components/schemas/Relationship'
-      x-go-package: github.com/smotes/jsonapi
     Location:
       description: Location to hold address details
       type: object
@@ -1461,6 +1426,41 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/smotes/jsonapi
+  responses:
+    jsonApiExternalCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Resource'
+    jsonApiNearbyCampgroundsResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NearbyCampground'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/NearbyCampground'
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
   securitySchemes:
     Bearer:
       type: apiKey

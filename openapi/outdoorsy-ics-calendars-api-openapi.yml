@@ -187,8 +187,22 @@ paths:
           $ref: '#/components/responses/genericError'
 components:
   responses:
+    unauthorizedError:
+      description: Unauthorized error
     notFoundError:
       description: Not found error
+    icsFileResponse:
+      description: ''
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
     calendarResponse:
       description: ''
       content:
@@ -198,35 +212,9 @@ components:
             items:
               $ref: '#/components/schemas/ICSCalendar'
             $ref: '#/components/schemas/ICSCalendar'
-    icsFileResponse:
-      description: ''
-    genericError:
-      description: An unknown, unexpected error.
     urlResponse:
       description: ''
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    unauthorizedError:
-      description: Unauthorized error
-    noContentResponse:
-      description: Everything went as planned
   schemas:
-    GetManyRequest:
-      type: object
-      properties:
-        calendar_id:
-          type: integer
-          format: int64
-          x-go-name: CalendarID
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
     ICSCalendar:
       type: object
       properties:
@@ -268,6 +256,18 @@ components:
         url:
           type: string
           x-go-name: URL
+      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
+    GetManyRequest:
+      type: object
+      properties:
+        calendar_id:
+          type: integer
+          format: int64
+          x-go-name: CalendarID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
       x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
   securitySchemes:
     API-Key:

@@ -108,14 +108,6 @@ components:
           type: string
           x-go-name: URL
       x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb/transport/http
-    geoBounds:
-      type: object
-      properties:
-        ne:
-          $ref: '#/components/schemas/geoPoint'
-        sw:
-          $ref: '#/components/schemas/geoPoint'
-      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
     geoPoint:
       type: object
       properties:
@@ -127,6 +119,14 @@ components:
           type: number
           format: double
           x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    geoBounds:
+      type: object
+      properties:
+        ne:
+          $ref: '#/components/schemas/geoPoint'
+        sw:
+          $ref: '#/components/schemas/geoPoint'
       x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
   responses:
     closestResponse:

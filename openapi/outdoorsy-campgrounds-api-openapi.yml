@@ -64,12 +64,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Links:
-      description: http://jsonapi.org/format/#document-links
-      type: object
-      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
-      additionalProperties: {}
-      x-go-package: github.com/smotes/jsonapi
     Relationship:
       type: object
       title: Relationship represents a member of the JSON API relationships object.
@@ -83,6 +77,12 @@ components:
           type: object
           additionalProperties: {}
           x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
+      additionalProperties: {}
       x-go-package: github.com/smotes/jsonapi
     Relationships:
       description: http://jsonapi.org/format/#document-resource-object-relationships

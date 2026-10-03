@@ -587,37 +587,6 @@ paths:
       summary: Decline bid
       x-summary-source: derived
 components:
-  responses:
-    notFoundError:
-      description: Not found error
-    forbiddenError:
-      description: Forbidden error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    bidResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Bid'
-    noContentResponse:
-      description: Everything went as planned
-    genericError:
-      description: An unknown, unexpected error.
-    unauthorizedError:
-      description: Unauthorized error
-    listBidsResponse:
-      description: HTTP status code 200 and array of bid models
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Bid'
   schemas:
     Bid:
       type: object
@@ -786,19 +755,6 @@ components:
       items:
         $ref: '#/components/schemas/BidMatch'
       x-go-package: github.com/outdoorsy/api/internal/instamatch
-    NullFloat64:
-      description: 'NullFloat64 implements the [Scanner] interface so
-
-        it can be used as a scan destination, similar to [NullString].'
-      type: object
-      title: NullFloat64 represents a float64 that may be null.
-      properties:
-        Float64:
-          type: number
-          format: double
-        Valid:
-          type: boolean
-      x-go-package: database/sql
     BidMatch:
       type: object
       properties:
@@ -850,6 +806,50 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/instamatch
+    NullFloat64:
+      description: 'NullFloat64 implements the [Scanner] interface so
+
+        it can be used as a scan destination, similar to [NullString].'
+      type: object
+      title: NullFloat64 represents a float64 that may be null.
+      properties:
+        Float64:
+          type: number
+          format: double
+        Valid:
+          type: boolean
+      x-go-package: database/sql
+  responses:
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    listBidsResponse:
+      description: HTTP status code 200 and array of bid models
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Bid'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    forbiddenError:
+      description: Forbidden error
+    bidResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bid'
   securitySchemes:
     API-Key:
       type: apiKey

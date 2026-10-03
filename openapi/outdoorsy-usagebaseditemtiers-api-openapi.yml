@@ -169,56 +169,7 @@ paths:
       summary: Update usage based item tier
       x-summary-source: derived
 components:
-  responses:
-    usageBasedItemTierResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UsageBasedItemTier'
-    usageBasedItemResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UsageBasedItem'
-    usageBasedItemTiersResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/UsageBasedItemTier'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
-    unauthorizedError:
-      description: Unauthorized error
-    noContentResponse:
-      description: Everything went as planned
   schemas:
-    UsageTierFormatted:
-      type: object
-      properties:
-        cost:
-          type: string
-          x-go-name: Cost
-        label:
-          type: string
-          x-go-name: Label
-        per_unit:
-          type: string
-          x-go-name: PerUnit
-        usage_price_per_unit:
-          type: string
-          x-go-name: UsagePricePerUnit
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
     UsageBasedItem:
       type: object
       properties:
@@ -291,6 +242,65 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageTierFormatted:
+      type: object
+      properties:
+        cost:
+          type: string
+          x-go-name: Cost
+        label:
+          type: string
+          x-go-name: Label
+        per_unit:
+          type: string
+          x-go-name: PerUnit
+        usage_price_per_unit:
+          type: string
+          x-go-name: UsagePricePerUnit
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageBasedItemTier:
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        maximum:
+          type: number
+          format: double
+          x-go-name: Maximum
+        minimum_fee:
+          type: integer
+          format: uint64
+          x-go-name: MinimumFee
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        price:
+          type: number
+          format: double
+          x-go-name: Price
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        usage_based_item_id:
+          type: integer
+          format: int64
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
     UsageFormatted:
       type: object
       properties:
@@ -347,49 +357,39 @@ components:
           format: double
           x-go-name: TotalUsed
       x-go-package: github.com/outdoorsy/api/internal/usage_item
-    UsageBasedItemTier:
-      type: object
-      properties:
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        maximum:
-          type: number
-          format: double
-          x-go-name: Maximum
-        minimum_fee:
-          type: integer
-          format: uint64
-          x-go-name: MinimumFee
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        price:
-          type: number
-          format: double
-          x-go-name: Price
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: TaxAmount
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        usage_based_item_id:
-          type: integer
-          format: int64
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
+  responses:
+    usageBasedItemResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsageBasedItem'
+    unauthorizedError:
+      description: Unauthorized error
+    usageBasedItemTierResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsageBasedItemTier'
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+    usageBasedItemTiersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UsageBasedItemTier'
   securitySchemes:
     API-Key:
       type: apiKey

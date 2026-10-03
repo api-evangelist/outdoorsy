@@ -39,22 +39,6 @@ paths:
       summary: Get address for IP
       x-summary-source: derived
 components:
-  responses:
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    jsonApiGetAddressForIPResponse:
-      description: ''
-      content:
-        application/vnd.api+json:
-          schema:
-            $ref: '#/components/schemas/GeodataResponse'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/GeodataResponse'
   schemas:
     GeodataResponse:
       type: object
@@ -86,6 +70,22 @@ components:
           type: string
           x-go-name: State
       x-go-package: github.com/outdoorsy/odc-search/app/controllers
+  responses:
+    jsonApiGetAddressForIPResponse:
+      description: ''
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/GeodataResponse'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeodataResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
   securitySchemes:
     Bearer:
       type: apiKey

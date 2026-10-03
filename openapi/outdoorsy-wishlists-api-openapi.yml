@@ -330,17 +330,110 @@ paths:
       summary: Get or create invite token
       x-summary-source: derived
 components:
+  responses:
+    addToWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddToWishlistResponse'
+    notFoundError:
+      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    readOneWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadOneWishlist'
+    createWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateWishlistResponse'
+    getOrCreateInviteTokenResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetWishlistInviteTokenResponse'
+    acceptWishlistInviteResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AcceptWishlistInviteResponse'
+    unauthorizedError:
+      description: Unauthorized error
+    readManyWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ReadManyWishlist'
+    genericError:
+      description: An unknown, unexpected error.
+    forbiddenError:
+      description: Forbidden error
+    changeWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ChangeWishlistResponse'
+    readRecentlySavedWishlistsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+    removeFromWishlistResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RemoveFromWishlistResponse'
   schemas:
-    GetWishlistInviteTokenResponse:
+    UpdateWishlistRequest:
       type: object
       properties:
-        token:
+        ada:
+          type: boolean
+          x-go-name: ADA
+        end_date:
           type: string
-          x-go-name: Token
-        wishlist_id:
+        is_public:
+          type: boolean
+          x-go-name: IsPublic
+        number_of_adults:
           type: integer
           format: int64
-          x-go-name: WishlistID
+          x-go-name: NumberOfAdults
+        number_of_children:
+          type: integer
+          format: int64
+          x-go-name: NumberOfChildren
+        pets:
+          type: boolean
+          x-go-name: Pets
+        start_date:
+          type: string
+        title:
+          type: string
+          x-go-name: Title
       x-go-package: github.com/outdoorsy/api/internal/wishlists
     AcceptWishlistInviteRequest:
       type: object
@@ -349,84 +442,61 @@ components:
           type: string
           x-go-name: Token
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    CreateWishlistResponse:
+    AddToWishlistResponse:
       type: object
       properties:
         cover_image_url:
           type: string
-          x-go-name: CoverImageURL
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
+          x-go-name: CoverImageUrl
         title:
           type: string
           x-go-name: Title
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    RemoveUserFromWishlistRequest:
+    Address:
+      description: Address holds address information for a user
       type: object
       properties:
-        user_id:
-          type: integer
-          format: int64
-          x-go-name: UserID
-      x-go-package: github.com/outdoorsy/api/internal/wishlists
-    LandingPageCampground:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/Address'
-        categories:
-          $ref: '#/components/schemas/StringArray'
-        description:
+        city:
           type: string
-          x-go-name: Description
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    WishlistUserDetail:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        first_name:
+          type: string
+          x-go-name: FirstName
         id:
           type: integer
           format: int64
-          x-go-name: ID
-        image_urls:
-          $ref: '#/components/schemas/StringArray'
-        lat:
-          type: number
-          format: double
-          x-go-name: Lat
-        lng:
-          type: number
-          format: double
-          x-go-name: Lng
-        min_bundle_base_price:
-          type: integer
-          format: int64
-          x-go-name: MinBundleBasePrice
-        name:
+          x-go-name: Id
+        last_name:
           type: string
-          x-go-name: Name
-        primary_image_url:
+          x-go-name: LastName
+        user_role:
           type: string
-          x-go-name: PrimaryImageURL
-        slug:
-          type: string
-          x-go-name: Slug
-        vacation_package_slug:
-          type: string
-          x-go-name: VacationPackageSlug
-      x-go-package: github.com/outdoorsy/api/internal/campgrounds
-    AcceptWishlistInviteResponse:
-      type: object
-      properties:
-        role:
-          type: string
-          x-go-name: Role
-        title:
-          type: string
-          x-go-name: Title
-        user_details:
-          $ref: '#/components/schemas/WishlistUserDetails'
-        wishlist_id:
-          type: integer
-          format: int64
-          x-go-name: WishlistID
+          x-go-name: UserRole
       x-go-package: github.com/outdoorsy/api/internal/wishlists
     ReadOneWishlist:
       type: object
@@ -490,55 +560,45 @@ components:
         users:
           $ref: '#/components/schemas/DBIntSlice'
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    RemoveFromWishlistRequest:
+    RemoveUserFromWishlistRequest:
       type: object
       properties:
-        campground_id:
+        user_id:
           type: integer
           format: int64
-          x-go-name: CampgroundID
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
+          x-go-name: UserID
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    StringArray:
-      type: array
-      title: StringArray represents a one-dimensional array of the PostgreSQL character types.
-      items:
-        type: string
-      x-go-package: github.com/lib/pq
-    Address:
-      description: Address holds address information for a user
+    CreateWishlistResponse:
       type: object
       properties:
-        city:
+        cover_image_url:
           type: string
-          x-go-name: City
-        country:
+          x-go-name: CoverImageURL
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        title:
           type: string
-          x-go-name: Country
-        county:
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    ChangeWishlistResponse:
+      type: object
+      properties:
+        cover_image_url:
           type: string
-          x-go-name: County
-        state:
+          x-go-name: CoverImageUrl
+        title:
           type: string
-          x-go-name: State
-        street:
-          type: string
-          x-go-name: Street
-        street_etc:
-          type: string
-          x-go-name: StreetEtc
-        zip:
-          type: string
-          x-go-name: Zip
-      x-go-package: github.com/outdoorsy/api/model
-    WishlistUserDetails:
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    DBIntSlice:
+      description: DBIntSlice is a []int with database conversion methods
       type: array
       items:
-        $ref: '#/components/schemas/WishlistUserDetail'
-      x-go-package: github.com/outdoorsy/api/internal/wishlists
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/utils
     ReadManyWishlist:
       type: object
       properties:
@@ -576,75 +636,29 @@ components:
           type: string
           x-go-name: UserRole
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    WishlistUserDetail:
+    WishlistUserDetails:
+      type: array
+      items:
+        $ref: '#/components/schemas/WishlistUserDetail'
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    GetWishlistInviteTokenResponse:
       type: object
       properties:
-        avatar_url:
+        token:
           type: string
-          x-go-name: AvatarURL
-        first_name:
-          type: string
-          x-go-name: FirstName
-        id:
+          x-go-name: Token
+        wishlist_id:
           type: integer
           format: int64
-          x-go-name: Id
-        last_name:
-          type: string
-          x-go-name: LastName
-        user_role:
-          type: string
-          x-go-name: UserRole
+          x-go-name: WishlistID
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    AddToWishlistResponse:
-      type: object
-      properties:
-        cover_image_url:
-          type: string
-          x-go-name: CoverImageUrl
-        title:
-          type: string
-          x-go-name: Title
-      x-go-package: github.com/outdoorsy/api/internal/wishlists
-    RemoveFromWishlistResponse:
-      type: object
-      properties:
-        cover_image_url:
-          type: string
-          x-go-name: CoverImageUrl
-        title:
-          type: string
-          x-go-name: Title
-      x-go-package: github.com/outdoorsy/api/internal/wishlists
-    UpdateWishlistRequest:
-      type: object
-      properties:
-        ada:
-          type: boolean
-          x-go-name: ADA
-        end_date:
-          type: string
-        is_public:
-          type: boolean
-          x-go-name: IsPublic
-        number_of_adults:
-          type: integer
-          format: int64
-          x-go-name: NumberOfAdults
-        number_of_children:
-          type: integer
-          format: int64
-          x-go-name: NumberOfChildren
-        pets:
-          type: boolean
-          x-go-name: Pets
-        start_date:
-          type: string
-        title:
-          type: string
-          x-go-name: Title
-      x-go-package: github.com/outdoorsy/api/internal/wishlists
-    CreateWishlistRequest:
+    StringArray:
+      type: array
+      title: StringArray represents a one-dimensional array of the PostgreSQL character types.
+      items:
+        type: string
+      x-go-package: github.com/lib/pq
+    RemoveFromWishlistRequest:
       type: object
       properties:
         campground_id:
@@ -655,27 +669,7 @@ components:
           type: integer
           format: int64
           x-go-name: RentalID
-        title:
-          type: string
-          x-go-name: Title
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-    ChangeWishlistResponse:
-      type: object
-      properties:
-        cover_image_url:
-          type: string
-          x-go-name: CoverImageUrl
-        title:
-          type: string
-          x-go-name: Title
-      x-go-package: github.com/outdoorsy/api/internal/wishlists
-    DBIntSlice:
-      description: DBIntSlice is a []int with database conversion methods
-      type: array
-      items:
-        type: integer
-        format: int64
-      x-go-package: github.com/outdoorsy/api/utils
     AddToWishlistRequest:
       type: object
       properties:
@@ -688,6 +682,63 @@ components:
           format: int64
           x-go-name: RentalID
       x-go-package: github.com/outdoorsy/api/internal/wishlists
+    AcceptWishlistInviteResponse:
+      type: object
+      properties:
+        role:
+          type: string
+          x-go-name: Role
+        title:
+          type: string
+          x-go-name: Title
+        user_details:
+          $ref: '#/components/schemas/WishlistUserDetails'
+        wishlist_id:
+          type: integer
+          format: int64
+          x-go-name: WishlistID
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    LandingPageCampground:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        categories:
+          $ref: '#/components/schemas/StringArray'
+        description:
+          type: string
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_urls:
+          $ref: '#/components/schemas/StringArray'
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        min_bundle_base_price:
+          type: integer
+          format: int64
+          x-go-name: MinBundleBasePrice
+        name:
+          type: string
+          x-go-name: Name
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        slug:
+          type: string
+          x-go-name: Slug
+        vacation_package_slug:
+          type: string
+          x-go-name: VacationPackageSlug
+      x-go-package: github.com/outdoorsy/api/internal/campgrounds
     ChangeWishlistRequest:
       type: object
       properties:
@@ -708,82 +759,31 @@ components:
           format: int64
           x-go-name: RentalID
       x-go-package: github.com/outdoorsy/api/internal/wishlists
-  responses:
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    readOneWishlistResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ReadOneWishlist'
-    addToWishlistResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/AddToWishlistResponse'
-    forbiddenError:
-      description: Forbidden error
-    acceptWishlistInviteResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/AcceptWishlistInviteResponse'
-    unauthorizedError:
-      description: Unauthorized error
-    removeFromWishlistResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RemoveFromWishlistResponse'
-    readRecentlySavedWishlistsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: integer
-              format: int64
-    changeWishlistResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ChangeWishlistResponse'
-    readManyWishlistResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/ReadManyWishlist'
-    notFoundError:
-      description: Not found error
-    createWishlistResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CreateWishlistResponse'
-    genericError:
-      description: An unknown, unexpected error.
-    getOrCreateInviteTokenResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/GetWishlistInviteTokenResponse'
-    noContentResponse:
-      description: Everything went as planned
+    CreateWishlistRequest:
+      type: object
+      properties:
+        campground_id:
+          type: integer
+          format: int64
+          x-go-name: CampgroundID
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
+    RemoveFromWishlistResponse:
+      type: object
+      properties:
+        cover_image_url:
+          type: string
+          x-go-name: CoverImageUrl
+        title:
+          type: string
+          x-go-name: Title
+      x-go-package: github.com/outdoorsy/api/internal/wishlists
   securitySchemes:
     API-Key:
       type: apiKey

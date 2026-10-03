@@ -191,126 +191,6 @@ paths:
               $ref: '#/components/schemas/WeatherRequest'
 components:
   schemas:
-    NullTime:
-      description: 'NullTime represents a time.Time that may be null. NullTime implements the
-
-        sql.Scanner interface so it can be used as a scan destination, similar to
-
-        sql.NullString.'
-      type: object
-      properties:
-        Time:
-          type: string
-          format: date-time
-        Valid:
-          type: boolean
-      x-go-package: github.com/lib/pq
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
-    IMap:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    BookingTaxRate:
-      type: object
-      properties:
-        booking_id:
-          type: integer
-          format: int64
-          x-go-name: BookingID
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        deleted:
-          type: boolean
-          x-go-name: Deleted
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        object_id:
-          type: integer
-          format: int64
-          x-go-name: ObjectID
-        object_type:
-          type: string
-          x-go-name: ObjectType
-        payable_to:
-          type: string
-          x-go-name: PayableTo
-        source:
-          type: string
-          x-go-name: Source
-        state:
-          type: string
-          x-go-name: State
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: Amount
-        tax_description:
-          type: string
-          x-go-name: Description
-        tax_name:
-          type: string
-          x-go-name: Name
-        tax_rate:
-          type: number
-          format: double
-          x-go-name: Rate
-        tax_rate_id:
-          type: integer
-          format: int64
-          x-go-name: TaxRateID
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        zip_code:
-          type: string
-          x-go-name: ZipCode
-      x-go-package: github.com/outdoorsy/api/internal/tax_rates
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
-    WeatherRequest:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-          x-go-name: Lat
-        lng:
-          type: number
-          format: double
-          x-go-name: Lng
-        location:
-          type: string
-          x-go-name: Location
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
-    ServiceIntegrationFeature:
-      type: object
-      properties:
-        description:
-          type: string
-          x-go-name: Description
-      x-go-package: github.com/outdoorsy/api/integrations
-    ServiceIntegrationDetails:
-      type: object
-      properties:
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceIntegrationFeature'
-          x-go-name: Features
-      x-go-package: github.com/outdoorsy/api/integrations
     BookingService:
       type: object
       properties:
@@ -464,27 +344,6 @@ components:
           format: int64
           x-go-name: VariantPrice
       x-go-package: github.com/outdoorsy/api/internal/booking_services
-    BookingServiceData:
-      type: object
-      properties:
-        bundle_id:
-          type: string
-          x-go-name: BundleID
-        data:
-          $ref: '#/components/schemas/DBInterfaceMap'
-        id:
-          type: string
-          x-go-name: ID
-        revision:
-          type: integer
-          format: int64
-          x-go-name: Revision
-        tax_rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingTaxRate'
-          x-go-name: TaxRates
-      x-go-package: github.com/outdoorsy/api/integrations
     ServiceIntegration:
       type: object
       properties:
@@ -664,6 +523,58 @@ components:
         vehicle_types:
           $ref: '#/components/schemas/DBStringSlice'
       x-go-package: github.com/outdoorsy/api/integrations
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    ServiceIntegrationDetails:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceIntegrationFeature'
+          x-go-name: Features
+      x-go-package: github.com/outdoorsy/api/integrations
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    ServiceIntegrationFeature:
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+      x-go-package: github.com/outdoorsy/api/integrations
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    BookingServiceData:
+      type: object
+      properties:
+        bundle_id:
+          type: string
+          x-go-name: BundleID
+        data:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        id:
+          type: string
+          x-go-name: ID
+        revision:
+          type: integer
+          format: int64
+          x-go-name: Revision
+        tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingTaxRate'
+          x-go-name: TaxRates
+      x-go-package: github.com/outdoorsy/api/integrations
     WeatherResponse:
       type: object
       properties:
@@ -689,25 +600,116 @@ components:
           type: string
           x-go-name: WeatherQuoteID
       x-go-package: github.com/outdoorsy/api/internal/sdks/roamly
+    BookingTaxRate:
+      type: object
+      properties:
+        booking_id:
+          type: integer
+          format: int64
+          x-go-name: BookingID
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: boolean
+          x-go-name: Deleted
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        object_id:
+          type: integer
+          format: int64
+          x-go-name: ObjectID
+        object_type:
+          type: string
+          x-go-name: ObjectType
+        payable_to:
+          type: string
+          x-go-name: PayableTo
+        source:
+          type: string
+          x-go-name: Source
+        state:
+          type: string
+          x-go-name: State
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: Amount
+        tax_description:
+          type: string
+          x-go-name: Description
+        tax_name:
+          type: string
+          x-go-name: Name
+        tax_rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        tax_rate_id:
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
+          type: string
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    WeatherRequest:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        location:
+          type: string
+          x-go-name: Location
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
   responses:
+    notFoundError:
+      description: Not found error
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
     bookingWeatherResponse:
       description: HTTP status code 200
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/WeatherResponse'
+    genericError:
+      description: An unknown, unexpected error.
     bookingServiceResponse:
       description: HTTP status code 200 and booking service
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/BookingService'
-    unauthorizedError:
-      description: Unauthorized error
-    notFoundError:
-      description: Not found error
-    genericError:
-      description: An unknown, unexpected error.
     bookingServicesResponse:
       description: HTTP status code 200 and array of premium service integrations
       content:
@@ -716,8 +718,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/ServiceIntegration'
-    noContentResponse:
-      description: Everything went as planned
   securitySchemes:
     API-Key:
       type: apiKey
