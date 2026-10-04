@@ -137,10 +137,6 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    unauthorizedError:
-      description: Unauthorized error
-    notFoundError:
-      description: Not found error
     noContentResponse:
       description: Everything went as planned
     badRequestError:
@@ -155,7 +151,15 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/BundleRule'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
+    MSI:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/internal/platform/db
     BundleRule:
       type: object
       properties:
@@ -187,10 +191,6 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/bundle
-    MSI:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/internal/platform/db
   securitySchemes:
     API-Key:
       type: apiKey

@@ -54,6 +54,12 @@ components:
           type: string
           x-go-name: Slug
       x-go-package: github.com/outdoorsy/api/internal/amenities
+    DBStringMap:
+      description: DBStringMap is a map[string]string with database conversion methods
+      type: object
+      additionalProperties:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
     AmenityGroup:
       type: object
       properties:
@@ -69,12 +75,6 @@ components:
           type: string
           x-go-name: Name
       x-go-package: github.com/outdoorsy/api/internal/amenities
-    DBStringMap:
-      description: DBStringMap is a map[string]string with database conversion methods
-      type: object
-      additionalProperties:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
   responses:
     genericError:
       description: An unknown, unexpected error.

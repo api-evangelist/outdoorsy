@@ -112,10 +112,10 @@ paths:
           $ref: '#/components/responses/genericError'
 components:
   responses:
-    genericError:
-      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
     notFoundError:
       description: Not found error
     badRequestError:

@@ -97,57 +97,7 @@ paths:
       summary: Get breadcrumb
       x-summary-source: derived
 components:
-  schemas:
-    crumb:
-      type: object
-      properties:
-        title:
-          type: string
-          x-go-name: Title
-        url:
-          type: string
-          x-go-name: URL
-      x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb/transport/http
-    geoPoint:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-          x-go-name: Lat
-        lon:
-          type: number
-          format: double
-          x-go-name: Lon
-      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
-    geoBounds:
-      type: object
-      properties:
-        ne:
-          $ref: '#/components/schemas/geoPoint'
-        sw:
-          $ref: '#/components/schemas/geoPoint'
-      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
   responses:
-    closestResponse:
-      description: ''
-      headers:
-        crumbs:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/crumb'
-        locale:
-          schema:
-            type: string
-        location: {}
-      content:
-        application/vnd.api+json:
-          schema:
-            $ref: '#/components/schemas/geoPoint'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/geoPoint'
     retrieveResponse:
       description: ''
       headers:
@@ -180,6 +130,56 @@ components:
             type: object
             additionalProperties: {}
             $ref: '#/components/schemas/geoBounds'
+    closestResponse:
+      description: ''
+      headers:
+        crumbs:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/crumb'
+        locale:
+          schema:
+            type: string
+        location: {}
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/geoPoint'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/geoPoint'
+  schemas:
+    geoPoint:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lon:
+          type: number
+          format: double
+          x-go-name: Lon
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    geoBounds:
+      type: object
+      properties:
+        ne:
+          $ref: '#/components/schemas/geoPoint'
+        sw:
+          $ref: '#/components/schemas/geoPoint'
+      x-go-package: github.com/outdoorsy/odc-search/internal/locality/transport/http
+    crumb:
+      type: object
+      properties:
+        title:
+          type: string
+          x-go-name: Title
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/internal/breadcrumb/transport/http
   securitySchemes:
     Bearer:
       type: apiKey

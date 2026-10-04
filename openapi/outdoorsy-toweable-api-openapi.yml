@@ -49,12 +49,6 @@ components:
             items:
               $ref: '#/components/schemas/TowableFeature'
   schemas:
-    DBStringMap:
-      description: DBStringMap is a map[string]string with database conversion methods
-      type: object
-      additionalProperties:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
     TowableFeature:
       type: object
       properties:
@@ -67,6 +61,12 @@ components:
         options:
           $ref: '#/components/schemas/DBStringMap'
       x-go-package: github.com/outdoorsy/api/internal/towable_features
+    DBStringMap:
+      description: DBStringMap is a map[string]string with database conversion methods
+      type: object
+      additionalProperties:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
   securitySchemes:
     API-Key:
       type: apiKey

@@ -42,14 +42,14 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    genericError:
-      description: An unknown, unexpected error.
     noContentResponse:
       description: Everything went as planned
-    notFoundError:
-      description: Not found error
     unauthorizedError:
       description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
   securitySchemes:
     API-Key:
       type: apiKey

@@ -174,22 +174,10 @@ paths:
               $ref: '#/components/schemas/Template'
 components:
   responses:
-    forbiddenError:
-      description: Forbidden error
-    messageTemplateResponse:
-      description: HTTP status code 200 and conversation model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Template'
-    unauthorizedError:
-      description: Unauthorized error
-    notFoundError:
-      description: Not found error
     noContentResponse:
       description: Everything went as planned
-    genericError:
-      description: An unknown, unexpected error.
+    forbiddenError:
+      description: Forbidden error
     listMessageTemplatesResponse:
       description: HTTP status code 200 and array of conversation models
       content:
@@ -198,7 +186,26 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Template'
+    genericError:
+      description: An unknown, unexpected error.
+    messageTemplateResponse:
+      description: HTTP status code 200 and conversation model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Template'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
+    Int64Array:
+      type: array
+      title: Int64Array represents a one-dimensional array of the PostgreSQL integer types.
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/lib/pq
     Template:
       type: object
       properties:
@@ -236,13 +243,6 @@ components:
           format: int64
           x-go-name: UserID
       x-go-package: github.com/outdoorsy/api/internal/message_template
-    Int64Array:
-      type: array
-      title: Int64Array represents a one-dimensional array of the PostgreSQL integer types.
-      items:
-        type: integer
-        format: int64
-      x-go-package: github.com/lib/pq
   securitySchemes:
     API-Key:
       type: apiKey

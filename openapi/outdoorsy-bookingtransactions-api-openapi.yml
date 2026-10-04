@@ -220,7 +220,41 @@ paths:
       summary: Update booking transaction
       x-summary-source: derived
 components:
+  responses:
+    transactionResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Transaction'
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
+    transactionsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
   schemas:
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
     Transaction:
       type: object
       properties:
@@ -460,11 +494,6 @@ components:
         due:
           type: string
       x-go-package: github.com/outdoorsy/api/cmd/web/handlers
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
     PaymentProcessor:
       description: 'Typically this object is composed into a struct, but embedded into the
 
@@ -489,35 +518,6 @@ components:
     PaymentProcessorName:
       type: string
       x-go-package: github.com/outdoorsy/api/controller/broker
-  responses:
-    transactionsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Transaction'
-    unauthorizedError:
-      description: Unauthorized error
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    noContentResponse:
-      description: Everything went as planned
-    genericError:
-      description: An unknown, unexpected error.
-    transactionResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Transaction'
   securitySchemes:
     API-Key:
       type: apiKey

@@ -171,6 +171,33 @@ paths:
       summary: Update special hour
       x-summary-source: derived
 components:
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    specialHourResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SpecialHour'
+    specialHoursResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/SpecialHour'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
     DBStringSlice:
       description: DBStringSlice is a []string with database conversion methods
@@ -258,33 +285,6 @@ components:
           type: boolean
           x-go-name: Unavailable
       x-go-package: github.com/outdoorsy/api/internal/special_hours
-  responses:
-    unauthorizedError:
-      description: Unauthorized error
-    specialHoursResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/SpecialHour'
-    notFoundError:
-      description: Not found error
-    noContentResponse:
-      description: Everything went as planned
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    specialHourResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SpecialHour'
   securitySchemes:
     API-Key:
       type: apiKey

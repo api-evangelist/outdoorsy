@@ -373,42 +373,19 @@ paths:
       summary: Update review
       x-summary-source: derived
 components:
-  responses:
-    localityReviewsResponse:
-      description: HTTP status code 200 and array of localityReview model
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/LocalityReview'
-    notFoundError:
-      description: Not found error
-    reviewsResponse:
-      description: HTTP status code 200 and array of review model
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Review'
-    unauthorizedError:
-      description: Unauthorized error
-    genericError:
-      description: An unknown, unexpected error.
-    reviewResponse:
-      description: HTTP status code 200 and review model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Review'
-    aggregateLocalityReviewsResponse:
-      description: HTTP status code 200 and ReviewsMeta model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ReviewsMeta'
   schemas:
+    BookingSummary:
+      type: object
+      properties:
+        from:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        to:
+          type: string
+      x-go-package: github.com/outdoorsy/api/types
     Review:
       type: object
       properties:
@@ -529,86 +506,29 @@ components:
           format: double
           x-go-name: ValueScore
       x-go-package: github.com/outdoorsy/api/model
-    ReviewUpdateOptions:
-      description: for swagger docs
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    Reviewer:
       type: object
       properties:
-        cleanliness_score:
-          type: number
-          format: double
-          x-go-name: CleanlinessScore
-        communication_score:
-          type: number
-          format: double
-          x-go-name: CommunicationScore
-        images:
-          description: array of urls
-          type: array
-          items:
-            type: string
-          x-go-name: Images
-        listing_score:
-          type: number
-          format: double
-          x-go-name: ListingAccuracyScore
-        mechanical_score:
-          type: number
-          format: double
-          x-go-name: MechanicalScore
-        owner_response:
-          $ref: '#/components/schemas/OwnerResponseReview'
-        score:
-          type: number
-          format: double
-          x-go-name: Score
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-          x-go-name: Tags
-        text:
-          description: reviewer can update these values
+        avatar_url:
           type: string
-          x-go-name: Text
-        user_recommend:
-          type: boolean
-          x-go-name: UserRecommend
-        value_score:
-          type: number
-          format: double
-          x-go-name: ValueScore
-      x-go-package: github.com/outdoorsy/api/model
-    LocalityReview:
-      type: object
-      properties:
+          x-go-name: AvatarURL
+        first_name:
+          type: string
+          x-go-name: FirstName
         id:
           type: integer
           format: int64
           x-go-name: ID
-        rental_lat:
-          type: number
-          format: double
-          x-go-name: RentalLat
-        rental_lng:
-          type: number
-          format: double
-          x-go-name: RentalLng
-        rental_summary:
-          $ref: '#/components/schemas/RentalSummary'
-        reviewer:
-          $ref: '#/components/schemas/Reviewer'
-        score:
-          type: number
-          format: double
-          x-go-name: Score
-        text:
+        last_name:
           type: string
-          x-go-name: Text
-        timestamp:
-          type: string
-          x-go-name: Timestamp
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
+          x-go-name: LastName
+      x-go-package: github.com/outdoorsy/api/model
     ID:
       description: 'ID is the type used throughout the system to identify a unique object. It
 
@@ -618,6 +538,71 @@ components:
       type: string
       x-go-package: github.com/outdoorsy/api/internal/platform
       x-go-type: github.com/globalsign/mgo/bson.ObjectId
+    TagRental:
+      type: object
+      properties:
+        Created:
+          type: string
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        ID:
+          type: integer
+          format: int64
+        Name:
+          type: string
+        Slug:
+          type: string
+        Updated:
+          type: string
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        usage_by_rental_count:
+          type: integer
+          format: int64
+          x-go-name: UsageByRentalCount
+      x-go-package: github.com/outdoorsy/api/internal/rental_tags
+    ReviewImage:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          x-go-name: Created
+        id:
+          $ref: '#/components/schemas/ID'
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        rental_id:
+          type: string
+          x-go-name: RentalID
+        review_id:
+          type: string
+          x-go-name: ReviewID
+        reviewed:
+          type: boolean
+          x-go-name: Reviewed
+        reviewed_by:
+          type: string
+          x-go-name: ReviewedBy
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          format: date-time
+          x-go-name: Updated
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/api/model
     CampsiteSummary:
       type: object
       properties:
@@ -662,112 +647,84 @@ components:
           type: string
           x-go-name: CategoryType
       x-go-package: github.com/outdoorsy/api/types
-    ReviewOwner:
+    ReviewsMeta:
       type: object
       properties:
-        avatar_url:
+        avg_cleanliness_score:
+          type: number
+          format: double
+          x-go-name: AvgCleanlinessScore
+        avg_communication_score:
+          type: number
+          format: double
+          x-go-name: AvgCommunicationScore
+        avg_listing_score:
+          type: number
+          format: double
+          x-go-name: AvgListingScore
+        avg_mechanical_score:
+          type: number
+          format: double
+          x-go-name: AvgMechanicalScore
+        avg_score:
+          type: number
+          format: double
+          x-go-name: AvgScore
+        avg_value_score:
+          type: number
+          format: double
+          x-go-name: AvgValueScore
+        max_score:
+          type: number
+          format: double
+          x-go-name: MaxScore
+        min_score:
+          type: number
+          format: double
+          x-go-name: MinScore
+        reviews_count:
+          type: integer
+          format: int64
+          x-go-name: ReviewsCount
+        time_hosting_msg:
           type: string
-          x-go-name: AvatarURL
-        first_name:
-          type: string
-          x-go-name: FirstName
+          x-go-name: TimeHostingMsg
+        time_hosting_num:
+          type: integer
+          format: int64
+          x-go-name: TimeHostingNum
+      x-go-package: github.com/outdoorsy/api/internal/reviews
+    LocalityReview:
+      type: object
+      properties:
         id:
           type: integer
           format: int64
           x-go-name: ID
-        last_name:
-          type: string
-          x-go-name: LastName
-      x-go-package: github.com/outdoorsy/api/model
-    ReviewImage:
-      type: object
-      properties:
-        created:
-          type: string
-          format: date-time
-          x-go-name: Created
-        id:
-          $ref: '#/components/schemas/ID'
-        lat:
+        rental_lat:
           type: number
           format: double
-          x-go-name: Lat
-        lng:
+          x-go-name: RentalLat
+        rental_lng:
           type: number
           format: double
-          x-go-name: Lng
-        rental_id:
+          x-go-name: RentalLng
+        rental_summary:
+          $ref: '#/components/schemas/RentalSummary'
+        reviewer:
+          $ref: '#/components/schemas/Reviewer'
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        text:
           type: string
-          x-go-name: RentalID
-        review_id:
+          x-go-name: Text
+        timestamp:
           type: string
-          x-go-name: ReviewID
-        reviewed:
-          type: boolean
-          x-go-name: Reviewed
-        reviewed_by:
-          type: string
-          x-go-name: ReviewedBy
-        status:
-          type: string
-          x-go-name: Status
-        updated:
-          type: string
-          format: date-time
-          x-go-name: Updated
-        url:
-          type: string
-          x-go-name: URL
-      x-go-package: github.com/outdoorsy/api/model
-    StaySummary:
-      type: object
-      properties:
-        baths:
-          type: integer
-          format: int64
-          x-go-name: Baths
-        bedrooms:
-          type: integer
-          format: int64
-          x-go-name: Bedrooms
-        beds:
-          type: integer
-          format: int64
-          x-go-name: Beds
-        check_in_type:
-          type: string
-          x-go-name: CheckInType
-        display_stay_type:
-          type: string
-          x-go-name: DisplayStayType
-        location_description:
-          type: string
-          x-go-name: LocationDescription
-        max_parking_spaces:
-          type: integer
-          format: int64
-          x-go-name: MaxParkingSpaces
-        parking_onsite:
-          type: boolean
-          x-go-name: ParkingOnsite
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-        sleeps:
-          type: integer
-          format: int64
-          x-go-name: Sleeps
-        type:
-          type: string
-          x-go-name: Type
-      x-go-package: github.com/outdoorsy/api/types
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
+          x-go-name: Timestamp
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/cmd/web/handlers
     OwnerResponseReview:
       type: object
       properties:
@@ -816,6 +773,66 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/rental_tags
+    ReviewOwner:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          x-go-name: AvatarURL
+        first_name:
+          type: string
+          x-go-name: FirstName
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        last_name:
+          type: string
+          x-go-name: LastName
+      x-go-package: github.com/outdoorsy/api/model
+    StaySummary:
+      type: object
+      properties:
+        baths:
+          type: integer
+          format: int64
+          x-go-name: Baths
+        bedrooms:
+          type: integer
+          format: int64
+          x-go-name: Bedrooms
+        beds:
+          type: integer
+          format: int64
+          x-go-name: Beds
+        check_in_type:
+          type: string
+          x-go-name: CheckInType
+        display_stay_type:
+          type: string
+          x-go-name: DisplayStayType
+        location_description:
+          type: string
+          x-go-name: LocationDescription
+        max_parking_spaces:
+          type: integer
+          format: int64
+          x-go-name: MaxParkingSpaces
+        parking_onsite:
+          type: boolean
+          x-go-name: ParkingOnsite
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        sleeps:
+          type: integer
+          format: int64
+          x-go-name: Sleeps
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/types
     RentalSummary:
       type: object
       properties:
@@ -868,107 +885,90 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/outdoorsy/api/types
-    TagRental:
+    ReviewUpdateOptions:
+      description: for swagger docs
       type: object
       properties:
-        Created:
-          type: string
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        ID:
-          type: integer
-          format: int64
-        Name:
-          type: string
-        Slug:
-          type: string
-        Updated:
-          type: string
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        position:
-          type: integer
-          format: int64
-          x-go-name: Position
-        usage_by_rental_count:
-          type: integer
-          format: int64
-          x-go-name: UsageByRentalCount
-      x-go-package: github.com/outdoorsy/api/internal/rental_tags
-    BookingSummary:
-      type: object
-      properties:
-        from:
-          type: string
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        to:
-          type: string
-      x-go-package: github.com/outdoorsy/api/types
-    ReviewsMeta:
-      type: object
-      properties:
-        avg_cleanliness_score:
+        cleanliness_score:
           type: number
           format: double
-          x-go-name: AvgCleanlinessScore
-        avg_communication_score:
+          x-go-name: CleanlinessScore
+        communication_score:
           type: number
           format: double
-          x-go-name: AvgCommunicationScore
-        avg_listing_score:
+          x-go-name: CommunicationScore
+        images:
+          description: array of urls
+          type: array
+          items:
+            type: string
+          x-go-name: Images
+        listing_score:
           type: number
           format: double
-          x-go-name: AvgListingScore
-        avg_mechanical_score:
+          x-go-name: ListingAccuracyScore
+        mechanical_score:
           type: number
           format: double
-          x-go-name: AvgMechanicalScore
-        avg_score:
+          x-go-name: MechanicalScore
+        owner_response:
+          $ref: '#/components/schemas/OwnerResponseReview'
+        score:
           type: number
           format: double
-          x-go-name: AvgScore
-        avg_value_score:
-          type: number
-          format: double
-          x-go-name: AvgValueScore
-        max_score:
-          type: number
-          format: double
-          x-go-name: MaxScore
-        min_score:
-          type: number
-          format: double
-          x-go-name: MinScore
-        reviews_count:
-          type: integer
-          format: int64
-          x-go-name: ReviewsCount
-        time_hosting_msg:
+          x-go-name: Score
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+          x-go-name: Tags
+        text:
+          description: reviewer can update these values
           type: string
-          x-go-name: TimeHostingMsg
-        time_hosting_num:
-          type: integer
-          format: int64
-          x-go-name: TimeHostingNum
-      x-go-package: github.com/outdoorsy/api/internal/reviews
-    Reviewer:
-      type: object
-      properties:
-        avatar_url:
-          type: string
-          x-go-name: AvatarURL
-        first_name:
-          type: string
-          x-go-name: FirstName
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        last_name:
-          type: string
-          x-go-name: LastName
+          x-go-name: Text
+        user_recommend:
+          type: boolean
+          x-go-name: UserRecommend
+        value_score:
+          type: number
+          format: double
+          x-go-name: ValueScore
       x-go-package: github.com/outdoorsy/api/model
+  responses:
+    genericError:
+      description: An unknown, unexpected error.
+    aggregateLocalityReviewsResponse:
+      description: HTTP status code 200 and ReviewsMeta model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReviewsMeta'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
+    reviewResponse:
+      description: HTTP status code 200 and review model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Review'
+    localityReviewsResponse:
+      description: HTTP status code 200 and array of localityReview model
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/LocalityReview'
+    reviewsResponse:
+      description: HTTP status code 200 and array of review model
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Review'
   securitySchemes:
     API-Key:
       type: apiKey

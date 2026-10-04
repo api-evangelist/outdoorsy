@@ -141,6 +141,121 @@ paths:
               $ref: '#/components/schemas/UsageBasedItem'
 components:
   schemas:
+    OverageFeeCalculation:
+      type: object
+      properties:
+        calculation_tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageTierFormatted'
+          x-go-name: CalculationTiers
+        formatted_included_usage:
+          type: string
+          x-go-name: FormattedIncludedUsage
+        formatted_total_amount:
+          type: string
+          x-go-name: FormattedTotalAmount
+        total_amount:
+          type: integer
+          format: int64
+          x-go-name: TotalAmount
+        total_days:
+          type: integer
+          format: int64
+          x-go-name: Days
+        total_free_used:
+          type: number
+          format: double
+          x-go-name: TotalFreeUsed
+        total_included:
+          type: number
+          format: double
+          x-go-name: TotalIncluded
+        total_over_free:
+          type: number
+          format: double
+          x-go-name: TotalOverFree
+        total_used:
+          type: number
+          format: double
+          x-go-name: TotalUsed
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageFormatted:
+      type: object
+      properties:
+        included_text:
+          type: string
+          x-go-name: IncludedText
+        overage_fee_calculation:
+          $ref: '#/components/schemas/OverageFeeCalculation'
+        short_unit:
+          type: string
+          x-go-name: ShortUnit
+        tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageTierFormatted'
+          x-go-name: Tiers
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageBasedItemTier:
+      type: object
+      properties:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        maximum:
+          type: number
+          format: double
+          x-go-name: Maximum
+        minimum_fee:
+          type: integer
+          format: uint64
+          x-go-name: MinimumFee
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        price:
+          type: number
+          format: double
+          x-go-name: Price
+        tax_amount:
+          type: integer
+          format: int64
+          x-go-name: TaxAmount
+        total:
+          type: integer
+          format: int64
+          x-go-name: Total
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        usage_based_item_id:
+          type: integer
+          format: int64
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
+    UsageTierFormatted:
+      type: object
+      properties:
+        cost:
+          type: string
+          x-go-name: Cost
+        label:
+          type: string
+          x-go-name: Label
+        per_unit:
+          type: string
+          x-go-name: PerUnit
+        usage_price_per_unit:
+          type: string
+          x-go-name: UsagePricePerUnit
+      x-go-package: github.com/outdoorsy/api/internal/usage_item
     UsageBasedItem:
       type: object
       properties:
@@ -213,132 +328,7 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/internal/usage_item
-    UsageTierFormatted:
-      type: object
-      properties:
-        cost:
-          type: string
-          x-go-name: Cost
-        label:
-          type: string
-          x-go-name: Label
-        per_unit:
-          type: string
-          x-go-name: PerUnit
-        usage_price_per_unit:
-          type: string
-          x-go-name: UsagePricePerUnit
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
-    UsageBasedItemTier:
-      type: object
-      properties:
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        maximum:
-          type: number
-          format: double
-          x-go-name: Maximum
-        minimum_fee:
-          type: integer
-          format: uint64
-          x-go-name: MinimumFee
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        price:
-          type: number
-          format: double
-          x-go-name: Price
-        tax_amount:
-          type: integer
-          format: int64
-          x-go-name: TaxAmount
-        total:
-          type: integer
-          format: int64
-          x-go-name: Total
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        usage_based_item_id:
-          type: integer
-          format: int64
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
-    UsageFormatted:
-      type: object
-      properties:
-        included_text:
-          type: string
-          x-go-name: IncludedText
-        overage_fee_calculation:
-          $ref: '#/components/schemas/OverageFeeCalculation'
-        short_unit:
-          type: string
-          x-go-name: ShortUnit
-        tiers:
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageTierFormatted'
-          x-go-name: Tiers
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
-    OverageFeeCalculation:
-      type: object
-      properties:
-        calculation_tiers:
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageTierFormatted'
-          x-go-name: CalculationTiers
-        formatted_included_usage:
-          type: string
-          x-go-name: FormattedIncludedUsage
-        formatted_total_amount:
-          type: string
-          x-go-name: FormattedTotalAmount
-        total_amount:
-          type: integer
-          format: int64
-          x-go-name: TotalAmount
-        total_days:
-          type: integer
-          format: int64
-          x-go-name: Days
-        total_free_used:
-          type: number
-          format: double
-          x-go-name: TotalFreeUsed
-        total_included:
-          type: number
-          format: double
-          x-go-name: TotalIncluded
-        total_over_free:
-          type: number
-          format: double
-          x-go-name: TotalOverFree
-        total_used:
-          type: number
-          format: double
-          x-go-name: TotalUsed
-      x-go-package: github.com/outdoorsy/api/internal/usage_item
   responses:
-    usageBasedItemResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UsageBasedItem'
-    unauthorizedError:
-      description: Unauthorized error
-    notFoundError:
-      description: Not found error
     noContentResponse:
       description: Everything went as planned
     usageBasedItemsResponse:
@@ -357,6 +347,16 @@ components:
             type: string
     genericError:
       description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
+    usageBasedItemResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsageBasedItem'
   securitySchemes:
     API-Key:
       type: apiKey

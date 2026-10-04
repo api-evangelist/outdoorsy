@@ -97,10 +97,10 @@ paths:
         required: true
 components:
   responses:
-    genericError:
-      description: An unknown, unexpected error.
     unauthorizedError:
       description: Unauthorized error
+    genericError:
+      description: An unknown, unexpected error.
     badRequestError:
       description: Invalid input or state means you're bad
       headers:

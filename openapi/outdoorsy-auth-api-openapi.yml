@@ -160,6 +160,8 @@ paths:
           description: OK
 components:
   responses:
+    noContentResponse:
+      description: Everything went as planned
     userAuthResponse:
       description: HTTP status code 200 and user model
       content:
@@ -172,12 +174,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/UserAuthResponse'
-    unauthorizedError:
-      description: Unauthorized error
-    notFoundError:
-      description: Not found error
-    noContentResponse:
-      description: Everything went as planned
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
@@ -186,46 +182,11 @@ components:
             type: string
     genericError:
       description: An unknown, unexpected error.
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
-    String:
-      type: string
-      x-go-package: github.com/outdoorsy/api/utils/password
-    PasswordForgotRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          x-go-name: Email
-      x-go-package: github.com/outdoorsy/api/types
-    UserLoginRequest:
-      type: object
-      properties:
-        account_id:
-          type: string
-          x-go-name: AccountID
-        biometric_id:
-          type: string
-          x-go-name: BiometricID
-        dealer_user:
-          type: boolean
-          x-go-name: DealerUser
-        email:
-          type: string
-          x-go-name: Email
-        password:
-          $ref: '#/components/schemas/String'
-        recaptcha_response:
-          type: string
-          x-go-name: RecaptchaResponse
-        with_refresh_token:
-          description: 'Used mainly for mobile clients to provide some backward
-
-            compatibility for them to work with access tokens only.
-
-            Will be removed when mobile adoption rate hits certain percentage'
-          type: boolean
-          x-go-name: WithRefreshToken
-      x-go-package: github.com/outdoorsy/api/types
     VerificationStatus:
       type: object
       properties:
@@ -297,6 +258,45 @@ components:
             Will be removed when mobile adoption rate hits certain percentage'
           type: boolean
           x-go-name: WithRefreshToken
+      x-go-package: github.com/outdoorsy/api/types
+    String:
+      type: string
+      x-go-package: github.com/outdoorsy/api/utils/password
+    UserLoginRequest:
+      type: object
+      properties:
+        account_id:
+          type: string
+          x-go-name: AccountID
+        biometric_id:
+          type: string
+          x-go-name: BiometricID
+        dealer_user:
+          type: boolean
+          x-go-name: DealerUser
+        email:
+          type: string
+          x-go-name: Email
+        password:
+          $ref: '#/components/schemas/String'
+        recaptcha_response:
+          type: string
+          x-go-name: RecaptchaResponse
+        with_refresh_token:
+          description: 'Used mainly for mobile clients to provide some backward
+
+            compatibility for them to work with access tokens only.
+
+            Will be removed when mobile adoption rate hits certain percentage'
+          type: boolean
+          x-go-name: WithRefreshToken
+      x-go-package: github.com/outdoorsy/api/types
+    PasswordForgotRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          x-go-name: Email
       x-go-package: github.com/outdoorsy/api/types
     UserAuthResponse:
       type: object

@@ -1295,26 +1295,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Relationship:
-      type: object
-      title: Relationship represents a member of the JSON API relationships object.
-      properties:
-        data:
-          type: object
-          x-go-name: Data
-        links:
-          $ref: '#/components/schemas/Links'
-        meta:
-          type: object
-          additionalProperties: {}
-          x-go-name: Meta
-      x-go-package: github.com/smotes/jsonapi
-    Links:
-      description: http://jsonapi.org/format/#document-links
-      type: object
-      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
-      additionalProperties: {}
-      x-go-package: github.com/smotes/jsonapi
     Relationships:
       description: http://jsonapi.org/format/#document-resource-object-relationships
       type: object
@@ -1322,73 +1302,6 @@ components:
       additionalProperties:
         $ref: '#/components/schemas/Relationship'
       x-go-package: github.com/smotes/jsonapi
-    ABTest:
-      type: object
-      x-go-package: github.com/outdoorsy/ds-abtest/abtest
-    NearbyCampground:
-      description: Combines external campgrounds and unclaimed campgrounds (locality content of type campground)
-      type: object
-      properties:
-        claimed_campground_id:
-          type: integer
-          format: int64
-          x-go-name: ClaimedCampgroundID
-        distance_in_miles:
-          type: number
-          format: double
-          x-go-name: DistanceInMiles
-        is_claimed:
-          type: boolean
-          x-go-name: Claimed
-        is_odn:
-          type: boolean
-          x-go-name: IsODN
-        location:
-          $ref: '#/components/schemas/Location'
-        name:
-          type: string
-          x-go-name: Name
-        odn_id:
-          type: string
-          x-go-name: OdnID
-        primary_image_url:
-          type: string
-          x-go-name: PrimaryImageURL
-        url:
-          type: string
-          x-go-name: URL
-      x-go-package: github.com/outdoorsy/odc-search/types
-    Location:
-      description: Location to hold address details
-      type: object
-      properties:
-        city:
-          type: string
-          x-go-name: City
-        country:
-          type: string
-          x-go-name: Country
-        county:
-          type: string
-          x-go-name: County
-        lat:
-          type: number
-          format: double
-          x-go-name: Lat
-        lng:
-          type: number
-          format: double
-          x-go-name: Lng
-        state:
-          type: string
-          x-go-name: State
-        street:
-          type: string
-          x-go-name: Street
-        zip:
-          type: string
-          x-go-name: Zip
-      x-go-package: github.com/outdoorsy/odc-search/types
     Resource:
       description: 'Note that any of the optional keys will be omitted if a value is not provided.
 
@@ -1426,7 +1339,100 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/smotes/jsonapi
+    Links:
+      description: http://jsonapi.org/format/#document-links
+      type: object
+      title: Links represents a JSON API links object, which can include JSON API link objects or strings representing links.
+      additionalProperties: {}
+      x-go-package: github.com/smotes/jsonapi
+    NearbyCampground:
+      description: Combines external campgrounds and unclaimed campgrounds (locality content of type campground)
+      type: object
+      properties:
+        claimed_campground_id:
+          type: integer
+          format: int64
+          x-go-name: ClaimedCampgroundID
+        distance_in_miles:
+          type: number
+          format: double
+          x-go-name: DistanceInMiles
+        is_claimed:
+          type: boolean
+          x-go-name: Claimed
+        is_odn:
+          type: boolean
+          x-go-name: IsODN
+        location:
+          $ref: '#/components/schemas/Location'
+        name:
+          type: string
+          x-go-name: Name
+        odn_id:
+          type: string
+          x-go-name: OdnID
+        primary_image_url:
+          type: string
+          x-go-name: PrimaryImageURL
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/odc-search/types
+    Relationship:
+      type: object
+      title: Relationship represents a member of the JSON API relationships object.
+      properties:
+        data:
+          type: object
+          x-go-name: Data
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          type: object
+          additionalProperties: {}
+          x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+    Location:
+      description: Location to hold address details
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        lat:
+          type: number
+          format: double
+          x-go-name: Lat
+        lng:
+          type: number
+          format: double
+          x-go-name: Lng
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/odc-search/types
+    ABTest:
+      type: object
+      x-go-package: github.com/outdoorsy/ds-abtest/abtest
   responses:
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
     jsonApiExternalCampgroundsResponse:
       description: ''
       content:
@@ -1440,6 +1446,8 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Resource'
+    notFoundError:
+      description: Not found error
     jsonApiNearbyCampgroundsResponse:
       description: ''
       content:
@@ -1453,14 +1461,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/NearbyCampground'
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
   securitySchemes:
     Bearer:
       type: apiKey

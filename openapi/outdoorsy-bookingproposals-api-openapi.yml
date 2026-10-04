@@ -260,42 +260,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NoticeResponse:
-      type: object
-      properties:
-        guest_acknowledgement_text:
-          type: string
-          x-go-name: GuestAcknowledgementText
-        guest_need_to_acknowledge:
-          type: boolean
-          x-go-name: GuestNeedToAcknowledge
-        guest_user_text:
-          type: string
-          x-go-name: GuestUserText
-        host_acknowledgement_text:
-          type: string
-          x-go-name: HostAcknowledgementText
-        host_help_url:
-          type: string
-          x-go-name: HostHelpUrl
-        host_need_to_acknowledge:
-          type: boolean
-          x-go-name: HostNeedToAcknowledge
-        host_user_text:
-          type: string
-          x-go-name: HostUserText
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        name:
-          type: string
-          x-go-name: Name
-      x-go-package: github.com/outdoorsy/api/internal/user_notice_events
-    ISlice:
-      type: array
-      items: {}
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
     DailyChange:
       type: object
       properties:
@@ -309,11 +273,6 @@ components:
         rules:
           $ref: '#/components/schemas/ISlice'
       x-go-package: github.com/outdoorsy/api/internal/booking_price_log
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
     Proposal:
       type: object
       properties:
@@ -389,15 +348,66 @@ components:
             format: int64
           x-go-name: UserNoticesAcknowledged
       x-go-package: github.com/outdoorsy/api/internal/proposal
+    ISlice:
+      type: array
+      items: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    NoticeResponse:
+      type: object
+      properties:
+        guest_acknowledgement_text:
+          type: string
+          x-go-name: GuestAcknowledgementText
+        guest_need_to_acknowledge:
+          type: boolean
+          x-go-name: GuestNeedToAcknowledge
+        guest_user_text:
+          type: string
+          x-go-name: GuestUserText
+        host_acknowledgement_text:
+          type: string
+          x-go-name: HostAcknowledgementText
+        host_help_url:
+          type: string
+          x-go-name: HostHelpUrl
+        host_need_to_acknowledge:
+          type: boolean
+          x-go-name: HostNeedToAcknowledge
+        host_user_text:
+          type: string
+          x-go-name: HostUserText
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/internal/user_notice_events
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
   responses:
-    unauthorizedError:
-      description: Unauthorized error
+    noContentResponse:
+      description: Everything went as planned
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    notFoundError:
+      description: Not found error
     proposalResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Proposal'
+    unauthorizedError:
+      description: Unauthorized error
     proposalsResponse:
       description: ''
       content:
@@ -406,16 +416,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Proposal'
-    notFoundError:
-      description: Not found error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    noContentResponse:
-      description: Everything went as planned
   securitySchemes:
     API-Key:
       type: apiKey

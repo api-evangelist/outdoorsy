@@ -111,18 +111,12 @@ paths:
       tags:
       - Referrals
 components:
-  responses:
-    unauthorizedError:
-      description: Unauthorized error
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
   schemas:
+    Referees:
+      type: array
+      items:
+        $ref: '#/components/schemas/Referee'
+      x-go-package: github.com/outdoorsy/api/internal/referrals
     Referee:
       type: object
       properties:
@@ -143,11 +137,17 @@ components:
           - string
           - 'null'
       x-go-package: github.com/outdoorsy/api/internal/referrals
-    Referees:
-      type: array
-      items:
-        $ref: '#/components/schemas/Referee'
-      x-go-package: github.com/outdoorsy/api/internal/referrals
+  responses:
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

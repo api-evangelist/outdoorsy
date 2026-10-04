@@ -202,620 +202,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserSecurity:
-      type: object
-      properties:
-        force_password_reset:
-          type: boolean
-          x-go-name: ForcePasswordReset
-        social_login_disabled:
-          type: boolean
-          x-go-name: SocialLoginDisabled
-        user_id:
-          type: integer
-          format: int64
-          x-go-name: UserID
-      x-go-package: github.com/outdoorsy/api/internal/security
-    TOS_Acceptance:
-      type: object
-      properties:
-        accepted_on:
-          type: string
-          x-go-name: AcceptedON
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        metadata:
-          $ref: '#/components/schemas/MSI'
-        tos_version:
-          type: string
-          x-go-name: TOS_Version
-        user_id:
-          type: integer
-          format: int64
-          x-go-name: UserID
-      x-go-package: github.com/outdoorsy/api/model
-    TaxRate:
-      type: object
-      properties:
-        archived:
-          type: boolean
-          x-go-name: Archived
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        description:
-          type: string
-          x-go-name: Description
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        marketplace:
-          type: boolean
-          x-go-name: MarketPlace
-        name:
-          type: string
-          x-go-name: Name
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        rate:
-          type: number
-          format: double
-          x-go-name: Rate
-        state:
-          description: carry through to booking_tax_rates table from avalara
-          type: string
-          x-go-name: State
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        zip_code:
-          type: string
-          x-go-name: ZipCode
-      x-go-package: github.com/outdoorsy/api/internal/tax_rates
-    PaymentProcessingInfo:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/PaymentAddress'
-        archived:
-          type: boolean
-          x-go-name: Archived
-        bank_address:
-          type: string
-          x-go-name: BankAddress
-        bank_last_four:
-          type: string
-          x-go-name: BankLastFour
-        bank_name:
-          type: string
-          x-go-name: BankName
-        base_currency:
-          type: string
-          x-go-name: BaseCurrency
-        can_accept_payments:
-          description: Dynamic Fields
-          type: boolean
-          x-go-name: CanAcceptPayments
-        can_archive_bank:
-          type: boolean
-          x-go-name: CanArchiveBank
-        can_send_payments:
-          type: boolean
-          x-go-name: CanSendPayments
-        capabilities:
-          $ref: '#/components/schemas/DBInterfaceMap'
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        customer_id:
-          type: string
-          x-go-name: CustomerID
-        debit_agreement_date:
-          type: string
-          x-go-name: DebitAgreementDate
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        deposits_disabled:
-          type: boolean
-          x-go-name: DepositsDisabled
-        form:
-          type: object
-          additionalProperties: {}
-          x-go-name: Form
-        fund_id:
-          type: string
-          x-go-name: FundID
-        gateway_type:
-          type: string
-          x-go-name: GatewayType
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        managed_account_id:
-          type: string
-          x-go-name: ManagedAccountID
-        missing_fields:
-          $ref: '#/components/schemas/DBStringSlice'
-        missing_fields_change_description:
-          type: array
-          items:
-            type: string
-          x-go-name: MissingFieldsChangeDescription
-        needs_migration:
-          description: can be used to force an account to re-authorize their bank via plaid
-          type: boolean
-          x-go-name: NeedsMigration
-        nickname:
-          type: string
-          x-go-name: Nickname
-        notes:
-          type: string
-          x-go-name: Notes
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        payment_processor:
-          $ref: '#/components/schemas/PaymentProcessor'
-        phone:
-          type: string
-          x-go-name: Phone
-        reference_number:
-          type: string
-          x-go-name: ReferenceNumber
-        sort_code:
-          type: string
-          x-go-name: SortCode
-        status:
-          type: string
-          x-go-name: Status
-        support_phone:
-          type: string
-          x-go-name: SupportPhone
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-      x-go-package: github.com/outdoorsy/api/model
-    LocAvailabilityDay:
-      type: object
-      properties:
-        dropoff:
-          $ref: '#/components/schemas/LocAvailabilityInfo'
-        pickup:
-          $ref: '#/components/schemas/LocAvailabilityInfo'
-      x-go-package: github.com/outdoorsy/api/internal/location
-    LocationLocale:
-      type: object
-      properties:
-        base_currency:
-          type: string
-          x-go-name: BaseCurrency
-      x-go-package: github.com/outdoorsy/api/internal/location
-    Bio:
-      description: bio holds additional information about a user
-      type: object
-      properties:
-        description:
-          type: string
-          x-go-name: Description
-        experience:
-          type: string
-          x-go-name: Experience
-        years_owned:
-          type: integer
-          format: int64
-          x-go-name: YearsOwned
-        years_rving:
-          type: integer
-          format: int64
-          x-go-name: YearsRVing
-      x-go-package: github.com/outdoorsy/api/model
-    RentalItem:
-      type: object
-      properties:
-        applies_to_type:
-          $ref: '#/components/schemas/DBStringSlice'
-        available:
-          type: integer
-          format: int64
-          x-go-name: Available
-        category:
-          type: string
-          x-go-name: Category
-        category_id:
-          type: integer
-          format: int64
-          x-go-name: CategoryID
-        consigned_pay_pct:
-          description: consigned owner support
-          type: number
-          format: double
-          x-go-name: ConsignedPayPct
-        created:
-          $ref: '#/components/schemas/NullTime'
-        daily:
-          type: boolean
-          x-go-name: Daily
-        deferred:
-          type: boolean
-          x-go-name: Deferred
-        description:
-          type: string
-          x-go-name: Description
-        hidden:
-          type: boolean
-          x-go-name: Hidden
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        image_url:
-          type: string
-          x-go-name: ImageURL
-        ledger_account_number:
-          type: integer
-          format: int64
-          x-go-name: LedgerAccountNumber
-        location_id:
-          type: integer
-          format: int64
-          x-go-name: LocationID
-        location_ids:
-          type: array
-          items:
-            type: integer
-            format: int64
-          x-go-name: LocationIDs
-        maximum_price:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        metadata:
-          $ref: '#/components/schemas/IMap'
-        minimum_price:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        name:
-          type: string
-          x-go-name: Name
-        percent:
-          type: number
-          format: double
-          x-go-name: Percent
-        percent_type:
-          type: string
-          x-go-name: PercentType
-        position:
-          type: integer
-          format: int64
-          x-go-name: Position
-        presentment_currency:
-          type: string
-          x-go-name: PresentmentCurrency
-        price:
-          type: integer
-          format: int64
-          x-go-name: Price
-        rental_items_category_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        rental_items_category_name:
-          type: string
-          x-go-name: RentalItemsCategoryName
-        rental_items_category_owner_name:
-          type: string
-          x-go-name: RentalItemsCategoryOwnerName
-        rental_items_category_reason:
-          type: string
-          x-go-name: RentalItemsCategoryReason
-        rental_items_category_requested_name:
-          type: string
-          x-go-name: RentalItemsCategoryRequestedName
-        rental_items_category_status:
-          type: string
-          x-go-name: RentalItemsCategoryStatus
-        required:
-          type: boolean
-          x-go-name: Required
-        settlement_currency:
-          type: string
-          x-go-name: SettlementCurrency
-        tax:
-          description: total tax - calculated
-          type: integer
-          format: int64
-          x-go-name: Tax
-        tax_rate_id:
-          $ref: '#/components/schemas/TaxRate'
-        tax_rate_ids:
-          type: array
-          items:
-            type: integer
-            format: int64
-          x-go-name: TaxRateIDs
-        travelers:
-          type: integer
-          format: int64
-          x-go-name: Travelers
-        updated:
-          $ref: '#/components/schemas/NullTime'
-      x-go-package: github.com/outdoorsy/api/model
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
-    ProStatus:
-      type: object
-      properties:
-        approval_rate:
-          type: number
-          format: double
-          x-go-name: ApprovalRate
-        bank_account:
-          type: boolean
-          x-go-name: BankAccount
-        completed_points:
-          type: integer
-          format: int64
-          x-go-name: CompletedPoints
-        description:
-          type: boolean
-          x-go-name: Description
-        eligible_insurance:
-          type: boolean
-          x-go-name: EligibleInsurance
-        pending_rentals:
-          type: array
-          items:
-            $ref: '#/components/schemas/ineligibleRental'
-          x-go-name: PendingRentals
-        pro:
-          type: boolean
-          x-go-name: Pro
-        profile_percent_complete:
-          type: integer
-          format: int64
-          x-go-name: ProfilePercentComplete
-        rating:
-          type: number
-          format: double
-          x-go-name: Rating
-        response_time:
-          type: integer
-          format: int64
-          x-go-name: ResponseTime
-        response_time_rank:
-          type: integer
-          format: int64
-          x-go-name: ResponseTimeRank
-        total_points:
-          type: integer
-          format: int64
-          x-go-name: TotalPoints
-        verified_phone:
-          type: boolean
-          x-go-name: VerifiedPhone
-      x-go-package: github.com/outdoorsy/api/model
-    NotificationSettings:
-      type: object
-      properties:
-        browser:
-          $ref: '#/components/schemas/NotificationBrowser'
-        email:
-          $ref: '#/components/schemas/NotificationEmail'
-        mobile:
-          $ref: '#/components/schemas/NotificationMobile'
-        sms:
-          $ref: '#/components/schemas/NotificationSMS'
-      x-go-package: github.com/outdoorsy/api/internal/user_helper
-    NullFloat64:
-      description: 'NullFloat64 implements the [Scanner] interface so
-
-        it can be used as a scan destination, similar to [NullString].'
-      type: object
-      title: NullFloat64 represents a float64 that may be null.
-      properties:
-        Float64:
-          type: number
-          format: double
-        Valid:
-          type: boolean
-      x-go-package: database/sql
-    Address:
-      description: Address holds address information for a user
-      type: object
-      properties:
-        city:
-          type: string
-          x-go-name: City
-        country:
-          type: string
-          x-go-name: Country
-        county:
-          type: string
-          x-go-name: County
-        state:
-          type: string
-          x-go-name: State
-        street:
-          type: string
-          x-go-name: Street
-        street_etc:
-          type: string
-          x-go-name: StreetEtc
-        zip:
-          type: string
-          x-go-name: Zip
-      x-go-package: github.com/outdoorsy/api/model
-    Action:
-      type: string
-      x-go-package: github.com/outdoorsy/api/internal/earned_credit
-    LocAvailability:
-      type: object
-      properties:
-        days:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/LocAvailabilityDay'
-          x-go-name: Days
-      x-go-package: github.com/outdoorsy/api/internal/location
-    Tracking:
-      type: object
-      properties:
-        campaign:
-          type: string
-          x-go-name: Campaign
-        content:
-          type: string
-          x-go-name: Content
-        intent:
-          type: string
-          x-go-name: Intent
-        medium:
-          type: string
-          x-go-name: Medium
-        source:
-          type: string
-          x-go-name: Source
-        term:
-          type: string
-          x-go-name: Term
-      x-go-package: github.com/outdoorsy/api/model
-    PaymentAddress:
-      type: object
-      properties:
-        city:
-          type: string
-          x-go-name: City
-        country:
-          type: string
-          x-go-name: Country
-        state:
-          type: string
-          x-go-name: State
-        street:
-          type: string
-          x-go-name: Street
-        street_etc:
-          type: string
-          x-go-name: StreetEtc
-        zip:
-          type: string
-          x-go-name: Zip
-      x-go-package: github.com/outdoorsy/api/model
-    IMap:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    SocialSlice:
-      type: array
-      items:
-        $ref: '#/components/schemas/Social'
-      x-go-package: github.com/outdoorsy/api/types
-    SSO:
-      type: object
-      properties:
-        auth_url:
-          type: string
-          x-go-name: AuthURL
-        client_id:
-          type: string
-          x-go-name: ClientID
-        client_secret:
-          type: string
-          x-go-name: ClientSecret
-        token_url:
-          type: string
-          x-go-name: TokenURL
-      x-go-package: github.com/outdoorsy/api/model
-    GpsDevicesData:
-      type: object
-      properties:
-        account_api_key:
-          type: string
-          x-go-name: AccountApiKey
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        deleted:
-          type: string
-          x-go-name: Deleted
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        device_count:
-          type: integer
-          format: int64
-          x-go-name: DeviceCount
-        id:
-          type: integer
-          format: int64
-          x-go-name: Id
-        metadata:
-          $ref: '#/components/schemas/IMap'
-        provider_type:
-          type: string
-          x-go-name: ProviderType
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        user_id:
-          type: integer
-          format: int64
-          x-go-name: UserID
-      x-go-package: github.com/outdoorsy/api/internal/zubie
-    PaymentProcessor:
-      description: 'Typically this object is composed into a struct, but embedded into the
-
-        same table using the `db:",embed"` struct tag.'
-      type: object
-      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
-
-        payment processor should be used when communicating with a payment processor.'
-      properties:
-        country:
-          type: string
-          x-go-name: Country
-        external_processor:
-          type: string
-          x-go-name: ExternalProcessor
-        external_processor_id:
-          type: string
-          x-go-name: ExternalProcessorID
-        name:
-          $ref: '#/components/schemas/PaymentProcessorName'
-      x-go-package: github.com/outdoorsy/api/model
-    SpecialHourDropoff:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
     User:
       description: 'A user is the security principal for this application.
 
@@ -1315,75 +701,439 @@ components:
           - 'null'
           format: int64
       x-go-package: github.com/outdoorsy/api/model
-    DBIntSlice:
-      description: DBIntSlice is a []int with database conversion methods
-      type: array
-      items:
-        type: integer
-        format: int64
-      x-go-package: github.com/outdoorsy/api/utils
-    Driver:
+    Business:
       type: object
       properties:
-        approved_by_admin_id:
-          type: integer
-          format: int64
-          x-go-name: ApprovedByAdminID
-        archived:
+        cancel_policy:
+          type: string
+          x-go-name: CancelPolicy
+        cancel_policy_combo_bookings:
+          type: string
+          x-go-name: CancelPolicyComboBookings
+        cancel_text:
+          type: string
+          x-go-name: CancelText
+        checkout_questions:
+          $ref: '#/components/schemas/DBMSISlice'
+        consigned_keep_pct_addon_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctAddonFee
+        consigned_keep_pct_cc_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctCCFee
+        consigned_keep_pct_insurance_fee:
+          type: number
+          format: double
+          x-go-name: ConsignedKeepPctInsuranceFee
+        consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: ConsignedPayPct
+        consigned_pay_pct_generator:
+          type: number
+          format: double
+          x-go-name: ConsignedPayPctGenerator
+        consigned_pay_pct_mileage:
+          type: number
+          format: double
+          x-go-name: ConsignedPayPctMileage
+        description:
+          type: string
+          x-go-name: Description
+        fax:
+          type: string
+          x-go-name: Fax
+        ga4_id:
+          type: string
+          x-go-name: GA4ID
+        google_analytics_id:
+          type:
+          - string
+          - 'null'
+        google_tag_manager_id:
+          type:
+          - string
+          - 'null'
+        hide_rentals:
           type: boolean
-          x-go-name: Archived
-        birthdate:
+          x-go-name: HideRentals
+        house_rules:
           type: string
-        candidate_id:
-          description: private fields
+          x-go-name: HouseRules
+        localized_languages:
+          $ref: '#/components/schemas/DBStringSlice'
+        name:
           type: string
-          x-go-name: CandidateID
-        country:
+          x-go-name: Name
+        outdoorsy_display_name:
           type: string
-          x-go-name: Country
+          x-go-name: OutdoorsyDisplayName
+        phone:
+          type: string
+          x-go-name: Phone
+        segment_token:
+          type: string
+          x-go-name: SegmentToken
+        terms_of_service:
+          type: string
+          x-go-name: TermsOfService
+        website:
+          type: string
+          x-go-name: Website
+      x-go-package: github.com/outdoorsy/api/model
+    NotificationMobile:
+      type: object
+      properties:
+        all:
+          type: boolean
+          x-go-name: All
+      x-go-package: github.com/outdoorsy/api/internal/user_helper
+    DBMSISlice:
+      description: DBMSISlice is a []string with database conversion methods
+      type: array
+      items:
+        type: object
+        additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    Action:
+      type: string
+      x-go-package: github.com/outdoorsy/api/internal/earned_credit
+    SSO:
+      type: object
+      properties:
+        auth_url:
+          type: string
+          x-go-name: AuthURL
+        client_id:
+          type: string
+          x-go-name: ClientID
+        client_secret:
+          type: string
+          x-go-name: ClientSecret
+        token_url:
+          type: string
+          x-go-name: TokenURL
+      x-go-package: github.com/outdoorsy/api/model
+    MSI:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/internal/platform/db
+    LocAvailabilityDay:
+      type: object
+      properties:
+        dropoff:
+          $ref: '#/components/schemas/LocAvailabilityInfo'
+        pickup:
+          $ref: '#/components/schemas/LocAvailabilityInfo'
+      x-go-package: github.com/outdoorsy/api/internal/location
+    RolePermission:
+      type: object
+      properties:
+        can_create:
+          type: boolean
+          x-go-name: CanCreate
+        can_delete:
+          type: boolean
+          x-go-name: CanDelete
+        can_read:
+          type: boolean
+          x-go-name: CanRead
+        can_update:
+          type: boolean
+          x-go-name: CanUpdate
         created:
-          description: metadata
           type: string
+          format: date-time
           x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        display_status:
-          type: string
-          x-go-name: DisplayStatus
-        email:
-          type: string
-          x-go-name: Email
-        first_name:
-          type: string
-          x-go-name: FirstName
-        gender:
-          type: string
-          x-go-name: Gender
         id:
           type: integer
           format: int64
           x-go-name: ID
-        is_old_enough:
+        label:
+          type: string
+          x-go-name: Label
+        name:
+          type: string
+          x-go-name: Name
+        permission_id:
+          type: integer
+          format: int64
+          x-go-name: PermissionID
+        role_id:
+          type: integer
+          format: int64
+          x-go-name: RoleID
+        updated:
+          type: string
+          format: date-time
+          x-go-name: Updated
+      x-go-package: github.com/outdoorsy/api/internal/role_permission
+    DBStringSlice:
+      description: DBStringSlice is a []string with database conversion methods
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/utils
+    BookingOptions:
+      type: object
+      properties:
+        bid_quality_preference:
+          $ref: '#/components/schemas/NullFloat64'
+        coachnet_premium:
+          type: integer
+          format: uint64
+          x-go-name: CoachnetPremium
+        custom_insurance_text:
+          type:
+          - string
+          - 'null'
+        default_auto_insurance_bundle_tier:
+          type: integer
+          format: int64
+          x-go-name: DefaultAutoInsuranceBundleTier
+        default_insurance_bundle_tier:
+          type: integer
+          format: int64
+          x-go-name: DefaultInsuranceBundleTier
+        deposit_percentage:
+          type: number
+          format: double
+          x-go-name: DepositPercentage
+        disable_coachnet:
           type: boolean
-          x-go-name: IsOldEnough
-        last_mvr:
+          x-go-name: DisableCoachnet
+        disable_instamatch:
+          type:
+          - boolean
+          - 'null'
+        final_payment_due_days:
+          description: 0 - manual charge due at the start of the trip, -1 manual due at the end of the trip, >0 automatic charge N days before trip start
+          type: integer
+          format: int64
+          x-go-name: FinalPaymentDueDays
+        from_time:
+          type: integer
+          format: int64
+          x-go-name: FromTime
+        instant_book:
+          type: boolean
+          x-go-name: InstantBook
+        instant_book_leeway:
+          type: integer
+          format: int64
+          x-go-name: InstantBookLeeway
+        instant_book_type:
           type: string
-          x-go-name: LastMVR
+          x-go-name: InstantBookType
+        insurance_coverage:
+          type: string
+          x-go-name: InsuranceCoverage
+        insurance_renter_adjustable:
+          type: boolean
+          x-go-name: InsuranceRenterAdjustable
+        minimum_days:
+          description: 'Deprecated: MinimumDays is deprecated, use TripCalculator.Calculate().MinimumBookingDays'
+          type: integer
+          format: int64
+          x-go-name: MinimumDays
+        minimum_deposit:
+          type: integer
+          format: uint64
+          x-go-name: MinimumDeposit
+        request_less_than_minimum_days:
+          type: integer
+          format: int64
+          x-go-name: RequestLessThanMinimumDays
+        require_booking_time:
+          type: boolean
+          x-go-name: RequireBookingTime
+        require_driver_checks:
+          type: boolean
+          x-go-name: RequireDriverChecks
+        require_insurance:
+          type: boolean
+          x-go-name: RequireInsurance
+        security_deposit_due_days:
+          type: integer
+          format: int64
+          x-go-name: SecurityDepositDueDays
+        tax_rate_id:
+          description: deprecated
+          type: integer
+          format: int64
+          x-go-name: TaxRateID
+        tax_rate_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: TaxRateIDs
+        to_time:
+          type: integer
+          format: int64
+          x-go-name: ToTime
+        turnaround_days_after:
+          type: integer
+          format: uint32
+          x-go-name: TurnaroundDaysAfter
+        use_day_pricing:
+          type: boolean
+          x-go-name: UseDayPricing
+        use_tax_inclusive_pricing:
+          type: boolean
+          x-go-name: UseTaxInclusivePricing
+        variable_fees_upfront:
+          type: boolean
+          x-go-name: VariableFeesUpfront
+      x-go-package: github.com/outdoorsy/api/model
+    NotificationBrowser:
+      type: object
+      properties:
+        all:
+          type: boolean
+          x-go-name: All
+      x-go-package: github.com/outdoorsy/api/internal/user_helper
+    Bio:
+      description: bio holds additional information about a user
+      type: object
+      properties:
+        description:
+          type: string
+          x-go-name: Description
+        experience:
+          type: string
+          x-go-name: Experience
+        years_owned:
+          type: integer
+          format: int64
+          x-go-name: YearsOwned
+        years_rving:
+          type: integer
+          format: int64
+          x-go-name: YearsRVing
+      x-go-package: github.com/outdoorsy/api/model
+    NullTime:
+      description: 'NullTime represents a time.Time that may be null. NullTime implements the
+
+        sql.Scanner interface so it can be used as a scan destination, similar to
+
+        sql.NullString.'
+      type: object
+      properties:
+        Time:
+          type: string
+          format: date-time
+        Valid:
+          type: boolean
+      x-go-package: github.com/lib/pq
+    NotificationSMS:
+      type: object
+      properties:
+        abandoned_checkout:
+          type: boolean
+          x-go-name: AbandonedCheckout
+        bookings:
+          type: boolean
+          x-go-name: Bookings
+        marketing:
+          type: boolean
+          x-go-name: Marketing
+        messages:
+          type: boolean
+          x-go-name: Messages
+      x-go-package: github.com/outdoorsy/api/internal/user_helper
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
+    TaxRate:
+      type: object
+      properties:
+        archived:
+          type: boolean
+          x-go-name: Archived
+        created:
+          type: string
+          x-go-name: Created
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        last_name:
+        description:
           type: string
-          x-go-name: LastName
-        license_number:
+          x-go-name: Description
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        marketplace:
+          type: boolean
+          x-go-name: MarketPlace
+        name:
           type: string
-          x-go-name: LicenseNumber
-        license_state:
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        rate:
+          type: number
+          format: double
+          x-go-name: Rate
+        state:
+          description: carry through to booking_tax_rates table from avalara
           type: string
-          x-go-name: LicenseState
-        middle_name:
+          x-go-name: State
+        updated:
           type: string
-          x-go-name: MiddleName
-        status:
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        zip_code:
           type: string
-          x-go-name: Status
+          x-go-name: ZipCode
+      x-go-package: github.com/outdoorsy/api/internal/tax_rates
+    ineligibleRental:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        insurance_state:
+          type: string
+          x-go-name: InsuranceState
+        name:
+          type: string
+          x-go-name: Name
+      x-go-package: github.com/outdoorsy/api/model
+    GpsDevicesData:
+      type: object
+      properties:
+        account_api_key:
+          type: string
+          x-go-name: AccountApiKey
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deleted:
+          type: string
+          x-go-name: Deleted
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        device_count:
+          type: integer
+          format: int64
+          x-go-name: DeviceCount
+        id:
+          type: integer
+          format: int64
+          x-go-name: Id
+        metadata:
+          $ref: '#/components/schemas/IMap'
+        provider_type:
+          type: string
+          x-go-name: ProviderType
         updated:
           type: string
           x-go-name: Updated
@@ -1391,17 +1141,84 @@ components:
         user_id:
           type: integer
           format: int64
-        verification_upload_link:
-          type: string
-          x-go-name: VerificationUploadLink
-        verified:
+          x-go-name: UserID
+      x-go-package: github.com/outdoorsy/api/internal/zubie
+    ProStatus:
+      type: object
+      properties:
+        approval_rate:
+          type: number
+          format: double
+          x-go-name: ApprovalRate
+        bank_account:
           type: boolean
-          x-go-name: Verified
-        zendesk_ticket_id:
+          x-go-name: BankAccount
+        completed_points:
           type: integer
           format: int64
-          x-go-name: ZendeskTicketID
+          x-go-name: CompletedPoints
+        description:
+          type: boolean
+          x-go-name: Description
+        eligible_insurance:
+          type: boolean
+          x-go-name: EligibleInsurance
+        pending_rentals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ineligibleRental'
+          x-go-name: PendingRentals
+        pro:
+          type: boolean
+          x-go-name: Pro
+        profile_percent_complete:
+          type: integer
+          format: int64
+          x-go-name: ProfilePercentComplete
+        rating:
+          type: number
+          format: double
+          x-go-name: Rating
+        response_time:
+          type: integer
+          format: int64
+          x-go-name: ResponseTime
+        response_time_rank:
+          type: integer
+          format: int64
+          x-go-name: ResponseTimeRank
+        total_points:
+          type: integer
+          format: int64
+          x-go-name: TotalPoints
+        verified_phone:
+          type: boolean
+          x-go-name: VerifiedPhone
       x-go-package: github.com/outdoorsy/api/model
+    IMap:
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+    Verifications:
+      type: object
+      properties:
+        email:
+          type: boolean
+          x-go-name: Email
+        facebook:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        has_sent_message_without_phone_verified:
+          type: boolean
+          x-go-name: HasSentMessageWithoutPhoneVerified
+        phone:
+          type: boolean
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/model
+    SocialSlice:
+      type: array
+      items:
+        $ref: '#/components/schemas/Social'
+      x-go-package: github.com/outdoorsy/api/types
     Profile:
       description: profile holds all profile information for a user
       type: object
@@ -1516,342 +1333,6 @@ components:
         user_type:
           type: string
           x-go-name: UserType
-      x-go-package: github.com/outdoorsy/api/model
-    ineligibleRental:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        insurance_state:
-          type: string
-          x-go-name: InsuranceState
-        name:
-          type: string
-          x-go-name: Name
-      x-go-package: github.com/outdoorsy/api/model
-    DBStringSlice:
-      description: DBStringSlice is a []string with database conversion methods
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/utils
-    Social:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-          x-go-name: Count
-        link:
-          type: string
-          x-go-name: Link
-        rating:
-          type: number
-          format: double
-          x-go-name: Rating
-        site:
-          type: string
-          x-go-name: Site
-      x-go-package: github.com/outdoorsy/api/types
-    License:
-      description: License holds driver's license information for a user
-      type: object
-      x-go-package: github.com/outdoorsy/api/model
-    SpecialHour:
-      description: '───────────────────────────────────────────────────────────────────────────
-
-        Special Hours
-
-        ───────────────────────────────────────────────────────────────────────────'
-      type: object
-      properties:
-        created:
-          type: string
-          x-go-name: Created
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        created_from_id:
-          type: integer
-          format: int64
-          x-go-name: CreatedFromId
-        dropoff:
-          $ref: '#/components/schemas/SpecialHourDropoff'
-        end_date:
-          type: string
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        location_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        name:
-          type: string
-          x-go-name: Name
-        owner_id:
-          type: integer
-          format: int64
-          x-go-name: OwnerID
-        pickup:
-          $ref: '#/components/schemas/SpecialHourPickup'
-        repeats:
-          type: boolean
-          x-go-name: Repeats
-        start_date:
-          type: string
-        updated:
-          type: string
-          x-go-name: Updated
-          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
-        weekdays:
-          $ref: '#/components/schemas/DBStringSlice'
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
-    Business:
-      type: object
-      properties:
-        cancel_policy:
-          type: string
-          x-go-name: CancelPolicy
-        cancel_policy_combo_bookings:
-          type: string
-          x-go-name: CancelPolicyComboBookings
-        cancel_text:
-          type: string
-          x-go-name: CancelText
-        checkout_questions:
-          $ref: '#/components/schemas/DBMSISlice'
-        consigned_keep_pct_addon_fee:
-          type: number
-          format: double
-          x-go-name: ConsignedKeepPctAddonFee
-        consigned_keep_pct_cc_fee:
-          type: number
-          format: double
-          x-go-name: ConsignedKeepPctCCFee
-        consigned_keep_pct_insurance_fee:
-          type: number
-          format: double
-          x-go-name: ConsignedKeepPctInsuranceFee
-        consigned_pay_pct:
-          description: consigned owner support
-          type: number
-          format: double
-          x-go-name: ConsignedPayPct
-        consigned_pay_pct_generator:
-          type: number
-          format: double
-          x-go-name: ConsignedPayPctGenerator
-        consigned_pay_pct_mileage:
-          type: number
-          format: double
-          x-go-name: ConsignedPayPctMileage
-        description:
-          type: string
-          x-go-name: Description
-        fax:
-          type: string
-          x-go-name: Fax
-        ga4_id:
-          type: string
-          x-go-name: GA4ID
-        google_analytics_id:
-          type:
-          - string
-          - 'null'
-        google_tag_manager_id:
-          type:
-          - string
-          - 'null'
-        hide_rentals:
-          type: boolean
-          x-go-name: HideRentals
-        house_rules:
-          type: string
-          x-go-name: HouseRules
-        localized_languages:
-          $ref: '#/components/schemas/DBStringSlice'
-        name:
-          type: string
-          x-go-name: Name
-        outdoorsy_display_name:
-          type: string
-          x-go-name: OutdoorsyDisplayName
-        phone:
-          type: string
-          x-go-name: Phone
-        segment_token:
-          type: string
-          x-go-name: SegmentToken
-        terms_of_service:
-          type: string
-          x-go-name: TermsOfService
-        website:
-          type: string
-          x-go-name: Website
-      x-go-package: github.com/outdoorsy/api/model
-    NotificationBrowser:
-      type: object
-      properties:
-        all:
-          type: boolean
-          x-go-name: All
-      x-go-package: github.com/outdoorsy/api/internal/user_helper
-    RolePermission:
-      type: object
-      properties:
-        can_create:
-          type: boolean
-          x-go-name: CanCreate
-        can_delete:
-          type: boolean
-          x-go-name: CanDelete
-        can_read:
-          type: boolean
-          x-go-name: CanRead
-        can_update:
-          type: boolean
-          x-go-name: CanUpdate
-        created:
-          type: string
-          format: date-time
-          x-go-name: Created
-        id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        label:
-          type: string
-          x-go-name: Label
-        name:
-          type: string
-          x-go-name: Name
-        permission_id:
-          type: integer
-          format: int64
-          x-go-name: PermissionID
-        role_id:
-          type: integer
-          format: int64
-          x-go-name: RoleID
-        updated:
-          type: string
-          format: date-time
-          x-go-name: Updated
-      x-go-package: github.com/outdoorsy/api/internal/role_permission
-    BookingOptions:
-      type: object
-      properties:
-        bid_quality_preference:
-          $ref: '#/components/schemas/NullFloat64'
-        coachnet_premium:
-          type: integer
-          format: uint64
-          x-go-name: CoachnetPremium
-        custom_insurance_text:
-          type:
-          - string
-          - 'null'
-        default_auto_insurance_bundle_tier:
-          type: integer
-          format: int64
-          x-go-name: DefaultAutoInsuranceBundleTier
-        default_insurance_bundle_tier:
-          type: integer
-          format: int64
-          x-go-name: DefaultInsuranceBundleTier
-        deposit_percentage:
-          type: number
-          format: double
-          x-go-name: DepositPercentage
-        disable_coachnet:
-          type: boolean
-          x-go-name: DisableCoachnet
-        disable_instamatch:
-          type:
-          - boolean
-          - 'null'
-        final_payment_due_days:
-          description: 0 - manual charge due at the start of the trip, -1 manual due at the end of the trip, >0 automatic charge N days before trip start
-          type: integer
-          format: int64
-          x-go-name: FinalPaymentDueDays
-        from_time:
-          type: integer
-          format: int64
-          x-go-name: FromTime
-        instant_book:
-          type: boolean
-          x-go-name: InstantBook
-        instant_book_leeway:
-          type: integer
-          format: int64
-          x-go-name: InstantBookLeeway
-        instant_book_type:
-          type: string
-          x-go-name: InstantBookType
-        insurance_coverage:
-          type: string
-          x-go-name: InsuranceCoverage
-        insurance_renter_adjustable:
-          type: boolean
-          x-go-name: InsuranceRenterAdjustable
-        minimum_days:
-          description: 'Deprecated: MinimumDays is deprecated, use TripCalculator.Calculate().MinimumBookingDays'
-          type: integer
-          format: int64
-          x-go-name: MinimumDays
-        minimum_deposit:
-          type: integer
-          format: uint64
-          x-go-name: MinimumDeposit
-        request_less_than_minimum_days:
-          type: integer
-          format: int64
-          x-go-name: RequestLessThanMinimumDays
-        require_booking_time:
-          type: boolean
-          x-go-name: RequireBookingTime
-        require_driver_checks:
-          type: boolean
-          x-go-name: RequireDriverChecks
-        require_insurance:
-          type: boolean
-          x-go-name: RequireInsurance
-        security_deposit_due_days:
-          type: integer
-          format: int64
-          x-go-name: SecurityDepositDueDays
-        tax_rate_id:
-          description: deprecated
-          type: integer
-          format: int64
-          x-go-name: TaxRateID
-        tax_rate_ids:
-          type: array
-          items:
-            type: integer
-            format: int64
-          x-go-name: TaxRateIDs
-        to_time:
-          type: integer
-          format: int64
-          x-go-name: ToTime
-        turnaround_days_after:
-          type: integer
-          format: uint32
-          x-go-name: TurnaroundDaysAfter
-        use_day_pricing:
-          type: boolean
-          x-go-name: UseDayPricing
-        use_tax_inclusive_pricing:
-          type: boolean
-          x-go-name: UseTaxInclusivePricing
-        variable_fees_upfront:
-          type: boolean
-          x-go-name: VariableFeesUpfront
       x-go-package: github.com/outdoorsy/api/model
     Location:
       type: object
@@ -1979,63 +1460,380 @@ components:
           type: string
           x-go-name: Zip
       x-go-package: github.com/outdoorsy/api/internal/location
-    NotificationSMS:
+    SpecialHourDropoff:
       type: object
       properties:
-        abandoned_checkout:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
           type: boolean
-          x-go-name: AbandonedCheckout
-        bookings:
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    Address:
+      description: Address holds address information for a user
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        county:
+          type: string
+          x-go-name: County
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
+      x-go-package: github.com/outdoorsy/api/model
+    NullFloat64:
+      description: 'NullFloat64 implements the [Scanner] interface so
+
+        it can be used as a scan destination, similar to [NullString].'
+      type: object
+      title: NullFloat64 represents a float64 that may be null.
+      properties:
+        Float64:
+          type: number
+          format: double
+        Valid:
           type: boolean
-          x-go-name: Bookings
-        marketing:
+      x-go-package: database/sql
+    Driver:
+      type: object
+      properties:
+        approved_by_admin_id:
+          type: integer
+          format: int64
+          x-go-name: ApprovedByAdminID
+        archived:
           type: boolean
-          x-go-name: Marketing
-        messages:
+          x-go-name: Archived
+        birthdate:
+          type: string
+        candidate_id:
+          description: private fields
+          type: string
+          x-go-name: CandidateID
+        country:
+          type: string
+          x-go-name: Country
+        created:
+          description: metadata
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        display_status:
+          type: string
+          x-go-name: DisplayStatus
+        email:
+          type: string
+          x-go-name: Email
+        first_name:
+          type: string
+          x-go-name: FirstName
+        gender:
+          type: string
+          x-go-name: Gender
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        is_old_enough:
           type: boolean
-          x-go-name: Messages
-      x-go-package: github.com/outdoorsy/api/internal/user_helper
-    Locale:
+          x-go-name: IsOldEnough
+        last_mvr:
+          type: string
+          x-go-name: LastMVR
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        last_name:
+          type: string
+          x-go-name: LastName
+        license_number:
+          type: string
+          x-go-name: LicenseNumber
+        license_state:
+          type: string
+          x-go-name: LicenseState
+        middle_name:
+          type: string
+          x-go-name: MiddleName
+        status:
+          type: string
+          x-go-name: Status
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        user_id:
+          type: integer
+          format: int64
+        verification_upload_link:
+          type: string
+          x-go-name: VerificationUploadLink
+        verified:
+          type: boolean
+          x-go-name: Verified
+        zendesk_ticket_id:
+          type: integer
+          format: int64
+          x-go-name: ZendeskTicketID
+      x-go-package: github.com/outdoorsy/api/model
+    TOS_Acceptance:
+      type: object
+      properties:
+        accepted_on:
+          type: string
+          x-go-name: AcceptedON
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        metadata:
+          $ref: '#/components/schemas/MSI'
+        tos_version:
+          type: string
+          x-go-name: TOS_Version
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: UserID
+      x-go-package: github.com/outdoorsy/api/model
+    RentalItem:
+      type: object
+      properties:
+        applies_to_type:
+          $ref: '#/components/schemas/DBStringSlice'
+        available:
+          type: integer
+          format: int64
+          x-go-name: Available
+        category:
+          type: string
+          x-go-name: Category
+        category_id:
+          type: integer
+          format: int64
+          x-go-name: CategoryID
+        consigned_pay_pct:
+          description: consigned owner support
+          type: number
+          format: double
+          x-go-name: ConsignedPayPct
+        created:
+          $ref: '#/components/schemas/NullTime'
+        daily:
+          type: boolean
+          x-go-name: Daily
+        deferred:
+          type: boolean
+          x-go-name: Deferred
+        description:
+          type: string
+          x-go-name: Description
+        hidden:
+          type: boolean
+          x-go-name: Hidden
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image_url:
+          type: string
+          x-go-name: ImageURL
+        ledger_account_number:
+          type: integer
+          format: int64
+          x-go-name: LedgerAccountNumber
+        location_id:
+          type: integer
+          format: int64
+          x-go-name: LocationID
+        location_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: LocationIDs
+        maximum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        metadata:
+          $ref: '#/components/schemas/IMap'
+        minimum_price:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        percent:
+          type: number
+          format: double
+          x-go-name: Percent
+        percent_type:
+          type: string
+          x-go-name: PercentType
+        position:
+          type: integer
+          format: int64
+          x-go-name: Position
+        presentment_currency:
+          type: string
+          x-go-name: PresentmentCurrency
+        price:
+          type: integer
+          format: int64
+          x-go-name: Price
+        rental_items_category_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        rental_items_category_name:
+          type: string
+          x-go-name: RentalItemsCategoryName
+        rental_items_category_owner_name:
+          type: string
+          x-go-name: RentalItemsCategoryOwnerName
+        rental_items_category_reason:
+          type: string
+          x-go-name: RentalItemsCategoryReason
+        rental_items_category_requested_name:
+          type: string
+          x-go-name: RentalItemsCategoryRequestedName
+        rental_items_category_status:
+          type: string
+          x-go-name: RentalItemsCategoryStatus
+        required:
+          type: boolean
+          x-go-name: Required
+        settlement_currency:
+          type: string
+          x-go-name: SettlementCurrency
+        tax:
+          description: total tax - calculated
+          type: integer
+          format: int64
+          x-go-name: Tax
+        tax_rate_id:
+          $ref: '#/components/schemas/TaxRate'
+        tax_rate_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          x-go-name: TaxRateIDs
+        travelers:
+          type: integer
+          format: int64
+          x-go-name: Travelers
+        updated:
+          $ref: '#/components/schemas/NullTime'
+      x-go-package: github.com/outdoorsy/api/model
+    SpecialHourPickup:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    DBIntSlice:
+      description: DBIntSlice is a []int with database conversion methods
+      type: array
+      items:
+        type: integer
+        format: int64
+      x-go-package: github.com/outdoorsy/api/utils
+    LocationLocale:
       type: object
       properties:
         base_currency:
           type: string
           x-go-name: BaseCurrency
-        date_format:
-          type: string
-          x-go-name: DateFormat
-        distance_unit:
-          type: string
-          x-go-name: DistanceUnit
-        language:
-          type: string
-          x-go-name: Language
-        length_unit:
-          type: string
-          x-go-name: LengthUnit
-        liquid_unit:
-          type: string
-          x-go-name: LiquidUnit
-        time_format:
-          type: string
-          x-go-name: TimeFormat
-        timezone:
-          type: string
-          x-go-name: Timezone
-        weight_unit:
-          type: string
-          x-go-name: WeightUnit
+      x-go-package: github.com/outdoorsy/api/internal/location
+    LocAvailabilityInfo:
+      type: object
+      properties:
+        end_time:
+          type: integer
+          format: int64
+          x-go-name: EndTime
+        start_time:
+          type: integer
+          format: int64
+          x-go-name: StartTime
+        unavailable:
+          type: boolean
+          x-go-name: Unavailable
+      x-go-package: github.com/outdoorsy/api/internal/location
+    NotificationSettings:
+      type: object
+      properties:
+        browser:
+          $ref: '#/components/schemas/NotificationBrowser'
+        email:
+          $ref: '#/components/schemas/NotificationEmail'
+        mobile:
+          $ref: '#/components/schemas/NotificationMobile'
+        sms:
+          $ref: '#/components/schemas/NotificationSMS'
+      x-go-package: github.com/outdoorsy/api/internal/user_helper
+    License:
+      description: License holds driver's license information for a user
+      type: object
       x-go-package: github.com/outdoorsy/api/model
-    DBBoolMap:
-      description: DBBoolMap is a map[string]boold with database conversion methods
+    PaymentProcessor:
+      description: 'Typically this object is composed into a struct, but embedded into the
+
+        same table using the `db:",embed"` struct tag.'
       type: object
-      additionalProperties:
-        type: boolean
-      x-go-package: github.com/outdoorsy/api/utils
-    MSI:
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/internal/platform/db
+      title: 'PaymentProcessor is a struct defining identifiers so objects can know which
+
+        payment processor should be used when communicating with a payment processor.'
+      properties:
+        country:
+          type: string
+          x-go-name: Country
+        external_processor:
+          type: string
+          x-go-name: ExternalProcessor
+        external_processor_id:
+          type: string
+          x-go-name: ExternalProcessorID
+        name:
+          $ref: '#/components/schemas/PaymentProcessorName'
+      x-go-package: github.com/outdoorsy/api/model
     EarnedCredit:
       type: object
       properties:
@@ -2112,52 +1910,190 @@ components:
           format: int64
           x-go-name: UserID
       x-go-package: github.com/outdoorsy/api/internal/earned_credit
-    NotificationEmail:
+    DBBoolMap:
+      description: DBBoolMap is a map[string]boold with database conversion methods
+      type: object
+      additionalProperties:
+        type: boolean
+      x-go-package: github.com/outdoorsy/api/utils
+    Tracking:
       type: object
       properties:
-        abandoned_checkout:
-          type: boolean
-          x-go-name: AbandonedCheckout
-        all:
-          type: boolean
-          x-go-name: All
-      x-go-package: github.com/outdoorsy/api/internal/user_helper
-    NullTime:
-      description: 'NullTime represents a time.Time that may be null. NullTime implements the
-
-        sql.Scanner interface so it can be used as a scan destination, similar to
-
-        sql.NullString.'
-      type: object
-      properties:
-        Time:
+        campaign:
           type: string
-          format: date-time
-        Valid:
-          type: boolean
-      x-go-package: github.com/lib/pq
-    NotificationMobile:
+          x-go-name: Campaign
+        content:
+          type: string
+          x-go-name: Content
+        intent:
+          type: string
+          x-go-name: Intent
+        medium:
+          type: string
+          x-go-name: Medium
+        source:
+          type: string
+          x-go-name: Source
+        term:
+          type: string
+          x-go-name: Term
+      x-go-package: github.com/outdoorsy/api/model
+    PaymentProcessingInfo:
       type: object
       properties:
-        all:
+        address:
+          $ref: '#/components/schemas/PaymentAddress'
+        archived:
           type: boolean
-          x-go-name: All
-      x-go-package: github.com/outdoorsy/api/internal/user_helper
-    LocAvailabilityInfo:
+          x-go-name: Archived
+        bank_address:
+          type: string
+          x-go-name: BankAddress
+        bank_last_four:
+          type: string
+          x-go-name: BankLastFour
+        bank_name:
+          type: string
+          x-go-name: BankName
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+        can_accept_payments:
+          description: Dynamic Fields
+          type: boolean
+          x-go-name: CanAcceptPayments
+        can_archive_bank:
+          type: boolean
+          x-go-name: CanArchiveBank
+        can_send_payments:
+          type: boolean
+          x-go-name: CanSendPayments
+        capabilities:
+          $ref: '#/components/schemas/DBInterfaceMap'
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        customer_id:
+          type: string
+          x-go-name: CustomerID
+        debit_agreement_date:
+          type: string
+          x-go-name: DebitAgreementDate
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        deposits_disabled:
+          type: boolean
+          x-go-name: DepositsDisabled
+        form:
+          type: object
+          additionalProperties: {}
+          x-go-name: Form
+        fund_id:
+          type: string
+          x-go-name: FundID
+        gateway_type:
+          type: string
+          x-go-name: GatewayType
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        managed_account_id:
+          type: string
+          x-go-name: ManagedAccountID
+        missing_fields:
+          $ref: '#/components/schemas/DBStringSlice'
+        missing_fields_change_description:
+          type: array
+          items:
+            type: string
+          x-go-name: MissingFieldsChangeDescription
+        needs_migration:
+          description: can be used to force an account to re-authorize their bank via plaid
+          type: boolean
+          x-go-name: NeedsMigration
+        nickname:
+          type: string
+          x-go-name: Nickname
+        notes:
+          type: string
+          x-go-name: Notes
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        phone:
+          type: string
+          x-go-name: Phone
+        reference_number:
+          type: string
+          x-go-name: ReferenceNumber
+        sort_code:
+          type: string
+          x-go-name: SortCode
+        status:
+          type: string
+          x-go-name: Status
+        support_phone:
+          type: string
+          x-go-name: SupportPhone
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+      x-go-package: github.com/outdoorsy/api/model
+    SpecialHour:
+      description: '───────────────────────────────────────────────────────────────────────────
+
+        Special Hours
+
+        ───────────────────────────────────────────────────────────────────────────'
       type: object
       properties:
-        end_time:
+        created:
+          type: string
+          x-go-name: Created
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        created_from_id:
           type: integer
           format: int64
-          x-go-name: EndTime
-        start_time:
+          x-go-name: CreatedFromId
+        dropoff:
+          $ref: '#/components/schemas/SpecialHourDropoff'
+        end_date:
+          type: string
+        id:
           type: integer
           format: int64
-          x-go-name: StartTime
-        unavailable:
+          x-go-name: ID
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
+          type: string
+          x-go-name: Name
+        owner_id:
+          type: integer
+          format: int64
+          x-go-name: OwnerID
+        pickup:
+          $ref: '#/components/schemas/SpecialHourPickup'
+        repeats:
           type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/location
+          x-go-name: Repeats
+        start_date:
+          type: string
+        updated:
+          type: string
+          x-go-name: Updated
+          x-go-type: github.com/outdoorsy/api/clocks.RfcTime
+        weekdays:
+          $ref: '#/components/schemas/DBStringSlice'
+      x-go-package: github.com/outdoorsy/api/internal/special_hours
     BookingRestrictions:
       type: object
       properties:
@@ -2188,6 +2124,110 @@ components:
         is_instant_book_banned:
           type: boolean
           x-go-name: InstantBookBanned
+      x-go-package: github.com/outdoorsy/api/model
+    Social:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          x-go-name: Count
+        link:
+          type: string
+          x-go-name: Link
+        rating:
+          type: number
+          format: double
+          x-go-name: Rating
+        site:
+          type: string
+          x-go-name: Site
+      x-go-package: github.com/outdoorsy/api/types
+    NotificationEmail:
+      type: object
+      properties:
+        abandoned_checkout:
+          type: boolean
+          x-go-name: AbandonedCheckout
+        all:
+          type: boolean
+          x-go-name: All
+      x-go-package: github.com/outdoorsy/api/internal/user_helper
+    UserSecurity:
+      type: object
+      properties:
+        force_password_reset:
+          type: boolean
+          x-go-name: ForcePasswordReset
+        social_login_disabled:
+          type: boolean
+          x-go-name: SocialLoginDisabled
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: UserID
+      x-go-package: github.com/outdoorsy/api/internal/security
+    Locale:
+      type: object
+      properties:
+        base_currency:
+          type: string
+          x-go-name: BaseCurrency
+        date_format:
+          type: string
+          x-go-name: DateFormat
+        distance_unit:
+          type: string
+          x-go-name: DistanceUnit
+        language:
+          type: string
+          x-go-name: Language
+        length_unit:
+          type: string
+          x-go-name: LengthUnit
+        liquid_unit:
+          type: string
+          x-go-name: LiquidUnit
+        time_format:
+          type: string
+          x-go-name: TimeFormat
+        timezone:
+          type: string
+          x-go-name: Timezone
+        weight_unit:
+          type: string
+          x-go-name: WeightUnit
+      x-go-package: github.com/outdoorsy/api/model
+    LocAvailability:
+      type: object
+      properties:
+        days:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LocAvailabilityDay'
+          x-go-name: Days
+      x-go-package: github.com/outdoorsy/api/internal/location
+    PaymentAddress:
+      type: object
+      properties:
+        city:
+          type: string
+          x-go-name: City
+        country:
+          type: string
+          x-go-name: Country
+        state:
+          type: string
+          x-go-name: State
+        street:
+          type: string
+          x-go-name: Street
+        street_etc:
+          type: string
+          x-go-name: StreetEtc
+        zip:
+          type: string
+          x-go-name: Zip
       x-go-package: github.com/outdoorsy/api/model
     Role:
       type: object
@@ -2223,49 +2263,15 @@ components:
           format: date-time
           x-go-name: Updated
       x-go-package: github.com/outdoorsy/api/internal/role
-    Verifications:
-      type: object
-      properties:
-        email:
-          type: boolean
-          x-go-name: Email
-        facebook:
-          $ref: '#/components/schemas/DBInterfaceMap'
-        has_sent_message_without_phone_verified:
-          type: boolean
-          x-go-name: HasSentMessageWithoutPhoneVerified
-        phone:
-          type: boolean
-          x-go-name: Phone
-      x-go-package: github.com/outdoorsy/api/model
-    DBMSISlice:
-      description: DBMSISlice is a []string with database conversion methods
-      type: array
-      items:
-        type: object
-        additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
-    SpecialHourPickup:
-      type: object
-      properties:
-        end_time:
-          type: integer
-          format: int64
-          x-go-name: EndTime
-        start_time:
-          type: integer
-          format: int64
-          x-go-name: StartTime
-        unavailable:
-          type: boolean
-          x-go-name: Unavailable
-      x-go-package: github.com/outdoorsy/api/internal/special_hours
   responses:
-    noContentResponse:
-      description: Everything went as planned
+    listBankResponse:
+      description: HTTP status code 200
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/PaymentProcessingInfo'
     badRequestError:
       description: Invalid input or state means you're bad
       headers:
@@ -2278,16 +2284,10 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/User'
+    noContentResponse:
+      description: Everything went as planned
     unauthorizedError:
       description: Unauthorized error
-    listBankResponse:
-      description: HTTP status code 200
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/PaymentProcessingInfo'
     successResponse:
       description: ''
   securitySchemes:
