@@ -1,0 +1,12 @@
+{
+ "url": "https://api.outdoorsy.com/swagger.json",
+ "requested_url": "https://api.outdoorsy.com/swagger.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 919948,
+ "sha256": "f0cf8f605ea0f3280fa667ebc3baeb455fa25b90996aecfa7817fd2bc8ff5059",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
