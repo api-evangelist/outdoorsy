@@ -1,24 +1,52 @@
-generated: '2026-08-02'
+generated: '2026-09-23'
 method: generated
-source: openapi/outdoorsy-openapi-original.json, openapi/outdoorsy-search-openapi-original.json
+source: openapi/outdoorsy-admin-api-openapi.yml, openapi/outdoorsy-amenities-api-openapi.yml,
+  openapi/outdoorsy-announcements-api-openapi.yml, openapi/outdoorsy-auth-api-openapi.yml, openapi/outdoorsy-banks-api-openapi.yml,
+  openapi/outdoorsy-booking-services-api-openapi.yml, openapi/outdoorsy-bookingbundles-api-openapi.yml,
+  openapi/outdoorsy-bookingitems-api-openapi.yml, openapi/outdoorsy-bookingproposals-api-openapi.yml,
+  openapi/outdoorsy-bookings-api-openapi.yml, openapi/outdoorsy-bookingtransactions-api-openapi.yml,
+  openapi/outdoorsy-breadcrumbs-api-openapi.yml, openapi/outdoorsy-bundlefeatures-api-openapi.yml,
+  openapi/outdoorsy-bundlerules-api-openapi.yml, openapi/outdoorsy-bundles-api-openapi.yml,
+  openapi/outdoorsy-campgrounds-api-openapi.yml, openapi/outdoorsy-checkoutsteps-api-openapi.yml,
+  openapi/outdoorsy-conversations-api-openapi.yml, openapi/outdoorsy-convert-currency-api-openapi.yml,
+  openapi/outdoorsy-externalcampgrounds-api-openapi.yml, openapi/outdoorsy-favorites-api-openapi.yml,
+  openapi/outdoorsy-files-api-openapi.yml, openapi/outdoorsy-funds-api-openapi.yml, openapi/outdoorsy-gateways-api-openapi.yml,
+  openapi/outdoorsy-geodata-api-openapi.yml, openapi/outdoorsy-gethomepageparks-api-openapi.yml,
+  openapi/outdoorsy-gift-cards-api-openapi.yml, openapi/outdoorsy-ics-calendars-api-openapi.yml,
+  openapi/outdoorsy-instamatch-api-openapi.yml, openapi/outdoorsy-localities-api-openapi.yml,
+  openapi/outdoorsy-locations-api-openapi.yml, openapi/outdoorsy-message-templates-api-openapi.yml,
+  openapi/outdoorsy-messages-api-openapi.yml, openapi/outdoorsy-notes-to-renters-api-openapi.yml,
+  openapi/outdoorsy-notices-api-openapi.yml, openapi/outdoorsy-parks-api-openapi.yml, openapi/outdoorsy-payouts-api-openapi.yml,
+  openapi/outdoorsy-pricing-api-openapi.yml, openapi/outdoorsy-quote-api-openapi.yml, openapi/outdoorsy-quotes-api-openapi.yml,
+  openapi/outdoorsy-referrals-api-openapi.yml, openapi/outdoorsy-rentalimages-api-openapi.yml,
+  openapi/outdoorsy-rentalitems-api-openapi.yml, openapi/outdoorsy-rentalitemscategories-api-openapi.yml,
+  openapi/outdoorsy-rentals-api-openapi.yml, openapi/outdoorsy-reports-api-openapi.yml, openapi/outdoorsy-reviews-api-openapi.yml,
+  openapi/outdoorsy-search-api-openapi.yml, openapi/outdoorsy-specialhours-api-openapi.yml,
+  openapi/outdoorsy-systememails-api-openapi.yml, openapi/outdoorsy-toweable-api-openapi.yml,
+  openapi/outdoorsy-towinginfo-api-openapi.yml, openapi/outdoorsy-transactions-api-openapi.yml,
+  openapi/outdoorsy-two-factor-auth-api-openapi.yml, openapi/outdoorsy-usagebaseditems-api-openapi.yml,
+  openapi/outdoorsy-usagebaseditemtiers-api-openapi.yml, openapi/outdoorsy-usercards-api-openapi.yml,
+  openapi/outdoorsy-usernoticeevents-api-openapi.yml, openapi/outdoorsy-users-api-openapi.yml,
+  openapi/outdoorsy-vacationpackages-api-openapi.yml, openapi/outdoorsy-validations-api-openapi.yml,
+  openapi/outdoorsy-wishlists-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 312
+  operations: 309
   by_action_class:
-    acting: 150
+    acting: 147
     connected: 162
   by_consequence:
-    physical: 11
-    write: 137
+    physical: 10
     read: 162
+    write: 135
     safety-critical: 2
   human_in_the_loop_required: 2
 operations:
-- path: /2fa/send
+- path: /admin/users/{user_id}/resend-confirmation
   method: post
-  operationId: sendCode
+  operationId: adminAuthCredsResendForUser
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -36,45 +64,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /2fa/setup-method
-  method: post
-  operationId: setupPreferredMethod
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /2fa/verify
-  method: patch
-  operationId: verifyCode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /admin/ai-reply-suggestions
+- path: /amenities
   method: get
-  operationId: listAiReplySuggestions
+  operationId: listAmenitiesGroups
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -240,190 +232,6 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /admin/users/banks/payouts-triggered
-  method: get
-  operationId: getBanksWithPayoutsTriggered
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /admin/users/banks/update
-  method: post
-  operationId: updateBankAccount
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /admin/users/{user_id}/resend-confirmation
-  method: post
-  operationId: adminAuthCredsResendForUser
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /admin/validations
-  method: get
-  operationId: adminListValidations
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /admin/validations/{id}
-  method: get
-  operationId: adminGetValidation
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /admin/validations/{id}
-  method: delete
-  operationId: adminDeleteValidation
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /admin/validations/{id}/duplicate
-  method: post
-  operationId: adminDuplicateValidation
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /admin/validations/{id}/force
-  method: post
-  operationId: adminForceValidationApproval
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /admin/validations/{id}/history
-  method: get
-  operationId: adminGetValidationHistoryByID
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /admin/validations/{id}/retry
-  method: post
-  operationId: adminRetryValidation
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /aggregate-reviews-for-locality
-  method: get
-  operationId: aggregateLocalityReviews
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /amenities
-  method: get
-  operationId: listAmenitiesGroups
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
 - path: /announcements
   method: get
   operationId: getAnnouncementsForUser
@@ -582,9 +390,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /autosuggestions
+- path: /admin/users/banks/payouts-triggered
   method: get
-  operationId: getAutosuggestions
+  operationId: getBanksWithPayoutsTriggered
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -594,33 +402,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /availability
-  method: get
-  operationId: listAvailability
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bids
-  method: get
-  operationId: listBids
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bids
+- path: /admin/users/banks/update
   method: post
-  operationId: createBid
+  operationId: updateBankAccount
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -636,21 +420,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bids/available
-  method: get
-  operationId: bidsAvailable
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bids/{bid_id}/bid-matches/{bid_match_id}/renter-decline
+- path: /users/bank
   method: post
-  operationId: renterDeclineBidMatch
+  operationId: connectStripeBank
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -666,21 +438,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bids/{id}
-  method: get
-  operationId: getBidById
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bids/{id}
+- path: /users/bank/{id}
   method: delete
-  operationId: deleteBid
+  operationId: deleteBankAccount
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -696,9 +456,51 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bids/{id}
+- path: /users/banks
+  method: get
+  operationId: listBanks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/banks
+  method: post
+  operationId: addBankAccount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/banks/{id}
+  method: get
+  operationId: getBankById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/banks/{id}
   method: patch
-  operationId: updateBidById
+  operationId: updateBankAccount
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -714,27 +516,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bids/{id}/decline
-  method: post
-  operationId: declineBid
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings
+- path: /bookings/{booking_id}/services
   method: get
-  operationId: listBookings
+  operationId: listBookingServices
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -744,9 +528,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bookings
-  method: post
-  operationId: createBooking
+- path: /bookings/{booking_id}/services/{id}
+  method: delete
+  operationId: deleteBookingService
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -762,9 +546,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bookings/soonest
+- path: /bookings/{booking_id}/services/{service_id}
   method: get
-  operationId: bookings
+  operationId: getBookingServiceById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -774,9 +558,45 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bookings/stage
-  method: get
-  operationId: readManyByStageRequest
+- path: /bookings/{booking_id}/services/{service_id}
+  method: post
+  operationId: createBookingService
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/services/{service_id}
+  method: patch
+  operationId: updateBookingService
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/weather
+  method: post
+  operationId: getBookingWeather
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -826,44 +646,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/calculate-delivery
-  method: post
-  operationId: estimatedDeliveryRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/collect-post-trip-charges
-  method: post
-  operationId: collectBookingPostTripCharges
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
     scope:
     - '[]'
 - path: /bookings/{booking_id}/items
@@ -1004,26 +786,6 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bookings/{booking_id}/payout/{transaction_id}
-  method: delete
-  operationId: deleteScheduledPayout
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
 - path: /bookings/{booking_id}/proposals
   method: get
   operationId: getProposals
@@ -1150,9 +912,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bookings/{booking_id}/scheduled-emails
+- path: /bookings/soonest
   method: get
-  operationId: readManyScheduledEmails
+  operationId: bookings
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1162,9 +924,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bookings/{booking_id}/services
+- path: /bookings
   method: get
-  operationId: listBookingServices
+  operationId: listBookings
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1174,39 +936,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bookings/{booking_id}/services/{id}
-  method: delete
-  operationId: deleteBookingService
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/services/{service_id}
-  method: get
-  operationId: getBookingServiceById
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/services/{service_id}
+- path: /bookings
   method: post
-  operationId: createBookingService
+  operationId: createBooking
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1222,27 +954,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bookings/{booking_id}/services/{service_id}
-  method: patch
-  operationId: updateBookingService
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/system-emails
+- path: /bookings/stage
   method: get
-  operationId: readSystemEmailsRequest
+  operationId: readManyByStageRequest
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1252,9 +966,27 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bookings/{booking_id}/system-emails/resend
+- path: /bookings/{booking_id}/calculate-delivery
   method: post
-  operationId: resendSystemEmail
+  operationId: estimatedDeliveryRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/collect-post-trip-charges
+  method: post
+  operationId: collectBookingPostTripCharges
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -1264,102 +996,6 @@ operations:
       max-ttl: 300
       exchange: true
       purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/transactions
-  method: get
-  operationId: listBookingTransactions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/transactions
-  method: post
-  operationId: createTransaction
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/transactions/{transaction_id}
-  method: get
-  operationId: getBookingTransaction
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/transactions/{transaction_id}
-  method: delete
-  operationId: deletePendingTransaction
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/transactions/{transaction_id}
-  method: patch
-  operationId: updateBookingTransaction
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /bookings/{booking_id}/weather
-  method: post
-  operationId: getBookingWeather
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
     escalation:
       human-in-the-loop: conditional
       triggers:
@@ -1464,9 +1100,29 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /bundles
+- path: /bookings/{booking_id}/payout/{transaction_id}
+  method: delete
+  operationId: deleteScheduledPayout
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/transactions
   method: get
-  operationId: listBundles
+  operationId: listBookingTransactions
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1476,9 +1132,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /bundles
+- path: /bookings/{booking_id}/transactions
   method: post
-  operationId: createBundle
+  operationId: createTransaction
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1492,6 +1148,90 @@ operations:
       - abnormal
       - high-value
     audit: required
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/transactions/{transaction_id}
+  method: get
+  operationId: getBookingTransaction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/transactions/{transaction_id}
+  method: delete
+  operationId: deletePendingTransaction
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/transactions/{transaction_id}
+  method: patch
+  operationId: updateBookingTransaction
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /breadcrumbs
+  method: get
+  operationId: breadcrumbSearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /breadcrumbs/closest
+  method: get
+  operationId: closestBreadcrumb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /breadcrumbs/{id}
+  method: get
+  operationId: getBreadcrumb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
     scope:
     - '[]'
 - path: /bundles/{bundle_id}/features
@@ -1626,6 +1366,36 @@ operations:
     audit: required
     scope:
     - '[]'
+- path: /bundles
+  method: get
+  operationId: listBundles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /bundles
+  method: post
+  operationId: createBundle
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
 - path: /bundles/{id}
   method: get
   operationId: getBundleById
@@ -1674,6 +1444,90 @@ operations:
     audit: required
     scope:
     - '[]'
+- path: /users/{user_id}/bundles
+  method: get
+  operationId: listBundlesAvailableForUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/{user_id}/bundles
+  method: post
+  operationId: setBundleUptake
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/{user_id}/bundles
+  method: delete
+  operationId: deleteBundleUptake
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /campgrounds
+  method: get
+  operationId: searchCampgrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /campgrounds/nearby-for-rental/{rental_id}
+  method: get
+  operationId: searchCampgrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /campgrounds/{id}
+  method: get
+  operationId: getCampground
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
 - path: /checkout_steps/{booking_id}
   method: get
   operationId: getCheckoutSteps
@@ -1706,9 +1560,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /confirm
+- path: /admin/ai-reply-suggestions
   method: get
-  operationId: confirmEmail
+  operationId: listAiReplySuggestions
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1811,6 +1665,42 @@ operations:
 - path: /convert-currency
   method: get
   operationId: convertCurrency
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /external-campgrounds
+  method: get
+  operationId: searchExternalCampgrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /external-campgrounds/nearby-for-rental/{rental_id}
+  method: get
+  operationId: searchNearbyCampgrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /external-campgrounds/{id}
+  method: get
+  operationId: getExternalCampground
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1964,6 +1854,114 @@ operations:
     audit: required
     scope:
     - '[]'
+- path: /users/authorization
+  method: get
+  operationId: continueAuthorization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/authorization
+  method: post
+  operationId: completeAuthorization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/authorization
+  method: delete
+  operationId: archiveAuthorization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/authorization-form
+  method: post
+  operationId: completeAuthorizationFundCreationFormDeprecated
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/authorization-form/{bank_id}
+  method: post
+  operationId: completeAuthorizationFundCreationFormByIdDeprecated
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/authorizations
+  method: get
+  operationId: listPendingAuthorizationsAsAdmin
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/fund-steps
+  method: post
+  operationId: getFundSteps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
 - path: /gateways/fund_creation_form
   method: get
   operationId: getGatewayCreationForm
@@ -1979,6 +1977,78 @@ operations:
 - path: /gateways/list_options
   method: get
   operationId: listGatewayOptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/gateways
+  method: get
+  operationId: listUserGateways
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/gateways
+  method: post
+  operationId: createGateway
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/gateways/{id}
+  method: delete
+  operationId: archiveUserGateway
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /geodata/my-ip
+  method: get
+  operationId: getAddressForIP
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /parks/homepage
+  method: get
+  operationId: parks
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2122,9 +2192,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /items
+- path: /bids
   method: get
-  operationId: listRentalItems
+  operationId: listBids
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2134,9 +2204,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /items
+- path: /bids
   method: post
-  operationId: createRentalItem
+  operationId: createBid
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2152,9 +2222,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /items/{id}
+- path: /bids/available
   method: get
-  operationId: getRentalItemById
+  operationId: bidsAvailable
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2164,9 +2234,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /items/{id}
-  method: delete
-  operationId: deleteRentalItemById
+- path: /bids/{bid_id}/bid-matches/{bid_match_id}/renter-decline
+  method: post
+  operationId: renterDeclineBidMatch
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2182,9 +2252,21 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /items/{id}
-  method: patch
-  operationId: updateRentalItem
+- path: /bids/{id}
+  method: get
+  operationId: getBidById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /bids/{id}
+  method: delete
+  operationId: deleteBid
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2198,6 +2280,66 @@ operations:
       - abnormal
       - high-value
     audit: required
+    scope:
+    - '[]'
+- path: /bids/{id}
+  method: patch
+  operationId: updateBidById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /bids/{id}/decline
+  method: post
+  operationId: declineBid
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /localities
+  method: get
+  operationId: getLocalities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /localities/{id}
+  method: get
+  operationId: getLocality
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
     scope:
     - '[]'
 - path: /locations
@@ -2518,6 +2660,78 @@ operations:
     audit: none
     scope:
     - '[]'
+- path: /parks
+  method: get
+  operationId: searchParks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /parks/homepage
+  method: get
+  operationId: parks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /parks/nearby-for-rental/{rental_id}
+  method: get
+  operationId: searchParks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /parks/popular
+  method: get
+  operationId: searchParks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /parks/{id}
+  method: get
+  operationId: getPark
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /transactions/payout-history
+  method: get
+  operationId: listPayouts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
 - path: /pricing
   method: get
   operationId: getPricing
@@ -2554,6 +2768,18 @@ operations:
     audit: none
     scope:
     - '[]'
+- path: /quotes/{id}/services
+  method: get
+  operationId: services
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
 - path: /quotes
   method: post
   operationId: createQuote
@@ -2570,18 +2796,6 @@ operations:
     escalation:
       human-in-the-loop: required
     audit: required
-    scope:
-    - '[]'
-- path: /quotes/{id}/services
-  method: get
-  operationId: services
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
     scope:
     - '[]'
 - path: /referrals/refer
@@ -2638,276 +2852,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
-- path: /rental-items-categories
-  method: get
-  operationId: listCategoriesRequest
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rental-items-categories/admin
-  method: get
-  operationId: adminListCategoriesRequest
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rental-items-categories/admin
-  method: post
-  operationId: adminCreateCategoryRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rental-items-categories/admin/analytics
-  method: get
-  operationId: adminAnalyticsRequest
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rental-items-categories/admin/{id}
-  method: patch
-  operationId: adminUpdateCategoryRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals
-  method: get
-  operationId: listRentals
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals
-  method: post
-  operationId: createRentalRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/vehicle-types
-  method: get
-  operationId: listVehicleTypes
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/{id}
-  method: get
-  operationId: getRentalById
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/{id}
-  method: delete
-  operationId: deleteRentalById
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{id}
-  method: patch
-  operationId: updateRentalRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{id}/complete-consignment
-  method: post
-  operationId: consignmentCompleteResponse
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{id}/duplicate
-  method: post
-  operationId: duplicateRental
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{id}/price
-  method: patch
-  operationId: updateRentalPriceRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{id}/remove
-  method: post
-  operationId: rentalRemoveRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{id}/vin
-  method: patch
-  operationId: updateRentalVINRequest
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /rentals/{rental_id}/delivery
-  method: post
-  operationId: getDeliveryPrice
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
     scope:
     - '[]'
 - path: /rentals/{rental_id}/image-order
@@ -3026,9 +2970,9 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /rentals/{rental_id}/services
+- path: /items
   method: get
-  operationId: listRentalServices
+  operationId: listRentalItems
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -3038,6 +2982,420 @@ operations:
     audit: none
     scope:
     - '[]'
+- path: /items
+  method: post
+  operationId: createRentalItem
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /items/{id}
+  method: get
+  operationId: getRentalItemById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /items/{id}
+  method: delete
+  operationId: deleteRentalItemById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /items/{id}
+  method: patch
+  operationId: updateRentalItem
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /rental-items-categories
+  method: get
+  operationId: listCategoriesRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /rental-items-categories/admin
+  method: get
+  operationId: adminListCategoriesRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /rental-items-categories/admin
+  method: post
+  operationId: adminCreateCategoryRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /rental-items-categories/admin/analytics
+  method: get
+  operationId: adminAnalyticsRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /rental-items-categories/admin/{id}
+  method: patch
+  operationId: adminUpdateCategoryRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /rentals/{rental_id}/delivery
+  method: post
+  operationId: getDeliveryPrice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /availability
+  method: get
+  operationId: listAvailability
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals
+  method: get
+  operationId: listRentals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals
+  method: post
+  operationId: createRentalRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/vehicle-types
+  method: get
+  operationId: listVehicleTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/{id}
+  method: get
+  operationId: getRentalById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/{id}
+  method: delete
+  operationId: deleteRentalById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{id}
+  method: patch
+  operationId: updateRentalRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{id}/complete-consignment
+  method: post
+  operationId: consignmentCompleteResponse
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{id}/duplicate
+  method: post
+  operationId: duplicateRental
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{id}/price
+  method: patch
+  operationId: updateRentalPriceRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{id}/remove
+  method: post
+  operationId: rentalRemoveRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{id}/vin
+  method: patch
+  operationId: updateRentalVINRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - '[]'
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /rentals/{rental_id}/services
+  method: get
+  operationId: listRentalServices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/homepage-recommendations
+  method: get
+  operationId: searchHomepageRecomendationRentals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/minimal
+  method: get
+  operationId: searchRentalsMinimal
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/random
+  method: get
+  operationId: searchRandom
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/similar
+  method: get
+  operationId: searchRentalsSimilar
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rentals/weekend
+  method: get
+  operationId: searchWeekendAvailableRentals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /reports/checkout-questions
   method: get
   operationId: checkoutQuestionsReport
@@ -3089,6 +3447,18 @@ operations:
 - path: /reports/security-deposits
   method: get
   operationId: securityDepositsReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /aggregate-reviews-for-locality
+  method: get
+  operationId: aggregateLocalityReviews
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -3320,6 +3690,50 @@ operations:
     audit: required
     scope:
     - '[]'
+- path: /bookings/{booking_id}/scheduled-emails
+  method: get
+  operationId: readManyScheduledEmails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/system-emails
+  method: get
+  operationId: readSystemEmailsRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /bookings/{booking_id}/system-emails/resend
+  method: post
+  operationId: resendSystemEmail
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
 - path: /towable_features
   method: get
   operationId: features
@@ -3404,16 +3818,60 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /transactions/payout-history
-  method: get
-  operationId: listPayouts
+- path: /2fa/send
+  method: post
+  operationId: sendCode
   x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
     token:
-      max-ttl: 3600
-    audit: none
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /2fa/setup-method
+  method: post
+  operationId: setupPreferredMethod
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /2fa/verify
+  method: patch
+  operationId: verifyCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
     scope:
     - '[]'
 - path: /usage-based-items
@@ -3572,6 +4030,72 @@ operations:
     audit: required
     scope:
     - '[]'
+- path: /users/{user_id}/cards
+  method: get
+  operationId: getUserCards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /users/{user_id}/cards
+  method: post
+  operationId: createCard
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/{user_id}/cards/{card_id}
+  method: delete
+  operationId: deleteUserCard
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /users/{user_id}/cards/{card_id}
+  method: patch
+  operationId: updateUserCard
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
 - path: /user-notice-events
   method: get
   operationId: listUserNoticeEvents
@@ -3650,6 +4174,30 @@ operations:
     audit: required
     scope:
     - '[]'
+- path: /autosuggestions
+  method: get
+  operationId: getAutosuggestions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /confirm
+  method: get
+  operationId: confirmEmail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - '[]'
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /users
   method: get
   operationId: listUsers
@@ -3657,269 +4205,11 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
-- path: /users/authorization
-  method: get
-  operationId: continueAuthorization
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users/authorization
-  method: post
-  operationId: completeAuthorization
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/authorization
-  method: delete
-  operationId: archiveAuthorization
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/authorization-form
-  method: post
-  operationId: completeAuthorizationFundCreationFormDeprecated
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/authorization-form/{bank_id}
-  method: post
-  operationId: completeAuthorizationFundCreationFormByIdDeprecated
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/authorizations
-  method: get
-  operationId: listPendingAuthorizationsAsAdmin
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users/bank
-  method: post
-  operationId: connectStripeBank
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/bank/{id}
-  method: delete
-  operationId: deleteBankAccount
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/banks
-  method: get
-  operationId: listBanks
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users/banks
-  method: post
-  operationId: addBankAccount
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/banks/{id}
-  method: get
-  operationId: getBankById
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users/banks/{id}
-  method: patch
-  operationId: updateBankAccount
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/fund-steps
-  method: post
-  operationId: getFundSteps
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/gateways
-  method: get
-  operationId: listUserGateways
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users/gateways
-  method: post
-  operationId: createGateway
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/gateways/{id}
-  method: delete
-  operationId: archiveUserGateway
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
 - path: /users/logout
   method: get
   operationId: logoutUser
@@ -3927,11 +4217,11 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
 - path: /users/me
   method: get
   operationId: usersMe
@@ -3939,11 +4229,11 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
 - path: /users/mini_me
   method: get
   operationId: getMiniMe
@@ -3951,11 +4241,11 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
 - path: /users/todays-activities
   method: get
   operationId: getTodaysActivities
@@ -3963,11 +4253,11 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
 - path: /users/{id}
   method: get
   operationId: getUserById
@@ -3975,11 +4265,11 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
 - path: /users/{id}
   method: patch
   operationId: updateUser
@@ -3987,6 +4277,8 @@ operations:
     action-class: acting
     consequence: write
     subject: required
+    scope:
+    - '[]'
     audience: null
     token:
       max-ttl: 900
@@ -3996,8 +4288,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-    scope:
-    - '[]'
 - path: /users/{id}/owner-report-card
   method: get
   operationId: ownerReportCard
@@ -4005,14 +4295,14 @@ operations:
     action-class: connected
     consequence: read
     subject: optional
+    scope:
+    - '[]'
     token:
       max-ttl: 3600
     audit: none
-    scope:
-    - '[]'
-- path: /users/{user_id}/bundles
+- path: /vacation-packages
   method: get
-  operationId: listBundlesAvailableForUser
+  operationId: searchVacationPackages
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -4022,45 +4312,9 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /users/{user_id}/bundles
-  method: post
-  operationId: setBundleUptake
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/{user_id}/bundles
-  method: delete
-  operationId: deleteBundleUptake
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - '[]'
-- path: /users/{user_id}/cards
+- path: /vacation-packages/campgrounds
   method: get
-  operationId: getUserCards
+  operationId: searchVacationPackagesCampgrounds
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -4070,27 +4324,45 @@ operations:
     audit: none
     scope:
     - '[]'
-- path: /users/{user_id}/cards
-  method: post
-  operationId: createCard
+- path: /vacation-packages/rentals
+  method: get
+  operationId: searchVacationPackagesRentals
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
     scope:
     - '[]'
-- path: /users/{user_id}/cards/{card_id}
+- path: /admin/validations
+  method: get
+  operationId: adminListValidations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /admin/validations/{id}
+  method: get
+  operationId: adminGetValidation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /admin/validations/{id}
   method: delete
-  operationId: deleteUserCard
+  operationId: adminDeleteValidation
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -4106,9 +4378,57 @@ operations:
     audit: required
     scope:
     - '[]'
-- path: /users/{user_id}/cards/{card_id}
-  method: patch
-  operationId: updateUserCard
+- path: /admin/validations/{id}/duplicate
+  method: post
+  operationId: adminDuplicateValidation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /admin/validations/{id}/force
+  method: post
+  operationId: adminForceValidationApproval
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - '[]'
+- path: /admin/validations/{id}/history
+  method: get
+  operationId: adminGetValidationHistoryByID
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - '[]'
+- path: /admin/validations/{id}/retry
+  method: post
+  operationId: adminRetryValidation
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -4332,353 +4652,5 @@ operations:
       - abnormal
       - high-value
     audit: required
-    scope:
-    - '[]'
-- path: /breadcrumbs
-  method: get
-  operationId: breadcrumbSearch
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /breadcrumbs/closest
-  method: get
-  operationId: closestBreadcrumb
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /breadcrumbs/{id}
-  method: get
-  operationId: getBreadcrumb
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /campgrounds
-  method: get
-  operationId: searchCampgrounds
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /campgrounds/nearby-for-rental/{rental_id}
-  method: get
-  operationId: searchCampgrounds
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /campgrounds/{id}
-  method: get
-  operationId: getCampground
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /external-campgrounds
-  method: get
-  operationId: searchExternalCampgrounds
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /external-campgrounds/nearby-for-rental/{rental_id}
-  method: get
-  operationId: searchNearbyCampgrounds
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /external-campgrounds/{id}
-  method: get
-  operationId: getExternalCampground
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /geodata/my-ip
-  method: get
-  operationId: getAddressForIP
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /localities
-  method: get
-  operationId: getLocalities
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /localities/{id}
-  method: get
-  operationId: getLocality
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /parks
-  method: get
-  operationId: searchParks
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /parks/homepage
-  method: get
-  operationId: parks
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /parks/nearby-for-rental/{rental_id}
-  method: get
-  operationId: searchParks
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /parks/popular
-  method: get
-  operationId: searchParks
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /parks/{id}
-  method: get
-  operationId: getPark
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals
-  method: get
-  operationId: searchRentals
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/homepage-recommendations
-  method: get
-  operationId: searchHomepageRecomendationRentals
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/minimal
-  method: get
-  operationId: searchRentalsMinimal
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/random
-  method: get
-  operationId: searchRandom
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/similar
-  method: get
-  operationId: searchRentalsSimilar
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/weekend
-  method: get
-  operationId: searchWeekendAvailableRentals
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /rentals/{id}
-  method: get
-  operationId: getRental
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users
-  method: get
-  operationId: userSearch
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /users/{id}
-  method: get
-  operationId: getUser
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /vacation-packages
-  method: get
-  operationId: searchVacationPackages
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /vacation-packages/campgrounds
-  method: get
-  operationId: searchVacationPackagesCampgrounds
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - '[]'
-- path: /vacation-packages/rentals
-  method: get
-  operationId: searchVacationPackagesRentals
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
     scope:
     - '[]'
