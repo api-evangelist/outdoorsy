@@ -32,13 +32,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Relationships:
-      description: http://jsonapi.org/format/#document-resource-object-relationships
-      type: object
-      title: Relationships represents a JSON API relationships object
-      additionalProperties:
-        $ref: '#/components/schemas/Relationship'
-      x-go-package: github.com/smotes/jsonapi
     Links:
       description: http://jsonapi.org/format/#document-links
       type: object
@@ -95,6 +88,13 @@ components:
           type: object
           additionalProperties: {}
           x-go-name: Meta
+      x-go-package: github.com/smotes/jsonapi
+    Relationships:
+      description: http://jsonapi.org/format/#document-resource-object-relationships
+      type: object
+      title: Relationships represents a JSON API relationships object
+      additionalProperties:
+        $ref: '#/components/schemas/Relationship'
       x-go-package: github.com/smotes/jsonapi
   responses:
     jsonApiHomepageParks:

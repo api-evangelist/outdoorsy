@@ -154,34 +154,18 @@ paths:
       summary: Update note to renters
       x-summary-source: derived
 components:
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    noteToRentersResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NoteToRenters'
-    notesToRentersResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/NoteListResponse'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
+    NoteListResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/NoteMetadata'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoteToRenters'
+          x-go-name: Notes
+      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
     NoteToRenters:
       type: object
       properties:
@@ -226,22 +210,6 @@ components:
         type: integer
         format: int64
       x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    StringSlice:
-      type: array
-      items:
-        type: string
-      x-go-package: github.com/outdoorsy/api/pkg/jsonb
-    NoteListResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/NoteMetadata'
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NoteToRenters'
-          x-go-name: Notes
-      x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
     NoteMetadata:
       type: object
       properties:
@@ -258,6 +226,38 @@ components:
           format: int64
           x-go-name: Total
       x-go-package: github.com/outdoorsy/api/internal/notes_to_renters
+    StringSlice:
+      type: array
+      items:
+        type: string
+      x-go-package: github.com/outdoorsy/api/pkg/jsonb
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    notesToRentersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoteListResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    noteToRentersResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoteToRenters'
   securitySchemes:
     API-Key:
       type: apiKey

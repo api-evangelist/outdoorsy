@@ -212,33 +212,6 @@ paths:
       summary: Update file
       x-summary-source: derived
 components:
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    filesResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/File'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
-    fileResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/File'
   schemas:
     File:
       type: object
@@ -354,6 +327,33 @@ components:
           type: integer
           format: int64
       x-go-package: github.com/outdoorsy/api/model
+  responses:
+    fileResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/File'
+    filesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/File'
+    noContentResponse:
+      description: Everything went as planned
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
   securitySchemes:
     API-Key:
       type: apiKey

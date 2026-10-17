@@ -159,43 +159,54 @@ paths:
         '200':
           description: OK
 components:
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    userAuthResponse:
-      description: HTTP status code 200 and user model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserAuthResponse'
-    authCreateResponse:
-      description: HTTP status code 200 and user model
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserAuthResponse'
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
-    VerificationStatus:
+    UserAuthResponse:
       type: object
       properties:
+        account_id:
+          type: string
+          x-go-name: AccountID
         email:
-          type: boolean
+          type: string
           x-go-name: Email
+        first_name:
+          type: string
+          x-go-name: FirstName
+        last_name:
+          type: string
+          x-go-name: LastName
         phone:
-          type: boolean
+          type: string
           x-go-name: Phone
+        preferred_2fa_method:
+          type: string
+          x-go-name: Preferred2FAMethod
+        refresh_token:
+          type: string
+          x-go-name: RefreshToken
+        roles:
+          type: array
+          items:
+            type: string
+          x-go-name: Roles
+        session_id_2fa:
+          type: string
+          x-go-name: SessionID2FA
+        show_2fa_screen:
+          type: boolean
+          x-go-name: Show2FAScreen
+        show_verify_email_screen:
+          type: boolean
+          x-go-name: ShowVerifyEmailScreen
+        token:
+          type: string
+          x-go-name: Token
+        user_id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        verifications:
+          $ref: '#/components/schemas/VerificationStatus'
       x-go-package: github.com/outdoorsy/api/types
     UserCreateRequest:
       description: authentication
@@ -259,6 +270,23 @@ components:
           type: boolean
           x-go-name: WithRefreshToken
       x-go-package: github.com/outdoorsy/api/types
+    PasswordForgotRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          x-go-name: Email
+      x-go-package: github.com/outdoorsy/api/types
+    VerificationStatus:
+      type: object
+      properties:
+        email:
+          type: boolean
+          x-go-name: Email
+        phone:
+          type: boolean
+          x-go-name: Phone
+      x-go-package: github.com/outdoorsy/api/types
     String:
       type: string
       x-go-package: github.com/outdoorsy/api/utils/password
@@ -291,61 +319,33 @@ components:
           type: boolean
           x-go-name: WithRefreshToken
       x-go-package: github.com/outdoorsy/api/types
-    PasswordForgotRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          x-go-name: Email
-      x-go-package: github.com/outdoorsy/api/types
-    UserAuthResponse:
-      type: object
-      properties:
-        account_id:
-          type: string
-          x-go-name: AccountID
-        email:
-          type: string
-          x-go-name: Email
-        first_name:
-          type: string
-          x-go-name: FirstName
-        last_name:
-          type: string
-          x-go-name: LastName
-        phone:
-          type: string
-          x-go-name: Phone
-        preferred_2fa_method:
-          type: string
-          x-go-name: Preferred2FAMethod
-        refresh_token:
-          type: string
-          x-go-name: RefreshToken
-        roles:
-          type: array
-          items:
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    userAuthResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
+    notFoundError:
+      description: Not found error
+    unauthorizedError:
+      description: Unauthorized error
+    authCreateResponse:
+      description: HTTP status code 200 and user model
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserAuthResponse'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
             type: string
-          x-go-name: Roles
-        session_id_2fa:
-          type: string
-          x-go-name: SessionID2FA
-        show_2fa_screen:
-          type: boolean
-          x-go-name: Show2FAScreen
-        show_verify_email_screen:
-          type: boolean
-          x-go-name: ShowVerifyEmailScreen
-        token:
-          type: string
-          x-go-name: Token
-        user_id:
-          type: integer
-          format: int64
-          x-go-name: ID
-        verifications:
-          $ref: '#/components/schemas/VerificationStatus'
-      x-go-package: github.com/outdoorsy/api/types
   securitySchemes:
     API-Key:
       type: apiKey

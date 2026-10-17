@@ -149,36 +149,22 @@ paths:
       summary: Update user card
       x-summary-source: derived
 components:
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    genericError:
-      description: An unknown, unexpected error.
-    cardsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/UserCard'
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
-    cardResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserCard'
   schemas:
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    CreateCard:
+      type: object
+      properties:
+        default:
+          type: boolean
+          x-go-name: Default
+        payment_processor:
+          $ref: '#/components/schemas/PaymentProcessor'
+        stripe_token:
+          type: string
+          x-go-name: StripeToken
+      x-go-package: github.com/outdoorsy/api/types
     UserCard:
       type: object
       properties:
@@ -224,18 +210,6 @@ components:
           x-go-name: Updated
           x-go-type: github.com/outdoorsy/api/clocks.RfcTime
       x-go-package: github.com/outdoorsy/api/model
-    CreateCard:
-      type: object
-      properties:
-        default:
-          type: boolean
-          x-go-name: Default
-        payment_processor:
-          $ref: '#/components/schemas/PaymentProcessor'
-        stripe_token:
-          type: string
-          x-go-name: StripeToken
-      x-go-package: github.com/outdoorsy/api/types
     PaymentProcessor:
       description: 'Typically this object is composed into a struct, but embedded into the
 
@@ -257,9 +231,35 @@ components:
         name:
           $ref: '#/components/schemas/PaymentProcessorName'
       x-go-package: github.com/outdoorsy/api/model
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
+  responses:
+    noContentResponse:
+      description: Everything went as planned
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    cardResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserCard'
+    cardsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserCard'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
   securitySchemes:
     API-Key:
       type: apiKey

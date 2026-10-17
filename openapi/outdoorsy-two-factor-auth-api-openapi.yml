@@ -83,6 +83,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    TwoFARequest:
+      type: object
+      properties:
+        session_id_2fa:
+          type: string
+          x-go-name: SessionID
+        type:
+          type: string
+          x-go-name: Type
+      x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
     VerifyCodeRequest:
       type: object
       properties:
@@ -106,17 +116,9 @@ components:
           type: string
           x-go-name: SessionID
       x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
-    TwoFARequest:
-      type: object
-      properties:
-        session_id_2fa:
-          type: string
-          x-go-name: SessionID
-        type:
-          type: string
-          x-go-name: Type
-      x-go-package: github.com/outdoorsy/api/internal/two_factor_authentication
   responses:
+    unauthorizedError:
+      description: Unauthorized error
     successResponse:
       description: ''
     badRequestError:
@@ -125,8 +127,6 @@ components:
         Error:
           schema:
             type: string
-    unauthorizedError:
-      description: Unauthorized error
   securitySchemes:
     API-Key:
       type: apiKey

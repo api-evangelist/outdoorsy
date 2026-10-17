@@ -186,49 +186,7 @@ paths:
         default:
           $ref: '#/components/responses/genericError'
 components:
-  responses:
-    noContentResponse:
-      description: Everything went as planned
-    icsFileResponse:
-      description: ''
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
-    calendarResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/ICSCalendar'
-            $ref: '#/components/schemas/ICSCalendar'
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
-    urlResponse:
-      description: ''
   schemas:
-    LinkICSCalendarRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          x-go-name: Name
-        rental_id:
-          type: integer
-          format: int64
-          x-go-name: RentalID
-        url:
-          type: string
-          x-go-name: URL
-      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
     GetManyRequest:
       type: object
       properties:
@@ -269,6 +227,48 @@ components:
           type: string
           x-go-name: URL
       x-go-package: github.com/outdoorsy/api/internal/ics/calendars
+    LinkICSCalendarRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        rental_id:
+          type: integer
+          format: int64
+          x-go-name: RentalID
+        url:
+          type: string
+          x-go-name: URL
+      x-go-package: github.com/outdoorsy/api/internal/ics/calendar_models
+  responses:
+    calendarResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ICSCalendar'
+            $ref: '#/components/schemas/ICSCalendar'
+    noContentResponse:
+      description: Everything went as planned
+    urlResponse:
+      description: ''
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
+    icsFileResponse:
+      description: ''
   securitySchemes:
     API-Key:
       type: apiKey

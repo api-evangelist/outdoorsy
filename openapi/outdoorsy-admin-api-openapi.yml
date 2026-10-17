@@ -44,10 +44,10 @@ components:
   responses:
     noContentResponse:
       description: Everything went as planned
-    unauthorizedError:
-      description: Unauthorized error
     genericError:
       description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
     notFoundError:
       description: Not found error
   securitySchemes:

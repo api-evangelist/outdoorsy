@@ -82,19 +82,6 @@ paths:
       summary: Update checkout steps
       x-summary-source: derived
 components:
-  responses:
-    checkoutStepsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ReadResponse'
-    genericError:
-      description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
-    unauthorizedError:
-      description: Unauthorized error
   schemas:
     CheckoutStep:
       type: object
@@ -151,6 +138,19 @@ components:
             $ref: '#/components/schemas/CheckoutStep'
           x-go-name: Steps
       x-go-package: github.com/outdoorsy/api/pkg/checkout_steps
+  responses:
+    genericError:
+      description: An unknown, unexpected error.
+    unauthorizedError:
+      description: Unauthorized error
+    notFoundError:
+      description: Not found error
+    checkoutStepsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReadResponse'
   securitySchemes:
     API-Key:
       type: apiKey

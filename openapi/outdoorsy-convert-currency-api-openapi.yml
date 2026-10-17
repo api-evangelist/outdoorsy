@@ -56,14 +56,14 @@ paths:
       - Convert Currency
 components:
   responses:
-    unauthorizedError:
-      description: Unauthorized error
     convertCurrencyResponse:
       description: ''
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/convertCurrencyResponseBody'
+    unauthorizedError:
+      description: Unauthorized error
   schemas:
     convertCurrencyResponseBody:
       type: object

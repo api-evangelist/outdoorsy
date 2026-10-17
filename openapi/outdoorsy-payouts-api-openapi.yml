@@ -43,11 +43,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DBInterfaceMap:
-      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
-      type: object
-      additionalProperties: {}
-      x-go-package: github.com/outdoorsy/api/utils
     Transaction:
       type: object
       properties:
@@ -277,6 +272,14 @@ components:
           type: string
           x-go-name: Type
       x-go-package: github.com/outdoorsy/api/model
+    PaymentProcessorName:
+      type: string
+      x-go-package: github.com/outdoorsy/api/controller/broker
+    DBInterfaceMap:
+      description: DBInterfaceMap is a map[string]interface{} with database conversion methods
+      type: object
+      additionalProperties: {}
+      x-go-package: github.com/outdoorsy/api/utils
     PaymentProcessor:
       description: 'Typically this object is composed into a struct, but embedded into the
 
@@ -298,22 +301,13 @@ components:
         name:
           $ref: '#/components/schemas/PaymentProcessorName'
       x-go-package: github.com/outdoorsy/api/model
-    PaymentProcessorName:
-      type: string
-      x-go-package: github.com/outdoorsy/api/controller/broker
   responses:
-    badRequestError:
-      description: Invalid input or state means you're bad
-      headers:
-        Error:
-          schema:
-            type: string
     genericError:
       description: An unknown, unexpected error.
-    notFoundError:
-      description: Not found error
     unauthorizedError:
       description: Unauthorized error
+    notFoundError:
+      description: Not found error
     transactionsResponse:
       description: ''
       content:
@@ -322,6 +316,12 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Transaction'
+    badRequestError:
+      description: Invalid input or state means you're bad
+      headers:
+        Error:
+          schema:
+            type: string
   securitySchemes:
     API-Key:
       type: apiKey

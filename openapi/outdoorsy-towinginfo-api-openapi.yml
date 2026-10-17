@@ -61,8 +61,6 @@ paths:
       x-summary-source: derived
 components:
   responses:
-    genericError:
-      description: An unknown, unexpected error.
     towingInfoResponse:
       description: ''
       content:
@@ -71,6 +69,8 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/TowingInfo'
+    genericError:
+      description: An unknown, unexpected error.
   schemas:
     TowingInfo:
       type: object
